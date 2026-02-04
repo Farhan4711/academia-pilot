@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://academiapilot.com/sitemap.xml
+
+# Disallow admin/private areas (if any in future)
+# Disallow: /admin/
