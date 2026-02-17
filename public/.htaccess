@@ -10,17 +10,22 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} (.+)/$
 RewriteRule ^ %1 [L,R=301]
 
-# Handle Next.js static export routing
-# Try to serve the request as a file, then as a directory, then as .html
+# Handle Next.js static export routing (with trailingSlash: true)
+# If a directory exists, try to serve its index.html
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.*)/?$ $1/index.html [L]
+
+# For non-directory requests that don't match a file, try .html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [L]
 
-# Fallback to index.html for SPA routing
+# Fallback to 404.html for non-existent files
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.html [L]
+RewriteRule ^(.*)$ /404.html [L]
 
 # Cache static assets (1 year)
 <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|ico|css|js|woff|woff2|ttf|eot|otf)$">
@@ -29,7 +34,7 @@ RewriteRule ^(.*)$ /index.html [L]
 
 # Cache HTML files (1 hour)
 <FilesMatch "\.(html|htm)$">
-  Header set Cache-Control "max-age=3600, public, must-revalidate"
+  Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
 </FilesMatch>
 
 # Security Headers

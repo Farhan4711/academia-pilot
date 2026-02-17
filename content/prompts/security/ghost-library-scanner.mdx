@@ -1,0 +1,33 @@
+---
+title: "The Ghost Library Scanner"
+date: "2026-02-14"
+excerpt: "Verify that your AI isn't hallucinating dangerous packages. Best for Dependency Checks."
+category: "security"
+level: "Intermediate"
+tags: ["Safety", "AI Hallucinations", "NPM", "PyPI"]
+context: "Best for Dependency Checks"
+premium: false
+prompt: "You suggested I use the library '[Library Name]'. Is this a real, well-maintained library? Check if it has a high download count on [npm/PyPI] and if there are any known 'typosquatting' risks or security advisories associated with it. If it's obscure, suggest a more standard, secure alternative."
+---
+
+## Problem it solves
+AI models sometimes suggest libraries that don't exist (hallucinations) or, worse, libraries that have been taken over by malicious actors (typosquatting). This prompt helps you verify a library's legitimacy before you `npm install`.
+
+## The Prompt
+```text
+You suggested I use the library '[Library Name]'. Is this a real, well-maintained library? Check if it has a high download count on [npm/PyPI] and if there are any known 'typosquatting' risks or security advisories associated with it. If it's obscure, suggest a more standard, secure alternative.
+```
+
+## Customization instructions
+Replace `[Library Name]` with the package name. Specify the registry (`npm` or `PyPI`).
+
+## Advanced version
+Add: "Also, check the license of the library. Is it MIT, Apache 2.0, or something more restrictive that could affect my project?"
+
+## Common mistakes
+- **Trusting the AI blindly**: Just because GPT-4 said it exists doesn't mean it does.
+- **Ignoring the download count**: Real libraries usually have thousands or millions of weekly downloads.
+
+## FAQs
+**Q: Can AI really check NPM in real-time?**
+A: With web browsing enabled (e.g., GPT-4o or Perplexity), it can check the latest registry data.

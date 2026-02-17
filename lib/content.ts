@@ -30,10 +30,10 @@ export interface ContentItem {
 
 /**
  * Get all content of a specific type
- * @param type - Content type (news, tools, prompts, courses)
+ * @param type - Content type (news, tools, prompts, courses, ai-mastery-hub)
  * @returns Array of content items sorted by date (newest first)
  */
-export function getAllContent(type: 'news' | 'tools' | 'prompts' | 'courses'): ContentItem[] {
+export function getAllContent(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub'): ContentItem[] {
     const typeDirectory = path.join(contentDirectory, type);
 
     // Return empty array if directory doesn't exist
@@ -41,21 +41,39 @@ export function getAllContent(type: 'news' | 'tools' | 'prompts' | 'courses'): C
         return [];
     }
 
-    const fileNames = fs.readdirSync(typeDirectory)
-        .filter(file => file.endsWith('.mdx'));
+    const getAllFiles = (dir: string, baseDir: string = dir): string[] => {
+        let results: string[] = [];
+        const list = fs.readdirSync(dir);
+        list.forEach((file) => {
+            file = path.join(dir, file);
+            const stat = fs.statSync(file);
+            if (stat && stat.isDirectory()) {
+                results = results.concat(getAllFiles(file, baseDir));
+            } else if (file.endsWith('.mdx')) {
+                results.push(path.relative(baseDir, file));
+            }
+        });
+        return results;
+    };
 
-    const allContent = fileNames.map(fileName => {
-        const slug = fileName.replace(/\.mdx$/, '');
-        const fullPath = path.join(typeDirectory, fileName);
+    const filePaths = getAllFiles(typeDirectory);
+
+    const allContent = filePaths.map(filePath => {
+        const slug = filePath.replace(/\\/g, '/').replace(/\.mdx$/, '');
+        const fullPath = path.join(typeDirectory, filePath);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { data } = matter(fileContents);
+
+        // Determine category from directory structure if not explicitly set
+        const pathParts = slug.split('/');
+        const categoryFromPath = pathParts.length > 1 ? pathParts[0] : undefined;
 
         return {
             slug,
             title: data.title || '',
             date: data.date || '',
             excerpt: data.excerpt || '',
-            category: data.category,
+            category: data.category || categoryFromPath,
             tags: data.tags || [],
             badge: data.badge,
             featured: data.featured || false,
@@ -67,7 +85,7 @@ export function getAllContent(type: 'news' | 'tools' | 'prompts' | 'courses'): C
             level: data.level,
             duration: data.duration,
             url: data.url,
-            ...data, // Include any additional custom fields
+            ...data,
         } as ContentItem;
     });
 
@@ -84,7 +102,7 @@ export function getAllContent(type: 'news' | 'tools' | 'prompts' | 'courses'): C
  * @param limit - Number of items to return
  * @returns Array of latest content items
  */
-export function getLatestContent(type: 'news' | 'tools' | 'prompts' | 'courses', limit: number): ContentItem[] {
+export function getLatestContent(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub', limit: number): ContentItem[] {
     const allContent = getAllContent(type);
     return allContent.slice(0, limit);
 }
@@ -95,7 +113,7 @@ export function getLatestContent(type: 'news' | 'tools' | 'prompts' | 'courses',
  * @param category - Category to filter by
  * @returns Array of filtered content items
  */
-export function getContentByCategory(type: 'news' | 'tools' | 'prompts' | 'courses', category: string): ContentItem[] {
+export function getContentByCategory(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub', category: string): ContentItem[] {
     const allContent = getAllContent(type);
     return allContent.filter(item => item.category === category);
 }
@@ -105,7 +123,7 @@ export function getContentByCategory(type: 'news' | 'tools' | 'prompts' | 'cours
  * @param type - Content type
  * @returns Array of featured content items
  */
-export function getFeaturedContent(type: 'news' | 'tools' | 'prompts' | 'courses'): ContentItem[] {
+export function getFeaturedContent(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub'): ContentItem[] {
     const allContent = getAllContent(type);
     return allContent.filter(item => item.featured === true);
 }
@@ -116,7 +134,7 @@ export function getFeaturedContent(type: 'news' | 'tools' | 'prompts' | 'courses
  * @param tag - Tag to filter by
  * @returns Array of filtered content items
  */
-export function getContentByTag(type: 'news' | 'tools' | 'prompts' | 'courses', tag: string): ContentItem[] {
+export function getContentByTag(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub', tag: string): ContentItem[] {
     const allContent = getAllContent(type);
     return allContent.filter(item => item.tags?.includes(tag));
 }
@@ -127,7 +145,7 @@ export function getContentByTag(type: 'news' | 'tools' | 'prompts' | 'courses', 
  * @param query - Search query
  * @returns Array of matching content items
  */
-export function searchContent(type: 'news' | 'tools' | 'prompts' | 'courses', query: string): ContentItem[] {
+export function searchContent(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub', query: string): ContentItem[] {
     const allContent = getAllContent(type);
     const lowerQuery = query.toLowerCase();
 
@@ -139,16 +157,59 @@ export function searchContent(type: 'news' | 'tools' | 'prompts' | 'courses', qu
 }
 
 /**
+ * Search across all content types
+ * @param query - Search query
+ * @returns Array of matching content items with their type
+ */
+export function searchAllContent(query: string): (ContentItem & { type: string })[] {
+    const types: ('news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub')[] = [
+        'news', 'tools', 'prompts', 'courses', 'ai-mastery-hub'
+    ];
+
+    let results: (ContentItem & { type: string })[] = [];
+
+    types.forEach(type => {
+        const matches = searchContent(type, query);
+        results = results.concat(matches.map(item => ({ ...item, type })));
+    });
+
+    return results;
+}
+
+/**
  * Get single content item by slug
  * @param type - Content type
  * @param slug - Content slug
  * @returns Content item with full content, or null if not found
  */
-export function getContentBySlug(type: 'news' | 'tools' | 'prompts' | 'courses', slug: string): (ContentItem & { content: string }) | null {
-    const fullPath = path.join(contentDirectory, type, `${slug}.mdx`);
+export function getContentBySlug(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub', slug: string): (ContentItem & { content: string }) | null {
+    // Try to find the file directly first
+    let fullPath = path.join(contentDirectory, type, `${slug}.mdx`);
 
     if (!fs.existsSync(fullPath)) {
-        return null;
+        // If not found, it might be in a subdirectory but the slug passed doesn't include it
+        // Search recursively for a file matching the slug
+        const findFile = (dir: string): string | null => {
+            const list = fs.readdirSync(dir);
+            for (const file of list) {
+                const filePath = path.join(dir, file);
+                const stat = fs.statSync(filePath);
+                if (stat && stat.isDirectory()) {
+                    const found = findFile(filePath);
+                    if (found) return found;
+                } else if (file === `${slug}.mdx`) {
+                    return filePath;
+                }
+            }
+            return null;
+        };
+
+        const foundPath = findFile(path.join(contentDirectory, type));
+        if (foundPath) {
+            fullPath = foundPath;
+        } else {
+            return null;
+        }
     }
 
     const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -181,7 +242,7 @@ export function getContentBySlug(type: 'news' | 'tools' | 'prompts' | 'courses',
  * @param type - Content type
  * @returns Array of unique category names
  */
-export function getCategories(type: 'news' | 'tools' | 'prompts' | 'courses'): string[] {
+export function getCategories(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub'): string[] {
     const allContent = getAllContent(type);
     const categories = new Set(
         allContent
@@ -196,7 +257,7 @@ export function getCategories(type: 'news' | 'tools' | 'prompts' | 'courses'): s
  * @param type - Content type
  * @returns Array of unique tag names
  */
-export function getTags(type: 'news' | 'tools' | 'prompts' | 'courses'): string[] {
+export function getTags(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub'): string[] {
     const allContent = getAllContent(type);
     const tags = new Set(allContent.flatMap(item => item.tags || []));
     return Array.from(tags).sort();
@@ -211,7 +272,7 @@ export function getTags(type: 'news' | 'tools' | 'prompts' | 'courses'): string[
  * @returns Array of related content items
  */
 export function getRelatedContent(
-    type: 'news' | 'tools' | 'prompts' | 'courses',
+    type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub',
     currentSlug: string,
     tags: string[] = [],
     limit: number = 3
@@ -255,7 +316,7 @@ export function formatDate(dateString: string): string {
  * @param type - Content type
  * @returns Object with content statistics
  */
-export function getContentStats(type: 'news' | 'tools' | 'prompts' | 'courses') {
+export function getContentStats(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub') {
     const allContent = getAllContent(type);
 
     return {

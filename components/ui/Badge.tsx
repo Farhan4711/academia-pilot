@@ -2,7 +2,7 @@ import { ReactNode, CSSProperties } from 'react';
 
 interface BadgeProps {
     children: ReactNode;
-    variant?: 'accent' | 'cta' | 'success';
+    variant?: 'accent' | 'cta' | 'success' | 'secondary';
     className?: string;
     style?: CSSProperties;
 }

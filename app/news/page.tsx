@@ -1,14 +1,17 @@
 import Link from 'next/link';
 import { getAllContent, formatDate } from '@/lib/content';
+import { getCategoryMetadata } from '@/lib/categories';
 import Card, { CardTitle, CardDescription } from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 
+const meta = getCategoryMetadata('news');
+
 export const metadata = {
-    title: "News Radar - Breaking AI News",
-    description: "Stay updated with the latest AI breakthroughs, tool releases, and industry insights. Your radar for navigating the agentic frontier.",
+    title: meta?.title || "News - Breaking AI News Radar",
+    description: meta?.seoDescription || "Stay updated with the latest AI breakthroughs, tool releases, and industry insights. Your radar for navigating the agentic frontier.",
 };
 
-export default function NewsRadarPage() {
+export default function NewsPage() {
     const newsItems = getAllContent('news');
 
     return (
@@ -20,7 +23,7 @@ export default function NewsRadarPage() {
                 paddingBottom: 'var(--space-12)'
             }}>
                 <div className="container">
-                    <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
+                    <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
                         <h1 style={{
                             fontSize: 'var(--text-5xl)',
                             fontWeight: 'var(--font-black)',
@@ -30,17 +33,39 @@ export default function NewsRadarPage() {
                             WebkitTextFillColor: 'transparent',
                             backgroundClip: 'text'
                         }}>
-                            News Radar
+                            {meta?.introTitle || 'News Radar'}
                         </h1>
 
-                        <p style={{
-                            fontSize: 'var(--text-xl)',
+                        <div style={{
+                            fontSize: 'var(--text-lg)',
                             color: 'var(--color-text-secondary)',
-                            lineHeight: '1.6'
+                            lineHeight: '1.7',
+                            marginBottom: 'var(--space-8)',
+                            whiteSpace: 'pre-line'
                         }}>
-                            Breaking AI news, analyzed and explained. Every post answers "Why does this matter?"
-                            in the first 50 words.
-                        </p>
+                            {meta?.introContent}
+                        </div>
+
+                        {/* Internal Linking Block */}
+                        <div style={{
+                            backgroundColor: 'var(--color-surface)',
+                            border: '1px solid var(--color-accent)',
+                            borderRadius: 'var(--radius-lg)',
+                            padding: 'var(--space-6)',
+                            marginTop: 'var(--space-8)',
+                            textAlign: 'left'
+                        }}>
+                            <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 'var(--font-bold)', marginBottom: 'var(--space-4)' }}>
+                                Explore Related Sections:
+                            </h3>
+                            <div className="grid grid-2 gap-4">
+                                {meta?.internalLinks.map((link, idx) => (
+                                    <Link key={idx} href={link.href} className="text-accent hover:underline flex items-center gap-2">
+                                        {link.label}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -55,7 +80,7 @@ export default function NewsRadarPage() {
                     ) : (
                         <div className="grid grid-3">
                             {newsItems.map((item) => (
-                                <Card key={item.slug} href={`/news-radar/${item.slug}`}>
+                                <Card key={item.slug} href={`/news/${item.category || 'uncategorized'}/${item.slug}`}>
                                     <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                         <Badge variant="cta">
                                             {formatDate(item.date)}
@@ -150,6 +175,43 @@ export default function NewsRadarPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "How often is News Radar updated?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "We publish new articles daily, covering the most important AI breakthroughs and tool releases. Subscribe to our newsletter to get updates delivered to your inbox."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "What makes News Radar different from other AI news sources?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Every article answers 'Why does this matter?' in the first 50 words. We focus on practical implications for entrepreneurs and creators, not just technical details."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Can I suggest topics for News Radar?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Absolutely! Email us at news@academiapilot.com with AI developments you'd like us to cover. We prioritize topics that matter most to our community."
+                                }
+                            }
+                        ]
+                    })
+                }}
+            />
         </div>
     );
 }

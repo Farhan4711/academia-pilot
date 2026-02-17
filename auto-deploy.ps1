@@ -37,7 +37,10 @@ Write-Host "[3/3] Uploading..." -ForegroundColor $WarningColor
 function Upload-File {
     param($Loc, $Rem)
     try {
-        $uri = "ftp://$FTP_HOST$Rem"
+        # Ensure URI is correctly formatted with a slash after host
+        $remPath = $Rem
+        if (-not $remPath.StartsWith("/")) { $remPath = "/$remPath" }
+        $uri = "ftp://$FTP_HOST$remPath"
         $req = [System.Net.FtpWebRequest]::Create($uri)
         $req.Credentials = New-Object System.Net.NetworkCredential($FTP_USERNAME, $FTP_PASSWORD)
         $req.Method = [System.Net.WebRequestMethods+Ftp]::UploadFile
@@ -56,7 +59,9 @@ function Upload-File {
 function Create-Dir {
     param($Rem)
     try {
-        $uri = "ftp://$FTP_HOST$Rem"
+        $remPath = $Rem
+        if (-not $remPath.StartsWith("/")) { $remPath = "/$remPath" }
+        $uri = "ftp://$FTP_HOST$remPath"
         $req = [System.Net.FtpWebRequest]::Create($uri)
         $req.Credentials = New-Object System.Net.NetworkCredential($FTP_USERNAME, $FTP_PASSWORD)
         $req.Method = [System.Net.WebRequestMethods+Ftp]::MakeDirectory
@@ -64,22 +69,38 @@ function Create-Dir {
     } catch {}
 }
 
+# Ensure FTP_REMOTE_DIR is in the correct format (starts with no slash, ends with /)
+if ($FTP_REMOTE_DIR) {
+    if ($FTP_REMOTE_DIR.StartsWith("/")) { $FTP_REMOTE_DIR = $FTP_REMOTE_DIR.Substring(1) }
+    if (-not $FTP_REMOTE_DIR.EndsWith("/")) { $FTP_REMOTE_DIR = "$FTP_REMOTE_DIR/" }
+} else {
+    $FTP_REMOTE_DIR = ""
+}
+
 foreach ($f in $files) {
     $rel = $f.FullName.Substring($outPath.Length).TrimStart('\').Replace('\', '/')
     $parts = $rel.Split('/')
     $curr = ""
+    # Prepend remote directory
+    $remoteBase = $FTP_REMOTE_DIR.TrimEnd('/')
+    
     for ($i=0; $i -lt ($parts.Length - 1); $i++) {
-        $curr = "$curr/$($parts[$i])"
-        Create-Dir $curr
+        $currPath = "$remoteBase"
+        for ($j=0; $j -le $i; $j++) {
+            $currPath = "$currPath/$($parts[$j])"
+        }
+        Create-Dir $currPath
     }
-    $rem = "$curr/$($parts[-1])"
-    Write-Host "  Uploading: $rel"
+    
+    $rem = "$remoteBase/$rel"
+    Write-Host "  Uploading: $rel -> $rem"
     Upload-File -Loc $f.FullName -Rem $rem | Out-Null
 }
 
 if (Test-Path "public\.htaccess") {
-    Write-Host "  Uploading .htaccess"
-    Upload-File -Loc "public\.htaccess" -Rem "/.htaccess" | Out-Null
+    $remHt = "$($FTP_REMOTE_DIR.TrimEnd('/'))/.htaccess"
+    Write-Host "  Uploading .htaccess -> $remHt"
+    Upload-File -Loc "public\.htaccess" -Rem $remHt | Out-Null
 }
 
 Write-Host "Deployment Complete! ✅" -ForegroundColor $SuccessColor

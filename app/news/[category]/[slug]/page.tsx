@@ -12,9 +12,9 @@ export async function generateStaticParams() {
     try {
         const allNews = getAllContent('news');
         console.log('generateStaticParams - Found articles:', allNews.length);
-        console.log('generateStaticParams - Slugs:', allNews.map(n => n.slug));
         return allNews.map(news => ({
-            slug: news.slug,
+            category: news.category || 'uncategorized',
+            slug: news.slug.split('/').pop() || news.slug,
         }));
     } catch (error) {
         console.error('Error in generateStaticParams:', error);
@@ -22,11 +22,18 @@ export async function generateStaticParams() {
     }
 }
 
+interface PageProps {
+    params: Promise<{
+        category: string;
+        slug: string;
+    }>;
+}
+
 // Generate metadata for SEO
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: PageProps) {
     try {
-        const { slug } = await params;
-        console.log('generateMetadata - Looking for slug:', slug);
+        const { category, slug } = await params;
+        console.log('generateMetadata - Looking for slug:', slug, 'in category:', category);
         const article = getContentBySlug('news', slug);
 
         if (!article) {
@@ -37,9 +44,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         }
 
         return {
-            title: `${article.title} - Academia Pilot`,
+            title: `${article.title} | ${article.category || 'News'} | Academia Pilot`,
             description: article.excerpt,
             keywords: article.tags?.join(', '),
+            alternates: {
+                canonical: `/news/${category}/${slug}`,
+            },
+            openGraph: {
+                title: article.title,
+                description: article.excerpt,
+                type: 'article',
+                url: `https://academiapilot.com/news/${category}/${slug}`,
+                images: [
+                    {
+                        url: article.image || '/og-image.png',
+                        width: 1200,
+                        height: 630,
+                        alt: article.title,
+                    },
+                ],
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title: article.title,
+                description: article.excerpt,
+                images: [article.image || '/og-image.png'],
+            },
         };
     } catch (error) {
         console.error('Error in generateMetadata:', error);
@@ -50,8 +80,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 
-export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
+export default async function ArticlePage({ params }: PageProps) {
+    const { category, slug } = await params;
     const article = getContentBySlug('news', slug);
 
     if (!article) {
@@ -73,9 +103,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     <div className="container container-md">
                         {/* Breadcrumb */}
                         <div style={{ marginBottom: 'var(--space-6)' }}>
-                            <Link href="/news-radar" className="text-accent hover:underline" style={{ fontSize: 'var(--text-sm)' }}>
-                                ← Back to News Radar
-                            </Link>
+                            <div className="flex items-center gap-2 text-sm text-accent">
+                                <Link href="/" className="hover:underline">Home</Link>
+                                <span>/</span>
+                                <Link href="/news" className="hover:underline">News</Link>
+                                <span>/</span>
+                                <Link href={`/news/${category}`} className="hover:underline" style={{ textTransform: 'capitalize' }}>
+                                    {category.replace(/-/g, ' ')}
+                                </Link>
+                            </div>
                         </div>
 
                         {/* Badges */}
@@ -112,6 +148,28 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                             {article.excerpt}
                         </p>
 
+                        {/* Featured Image */}
+                        {article.image && (
+                            <div style={{
+                                marginBottom: 'var(--space-8)',
+                                borderRadius: 'var(--radius-lg)',
+                                overflow: 'hidden',
+                                border: '1px solid var(--color-border)',
+                                boxShadow: 'var(--shadow-xl)',
+                                aspectRatio: '16/9'
+                            }}>
+                                <img
+                                    src={article.image}
+                                    alt={article.title}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto',
+                                        display: 'block'
+                                    }}
+                                />
+                            </div>
+                        )}
+
                         {/* Meta info */}
                         <div className="flex gap-4 items-center text-muted" style={{ fontSize: 'var(--text-sm)' }}>
                             {article.author && (
@@ -143,6 +201,68 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                         )}
                     </div>
                 </section>
+
+                {/* Structured Data */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Article",
+                            "headline": article.title,
+                            "description": article.excerpt,
+                            "image": `https://academiapilot.com${article.image || '/og-image.png'}`,
+                            "datePublished": article.date,
+                            "author": {
+                                "@type": "Person",
+                                "name": article.author || "Academia Pilot"
+                            },
+                            "publisher": {
+                                "@type": "Organization",
+                                "name": "Academia Pilot",
+                                "logo": {
+                                    "@type": "ImageObject",
+                                    "url": "https://academiapilot.com/logo.png"
+                                }
+                            }
+                        })
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": "https://academiapilot.com"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "News",
+                                    "item": "https://academiapilot.com/news"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": category.replace(/-/g, ' '),
+                                    "item": `https://academiapilot.com/news/${category}`
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 4,
+                                    "name": article.title,
+                                    "item": `https://academiapilot.com/news/${category}/${slug}`
+                                }
+                            ]
+                        })
+                    }}
+                />
 
                 {/* Article Content */}
                 <section className="section">
@@ -196,7 +316,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
                             <div className="grid grid-3">
                                 {relatedArticles.map((related) => (
-                                    <Card key={related.slug} href={`/news-radar/${related.slug}`}>
+                                    <Card key={related.slug} href={`/news/${related.category || 'uncategorized'}/${related.slug.split('/').pop()}`}>
                                         <div style={{ marginBottom: 'var(--space-3)' }}>
                                             <Badge variant="cta">
                                                 {new Date(related.date).toLocaleDateString('en-US', {
@@ -220,7 +340,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                             </div>
 
                             <div className="text-center" style={{ marginTop: 'var(--space-8)' }}>
-                                <Button variant="secondary" href="/news-radar">
+                                <Button variant="secondary" href="/news">
                                     View All News
                                 </Button>
                             </div>

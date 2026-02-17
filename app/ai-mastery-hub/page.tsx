@@ -1,19 +1,24 @@
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
+import Link from 'next/link';
+import { getCategoryMetadata } from '@/lib/categories';
+
+const meta = getCategoryMetadata('ai-mastery-hub');
 
 export const metadata = {
-    title: "The Antigravity Guide - Master Vibe Coding in 10 Minutes",
-    description: "Complete tutorial on Google Antigravity: the revolutionary IDE that codes itself. Learn the interface, master vibe coding, and build your first app in 10 minutes.",
-    keywords: ["Google Antigravity tutorial", "Antigravity IDE vs Cursor", "Antigravity Agent Manager guide", "Vibe Coding in Antigravity", "best Antigravity extensions 2026"],
+    title: meta?.title || "AI Mastery Hub - Master AI Power Unleashed",
+    description: meta?.seoDescription || "Your central hub for mastering artificial intelligence, agentic workflows, and the future of coding. Learn the interface, master the tools, and build faster.",
+    keywords: ["AI Mastery Hub guide", "AI tutorial", "Agent Manager guide", "Vibe Coding tutorial", "best AI tools 2026"],
 };
 
-export default function AntigravityGuidePage() {
+export default function AIMasteryHubPage() {
     return (
         <div>
             {/* Hero */}
             <section className="section" style={{
                 background: 'linear-gradient(180deg, var(--color-surface) 0%, var(--color-primary) 100%)',
-                paddingTop: 'var(--space-16)'
+                paddingTop: 'var(--space-16)',
+                paddingBottom: 'var(--space-12)'
             }}>
                 <div className="container container-lg">
                     <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
@@ -31,17 +36,42 @@ export default function AntigravityGuidePage() {
                             backgroundClip: 'text',
                             lineHeight: '1.1'
                         }}>
-                            The Antigravity Guide
+                            {meta?.introTitle || 'AI Mastery Hub'}
                         </h1>
 
-                        <p style={{
+                        <div style={{
                             fontSize: 'var(--text-xl)',
                             color: 'var(--color-text-secondary)',
                             marginBottom: 'var(--space-8)',
-                            lineHeight: '1.6'
+                            lineHeight: '1.6',
+                            whiteSpace: 'pre-wrap',
+                            textAlign: 'left'
                         }}>
-                            Master Google's revolutionary IDE and build your first app in 10 minutes using vibe coding.
-                        </p>
+                            {meta?.introContent || 'Master the most powerful AI workflows and build your first app in 10 minutes using vibe coding.'}
+                        </div>
+
+                        {/* Internal Linking Block */}
+                        {meta?.internalLinks && (
+                            <div style={{
+                                backgroundColor: 'rgba(0, 112, 243, 0.05)',
+                                padding: 'var(--space-6)',
+                                borderRadius: 'var(--radius-lg)',
+                                border: '1px solid var(--color-accent)',
+                                marginBottom: 'var(--space-8)',
+                                textAlign: 'left'
+                            }}>
+                                <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 'var(--font-bold)', marginBottom: 'var(--space-4)' }}>
+                                    Explore Related Sections:
+                                </h3>
+                                <div className="grid grid-2 gap-4">
+                                    {meta.internalLinks.map((link, idx) => (
+                                        <Link key={idx} href={link.href} className="text-accent hover:underline flex items-center gap-2">
+                                            {link.label}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
 
                         <div className="flex gap-4 justify-center">
                             <Button variant="cta" size="lg" href="#tutorial">
@@ -68,7 +98,7 @@ export default function AntigravityGuidePage() {
                                     Part 1: Understanding Antigravity
                                 </h3>
                                 <ul style={{ listStyle: 'none', padding: 0, color: 'var(--color-text-secondary)' }}>
-                                    <li style={{ marginBottom: 'var(--space-1)' }}>→ Why Antigravity changes everything</li>
+                                    <li style={{ marginBottom: 'var(--space-1)' }}>→ Why AI automation changes everything</li>
                                     <li style={{ marginBottom: 'var(--space-1)' }}>→ The Editor vs. Agent Manager</li>
                                     <li style={{ marginBottom: 'var(--space-1)' }}>→ How vibe coding works</li>
                                 </ul>
@@ -96,12 +126,12 @@ export default function AntigravityGuidePage() {
                         {/* Section 1 */}
                         <div style={{ marginBottom: 'var(--space-12)' }}>
                             <h2 style={{ fontSize: 'var(--text-4xl)', fontWeight: 'var(--font-black)', marginBottom: 'var(--space-6)' }}>
-                                Why Antigravity Is the End of Traditional IDEs
+                                Why Agentic AI is the End of Traditional IDEs
                             </h2>
 
                             <p className="text-secondary" style={{ marginBottom: 'var(--space-4)' }}>
                                 For 50 years, developers have written code the same way: character by character, line by line.
-                                Google Antigravity fundamentally changes this paradigm. Instead of writing code, you describe
+                                Agentic AI fundamentally changes this paradigm. Instead of writing code, you describe
                                 what you want to build, and AI agents handle the implementation.
                             </p>
 
@@ -123,7 +153,7 @@ export default function AntigravityGuidePage() {
                                     </div>
                                     <div>
                                         <h4 style={{ fontSize: 'var(--text-lg)', fontWeight: 'var(--font-semibold)', marginBottom: 'var(--space-2)', color: 'var(--color-accent)' }}>
-                                            Antigravity
+                                            Master Hub Workflow
                                         </h4>
                                         <ul style={{ color: 'var(--color-text-secondary)' }}>
                                             <li>Describe what you want</li>
@@ -249,10 +279,10 @@ export default function AntigravityGuidePage() {
                                     </h3>
                                 </div>
                                 <p className="text-secondary" style={{ marginBottom: 'var(--space-3)' }}>
-                                    Open Antigravity and click "New Project." Choose "Web App" and name it "TaskMaster."
+                                    Open your AI workspace and click "New Project." Choose "Web App" and name it "TaskMaster."
                                 </p>
                                 <div style={{ backgroundColor: 'var(--color-primary)', padding: 'var(--space-4)', borderRadius: 'var(--radius-md)', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-sm)' }}>
-                                    <div className="text-muted">// Antigravity creates:</div>
+                                    <div className="text-muted">// Agent workspace creates:</div>
                                     <div className="text-accent">✓ Next.js project structure</div>
                                     <div className="text-accent">✓ TypeScript configuration</div>
                                     <div className="text-accent">✓ Database setup (Prisma)</div>
@@ -373,7 +403,7 @@ export default function AntigravityGuidePage() {
                                     </h3>
                                 </div>
                                 <p className="text-secondary" style={{ marginBottom: 'var(--space-3)' }}>
-                                    Your app is ready! Antigravity has created:
+                                    Your app is ready! The hub process has created:
                                 </p>
                                 <ul style={{ color: 'var(--color-text-secondary)' }}>
                                     <li>✓ Complete authentication system</li>
@@ -430,14 +460,14 @@ export default function AntigravityGuidePage() {
             <section className="section" style={{ backgroundColor: 'var(--color-surface)' }}>
                 <div className="container container-md text-center">
                     <h2 style={{ fontSize: 'var(--text-4xl)', fontWeight: 'var(--font-black)', marginBottom: 'var(--space-4)' }}>
-                        Ready to Master Antigravity?
+                        Ready to Master AI Hub?
                     </h2>
                     <p className="text-secondary" style={{ fontSize: 'var(--text-xl)', marginBottom: 'var(--space-8)' }}>
                         Get our battle-tested Antigravity prompts and join the Flight Crew for weekly tips.
                     </p>
                     <div className="flex gap-4 justify-center">
                         <Button variant="cta" size="lg" href="/prompt-vault">
-                            Get Antigravity Prompts
+                            Get AI Mastery Prompts
                         </Button>
                         <Button variant="secondary" size="lg" href="/#newsletter-signup">
                             Join Newsletter
@@ -459,7 +489,7 @@ export default function AntigravityGuidePage() {
                                 How do I save time with Antigravity?
                             </h3>
                             <p className="text-secondary">
-                                Antigravity reduces development time by 70-90% for most projects. Instead of writing code line-by-line,
+                                AI Mastery Hub workflows reduce development time by 70-90% for most projects. Instead of writing code line-by-line,
                                 you describe what you want and AI agents handle implementation, testing, and refactoring automatically.
                             </p>
                         </div>
@@ -469,8 +499,8 @@ export default function AntigravityGuidePage() {
                                 Is Antigravity better than Cursor or GitHub Copilot?
                             </h3>
                             <p className="text-secondary">
-                                Antigravity is fundamentally different. Cursor and Copilot assist with coding, while Antigravity uses
-                                autonomous agents to build entire features. Use Antigravity for new projects and Cursor for incremental improvements.
+                                AI Mastery Hub presents a fundamentally different approach. Traditional tools assist with coding, while the Hub
+                                teaches you to use autonomous agents to build entire features. Use AI Hub strategies for new projects and Cursor for incremental improvements.
                             </p>
                         </div>
 
@@ -479,7 +509,7 @@ export default function AntigravityGuidePage() {
                                 Can beginners use Antigravity effectively?
                             </h3>
                             <p className="text-secondary">
-                                Yes, but with caution. Antigravity makes building apps easier, but you still need to understand architecture,
+                                Yes, but with caution. Agentic AI makes building apps easier, but you still need to understand architecture,
                                 databases, and APIs to review agent proposals effectively. It's best used by developers with at least 1-2 years of experience.
                             </p>
                         </div>

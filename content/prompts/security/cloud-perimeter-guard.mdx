@@ -1,0 +1,33 @@
+---
+title: "The Cloud Perimeter Guard"
+date: "2026-02-14"
+excerpt: "Ensure your AWS settings aren't leaving the door open. Best for Infrastructure Configs."
+category: "security"
+level: "Advanced"
+tags: ["Cloud Security", "AWS", "Infrastructure"]
+context: "Best for Infrastructure Configs"
+premium: false
+prompt: "I am deploying this code to [Service Name]. Please check the configuration for 'Public' access vulnerabilities. If there are any, suggest a 'Least Privilege' alternative that only gives access to the specific resources my app needs. Ensure no sensitive environment variables are exposed in the frontend."
+---
+
+## Problem it solves
+Misconfigured cloud settings are the #1 cause of data breaches. This prompt helps you verify that your 'Public' access settings are as restrictive as possible while still allowing your app to function.
+
+## The Prompt
+```text
+I am deploying this code to [Service Name]. Please check the configuration for 'Public' access vulnerabilities. If there are any, suggest a 'Least Privilege' alternative that only gives access to the specific resources my app needs. Ensure no sensitive environment variables are exposed in the frontend.
+```
+
+## Customization instructions
+Replace `[Service Name]` with AWS, Azure, Vercel, etc. Paste your config (e.g., `amplify.yml` or `serverless.yml`) below.
+
+## Advanced version
+Add: "Check for compliance with the CIS AWS Foundations Benchmark and list any violations found."
+
+## Common mistakes
+- **Leaving 'All Access' on**: It's easier to debug when everyone can see it, but it's a security nightmare.
+- **Hardcoding ENV variables**: Never put your database password in the config file.
+
+## FAQs
+**Q: Can this replace a devops engineer?**
+A: No, but it can find the obvious mistakes that even experts sometimes overlook in a hurry.

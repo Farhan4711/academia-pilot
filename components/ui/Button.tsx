@@ -8,6 +8,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'cta' | 'secondary';
     size?: 'sm' | 'md' | 'lg';
     href?: string;
+    target?: string;
+    rel?: string;
 }
 
 export default function Button({
@@ -15,6 +17,8 @@ export default function Button({
     variant = 'primary',
     size = 'md',
     href,
+    target,
+    rel,
     className = '',
     ...props
 }: ButtonProps) {
@@ -27,26 +31,31 @@ export default function Button({
         // Check if it's an external link or anchor link
         const isExternal = href.startsWith('http') || href.startsWith('mailto:');
         const isAnchor = href.startsWith('#');
-        
+
         if (isExternal) {
             return (
-                <a href={href} className={combinedClass} target="_blank" rel="noopener noreferrer">
+                <a
+                    href={href}
+                    className={combinedClass}
+                    target={target || "_blank"}
+                    rel={rel || "noopener noreferrer"}
+                >
                     {children}
                 </a>
             );
         }
-        
+
         if (isAnchor) {
             return (
-                <a href={href} className={combinedClass}>
+                <a href={href} className={combinedClass} target={target} rel={rel}>
                     {children}
                 </a>
             );
         }
-        
+
         // Internal link - use Next.js Link for client-side navigation
         return (
-            <Link href={href} className={combinedClass}>
+            <Link href={href} className={combinedClass} target={target} rel={rel}>
                 {children}
             </Link>
         );

@@ -80,8 +80,8 @@ export default function Home() {
               <Button variant="cta" size="lg" href="#newsletter-signup">
                 Join the Flight Crew
               </Button>
-              <Button variant="secondary" size="lg" href="/antigravity-guide">
-                Start with Antigravity
+              <Button variant="secondary" size="lg" href="/ai-mastery-hub">
+                Start with AI Mastery Hub
               </Button>
             </div>
 
@@ -112,6 +112,43 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            {/* Structured Data */}
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  "mainEntity": [
+                    {
+                      "@type": "Question",
+                      "name": "What is Academia Pilot?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Academia Pilot is your co-pilot for navigating the agentic frontier. We provide breaking AI news, tool reviews, battle-tested prompts, and curated courses to help entrepreneurs and creators stay ahead in the rapidly evolving AI landscape."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "How do I access premium prompts in the Vault?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Join the Flight Crew by subscribing to our newsletter. Premium prompts are available to all subscribers and include advanced agentic workflows that can save you 20+ hours per week."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What makes Academia Pilot different from other AI resources?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We focus on the 'agentic' frontier - AI systems that can act autonomously. Our content is curated specifically for entrepreneurs and creators, cutting through the noise to deliver only what matters for building real businesses with AI."
+                      }
+                    }
+                  ]
+                })
+              }}
+            />
           </div>
         </div>
       </section>
@@ -128,7 +165,7 @@ export default function Home() {
 
           <div className="grid grid-3">
             {trendingNews.map((news, index) => (
-              <Card key={index} href={`/news-radar/${news.slug}`}>
+              <Card key={index} href={`/news/${news.category || 'uncategorized'}/${news.slug.split('/').pop()}`}>
                 <div style={{ marginBottom: 'var(--space-2)' }}>
                   <Badge variant="cta">{formatDate(news.date)}</Badge>
                 </div>
@@ -144,7 +181,7 @@ export default function Home() {
           </div>
 
           <div className="text-center" style={{ marginTop: 'var(--space-8)' }}>
-            <Button variant="secondary" href="/news-radar">
+            <Button variant="secondary" href="/news">
               View All News
             </Button>
           </div>

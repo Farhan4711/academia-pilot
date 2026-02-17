@@ -1,0 +1,40 @@
+---
+title: "The Senior Security Reviewer"
+date: "2026-02-14"
+excerpt: "Audit your entire script for vulnerabilities in seconds. Best for GPT-4 or Claude 3.5 Sonnet."
+category: "security"
+level: "Advanced"
+tags: ["Security", "Code Audit", "Safety"]
+context: "Best for GPT-4 or Claude 3.5 Sonnet"
+premium: false
+prompt: "I have this code for [describe what the code does, e.g., a login page]. Act as a Senior Security Engineer. Review this code for vulnerabilities, specifically looking for:\n\n•   Injection risks (SQLi, XSS, Command Injection)\n•   Broken authentication or authorization logic\n•   Hardcoded secrets (API keys, passwords)\n•   Overly permissive settings\n\nList each risk found, explain why it’s a danger for a non-coder, and provide the secure, rewritten version of the code."
+---
+
+## Problem it solves
+Non-coders using AI to generate code often miss critical security vulnerabilities. This prompt acts as a safety net, auditing your code for common risks before you deploy it.
+
+## The Prompt
+```text
+I have this code for [describe what the code does, e.g., a login page]. Act as a Senior Security Engineer. Review this code for vulnerabilities, specifically looking for:
+
+•   Injection risks (SQLi, XSS, Command Injection)
+•   Broken authentication or authorization logic
+•   Hardcoded secrets (API keys, passwords)
+•   Overly permissive settings
+
+List each risk found, explain why it’s a danger for a non-coder, and provide the secure, rewritten version of the code.
+```
+
+## Customization instructions
+Replace `[describe what the code does]` with the context of your file. Paste your code below the prompt.
+
+## Advanced version
+Add: "Also, check if any libraries used have known vulnerabilities (CVEs) and recommend specifically 'Fixed' versions if they exist."
+
+## Common mistakes
+- **Pasting incomplete code**: If you only paste half a function, the AI can't see the full context of potential leaks.
+- **Ignoring the warnings**: Many users see the risks but don't implement the secure version because it looks "more complicated."
+
+## FAQs
+**Q: Can it find all bugs?**
+A: No AI is perfect. Use this as a first layer of defense, but for production apps, always seek a professional security audit.

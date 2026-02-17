@@ -8,15 +8,19 @@ interface CardProps {
     href?: string;
     className?: string;
     variant?: 'default' | 'highlight';
+    style?: CSSProperties;
 }
 
-export default function Card({ children, href, className = '', variant = 'default' }: CardProps) {
+export default function Card({ children, href, className = '', variant = 'default', style: customStyle }: CardProps) {
     const cardClass = `card ${className}`;
 
-    const style = variant === 'highlight' ? {
-        borderColor: 'var(--color-accent)',
-        background: 'linear-gradient(135deg, var(--color-surface) 0%, rgba(0, 112, 243, 0.05) 100%)'
-    } : {};
+    const style = {
+        ...(variant === 'highlight' ? {
+            borderColor: 'var(--color-accent)',
+            background: 'linear-gradient(135deg, var(--color-surface) 0%, rgba(0, 112, 243, 0.05) 100%)'
+        } : {}),
+        ...customStyle
+    };
 
     if (href) {
         // Check if it's an external link
@@ -48,10 +52,11 @@ export default function Card({ children, href, className = '', variant = 'defaul
 interface CardTitleProps {
     children: ReactNode;
     className?: string;
+    style?: CSSProperties;
 }
 
-export function CardTitle({ children, className = '' }: CardTitleProps) {
-    return <h3 className={`card-title ${className}`}>{children}</h3>;
+export function CardTitle({ children, className = '', style }: CardTitleProps) {
+    return <h3 className={`card-title ${className}`} style={style}>{children}</h3>;
 }
 
 interface CardDescriptionProps {

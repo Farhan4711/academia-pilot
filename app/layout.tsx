@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { getLatestContent } from "@/lib/content";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://academiapilot.com"),
   title: {
     default: "Academia Pilot - Navigate the Agentic Frontier",
     template: "%s | Academia Pilot"
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
   description: "Your co-pilot for navigating the agentic frontier. Get breaking AI news, tool reviews, prompts, and courses to simplify AI breakthroughs for entrepreneurs and creators.",
   keywords: [
     "Academia Pilot AI",
+    "AI Mastery Hub",
     "agentic frontier",
     "AI news",
     "AI tools",
@@ -25,6 +28,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Academia Pilot" }],
   creator: "Academia Pilot",
   publisher: "Academia Pilot",
+  alternates: {
+    canonical: "/"
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -32,22 +38,20 @@ export const metadata: Metadata = {
     siteName: "Academia Pilot",
     title: "Academia Pilot - Navigate the Agentic Frontier",
     description: "Your co-pilot for navigating the agentic frontier. Breaking AI news, tool reviews, prompts, and courses.",
-    // TODO: Uncomment when og-image.png is generated from og-image-template.html
-    // images: [
-    //   {
-    //     url: "/og-image.png",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Academia Pilot"
-    //   }
-    // ]
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Academia Pilot"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Academia Pilot - Navigate the Agentic Frontier",
     description: "Your co-pilot for navigating the agentic frontier. Breaking AI news, tool reviews, prompts, and courses.",
-    // TODO: Uncomment when og-image.png is generated
-    // images: ["/og-image.png"]
+    images: ["/og-image.png"]
   },
   robots: {
     index: true,
@@ -65,19 +69,45 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Academia Pilot",
+  "url": "https://academiapilot.com",
+  "description": "Your co-pilot for navigating the agentic frontier. Breaking AI news, tool reviews, prompts, and courses.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academia Pilot",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://academiapilot.com/logo.png"
+    }
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://academiapilot.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const newsItems = getLatestContent('news', 3);
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {/* Plausible Analytics Placeholder */}
         {/* <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script> */}
       </head>
       <body suppressHydrationWarning>
-        <Header />
+        <Header newsItems={newsItems} />
         <main id="main-content">
           {children}
         </main>

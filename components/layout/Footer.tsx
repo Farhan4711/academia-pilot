@@ -105,13 +105,13 @@ export default function Footer() {
                         </h4>
                         <ul style={{ listStyle: 'none', padding: 0 }}>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/news-radar" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
-                                    News Radar
+                                <Link href="/news" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                    News
                                 </Link>
                             </li>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/antigravity-guide" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
-                                    Antigravity Guide
+                                <Link href="/ai-mastery-hub" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                    AI Mastery Hub
                                 </Link>
                             </li>
                             <li style={{ marginBottom: 'var(--space-2)' }}>

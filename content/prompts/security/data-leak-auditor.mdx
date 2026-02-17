@@ -1,0 +1,33 @@
+---
+title: "The Data Leak Auditor"
+date: "2026-02-14"
+excerpt: "Make sure your app isn't accidentally sharing private user data. Best for API Functions."
+category: "security"
+level: "Intermediate"
+tags: ["Privacy", "Data Leak", "API Security"]
+context: "Best for API Functions"
+premium: false
+prompt: "Analyze this function for data leaks. Does it return more information than necessary in the API response? Ensure that sensitive user data like password hashes, internal IDs, or private emails are stripped out before the response is sent to the client."
+---
+
+## Problem it solves
+Many functions return a whole 'User' object when all they needed was a 'Username'. this prompt audits your code to ensure you're only sending the minimum necessary data back to the client.
+
+## The Prompt
+```text
+Analyze this function for data leaks. Does it return more information than necessary in the API response? Ensure that sensitive user data like password hashes, internal IDs, or private emails are stripped out before the response is sent to the client.
+```
+
+## Customization instructions
+Paste your API handler function below the prompt.
+
+## Advanced version
+Add: "Suggest a 'DTO' (Data Transfer Object) pattern for this function to explicitly define what data should be exposed."
+
+## Common mistakes
+- **Using 'Select *'**: Returning all database columns is a common way to leak internal state.
+- **Frontend filtering**: Filtering private data on the client side is NOT security; someone can still see it in the Network tab.
+
+## FAQs
+**Q: Does this find PII (Personally Identifiable Information)?**
+A: Yes, it's particularly good at spotting things like phone numbers or addresses that shouldn't be public.
