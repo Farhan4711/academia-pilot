@@ -10,6 +10,9 @@ const meta = getCategoryMetadata('tool-hangar');
 export const metadata = {
     title: meta?.title || "The Tool Hangar - Pilot-Vetted AI Tools | Academia Pilot",
     description: meta?.seoDescription || "The ultimate directory for the agentic era. Vetted AI models, IDEs, and research tools that power 10x workflows.",
+    alternates: {
+        canonical: "/tool-hangar/",
+    },
 };
 
 export default function ToolHangarPage() {
@@ -81,7 +84,7 @@ export default function ToolHangarPage() {
                             {categories.map(cat => (
                                 <Link
                                     key={cat}
-                                    href={`/tool-hangar/${cat}`}
+                                    href={`/tool-hangar/${cat}/`}
                                     className="btn btn-secondary btn-sm"
                                     style={{ textTransform: 'capitalize' }}
                                 >
@@ -99,7 +102,7 @@ export default function ToolHangarPage() {
                     <h2 className="section-title">Pilot's Picks</h2>
                     <div className="grid grid-3">
                         {pilotsPicks.map((tool) => (
-                            <Card key={tool.slug} href={`/tool-hangar/${tool.category || 'uncategorized'}/${tool.slug.split('/').pop()}`} variant="highlight">
+                            <Card key={tool.slug} href={`/tool-hangar/${tool.category || 'uncategorized'}/${tool.slug.split('/').pop()}/`} variant="highlight">
                                 <div className="flex justify-between items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                     <Badge variant="success">Pilot's Pick</Badge>
                                     <span style={{ fontSize: 'var(--text-xl)' }}>🔥</span>
@@ -125,7 +128,7 @@ export default function ToolHangarPage() {
                     <h2 className="section-title">All Vetted Tools</h2>
                     <div className="grid grid-3">
                         {allTools.map((tool) => (
-                            <Card key={tool.slug} href={`/tool-hangar/${tool.category || 'uncategorized'}/${tool.slug.split('/').pop()}`}>
+                            <Card key={tool.slug} href={`/tool-hangar/${tool.category || 'uncategorized'}/${tool.slug.split('/').pop()}/`}>
                                 <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                     <Badge variant="accent">{tool.pricing || 'Freemium'}</Badge>
                                     <Badge variant="secondary" style={{ textTransform: 'capitalize' }}>

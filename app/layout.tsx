@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://academiapilot.com",
+    url: "https://academiapilot.com/",
     siteName: "Academia Pilot",
     title: "Academia Pilot - Navigate the Agentic Frontier",
     description: "Your co-pilot for navigating the agentic frontier. Breaking AI news, tool reviews, prompts, and courses.",
@@ -90,12 +90,13 @@ const jsonLd = {
   }
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const newsItems = getLatestContent('news', 3);
+
   return (
     <html lang="en">
       <head>
@@ -103,12 +104,26 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* Plausible Analytics Placeholder */}
-        {/* <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script> */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.addEventListener('unhandledrejection', function(event) {
+              console.error('[CRITICAL] Unhandled Promise Rejection:', event.reason);
+            });
+            window.addEventListener('error', function(event) {
+              console.error('[CRITICAL] Global Error:', event.error);
+            });
+            document.addEventListener('click', function(event) {
+              var target = event.target.closest('a');
+              if (target) {
+                console.log('[NAV] Clicked link:', target.getAttribute('href'));
+              }
+            }, true);
+          `
+        }} />
       </head>
-      <body suppressHydrationWarning>
+      <body className="antialiased" suppressHydrationWarning>
         <Header newsItems={newsItems} />
-        <main id="main-content">
+        <main id="main-content" className="min-h-screen">
           {children}
         </main>
         <Footer />

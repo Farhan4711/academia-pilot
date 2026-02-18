@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps) {
             title: `${prompt.title} | ${prompt.category || 'Prompts'} | Prompt Vault`,
             description: prompt.excerpt,
             alternates: {
-                canonical: `/prompt-vault/${category}/${slug}`,
+                canonical: `/prompt-vault/${category}/${slug}/`,
             },
         };
     } catch (error) {
@@ -50,9 +50,13 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function PromptPage({ params }: PageProps) {
     const { category, slug } = await params;
+    console.log(`[Page] Loading prompt: /prompt-vault/${category}/${slug}`);
+
     const prompt = getContentBySlug('prompts', slug);
+    console.log(`[Page] getContentBySlug result: ${prompt ? 'Found' : 'NOT Found'} (Canonical slug: ${prompt?.slug})`);
 
     if (!prompt) {
+        console.warn(`[Page] Triggering notFound() for: /prompt-vault/${category}/${slug}`);
         notFound();
     }
 
@@ -218,7 +222,7 @@ export default async function PromptPage({ params }: PageProps) {
                         </h2>
                         <div className="grid grid-3">
                             {relatedPrompts.map((related) => (
-                                <Card key={related.slug} href={`/prompt-vault/${related.category || 'uncategorized'}/${related.slug.split('/').pop()}`}>
+                                <Card key={related.slug} href={`/prompt-vault/${related.category || 'uncategorized'}/${related.slug.split('/').pop()}/`}>
                                     <CardTitle>{related.title}</CardTitle>
                                     <CardDescription>{related.excerpt}</CardDescription>
                                 </Card>

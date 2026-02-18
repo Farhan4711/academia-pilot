@@ -73,7 +73,7 @@ export function getAllContent(type: 'news' | 'tools' | 'prompts' | 'courses' | '
             title: data.title || '',
             date: data.date || '',
             excerpt: data.excerpt || '',
-            category: data.category || categoryFromPath,
+            category: data.category || categoryFromPath || 'uncategorized',
             tags: data.tags || [],
             badge: data.badge,
             featured: data.featured || false,
@@ -183,8 +183,11 @@ export function searchAllContent(query: string): (ContentItem & { type: string }
  * @returns Content item with full content, or null if not found
  */
 export function getContentBySlug(type: 'news' | 'tools' | 'prompts' | 'courses' | 'ai-mastery-hub', slug: string): (ContentItem & { content: string }) | null {
+    console.log(`[Content] Searching for ${type} with slug: ${slug}`);
+
     // Try to find the file directly first
     let fullPath = path.join(contentDirectory, type, `${slug}.mdx`);
+    let finalSlug = slug;
 
     if (!fs.existsSync(fullPath)) {
         // If not found, it might be in a subdirectory but the slug passed doesn't include it
@@ -207,16 +210,23 @@ export function getContentBySlug(type: 'news' | 'tools' | 'prompts' | 'courses' 
         const foundPath = findFile(path.join(contentDirectory, type));
         if (foundPath) {
             fullPath = foundPath;
+            // Reconstruct canonical slug (relative to type directory, no extension)
+            const relativePath = path.relative(path.join(contentDirectory, type), foundPath);
+            finalSlug = relativePath.replace(/\\/g, '/').replace(/\.mdx$/, '');
+            console.log(`[Content] Found via recursive search: ${finalSlug}`);
         } else {
+            console.warn(`[Content] Article NOT found: ${type}/${slug}`);
             return null;
         }
+    } else {
+        console.log(`[Content] Found directly: ${fullPath}`);
     }
 
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
     return {
-        slug,
+        slug: finalSlug,
         content,
         title: data.title || '',
         date: data.date || '',
@@ -280,8 +290,13 @@ export function getRelatedContent(
     const allContent = getAllContent(type);
 
     // Filter out current item and calculate relevance score
+    // We compare with the split pop slug for currentSlug if it doesn't contain slashes
     const relatedContent = allContent
-        .filter(item => item.slug !== currentSlug)
+        .filter(item => {
+            const itemShortSlug = item.slug.split('/').pop();
+            const isMatch = item.slug === currentSlug || itemShortSlug === currentSlug;
+            return !isMatch;
+        })
         .map(item => {
             const matchingTags = item.tags?.filter(tag => tags.includes(tag)) || [];
             return {

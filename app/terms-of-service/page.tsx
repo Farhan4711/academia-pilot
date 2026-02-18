@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
     title: "Terms of Service",
     description: "Academia Pilot Terms of Service - Terms and conditions for using our platform.",
+    alternates: {
+        canonical: "/terms-of-service/",
+    },
 };
 
 export default function TermsOfServicePage() {

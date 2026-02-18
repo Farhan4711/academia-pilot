@@ -26,6 +26,9 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     return {
         title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} Mastery - AI Mastery Hub | Academia Pilot`,
         description: meta?.seoDescription || `Expert guides and tutorials on ${readableCategory} to help you master AI development.`,
+        alternates: {
+            canonical: `/ai-mastery-hub/${category}/`,
+        },
     };
 }
 
@@ -53,7 +56,7 @@ export default async function HubCategoryPage({ params }: { params: Promise<{ ca
                 <div className="container">
                     <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
                         <div style={{ marginBottom: 'var(--space-4)' }}>
-                            <Link href="/ai-mastery-hub" className="text-accent hover:underline" style={{ fontSize: 'var(--text-sm)' }}>
+                            <Link href="/ai-mastery-hub/" className="text-accent hover:underline" style={{ fontSize: 'var(--text-sm)' }}>
                                 ← AI Mastery Hub
                             </Link>
                         </div>
@@ -117,7 +120,7 @@ export default async function HubCategoryPage({ params }: { params: Promise<{ ca
                     ) : (
                         <div className="grid grid-3">
                             {guideItems.map((item) => (
-                                <Card key={item.slug} href={`/ai-mastery-hub/${category}/${item.slug.split('/').pop()}`}>
+                                <Card key={item.slug} href={`/ai-mastery-hub/${category}/${item.slug.split('/').pop()}/`}>
                                     <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                         <Badge variant="accent">
                                             {item.level || 'Expert'}

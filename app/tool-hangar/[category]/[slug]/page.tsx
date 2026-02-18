@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps) {
             title: `${tool.title} - Pilot's Pick | Tool Hangar | Academia Pilot`,
             description: tool.excerpt,
             alternates: {
-                canonical: `/tool-hangar/${category}/${slug}`,
+                canonical: `/tool-hangar/${category}/${slug}/`,
             },
         };
     } catch (error) {
@@ -49,9 +49,13 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function ToolPage({ params }: PageProps) {
     const { category, slug } = await params;
+    console.log(`[Page] Loading tool: /tool-hangar/${category}/${slug}`);
+
     const tool = getContentBySlug('tools', slug);
+    console.log(`[Page] getContentBySlug result: ${tool ? 'Found' : 'NOT Found'} (Canonical slug: ${tool?.slug})`);
 
     if (!tool) {
+        console.warn(`[Page] Triggering notFound() for: /tool-hangar/${category}/${slug}`);
         notFound();
     }
 
@@ -196,7 +200,7 @@ export default async function ToolPage({ params }: PageProps) {
                         </h2>
                         <div className="grid grid-3">
                             {relatedTools.map((related) => (
-                                <Card key={related.slug} href={`/tool-hangar/${related.category || 'uncategorized'}/${related.slug.split('/').pop()}`}>
+                                <Card key={related.slug} href={`/tool-hangar/${related.category || 'uncategorized'}/${related.slug.split('/').pop()}/`}>
                                     <CardTitle>{related.title}</CardTitle>
                                     <CardDescription>{related.excerpt}</CardDescription>
                                 </Card>

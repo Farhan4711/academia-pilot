@@ -80,7 +80,7 @@ export default function Home() {
               <Button variant="cta" size="lg" href="#newsletter-signup">
                 Join the Flight Crew
               </Button>
-              <Button variant="secondary" size="lg" href="/ai-mastery-hub">
+              <Button variant="secondary" size="lg" href="/ai-mastery-hub/">
                 Start with AI Mastery Hub
               </Button>
             </div>
@@ -165,7 +165,7 @@ export default function Home() {
 
           <div className="grid grid-3">
             {trendingNews.map((news, index) => (
-              <Card key={index} href={`/news/${news.category || 'uncategorized'}/${news.slug.split('/').pop()}`}>
+              <Card key={index} href={`/news/${news.category || 'uncategorized'}/${news.slug.split('/').pop()}/`}>
                 <div style={{ marginBottom: 'var(--space-2)' }}>
                   <Badge variant="cta">{formatDate(news.date)}</Badge>
                 </div>
@@ -181,7 +181,7 @@ export default function Home() {
           </div>
 
           <div className="text-center" style={{ marginTop: 'var(--space-8)' }}>
-            <Button variant="secondary" href="/news">
+            <Button variant="secondary" href="/news/">
               View All News
             </Button>
           </div>
@@ -200,7 +200,7 @@ export default function Home() {
 
           <div className="grid grid-3">
             {pilotsPicks.map((tool, index) => (
-              <Card key={index} variant="highlight" href="/tool-hangar">
+              <Card key={index} variant="highlight" href="/tool-hangar/">
                 <div className="flex justify-between items-start" style={{ marginBottom: 'var(--space-3)' }}>
                   <Badge variant="success">{tool.badge}</Badge>
                   <div style={{
@@ -223,7 +223,7 @@ export default function Home() {
           </div>
 
           <div className="text-center" style={{ marginTop: 'var(--space-8)' }}>
-            <Button variant="primary" href="/tool-hangar">
+            <Button variant="primary" href="/tool-hangar/">
               Explore All Tools
             </Button>
           </div>
@@ -280,7 +280,7 @@ export default function Home() {
             </div>
 
             <div className="text-center" style={{ marginTop: 'var(--space-8)' }}>
-              <Button variant="cta" href="/prompt-vault">
+              <Button variant="cta" href="/prompt-vault/">
                 Unlock the Vault
               </Button>
             </div>

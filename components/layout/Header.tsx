@@ -82,19 +82,19 @@ export default function Header({ newsItems = [] }: HeaderProps) {
 
                         {/* Desktop Navigation */}
                         <div className="hidden md:flex items-center" style={{ gap: 'var(--space-6)' }}>
-                            <Link href="/news" className="text-secondary hover:text-accent transition-fast">
+                            <Link href="/news/" className="text-secondary hover:text-accent transition-fast">
                                 News Radar
                             </Link>
-                            <Link href="/prompt-vault" className="text-secondary hover:text-accent transition-fast">
+                            <Link href="/prompt-vault/" className="text-secondary hover:text-accent transition-fast">
                                 Prompt Vault
                             </Link>
-                            <Link href="/tool-hangar" className="text-secondary hover:text-accent transition-fast">
+                            <Link href="/tool-hangar/" className="text-secondary hover:text-accent transition-fast">
                                 Tool Hangar
                             </Link>
-                            <Link href="/ai-mastery-hub" className="text-secondary hover:text-accent transition-fast">
+                            <Link href="/ai-mastery-hub/" className="text-secondary hover:text-accent transition-fast">
                                 AI Mastery Hub
                             </Link>
-                            <Link href="/about" className="text-secondary hover:text-accent transition-fast">
+                            <Link href="/about/" className="text-secondary hover:text-accent transition-fast">
                                 About
                             </Link>
                         </div>
@@ -224,7 +224,7 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                             padding: 'var(--space-2)'
                                         }}>
                                             <Link
-                                                href="/news"
+                                                href="/news/"
                                                 className="text-secondary hover:text-accent transition-fast"
                                                 onClick={() => setMobileMenuOpen(false)}
                                                 style={{
@@ -238,7 +238,7 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                                 News
                                             </Link>
                                             <Link
-                                                href="/prompt-vault"
+                                                href="/prompt-vault/"
                                                 className="text-secondary hover:text-accent transition-fast"
                                                 onClick={() => setMobileMenuOpen(false)}
                                                 style={{
@@ -252,7 +252,7 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                                 Prompt Vault
                                             </Link>
                                             <Link
-                                                href="/tool-hangar"
+                                                href="/tool-hangar/"
                                                 className="text-secondary hover:text-accent transition-fast"
                                                 onClick={() => setMobileMenuOpen(false)}
                                                 style={{
@@ -266,7 +266,7 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                                 Tool Hangar
                                             </Link>
                                             <Link
-                                                href="/ai-mastery-hub"
+                                                href="/ai-mastery-hub/"
                                                 className="text-secondary hover:text-accent transition-fast"
                                                 onClick={() => setMobileMenuOpen(false)}
                                                 style={{
@@ -280,7 +280,7 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                                 AI Mastery Hub
                                             </Link>
                                             <Link
-                                                href="/about"
+                                                href="/about/"
                                                 className="text-secondary hover:text-accent transition-fast"
                                                 onClick={() => setMobileMenuOpen(false)}
                                                 style={{

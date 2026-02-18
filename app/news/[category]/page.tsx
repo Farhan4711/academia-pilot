@@ -20,6 +20,9 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     return {
         title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} AI News - Academia Pilot`,
         description: meta?.seoDescription || `Explore the latest ${readableCategory} AI news, breakthroughs, and analysis on Academia Pilot.`,
+        alternates: {
+            canonical: `/news/${category}/`,
+        },
     };
 }
 
@@ -49,7 +52,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                 <div className="container">
                     <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
                         <div style={{ marginBottom: 'var(--space-4)' }}>
-                            <Link href="/news" className="text-accent hover:underline" style={{ fontSize: 'var(--text-sm)' }}>
+                            <Link href="/news/" className="text-accent hover:underline" style={{ fontSize: 'var(--text-sm)' }}>
                                 ← All News
                             </Link>
                         </div>
@@ -112,7 +115,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                     ) : (
                         <div className="grid grid-3">
                             {newsItems.map((item) => (
-                                <Card key={item.slug} href={`/news/${category}/${item.slug.split('/').pop()}`}>
+                                <Card key={item.slug} href={`/news/${category}/${item.slug.split('/').pop()}/`}>
                                     <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                         <Badge variant="cta">
                                             {formatDate(item.date)}

@@ -105,8 +105,8 @@ function SearchResultsContent({ initialData }: { initialData: SearchResult[] }) 
                         if (item.type === 'ai-mastery-hub') basePath = '/ai-mastery-hub';
 
                         const link = item.category
-                            ? `${basePath}/${item.category}/${item.slug.split('/').pop()}`
-                            : `${basePath}/${item.slug}`;
+                            ? `${basePath}/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}/`
+                            : `${basePath}/${item.slug}/`;
 
                         return (
                             <Link key={index} href={link} className="card-hover">

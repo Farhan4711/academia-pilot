@@ -8,6 +8,9 @@ const meta = getCategoryMetadata('ai-mastery-hub');
 export const metadata = {
     title: meta?.title || "AI Mastery Hub - Master AI Power Unleashed",
     description: meta?.seoDescription || "Your central hub for mastering artificial intelligence, agentic workflows, and the future of coding. Learn the interface, master the tools, and build faster.",
+    alternates: {
+        canonical: "/ai-mastery-hub/",
+    },
     keywords: ["AI Mastery Hub guide", "AI tutorial", "Agent Manager guide", "Vibe Coding tutorial", "best AI tools 2026"],
 };
 
@@ -77,7 +80,7 @@ export default function AIMasteryHubPage() {
                             <Button variant="cta" size="lg" href="#tutorial">
                                 Start Tutorial
                             </Button>
-                            <Button variant="secondary" size="lg" href="/prompt-vault">
+                            <Button variant="secondary" size="lg" href="/prompt-vault/">
                                 Get Prompts
                             </Button>
                         </div>
@@ -466,7 +469,7 @@ export default function AIMasteryHubPage() {
                         Get our battle-tested Antigravity prompts and join the Flight Crew for weekly tips.
                     </p>
                     <div className="flex gap-4 justify-center">
-                        <Button variant="cta" size="lg" href="/prompt-vault">
+                        <Button variant="cta" size="lg" href="/prompt-vault/">
                             Get AI Mastery Prompts
                         </Button>
                         <Button variant="secondary" size="lg" href="/#newsletter-signup">

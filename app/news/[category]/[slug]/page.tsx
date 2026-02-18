@@ -1,6 +1,7 @@
 import { getAllContent, getContentBySlug, getRelatedContent, formatDate } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import NextImage from 'next/image';
 import Badge from '@/components/ui/Badge';
 import Card, { CardTitle, CardDescription } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -48,13 +49,13 @@ export async function generateMetadata({ params }: PageProps) {
             description: article.excerpt,
             keywords: article.tags?.join(', '),
             alternates: {
-                canonical: `/news/${category}/${slug}`,
+                canonical: `/news/${category}/${slug}/`,
             },
             openGraph: {
                 title: article.title,
                 description: article.excerpt,
                 type: 'article',
-                url: `https://academiapilot.com/news/${category}/${slug}`,
+                url: `https://academiapilot.com/news/${category}/${slug}/`,
                 images: [
                     {
                         url: article.image || '/og-image.png',
@@ -82,9 +83,13 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function ArticlePage({ params }: PageProps) {
     const { category, slug } = await params;
+    console.log(`[Page] Loading article: /news/${category}/${slug}`);
+
     const article = getContentBySlug('news', slug);
+    console.log(`[Page] getContentBySlug result: ${article ? 'Found' : 'NOT Found'} (Canonical slug: ${article?.slug})`);
 
     if (!article) {
+        console.warn(`[Page] Triggering notFound() for: /news/${category}/${slug}`);
         notFound();
     }
 
@@ -156,15 +161,17 @@ export default async function ArticlePage({ params }: PageProps) {
                                 overflow: 'hidden',
                                 border: '1px solid var(--color-border)',
                                 boxShadow: 'var(--shadow-xl)',
-                                aspectRatio: '16/9'
+                                aspectRatio: '16/9',
+                                position: 'relative'
                             }}>
-                                <img
+                                <NextImage
                                     src={article.image}
                                     alt={article.title}
+                                    fill
+                                    priority
+                                    sizes="(max-width: 768px) 100vw, 800px"
                                     style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                        display: 'block'
+                                        objectFit: 'cover'
                                     }}
                                 />
                             </div>
@@ -316,7 +323,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
                             <div className="grid grid-3">
                                 {relatedArticles.map((related) => (
-                                    <Card key={related.slug} href={`/news/${related.category || 'uncategorized'}/${related.slug.split('/').pop()}`}>
+                                    <Card key={related.slug} href={`/news/${related.category || 'uncategorized'}/${related.slug.split('/').pop()}/`}>
                                         <div style={{ marginBottom: 'var(--space-3)' }}>
                                             <Badge variant="cta">
                                                 {new Date(related.date).toLocaleDateString('en-US', {

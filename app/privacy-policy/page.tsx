@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
     title: "Privacy Policy",
     description: "Academia Pilot Privacy Policy - How we handle your data and protect your privacy.",
+    alternates: {
+        canonical: "/privacy-policy/",
+    },
 };
 
 export default function PrivacyPolicyPage() {

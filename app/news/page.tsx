@@ -9,6 +9,9 @@ const meta = getCategoryMetadata('news');
 export const metadata = {
     title: meta?.title || "News - Breaking AI News Radar",
     description: meta?.seoDescription || "Stay updated with the latest AI breakthroughs, tool releases, and industry insights. Your radar for navigating the agentic frontier.",
+    alternates: {
+        canonical: "/news/",
+    },
 };
 
 export default function NewsPage() {
@@ -80,7 +83,7 @@ export default function NewsPage() {
                     ) : (
                         <div className="grid grid-3">
                             {newsItems.map((item) => (
-                                <Card key={item.slug} href={`/news/${item.category || 'uncategorized'}/${item.slug}`}>
+                                <Card key={item.slug} href={`/news/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}/`}>
                                     <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                         <Badge variant="cta">
                                             {formatDate(item.date)}

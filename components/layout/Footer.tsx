@@ -105,27 +105,27 @@ export default function Footer() {
                         </h4>
                         <ul style={{ listStyle: 'none', padding: 0 }}>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/news" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                <Link href="/news/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
                                     News
                                 </Link>
                             </li>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/ai-mastery-hub" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                <Link href="/ai-mastery-hub/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
                                     AI Mastery Hub
                                 </Link>
                             </li>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/tool-hangar" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                <Link href="/tool-hangar/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
                                     Tool Hangar
                                 </Link>
                             </li>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/prompt-vault" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                <Link href="/prompt-vault/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
                                     Prompt Vault
                                 </Link>
                             </li>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/course-navigator" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                <Link href="/course-navigator/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
                                     Course Navigator
                                 </Link>
                             </li>
@@ -146,7 +146,7 @@ export default function Footer() {
                         </h4>
                         <ul style={{ listStyle: 'none', padding: 0 }}>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/about" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                <Link href="/about/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
                                     About The Pilot
                                 </Link>
                             </li>
@@ -156,12 +156,12 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/privacy-policy" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                <Link href="/privacy-policy/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
                                     Privacy Policy
                                 </Link>
                             </li>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/terms-of-service" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                <Link href="/terms-of-service/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
                                     Terms of Service
                                 </Link>
                             </li>
@@ -201,13 +201,13 @@ export default function Footer() {
                             © {currentYear} Academia Pilot. Navigating the agentic frontier.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="/privacy-policy" className="text-muted hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
+                            <Link href="/privacy-policy/" className="text-muted hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
                                 Privacy
                             </Link>
-                            <Link href="/terms-of-service" className="text-muted hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
+                            <Link href="/terms-of-service/" className="text-muted hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
                                 Terms
                             </Link>
-                            <Link href="/privacy-policy#cookies" className="text-muted hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
+                            <Link href="/privacy-policy/#cookies" className="text-muted hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
                                 Cookies
                             </Link>
                         </div>

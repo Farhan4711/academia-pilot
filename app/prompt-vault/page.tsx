@@ -11,6 +11,9 @@ const meta = getCategoryMetadata('prompt-vault');
 export const metadata = {
     title: meta?.title || "The Prompt Vault - Battle-Tested AI Prompts | Academia Pilot",
     description: meta?.seoDescription || "Copy, paste, and get results. Battle-tested AI prompts, templates, and configurations that save you 20+ hours per week.",
+    alternates: {
+        canonical: "/prompt-vault/",
+    },
 };
 
 export default function PromptVaultPage() {
@@ -84,7 +87,7 @@ export default function PromptVaultPage() {
                             {categories.map(cat => (
                                 <Link
                                     key={cat}
-                                    href={`/prompt-vault/${cat}`}
+                                    href={`/prompt-vault/${cat}/`}
                                     className="btn btn-secondary btn-sm"
                                     style={{ textTransform: 'capitalize' }}
                                 >
@@ -102,7 +105,7 @@ export default function PromptVaultPage() {
                     <h2 className="section-title">Latest Free Prompts</h2>
                     <div className="grid grid-3">
                         {featuredPrompts.map((item) => (
-                            <Card key={item.slug} href={`/prompt-vault/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}`}>
+                            <Card key={item.slug} href={`/prompt-vault/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}/`}>
                                 <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                     <Badge variant="accent">
                                         {item.level || 'Intermediate'}
@@ -140,7 +143,7 @@ export default function PromptVaultPage() {
                     {premiumPrompts.length > 0 ? (
                         <div className="grid grid-3">
                             {premiumPrompts.map((item) => (
-                                <Card key={item.slug} href={`/prompt-vault/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}`} variant="highlight">
+                                <Card key={item.slug} href={`/prompt-vault/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}/`} variant="highlight">
                                     <div className="flex justify-between items-start" style={{ marginBottom: 'var(--space-3)' }}>
                                         <Badge variant="cta">Premium</Badge>
                                         <div style={{ fontSize: 'var(--text-2xl)' }}>🔒</div>

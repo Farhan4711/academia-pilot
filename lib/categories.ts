@@ -19,11 +19,11 @@ Unlike surface-level tech reporting, our coverage goes deeper. Every article inc
 
 Whether you're a founder, developer, policymaker, educator, or AI enthusiast, this hub keeps you informed about critical updates shaping the global AI ecosystem.`,
         internalLinks: [
-            { label: "🔐 AI Security Updates", href: "/news/ai-security" },
-            { label: "🤖 Generative AI Breakthroughs", href: "/news/generative-ai" },
-            { label: "🧠 AI Mastery Hub (In-depth Guides)", href: "/ai-mastery-hub" },
-            { label: "🛠 AI Tool Comparisons", href: "/tool-hangar" },
-            { label: "📦 Prompt Vault (Ready-to-Use Prompts)", href: "/prompt-vault" }
+            { label: "🔐 AI Security Updates", href: "/news/ai-security/" },
+            { label: "🤖 Generative AI Breakthroughs", href: "/news/generative-ai/" },
+            { label: "🧠 AI Mastery Hub (In-depth Guides)", href: "/ai-mastery-hub/" },
+            { label: "🛠 AI Tool Comparisons", href: "/tool-hangar/" },
+            { label: "📦 Prompt Vault (Ready-to-Use Prompts)", href: "/prompt-vault/" }
         ]
     },
     "ai-security": { // Keeping for /news/ai-security backward compatibility
@@ -34,10 +34,10 @@ Whether you're a founder, developer, policymaker, educator, or AI enthusiast, th
 
 Here, we analyze model vulnerabilities, data privacy, and security incidents. Our goal is to provide actionable insights that help professionals protect systems, ensure compliance, and maintain trust in AI technologies.`,
         internalLinks: [
-            { label: "🔹 Explore AI Mastery Hub → Security Guides", href: "/ai-mastery-hub/ai-security" },
-            { label: "🔹 Latest News on Generative AI Security", href: "/news/generative-ai" },
-            { label: "🔹 Prompt Vault → AI Security Prompts", href: "/prompt-vault/security" },
-            { label: "🔹 Tool Hangar → Security & Monitoring Tools", href: "/tool-hangar/security" }
+            { label: "🔹 Explore AI Mastery Hub → Security Guides", href: "/ai-mastery-hub/ai-security/" },
+            { label: "🔹 Latest News on Generative AI Security", href: "/news/generative-ai/" },
+            { label: "🔹 Prompt Vault → AI Security Prompts", href: "/prompt-vault/security/" },
+            { label: "🔹 Tool Hangar → Security & Monitoring Tools", href: "/tool-hangar/security/" }
         ]
     },
     "generative-ai": {
@@ -48,10 +48,10 @@ Here, we analyze model vulnerabilities, data privacy, and security incidents. Ou
 
 Our coverage includes launches, benchmarks, and real-world applications. Each article goes beyond headlines to explain why these developments matter and what opportunities they bring.`,
         internalLinks: [
-            { label: "🔹 Explore AI Mastery Hub → Generative AI Guides", href: "/ai-mastery-hub/generative-ai" },
-            { label: "🔹 Prompt Vault → Creative AI Prompts", href: "/prompt-vault/creative" },
-            { label: "🔹 Tool Hangar → Generative AI Tools", href: "/tool-hangar/generative-ai" },
-            { label: "🔹 News Radar → AI Security Updates", href: "/news/ai-security" }
+            { label: "🔹 Explore AI Mastery Hub → Generative AI Guides", href: "/ai-mastery-hub/generative-ai/" },
+            { label: "🔹 Prompt Vault → Creative AI Prompts", href: "/prompt-vault/creative/" },
+            { label: "🔹 Tool Hangar → Generative AI Tools", href: "/tool-hangar/generative-ai/" },
+            { label: "🔹 News Radar → AI Security Updates", href: "/news/ai-security/" }
         ]
     },
     "prompt-vault": {
@@ -76,10 +76,10 @@ The Prompt Vault also integrates internal resources:
 
 This makes it a one-stop hub for both beginners and experts looking to leverage AI efficiently.`,
         internalLinks: [
-            { label: "🔹 Explore AI Mastery Hub → Prompt Engineering Guides", href: "/ai-mastery-hub/prompt-engineering" },
-            { label: "🔹 Tool Hangar → Best AI Tools for Prompts", href: "/tool-hangar" },
-            { label: "🔹 News Radar → Latest AI Developments", href: "/news" },
-            { label: "🔹 Related Prompt Categories → Education, Marketing, Coding", href: "/prompt-vault" }
+            { label: "🔹 Explore AI Mastery Hub → Prompt Engineering Guides", href: "/ai-mastery-hub/prompt-engineering/" },
+            { label: "🔹 Tool Hangar → Best AI Tools for Prompts", href: "/tool-hangar/" },
+            { label: "🔹 News Radar → Latest AI Developments", href: "/news/" },
+            { label: "🔹 Related Prompt Categories → Education, Marketing, Coding", href: "/prompt-vault/" }
         ]
     },
     "education": {
@@ -99,10 +99,10 @@ Every prompt includes instructions, examples, and customization tips. By using t
 
 These educational prompts integrate seamlessly with AI Mastery Hub guides and Prompt Vault workflow templates, giving users a full-stack AI learning and application experience.`,
         internalLinks: [
-            { label: "🔹 AI Mastery Hub → Educational AI Guides", href: "/ai-mastery-hub" },
-            { label: "🔹 Prompt Vault → Other Educational Prompts", href: "/prompt-vault" },
-            { label: "🔹 Tool Hangar → AI Tools for Learning", href: "/tool-hangar" },
-            { label: "🔹 News Radar → AI in Education Updates", href: "/news" }
+            { label: "🔹 AI Mastery Hub → Educational AI Guides", href: "/ai-mastery-hub/" },
+            { label: "🔹 Prompt Vault → Other Educational Prompts", href: "/prompt-vault/" },
+            { label: "🔹 Tool Hangar → AI Tools for Learning", href: "/tool-hangar/" },
+            { label: "🔹 News Radar → AI in Education Updates", href: "/news/" }
         ]
     },
     "marketing": {
@@ -122,10 +122,10 @@ Each prompt is ready-to-use with instructions, examples, and advanced variations
 
 They are fully integrated with AI Mastery Hub guides and Tool Hangar comparisons, helping users select the right AI tools for marketing applications.`,
         internalLinks: [
-            { label: "🔹 AI Mastery Hub → Marketing AI Guides", href: "/ai-mastery-hub" },
-            { label: "🔹 Prompt Vault → Other Marketing Prompts", href: "/prompt-vault" },
-            { label: "🔹 Tool Hangar → Best AI Marketing Tools", href: "/tool-hangar" },
-            { label: "🔹 News Radar → AI Marketing & Ads Trends", href: "/news" }
+            { label: "🔹 AI Mastery Hub → Marketing AI Guides", href: "/ai-mastery-hub/" },
+            { label: "🔹 Prompt Vault → Other Marketing Prompts", href: "/prompt-vault/" },
+            { label: "🔹 Tool Hangar → Best AI Marketing Tools", href: "/tool-hangar/" },
+            { label: "🔹 News Radar → AI Marketing & Ads Trends", href: "/news/" }
         ]
     },
     "tool-hangar": {
@@ -147,10 +147,10 @@ The Tool Hangar is fully integrated with Prompt Vault templates and AI Mastery H
 
 Whether you want to automate workflows, create content faster, or analyze data intelligently, this hub ensures you make informed decisions and stay ahead in the AI landscape.`,
         internalLinks: [
-            { label: "🔹 Prompt Vault → Relevant AI Prompts", href: "/prompt-vault" },
-            { label: "🔹 AI Mastery Hub → Tool Integration Guides", href: "/ai-mastery-hub" },
-            { label: "🔹 News Radar → Latest AI Tools & Updates", href: "/news" },
-            { label: "🔹 Subcategories → Writing Tools, Image Tools, Productivity Tools", href: "/tool-hangar" }
+            { label: "🔹 Prompt Vault → Relevant AI Prompts", href: "/prompt-vault/" },
+            { label: "🔹 AI Mastery Hub → Tool Integration Guides", href: "/ai-mastery-hub/" },
+            { label: "🔹 News Radar → Latest AI Tools & Updates", href: "/news/" },
+            { label: "🔹 Subcategories → Writing Tools, Image Tools, Productivity Tools", href: "/tool-hangar/" }
         ]
     },
     "writing-tools": {
@@ -170,10 +170,10 @@ We also provide practical guides on combining these writing tools with Prompt Va
 
 Stay informed on updates and newly released writing AI platforms to make data-driven decisions for content creation and marketing campaigns.`,
         internalLinks: [
-            { label: "🔹 Prompt Vault → Writing Prompts Templates", href: "/prompt-vault" },
-            { label: "🔹 AI Mastery Hub → Content Creation Guides", href: "/ai-mastery-hub" },
-            { label: "🔹 Tool Hangar → Image Tools, Marketing Tools", href: "/tool-hangar" },
-            { label: "🔹 News Radar → Writing AI Product Updates", href: "/news" }
+            { label: "🔹 Prompt Vault → Writing Prompts Templates", href: "/prompt-vault/" },
+            { label: "🔹 AI Mastery Hub → Content Creation Guides", href: "/ai-mastery-hub/" },
+            { label: "🔹 Tool Hangar → Image Tools, Marketing Tools", href: "/tool-hangar/" },
+            { label: "🔹 News Radar → Writing AI Product Updates", href: "/news/" }
         ]
     },
     "image-tools": {
@@ -193,10 +193,10 @@ Each tool review explains how it integrates with Prompt Vault creative prompts a
 
 Stay updated on the newest AI image tools and trends to remain competitive and innovative in 2026.`,
         internalLinks: [
-            { label: "🔹 Prompt Vault → Creative AI Prompts", href: "/prompt-vault" },
-            { label: "🔹 AI Mastery Hub → Generative AI Guides", href: "/ai-mastery-hub" },
-            { label: "🔹 Tool Hangar → Writing Tools, Productivity Tools", href: "/tool-hangar" },
-            { label: "🔹 News Radar → Image AI Updates", href: "/news" }
+            { label: "🔹 Prompt Vault → Creative AI Prompts", href: "/prompt-vault/" },
+            { label: "🔹 AI Mastery Hub → Generative AI Guides", href: "/ai-mastery-hub/" },
+            { label: "🔹 Tool Hangar → Writing Tools, Productivity Tools", href: "/tool-hangar/" },
+            { label: "🔹 News Radar → Image AI Updates", href: "/news/" }
         ]
     },
     "ai-mastery-hub": {
@@ -216,10 +216,10 @@ Each guide is designed to be actionable, practical, and up-to-date with the late
 
 Whether you want to improve productivity, secure AI applications, or explore cutting-edge generative AI capabilities, the AI Mastery Hub equips you with the knowledge and tools to succeed in 2026 and beyond.`,
         internalLinks: [
-            { label: "🔹 Prompt Vault → Related Prompts", href: "/prompt-vault" },
-            { label: "🔹 Tool Hangar → Relevant Tools", href: "/tool-hangar" },
-            { label: "🔹 News Radar → AI Trends & Updates", href: "/news" },
-            { label: "🔹 AI Mastery Hub → Subcategories: Prompt Engineering, AI Security", href: "/ai-mastery-hub" }
+            { label: "🔹 Prompt Vault → Related Prompts", href: "/prompt-vault/" },
+            { label: "🔹 Tool Hangar → Relevant Tools", href: "/tool-hangar/" },
+            { label: "🔹 News Radar → AI Trends & Updates", href: "/news/" },
+            { label: "🔹 AI Mastery Hub → Subcategories: Prompt Engineering, AI Security", href: "/ai-mastery-hub/" }
         ]
     },
     "prompt-engineering": {
@@ -237,10 +237,10 @@ This hub covers:
 
 Each guide is actionable, with examples and variations to help you customize prompts for your workflow. By mastering prompt engineering, you can maximize output quality, save time, and harness the full potential of AI models for creative, educational, and business applications.`,
         internalLinks: [
-            { label: "🔹 Prompt Vault → Ready-to-Use Prompts", href: "/prompt-vault" },
-            { label: "🔹 Tool Hangar → AI Tools for Prompt Testing", href: "/tool-hangar" },
-            { label: "🔹 AI Mastery Hub → AI Security Guides", href: "/ai-mastery-hub/ai-security" },
-            { label: "🔹 News Radar → AI Model Updates", href: "/news" }
+            { label: "🔹 Prompt Vault → Ready-to-Use Prompts", href: "/prompt-vault/" },
+            { label: "🔹 Tool Hangar → AI Tools for Prompt Testing", href: "/tool-hangar/" },
+            { label: "🔹 AI Mastery Hub → AI Security Guides", href: "/ai-mastery-hub/ai-security/" },
+            { label: "🔹 News Radar → AI Model Updates", href: "/news/" }
         ]
     },
     "hub-ai-security": { // Differentiating from news-ai-security
@@ -258,10 +258,10 @@ Key topics include:
 
 Each guide provides actionable insights, templates, and step-by-step instructions to implement security measures in your AI projects. By combining this knowledge with Prompt Vault workflows and Tool Hangar integrations, users can safely deploy AI solutions while maintaining trust and compliance.`,
         internalLinks: [
-            { label: "🔹 Prompt Vault → Security-Related Prompts", href: "/prompt-vault" },
-            { label: "🔹 Tool Hangar → Security & Monitoring Tools", href: "/tool-hangar" },
-            { label: "🔹 AI Mastery Hub → Prompt Engineering Guides", href: "/ai-mastery-hub/prompt-engineering" },
-            { label: "🔹 News Radar → AI Security Updates", href: "/news/ai-security" }
+            { label: "🔹 Prompt Vault → Security-Related Prompts", href: "/prompt-vault/" },
+            { label: "🔹 Tool Hangar → Security & Monitoring Tools", href: "/tool-hangar/" },
+            { label: "🔹 AI Mastery Hub → Prompt Engineering Guides", href: "/ai-mastery-hub/prompt-engineering/" },
+            { label: "🔹 News Radar → AI Security Updates", href: "/news/ai-security/" }
         ]
     }
 };

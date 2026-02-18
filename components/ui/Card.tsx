@@ -36,7 +36,7 @@ export default function Card({ children, href, className = '', variant = 'defaul
 
         // Internal link - use Next.js Link for client-side navigation
         return (
-            <Link href={href} className={cardClass} style={style}>
+            <Link href={href} className={cardClass} style={style} prefetch={false}>
                 {children}
             </Link>
         );

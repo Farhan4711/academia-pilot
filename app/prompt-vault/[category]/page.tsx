@@ -21,6 +21,9 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     return {
         title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} Prompts - Prompt Vault | Academia Pilot`,
         description: meta?.seoDescription || `Unlock battle-tested AI prompts for ${readableCategory}. Battle-tested, optimized, and ready to use.`,
+        alternates: {
+            canonical: `/prompt-vault/${category}/`,
+        },
     };
 }
 
@@ -49,7 +52,7 @@ export default async function PromptCategoryPage({ params }: { params: Promise<{
                 <div className="container">
                     <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
                         <div style={{ marginBottom: 'var(--space-4)' }}>
-                            <Link href="/prompt-vault" className="text-accent hover:underline" style={{ fontSize: 'var(--text-sm)' }}>
+                            <Link href="/prompt-vault/" className="text-accent hover:underline" style={{ fontSize: 'var(--text-sm)' }}>
                                 ← All Prompts
                             </Link>
                         </div>
@@ -113,7 +116,7 @@ export default async function PromptCategoryPage({ params }: { params: Promise<{
                     ) : (
                         <div className="grid grid-3">
                             {promptItems.map((item) => (
-                                <Card key={item.slug} href={`/prompt-vault/${category}/${item.slug.split('/').pop()}`}>
+                                <Card key={item.slug} href={`/prompt-vault/${category}/${item.slug.split('/').pop()}/`}>
                                     <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                         <Badge variant="accent">
                                             {item.level || 'Intermediate'}

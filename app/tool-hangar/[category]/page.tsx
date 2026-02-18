@@ -20,6 +20,9 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     return {
         title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} Tools - Tool Hangar | Academia Pilot`,
         description: meta?.seoDescription || `Discovery the best AI tools for ${readableCategory}. Pilot-vetted, battle-tested, and ready to deploy.`,
+        alternates: {
+            canonical: `/tool-hangar/${category}/`,
+        },
     };
 }
 
@@ -48,7 +51,7 @@ export default async function ToolCategoryPage({ params }: { params: Promise<{ c
                 <div className="container">
                     <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
                         <div style={{ marginBottom: 'var(--space-4)' }}>
-                            <Link href="/tool-hangar" className="text-accent hover:underline" style={{ fontSize: 'var(--text-sm)' }}>
+                            <Link href="/tool-hangar/" className="text-accent hover:underline" style={{ fontSize: 'var(--text-sm)' }}>
                                 ← All Tools
                             </Link>
                         </div>
@@ -112,7 +115,7 @@ export default async function ToolCategoryPage({ params }: { params: Promise<{ c
                     ) : (
                         <div className="grid grid-3">
                             {toolItems.map((item) => (
-                                <Card key={item.slug} href={`/tool-hangar/${category}/${item.slug.split('/').pop()}`}>
+                                <Card key={item.slug} href={`/tool-hangar/${category}/${item.slug.split('/').pop()}/`}>
                                     <div className="flex justify-between items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                         <Badge variant="accent">
                                             {item.pricing || 'Free'}

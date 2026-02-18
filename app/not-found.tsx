@@ -60,7 +60,7 @@ export default function NotFound() {
                             <Button variant="cta" size="lg" href="/">
                                 Return to Base
                             </Button>
-                            <Button variant="secondary" size="lg" href="/news">
+                            <Button variant="secondary" size="lg" href="/news/">
                                 Browse News
                             </Button>
                         </div>
@@ -78,16 +78,16 @@ export default function NotFound() {
                                 Popular Destinations
                             </p>
                             <div className="flex gap-4 justify-center" style={{ flexWrap: 'wrap' }}>
-                                <Link href="/ai-mastery-hub" className="text-accent hover:underline">
+                                <Link href="/ai-mastery-hub/" className="text-accent hover:underline">
                                     AI Mastery Hub
                                 </Link>
-                                <Link href="/tool-hangar" className="text-accent hover:underline">
+                                <Link href="/tool-hangar/" className="text-accent hover:underline">
                                     Tool Hangar
                                 </Link>
-                                <Link href="/prompt-vault" className="text-accent hover:underline">
+                                <Link href="/prompt-vault/" className="text-accent hover:underline">
                                     Prompt Vault
                                 </Link>
-                                <Link href="/about" className="text-accent hover:underline">
+                                <Link href="/about/" className="text-accent hover:underline">
                                     About
                                 </Link>
                             </div>

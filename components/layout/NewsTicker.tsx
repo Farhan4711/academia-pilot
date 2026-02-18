@@ -70,7 +70,8 @@ export default function NewsTicker({ items }: NewsTickerProps) {
                     {items.concat(items).map((item, index) => (
                         <Link
                             key={`${item.slug}-${index}`}
-                            href={`/news/${item.category}/${item.slug.split('/').pop()}`}
+                            prefetch={false}
+                            href={`/news/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}/`}
                             style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
