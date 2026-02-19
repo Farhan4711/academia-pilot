@@ -24,6 +24,7 @@ export interface ContentItem {
     level?: string;
     duration?: string;
     url?: string;
+    faq?: { question: string; answer: string; icon?: string }[];
     content?: string;
     [key: string]: any; // Allow additional custom fields
 }

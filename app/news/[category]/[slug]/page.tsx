@@ -1,3 +1,4 @@
+import React from 'react';
 import { getAllContent, getContentBySlug, getRelatedContent, formatDate } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -7,6 +8,13 @@ import Card, { CardTitle, CardDescription } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
+import FAQAccordion from '@/components/ui/FAQAccordion';
+import AgenticVsIDETable from '@/components/content/AgenticVsIDETable';
+import AgenticArchitecture from '@/components/content/AgenticArchitecture';
+import WorkflowComparison from '@/components/content/WorkflowComparison';
+import AIOverviewTable from '@/components/content/AIOverviewTable';
+import AITestResults from '@/components/content/AITestResults';
+import AIFinalVerdict from '@/components/content/AIFinalVerdict';
 
 // Generate static params for all news articles (required for static export)
 export async function generateStaticParams() {
@@ -105,7 +113,7 @@ export default async function ArticlePage({ params }: PageProps) {
                     paddingTop: 'var(--space-16)',
                     paddingBottom: 'var(--space-8)'
                 }}>
-                    <div className="container container-md">
+                    <div className="container container-article">
                         {/* Breadcrumb */}
                         <div style={{ marginBottom: 'var(--space-6)' }}>
                             <div className="flex items-center gap-2 text-sm text-accent">
@@ -273,14 +281,68 @@ export default async function ArticlePage({ params }: PageProps) {
 
                 {/* Article Content */}
                 <section className="section">
-                    <div className="container container-md">
-                        <MarkdownRenderer content={article.content} />
+                    <div className="container container-article">
+                        {(() => {
+                            const COMPONENT_MAP: Record<string, React.ReactNode> = {
+                                'AgenticVsIDETable': <AgenticVsIDETable />,
+                                'AgenticArchitecture': <AgenticArchitecture />,
+                                'WorkflowComparison': <WorkflowComparison />,
+                                'AIOverviewTable': <AIOverviewTable />,
+                                'AITestResults': <AITestResults />,
+                                'AIFinalVerdict': <AIFinalVerdict />,
+                            };
+                            const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
+                            const segments: Array<{ type: 'markdown' | 'component'; value: string }> = [];
+                            let lastIndex = 0;
+                            let match;
+                            const content = article.content;
+                            while ((match = MARKER_REGEX.exec(content)) !== null) {
+                                if (match.index > lastIndex) {
+                                    segments.push({ type: 'markdown', value: content.slice(lastIndex, match.index) });
+                                }
+                                segments.push({ type: 'component', value: match[1] });
+                                lastIndex = match.index + match[0].length;
+                            }
+                            if (lastIndex < content.length) {
+                                segments.push({ type: 'markdown', value: content.slice(lastIndex) });
+                            }
+                            if (segments.length === 0) {
+                                return <MarkdownRenderer content={content} />;
+                            }
+                            return (
+                                <>
+                                    {segments.map((seg, i) =>
+                                        seg.type === 'component' ? (
+                                            <div key={i} style={{ margin: 'var(--space-10) 0' }}>
+                                                {COMPONENT_MAP[seg.value] ?? null}
+                                            </div>
+                                        ) : (
+                                            <MarkdownRenderer key={i} content={seg.value} />
+                                        )
+                                    )}
+                                </>
+                            );
+                        })()}
                     </div>
                 </section>
 
+                {/* Dynamic FAQ Section */}
+                {article.faq && article.faq.length > 0 && (
+                    <section className="section" style={{ padding: 0 }}>
+                        <FAQAccordion
+                            faqs={article.faq.map(item => ({
+                                ...item,
+                                icon: item.icon || '❓' // Fallback icon if missing
+                            }))}
+                            title="Frequently Asked Questions"
+                            subtitle="Common questions about this topic"
+                        />
+                    </section>
+                )}
+
                 {/* Newsletter CTA */}
                 <section className="section" style={{ backgroundColor: 'var(--color-surface)' }}>
-                    <div className="container container-md">
+                    <div className="container container-article">
                         <div style={{
                             textAlign: 'center',
                             padding: 'var(--space-12)',

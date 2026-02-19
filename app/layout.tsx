@@ -90,6 +90,8 @@ const jsonLd = {
   }
 };
 
+import ExploreRelated from "@/components/ui/ExploreRelated";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -126,6 +128,7 @@ export default function RootLayout({
         <main id="main-content" className="min-h-screen">
           {children}
         </main>
+        <ExploreRelated />
         <Footer />
       </body>
     </html>

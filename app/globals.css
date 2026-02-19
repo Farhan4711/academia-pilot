@@ -292,6 +292,35 @@ pre code {
   max-width: var(--max-width-2xl);
 }
 
+/* Article reading container — wider than md, narrower than full xl */
+.container-article {
+  max-width: 960px;
+}
+
+/* Prose body for long-form articles: constrained line-length + breathing room */
+.article-prose {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-8);
+  padding-right: var(--space-8);
+}
+
+@media (min-width: 1440px) {
+  .article-prose {
+    max-width: 1040px;
+    padding-left: var(--space-16);
+    padding-right: var(--space-16);
+  }
+}
+
+@media (max-width: 768px) {
+  .article-prose {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
 /* Grid Layouts - Radar Style */
 .grid {
   display: grid;

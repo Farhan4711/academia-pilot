@@ -46,5 +46,6 @@ next-env.d.ts
 # build logs and artifacts
 build-log.txt
 build_log.txt
+build_output*.txt
 out.zip
 cleanup-backup/

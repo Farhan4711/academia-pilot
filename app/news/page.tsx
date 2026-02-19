@@ -49,26 +49,7 @@ export default function NewsPage() {
                             {meta?.introContent}
                         </div>
 
-                        {/* Internal Linking Block */}
-                        <div style={{
-                            backgroundColor: 'var(--color-surface)',
-                            border: '1px solid var(--color-accent)',
-                            borderRadius: 'var(--radius-lg)',
-                            padding: 'var(--space-6)',
-                            marginTop: 'var(--space-8)',
-                            textAlign: 'left'
-                        }}>
-                            <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 'var(--font-bold)', marginBottom: 'var(--space-4)' }}>
-                                Explore Related Sections:
-                            </h3>
-                            <div className="grid grid-2 gap-4">
-                                {meta?.internalLinks.map((link, idx) => (
-                                    <Link key={idx} href={link.href} className="text-accent hover:underline flex items-center gap-2">
-                                        {link.label}
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </section>

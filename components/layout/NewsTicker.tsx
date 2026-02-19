@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import type { ContentItem } from '@/lib/content';
 
@@ -9,20 +9,25 @@ interface NewsTickerProps {
 }
 
 export default function NewsTicker({ items }: NewsTickerProps) {
+    const [isPaused, setIsPaused] = useState(false);
+
     if (!items || items.length === 0) return null;
 
     return (
-        <div className="news-ticker-container" style={{
-            backgroundColor: 'rgba(15, 23, 42, 0.8)',
-            backdropFilter: 'blur(8px)',
-            borderBottom: '1px solid var(--color-border)',
-            height: '40px',
-            display: 'flex',
-            alignItems: 'center',
-            overflow: 'hidden',
-            position: 'relative',
-            zIndex: 'var(--z-sticky)'
-        }}>
+        <div className="news-ticker-container"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            style={{
+                backgroundColor: 'rgba(15, 23, 42, 0.8)',
+                backdropFilter: 'blur(8px)',
+                borderBottom: '1px solid var(--color-border)',
+                height: '40px',
+                display: 'flex',
+                alignItems: 'center',
+                overflow: 'hidden',
+                position: 'relative',
+                zIndex: 'var(--z-sticky)'
+            }}>
             {/* Label */}
             <div className="news-label" style={{
                 backgroundColor: 'var(--color-accent)',
@@ -65,7 +70,9 @@ export default function NewsTicker({ items }: NewsTickerProps) {
                     display: 'flex',
                     whiteSpace: 'nowrap',
                     animation: 'ticker 60s linear infinite',
-                    paddingLeft: '100%'
+                    animationPlayState: isPaused ? 'paused' : 'running',
+                    paddingLeft: '100%',
+                    cursor: isPaused ? 'pointer' : 'default'
                 }}>
                     {items.concat(items).map((item, index) => (
                         <Link
@@ -111,9 +118,7 @@ export default function NewsTicker({ items }: NewsTickerProps) {
                     50% { transform: scale(1.2); opacity: 0.7; }
                     100% { transform: scale(1); opacity: 1; }
                 }
-                .ticker-move:hover {
-                    animation-play-state: paused;
-                }
+
                 .shine-sweep {
                     position: absolute;
                     top: 0;
