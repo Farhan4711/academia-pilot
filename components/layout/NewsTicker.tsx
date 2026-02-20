@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import type { ContentItem } from '@/lib/content';
 
@@ -9,14 +9,10 @@ interface NewsTickerProps {
 }
 
 export default function NewsTicker({ items }: NewsTickerProps) {
-    const [isPaused, setIsPaused] = useState(false);
-
     if (!items || items.length === 0) return null;
 
     return (
         <div className="news-ticker-container"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
             style={{
                 backgroundColor: 'rgba(15, 23, 42, 0.8)',
                 backdropFilter: 'blur(8px)',
@@ -69,36 +65,35 @@ export default function NewsTicker({ items }: NewsTickerProps) {
                 <div className="ticker-move" style={{
                     display: 'flex',
                     whiteSpace: 'nowrap',
-                    animation: 'ticker 60s linear infinite',
-                    animationPlayState: isPaused ? 'paused' : 'running',
-                    paddingLeft: '100%',
-                    cursor: isPaused ? 'pointer' : 'default'
+                    animation: 'ticker 30s linear infinite'
                 }}>
-                    {items.concat(items).map((item, index) => (
+                    {/* Duplicate items for a seamless loop */}
+                    {[...items, ...items].map((item, index) => (
                         <Link
                             key={`${item.slug}-${index}`}
                             prefetch={false}
                             href={`/news/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}/`}
+                            className="ticker-item"
                             style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
-                                padding: '0 var(--space-8)',
+                                paddingRight: '4rem',
                                 color: 'var(--color-text-secondary)',
                                 textDecoration: 'none',
                                 fontSize: 'var(--text-sm)',
-                                transition: 'color var(--transition-fast)'
+                                transition: 'all var(--transition-fast)'
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
-                            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
                         >
                             <span style={{
                                 fontWeight: 'var(--font-bold)',
                                 color: 'var(--color-accent)',
-                                marginRight: '8px'
+                                marginRight: '8px',
+                                fontSize: '0.7rem',
+                                letterSpacing: '0.05em'
                             }}>
                                 {(item.category || '').replace(/-/g, ' ').toUpperCase()}
                             </span>
-                            {item.title}
+                            <span className="ticker-text">{item.title}</span>
                         </Link>
                     ))}
                 </div>
@@ -107,7 +102,7 @@ export default function NewsTicker({ items }: NewsTickerProps) {
             <style jsx>{`
                 @keyframes ticker {
                     0% { transform: translateX(0); }
-                    100% { transform: translateX(-100%); }
+                    100% { transform: translateX(-50%); }
                 }
                 @keyframes shine {
                     0% { transform: translateX(-100%) skewX(-20deg); }
@@ -117,6 +112,23 @@ export default function NewsTicker({ items }: NewsTickerProps) {
                     0% { transform: scale(1); opacity: 1; }
                     50% { transform: scale(1.2); opacity: 0.7; }
                     100% { transform: scale(1); opacity: 1; }
+                }
+
+                .news-ticker-container:hover .ticker-move {
+                    animation-play-state: paused;
+                }
+
+                .ticker-item {
+                    cursor: pointer;
+                }
+
+                .ticker-item:hover {
+                    color: var(--color-accent) !important;
+                    transform: translateY(-1px);
+                }
+
+                .ticker-item:hover .ticker-text {
+                    text-decoration: underline;
                 }
 
                 .shine-sweep {
@@ -134,7 +146,7 @@ export default function NewsTicker({ items }: NewsTickerProps) {
                 }
                 @media (max-width: 768px) {
                     .ticker-move {
-                        animation-duration: 40s;
+                        animation-duration: 20s;
                     }
                 }
             `}</style>

@@ -15,6 +15,23 @@ import WorkflowComparison from '@/components/content/WorkflowComparison';
 import AIOverviewTable from '@/components/content/AIOverviewTable';
 import AITestResults from '@/components/content/AITestResults';
 import AIFinalVerdict from '@/components/content/AIFinalVerdict';
+import SkillsVsTraditionalTable from '@/components/content/SkillsVsTraditionalTable';
+import AIToolsGrid from '@/components/content/AIToolsGrid';
+import CareerRoadmap from '@/components/content/CareerRoadmap';
+import SalaryComparisonChart from '@/components/content/SalaryComparisonChart';
+import SuccessStoriesCards from '@/components/content/SuccessStoriesCards';
+import LearningRoadmap from '@/components/content/LearningRoadmap';
+import AIDevToolkit from '@/components/content/AIDevToolkit';
+import CareerPathsGrid from '@/components/content/CareerPathsGrid';
+import NinetyDayPlan from '@/components/content/NinetyDayPlan';
+import GeminiTierComparisonTable from '@/components/content/GeminiTierComparisonTable';
+import GeminiPricingTable from '@/components/content/GeminiPricingTable';
+import CompetitorMatrixTable from '@/components/content/CompetitorMatrixTable';
+import GeminiArchitectureDiagram from '@/components/content/GeminiArchitectureDiagram';
+import PromptPillarsDiagram from '@/components/content/PromptPillarsDiagram';
+import PromptTemplateCard from '@/components/content/PromptTemplateCard';
+import BeforeAfterPromptComparison from '@/components/content/BeforeAfterPromptComparison';
+import InteractivePromptChecklist from '@/components/content/InteractivePromptChecklist';
 
 // Generate static params for all news articles (required for static export)
 export async function generateStaticParams() {
@@ -228,9 +245,10 @@ export default async function ArticlePage({ params }: PageProps) {
                             "description": article.excerpt,
                             "image": `https://academiapilot.com${article.image || '/og-image.png'}`,
                             "datePublished": article.date,
+                            "dateModified": article.date,
                             "author": {
                                 "@type": "Person",
-                                "name": article.author || "Academia Pilot"
+                                "name": article.author || "Academia Pilot Team"
                             },
                             "publisher": {
                                 "@type": "Organization",
@@ -239,6 +257,10 @@ export default async function ArticlePage({ params }: PageProps) {
                                     "@type": "ImageObject",
                                     "url": "https://academiapilot.com/logo.png"
                                 }
+                            },
+                            "mainEntityOfPage": {
+                                "@type": "WebPage",
+                                "@id": `https://academiapilot.com/news/${category}/${slug}/`
                             }
                         })
                     }}
@@ -290,6 +312,23 @@ export default async function ArticlePage({ params }: PageProps) {
                                 'AIOverviewTable': <AIOverviewTable />,
                                 'AITestResults': <AITestResults />,
                                 'AIFinalVerdict': <AIFinalVerdict />,
+                                'SkillsVsTraditionalTable': <SkillsVsTraditionalTable />,
+                                'AIToolsGrid': <AIToolsGrid />,
+                                'CareerRoadmap': <CareerRoadmap />,
+                                'SalaryComparisonChart': <SalaryComparisonChart />,
+                                'SuccessStoriesCards': <SuccessStoriesCards />,
+                                'LearningRoadmap': <LearningRoadmap />,
+                                'AIDevToolkit': <AIDevToolkit />,
+                                'CareerPathsGrid': <CareerPathsGrid />,
+                                'NinetyDayPlan': <NinetyDayPlan />,
+                                'GeminiTierComparisonTable': <GeminiTierComparisonTable />,
+                                'GeminiPricingTable': <GeminiPricingTable />,
+                                'CompetitorMatrixTable': <CompetitorMatrixTable />,
+                                'GeminiArchitectureDiagram': <GeminiArchitectureDiagram />,
+                                'PromptPillarsDiagram': <PromptPillarsDiagram />,
+                                'PromptTemplateCard': <PromptTemplateCard />,
+                                'BeforeAfterPromptComparison': <BeforeAfterPromptComparison />,
+                                'InteractivePromptChecklist': <InteractivePromptChecklist />,
                             };
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
                             const segments: Array<{ type: 'markdown' | 'component'; value: string }> = [];

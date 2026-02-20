@@ -50,12 +50,12 @@ export default function Footer() {
                         {/* Social Links */}
                         <div>
                             <h4 style={{
-                                fontSize: 'var(--text-xs)',
+                                fontSize: 'var(--text-sm)',
                                 fontWeight: 'var(--font-semibold)',
                                 marginBottom: 'var(--space-3)',
                                 textTransform: 'uppercase',
                                 letterSpacing: '0.05em',
-                                color: 'var(--color-text-muted)'
+                                color: 'var(--color-text-secondary)'
                             }}>
                                 Follow Us
                             </h4>
@@ -94,12 +94,12 @@ export default function Footer() {
                     {/* Navigate Column */}
                     <div>
                         <h4 style={{
-                            fontSize: 'var(--text-xs)',
+                            fontSize: 'var(--text-sm)',
                             fontWeight: 'var(--font-semibold)',
                             marginBottom: 'var(--space-4)',
                             textTransform: 'uppercase',
                             letterSpacing: '0.05em',
-                            color: 'var(--color-text-muted)'
+                            color: 'var(--color-text-secondary)'
                         }}>
                             Navigate
                         </h4>
@@ -135,12 +135,12 @@ export default function Footer() {
                     {/* Resources Column */}
                     <div>
                         <h4 style={{
-                            fontSize: 'var(--text-xs)',
+                            fontSize: 'var(--text-sm)',
                             fontWeight: 'var(--font-semibold)',
                             marginBottom: 'var(--space-4)',
                             textTransform: 'uppercase',
                             letterSpacing: '0.05em',
-                            color: 'var(--color-text-muted)'
+                            color: 'var(--color-text-secondary)'
                         }}>
                             Resources
                         </h4>
@@ -171,12 +171,12 @@ export default function Footer() {
                     {/* Newsletter Column */}
                     <div>
                         <h4 style={{
-                            fontSize: 'var(--text-xs)',
+                            fontSize: 'var(--text-sm)',
                             fontWeight: 'var(--font-semibold)',
                             marginBottom: 'var(--space-4)',
                             textTransform: 'uppercase',
                             letterSpacing: '0.05em',
-                            color: 'var(--color-text-muted)'
+                            color: 'var(--color-text-secondary)'
                         }}>
                             Join the Flight Crew
                         </h4>
@@ -197,17 +197,17 @@ export default function Footer() {
             }}>
                 <div className="container" style={{ paddingTop: 'var(--space-4)', paddingBottom: 'var(--space-4)' }}>
                     <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-                        <p className="text-muted" style={{ fontSize: 'var(--text-xs)' }}>
+                        <p className="text-secondary" style={{ fontSize: 'var(--text-xs)' }}>
                             © {currentYear} Academia Pilot. Navigating the agentic frontier.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="/privacy-policy/" className="text-muted hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
+                            <Link href="/privacy-policy/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
                                 Privacy
                             </Link>
-                            <Link href="/terms-of-service/" className="text-muted hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
+                            <Link href="/terms-of-service/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
                                 Terms
                             </Link>
-                            <Link href="/privacy-policy/#cookies" className="text-muted hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
+                            <Link href="/privacy-policy/#cookies" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>
                                 Cookies
                             </Link>
                         </div>

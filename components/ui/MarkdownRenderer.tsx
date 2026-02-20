@@ -6,6 +6,16 @@ interface MarkdownRendererProps {
     content: string;
 }
 
+const slugify = (text: string) => {
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')     // Replace spaces with -
+        .replace(/[^\w-]+/g, '')  // Remove all non-word chars
+        .replace(/--+/g, '-');    // Replace multiple - with single -
+};
+
 export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
     return (
         <div className="prose" style={{
@@ -27,28 +37,40 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
                             {children}
                         </h1>
                     ),
-                    h2: ({ children }) => (
-                        <h2 style={{
-                            fontSize: 'var(--text-3xl)',
-                            fontWeight: 'var(--font-bold)',
-                            marginTop: 'var(--space-10)',
-                            marginBottom: 'var(--space-4)',
-                            color: 'var(--color-text-primary)'
-                        }}>
-                            {children}
-                        </h2>
-                    ),
-                    h3: ({ children }) => (
-                        <h3 style={{
-                            fontSize: 'var(--text-2xl)',
-                            fontWeight: 'var(--font-semibold)',
-                            marginTop: 'var(--space-8)',
-                            marginBottom: 'var(--space-3)',
-                            color: 'var(--color-text-primary)'
-                        }}>
-                            {children}
-                        </h3>
-                    ),
+                    h2: ({ children }) => {
+                        const id = typeof children === 'string' ? slugify(children) : undefined;
+                        return (
+                            <h2
+                                id={id}
+                                style={{
+                                    fontSize: 'var(--text-3xl)',
+                                    fontWeight: 'var(--font-bold)',
+                                    marginTop: 'var(--space-10)',
+                                    marginBottom: 'var(--space-4)',
+                                    color: 'var(--color-text-primary)'
+                                }}
+                            >
+                                {children}
+                            </h2>
+                        );
+                    },
+                    h3: ({ children }) => {
+                        const id = typeof children === 'string' ? slugify(children) : undefined;
+                        return (
+                            <h3
+                                id={id}
+                                style={{
+                                    fontSize: 'var(--text-2xl)',
+                                    fontWeight: 'var(--font-semibold)',
+                                    marginTop: 'var(--space-8)',
+                                    marginBottom: 'var(--space-3)',
+                                    color: 'var(--color-text-primary)'
+                                }}
+                            >
+                                {children}
+                            </h3>
+                        );
+                    },
                     p: ({ children }) => (
                         <p style={{
                             marginBottom: 'var(--space-6)',

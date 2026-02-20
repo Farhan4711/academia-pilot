@@ -78,9 +78,19 @@ const jsonLd = {
   "publisher": {
     "@type": "Organization",
     "name": "Academia Pilot",
+    "url": "https://academiapilot.com",
     "logo": {
       "@type": "ImageObject",
       "url": "https://academiapilot.com/logo.png"
+    },
+    "sameAs": [
+      "https://twitter.com/AcademiaPilot",
+      "https://github.com/Farhan4711/academia-pilot"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "hello@academiapilot.com"
     }
   },
   "potentialAction": {

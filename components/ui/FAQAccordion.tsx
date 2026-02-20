@@ -34,6 +34,27 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
                 <p>{subtitle}</p>
             </div>
 
+            {/* AEO: Automated FAQPage Schema */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": faqs.map(faq => ({
+                            "@type": "Question",
+                            "name": faq.question,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": typeof faq.answer === 'string'
+                                    ? faq.answer.replace(/<[^>]*>?/gm, '') // Strip HTML
+                                    : "Detailed answer provided in guide." // Fallback for components
+                            }
+                        }))
+                    })
+                }}
+            />
+
             <div className={styles.faqList}>
                 {faqs.map((faq, index) => (
                     <div

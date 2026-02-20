@@ -9,8 +9,8 @@
   /* Colors - Midnight Aviation Palette */
   --color-primary: #0A0E14;
   /* Deep Navy */
-  --color-accent: #0070F3;
-  /* Electric Blue */
+  --color-accent: #4DA6FF;
+  /* Electric Blue - WCAG AA compliant on dark bg */
   --color-cta: #FF4D00;
   /* Warning Orange */
 
@@ -725,14 +725,14 @@ pre code {
 }
 
 .badge-accent {
-  background-color: rgba(0, 112, 243, 0.2);
-  color: var(--color-accent);
-  border: 1px solid var(--color-accent);
+  background-color: #0070F3;
+  color: #FFFFFF;
+  border: 1px solid #0070F3;
 }
 
 .badge-cta {
-  background-color: rgba(255, 77, 0, 0.2);
-  color: var(--color-cta);
+  background-color: var(--color-cta);
+  color: #FFFFFF;
   border: 1px solid var(--color-cta);
 }
 

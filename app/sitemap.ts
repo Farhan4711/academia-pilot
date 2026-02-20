@@ -48,12 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }));
 
-    // 5. Dynamic Content: AI Mastery Hub (if applicable)
+    // 5. Dynamic Content: AI Mastery Hub
     const hub = getAllContent('ai-mastery-hub').map((item) => ({
-        url: `${baseUrl}/ai-mastery-hub/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}`,
+        url: `${baseUrl}/ai-mastery-hub/${item.slug.split('/').pop()}`,
         lastModified: new Date(item.date),
         changeFrequency: 'weekly' as const,
-        priority: 0.7,
+        priority: 0.8,
     }));
 
     return [...routes, ...news, ...tools, ...prompts, ...hub];

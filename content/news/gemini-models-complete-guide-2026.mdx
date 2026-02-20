@@ -1,0 +1,235 @@
+---
+title: "Gemini Models Explained: Complete Guide to Gemini Flash, 3 & 3.1 (2026)"
+date: 2026-02-20
+category: "guide"
+tags: ["Gemini 3.1 Pro", "Gemini AI", "AI Models", "Google DeepMind", "LLM Comparison", "API Integration", "Agentic AI"]
+badge: "AI Guide"
+featured: true
+image: "/assets/news/gemini-models-complete-guide-2026.png"
+excerpt: "Your complete 2026 guide to Google Gemini AI models — Gemini Flash, 3, 3.1, API integration, real-world use cases, and full comparison with Claude & GPT."
+faq:
+  - question: "What are Gemini models?"
+    answer: "Gemini models are Google DeepMind's family of natively multimodal AI systems processing text, images, audio, video, and code. Available in tiers from cost-efficient Flash to frontier Pro variants, they power consumer AI assistants and enterprise agentic workflows via the Gemini API, Vertex AI, and Google AI Studio."
+  - question: "What is Gemini Flash used for?"
+    answer: "Gemini Flash models are optimized for high-volume, latency-sensitive production workloads — real-time chatbots, AI customer support, content generation pipelines, and background data processing. Gemini 2.5 Flash-Lite at $0.10/$0.40 per million tokens is the most cost-efficient option. Gemini 3 Flash provides frontier-tier reasoning with strong tool use at moderate cost."
+  - question: "Is Gemini 3 better than GPT-4?"
+    answer: "Yes — Gemini 3 Pro significantly outperforms GPT-4 across all major benchmarks, and Gemini 3.1 Pro also leads GPT-5.2 on ARC-AGI-2 (77.1% vs. ~40–50%) and LiveCodeBench (2,887 vs. 2,393 Elo). Gemini additionally offers a 1-million-token context window versus GPT-4's 128K and native video and audio understanding."
+  - question: "What is the difference between Gemini 3 and Gemini 3.1?"
+    answer: "Gemini 3.1 Pro upgrades the core reasoning intelligence of Gemini 3 Pro, achieving 77.1% on ARC-AGI-2 versus Gemini 3 Pro's 31.1% — more than double. The upgrade focuses on reasoning efficiency (more insight per compute token during thinking), delivering stronger performance on scientific, engineering, and complex agentic problems."
+  - question: "Which Gemini model is cheapest?"
+    answer: "Gemini 2.5 Flash-Lite is the least expensive at $0.10 input and $0.40 output per million tokens. It is generally available, supports a 1-million-token context window, controllable thinking budgets, and outperforms prior Flash generations on benchmarks. With Batch API, it processes 1 billion tokens for approximately $100."
+  - question: "Is Gemini good for coding?"
+    answer: "Yes — Gemini 3.1 Pro is currently the top-performing model for coding on LiveCodeBench Pro (2,887 Elo), SWE-Bench (80.6%), and scientific coding (SciCode: 59%). It is available in GitHub Copilot and excels at multi-file edit-test-debug loops. Gemini 2.5 Pro led the WebDev Arena leaderboard for over six months in 2025."
+  - question: "Does Gemini support multimodal input?"
+    answer: "Yes — all Gemini Pro and Flash models process text, images, audio, and video natively. Gemini is unique among frontier models in offering trained-in understanding across all four modalities. This is architectural, not an add-on layer — the model reasons across modalities simultaneously."
+  - question: "Can startups use the Gemini API?"
+    answer: "Yes — the Gemini API offers a free tier via Google AI Studio for testing and development. Flash-tier paid models start at $0.10 per million input tokens with no minimum commitment, making Gemini one of the most accessible frontier AI APIs for startups."
+  - question: "How does Gemini compare to Claude?"
+    answer: "Gemini leads Claude on context window (1M vs. 200K tokens), multimodal breadth (video/audio vs. text/image), and ARC-AGI-2 reasoning (77.1% vs. ~65% for Opus 4.6). Claude Opus 4.6 is competitive on SWE-Bench and strong on instruction following and writing quality. Claude is more expensive at comparable tiers ($3/$15 vs. $2/$12 per million tokens)."
+  - question: "What is the best Gemini model for enterprise AI?"
+    answer: "Gemini 3 Pro or 3.1 Pro deployed on Vertex AI is the recommended enterprise path, providing compliance certification (HIPAA, SOC 2), private VPC deployment, SLA guarantees, and consolidated GCP billing. Vertex AI Model Optimizer automates Flash/Pro routing for mixed workloads."
+  - question: "How large is the Gemini context window?"
+    answer: "All current Gemini models support a 1-million-token input context window — approximately 750,000 words or several full-length novels. This is 5–8× larger than GPT-5 (128K) and 5× larger than Claude (200K). Pro models support up to 64,000 output tokens per response."
+  - question: "What is Gemini 3.1 Pro used for?"
+    answer: "Gemini 3.1 Pro is designed for complex, multi-step problem-solving, advanced reasoning, and agentic workflows — algorithm design, scientific research synthesis, multi-file code generation with test-run iteration, large-scale data analysis, and long-context document intelligence. It currently leads all major frontier models on novel reasoning (ARC-AGI-2: 77.1%) and competitive coding (LiveCodeBench: 2,887 Elo)."
+  - question: "Is Gemini available on Vertex AI?"
+    answer: "Yes — all Gemini models are available on Vertex AI, Google's enterprise AI deployment platform. Vertex provides VPC isolation, compliance certification (HIPAA, SOC 2, ISO), customer-managed encryption keys (CMEK), SLA guarantees, and consolidated GCP billing. It is the recommended path for regulated industries and large-scale enterprise production deployments."
+---
+
+## What Are Gemini Models? The Technical Foundation
+
+Google's Gemini ecosystem is not a single model with a version number. It is a structured, multi-tiered family of AI systems, each purpose-built with a specific capability profile in mind. Understanding how the family is organized is the first step to choosing the right model for your use case.
+
+The Gemini family is organized across two axes: generation (1.0 → 2.0 → 2.5 → 3 → 3.1) and tier (Flash-Lite, Flash, Pro, Deep Think, and specialized variants). Each generation brings architectural improvements in reasoning, multimodal fidelity, and agentic capability. Each tier represents a deliberate trade-off between intelligence and efficiency.
+
+As of February 2026, the active Gemini model catalog includes:
+
+*   **Gemini 2.5 Flash-Lite** — Lowest cost, generally available, $0.10/$0.40 per million tokens
+*   **Gemini 2.5 Flash** — Hybrid thinking model with strong coding, $0.30/$2.50 per million tokens
+*   **Gemini 2.5 Pro** — Advanced reasoning, $1.25/$10 per million tokens; topped coding leaderboards mid-2025
+*   **Gemini 3 Flash** — Speed-optimized frontier model, $0.50/$3 per million tokens
+*   **Gemini 3 Pro** — State-of-the-art reasoning as of November 2025, $2/$12 per million tokens
+*   **Gemini 3.1 Pro** — Current frontier, released February 19, 2026, same pricing as 3 Pro
+
+Every model in the Gemini 3 generation supports a 1-million-token input context window with 64,000 output tokens and is natively multimodal — processing text, images, audio, video, PDF documents, and entire code repositories in a single session.
+
+### Why Gemini Matters in 2026
+
+Gemini is no longer a credible alternative to OpenAI or Anthropic. It is the benchmark setter. When Gemini 3.1 Pro launched February 19, 2026, it achieved 77.1% on ARC-AGI-2 — the industry's hardest novel reasoning benchmark — more than double Gemini 3 Pro's score of 31.1%, and ahead of every other model evaluated at the time. It leads on 12 of 18 major tracked benchmarks, spanning coding, agentic tasks, scientific reasoning, and multimodal understanding.
+
+## Evolution of Gemini Models: From Version 1 to 3.1
+
+### Gemini 1.0 (December 2023)
+Google launched Gemini 1.0 with Ultra, Pro, and Nano variants targeting different compute envelopes. The defining architectural decision was native multimodality: unlike GPT-4 Vision, which added image understanding post-hoc, Gemini was trained from the beginning to process all modalities through a unified representation. This proved foundational for every generation that followed.
+
+### Gemini 1.5 (Early 2024)
+Gemini 1.5 introduced a Mixture-of-Experts (MoE) architecture and a breakthrough 1-million-token context window — enabling analysis of entire codebases, hour-long audio files, and book-length documents in a single prompt. No competitor offered context windows above 200K tokens at production scale at the time.
+
+### Gemini 2.0 (January–February 2025)
+Gemini 2.0 Flash became the production workhorse with a 1M context window at $0.10/$0.40 per million tokens. More importantly, 2.0 introduced native tool use and agentic capabilities — the model could now call external APIs, execute code, and coordinate multi-step tasks rather than simply generating text.
+
+### Gemini 2.5 (March–June 2025)
+This generation introduced thinking models with explicit chain-of-thought reasoning. Gemini 2.5 Pro was Google's first hybrid reasoning model with controllable thinking budgets. It topped the WebDev Arena and LMArena leaderboards for over six months. Gemini 2.5 Flash-Lite became generally available in July 2025 at the lowest price point for capable frontier-generation models.
+
+### Gemini 3 (November–December 2025)
+Gemini 3 Pro launched November 18, 2025 as Google's most capable model to date. Gemini 3 introduced deeper reasoning, enhanced intent understanding, improved instruction following, and a new Deep Think mode for extended multi-step reasoning. Gemini 3 Flash followed in December 2025. On launch, Gemini 3 surpassed all major competitors on 19 of 20 standard benchmarks.
+
+### Gemini 3.1 Pro (February 19, 2026)
+The current frontier. Gemini 3.1 Pro represents the first ".1" increment in Gemini's history — a signal of tighter, more targeted update cycles focused on reasoning depth rather than broad architectural overhauls. It leads on 12 of 18 tracked major benchmarks. ARC-AGI-2 score: 77.1% (up from 31.1% on Gemini 3 Pro). Available in preview across the Gemini API, Vertex AI, Google AI Studio, Google Antigravity, Gemini CLI, Android Studio, GitHub Copilot, and the Gemini app.
+
+## Gemini Flash vs. Gemini 3 vs. Gemini 3.1 — Detailed Comparison
+
+:::COMPONENT:GeminiTierComparisonTable:::
+
+### Speed and Latency
+Gemini 2.5 Flash-Lite delivers the lowest latency, optimized for sub-second first-token response. Gemini 3 Flash is fast enough for real-time user-facing applications with stronger reasoning than any 2.x Flash. Gemini 3 Pro and 3.1 Pro trade latency for depth — Deep Think mode increases time-to-first-token by several seconds but produces substantially more accurate answers on complex problems. Developers can calibrate this with three thinking levels: Low, Medium, and High.
+
+### Cost Efficiency in Production
+At $0.10/$0.40 per million tokens, Gemini 2.5 Flash-Lite is among the most economical capable models in the market. A customer support chatbot processing 10 million tokens per month runs for approximately $6. The same workload on Gemini 3 Pro costs roughly $120–$200 depending on context patterns. For latency-insensitive bulk workloads, Batch API provides a 50% discount across all paid models. Context caching can reduce input costs by up to 90% for applications with repeated large prompts.
+
+### Coding Performance
+Gemini 2.5 Pro led the WebDev Arena leaderboard throughout mid-2025. Gemini 3.1 Pro extended those gains significantly: 2,887 Elo on LiveCodeBench Pro (vs. 2,393 for GPT-5.2), 80.6% on SWE-Bench, and 59% on SciCode. It launched immediately in GitHub Copilot, where early testing showed it excels at "edit-then-test loops with high tool coordination." For software engineers and AI coding assistant builders, Gemini 3.1 Pro is currently the strongest available model.
+
+### Agentic Workflow Performance
+Gemini 3.1 Pro was designed explicitly for agentic scenarios: 33.5% on APEX-Agents (first place), 69.2% on MCP Atlas (first place), 85.9% on BrowseComp (first place). In production agentic pipelines — code-write-test-debug loops, research automation, multi-tool data synthesis — these scores translate to more reliable and capable real-world performance than any competing model.
+
+## Gemini Model Architecture Overview
+
+### Transformer Foundation and MoE Design
+All Gemini models are built on a transformer architecture with Google DeepMind's proprietary modifications. Since Gemini 1.5, the family uses a Mixture-of-Experts (MoE) approach — activating only a relevant subset of parameters per inference pass. This allows Gemini to maintain the representational breadth of a very large dense model while computing more efficiently, yielding lower operational cost and higher throughput at equal capability levels.
+
+### Multimodal Embedding Pipeline
+Gemini was trained from the ground up with all modalities processed through a shared embedding space. Text tokens, image patches, audio frames, and video frames are tokenized into a unified representational format during pre-training. The model doesn't switch "modes" when it encounters an image — it reasons across modalities simultaneously. This enables cross-modal reasoning that is architecturally impossible for text-and-image-only systems: identifying what a speaker is saying in an audio clip about an object visible in a video, then answering a text question about the combined context.
+
+### Context Scaling Architecture
+Standard transformer attention scales quadratically with sequence length — making 1-million-token contexts computationally impractical without architectural innovations. Google addresses this through a combination of sliding-window local attention, global attention tokens for long-range dependency capture, and memory-efficient attention kernels tuned for Google's TPU v5 infrastructure. The practical result: Gemini can ingest an entire software repository, a year's worth of business documents, or a multi-hour research interview in a single API call.
+
+### Thinking and Reasoning System
+The Deep Think system — introduced in Gemini 2.5 and significantly upgraded in Gemini 3.1 Pro — allows extended internal chain-of-thought reasoning before generating a response. Developers control this via the thinking_level parameter (Low, Medium, High). The upgrade in 3.1 Pro targets reasoning efficiency: extracting more insight per compute token during the thinking chain, which directly explains the 2.5× improvement over Gemini 3 Pro on ARC-AGI-2.
+
+### Tool Calling and Computer Use
+Gemini's tool system enables dynamic invocation of external functions during inference. The Gemini 3 family supports:
+*   **Function Calling** — Strongly-typed tool schema; model returns structured JSON calls
+*   **Google Search Grounding** — Real-time web factual grounding ($14/1K queries for Gemini 3)
+*   **Code Execution** — Python sandbox execution with reasoning over results
+*   **Computer Use** — Direct browser and application UI control
+*   **MCP Tool Support** — Model Context Protocol compatibility for third-party tool integration
+*   **URL Context** — Direct ingestion and reasoning over live web pages
+
+:::COMPONENT:GeminiArchitectureDiagram:::
+
+## Deployment Options
+
+*   **Google AI Studio:** Prototyping, testing (Free tier, API key auth)
+*   **Gemini API (Developer):** Production apps (Rate limits, paid tier)
+*   **Vertex AI:** Enterprise production (VPC, SLA, HIPAA/SOC 2, CMEK)
+*   **Google Antigravity:** Agentic development (IDE-native agent workflows)
+*   **Gemini CLI:** Terminal automation (Open-source, local control)
+*   **GitHub Copilot:** Code assistance (Enterprise integration)
+*   **NotebookLM:** Research synthesis (Document-grounded reasoning)
+
+## Real-World Use Cases of Each Gemini Model
+
+### Startups: Building Fast, Staying Lean
+**MVP development.** Gemini 3 Flash or Gemini 2.5 Flash is the right model for most startup MVPs. The cost profile supports high experiment velocity — hundreds of test sessions for under $5. For a startup building a document intelligence SaaS, the 1M-token context window means entire contracts, RFPs, or financial reports can be analyzed in one call without chunking logic.
+*(Practical example: A legal-tech startup processing 400-page contracts pays roughly $0.10 per analysis on Gemini 3 Flash at $0.50/million input tokens — viable at scale.)*
+
+**AI chatbots and customer support.** For real-time conversational AI, Gemini 2.5 Flash-Lite at $0.10/$0.40 per million tokens is the most cost-effective production option, outperforming all prior Flash-generation models on quality benchmarks while maintaining low latency.
+
+**Automation pipelines.** Gemini 3 Pro's Computer Use capability enables document-to-action workflows: ingest a PDF, extract structured data, call an API, update a CRM — all within one model call chain. No custom orchestration code required for standard automation patterns.
+
+### Enterprise: Scale, Compliance, and Intelligence
+**Knowledge assistants and document processing.** Enterprise knowledge bases often span millions of documents. Gemini's 1M-token context window, combined with Vertex AI's private deployment options, enables document intelligence at depth and with data governance. A legal or financial firm can analyze cross-document regulatory filings in a private Vertex AI environment without data leaving their cloud infrastructure.
+
+**Code review and software engineering.** Gemini 3.1 Pro's 80.6% SWE-Bench score makes it viable as a real code review partner, bug fixer, and architecture consultant — not just a completion tool. Enterprise CTOs should evaluate Gemini 3.1 Pro in GitHub Copilot Enterprise for direct integration into existing developer toolchains.
+
+**Data analysis and business intelligence.** Long-context Gemini models ingest full CSV datasets, database exports, or multi-year financial reports without preprocessing. Vertex AI's BigQuery integration enables Gemini to operate directly on enterprise data warehouses with native SQL generation and result interpretation.
+
+### Developers: APIs, Agents, and Integrations
+**API integrations.** The Gemini API's Python and Node.js SDKs support strongly-typed function calling. Define your tool schema; Gemini returns structured JSON calls to your specified functions. No fragile prompt engineering required for reliable tool invocation.
+
+**Agent frameworks.** Gemini 3.1 Pro's 69.2% MCP Atlas score makes it the top performer in multi-tool agent coordination. Developers building on LangChain, LlamaIndex, or custom agentic frameworks gain the most capable orchestration layer available for complex, multi-step workflows.
+
+**Coding copilots.** For developers building AI coding tools, Gemini 3.1 Pro's 2,887 LiveCodeBench Elo significantly exceeds competitors. It is particularly strong at multi-file edits with test-run feedback loops.
+
+## Gemini vs. OpenAI vs. Claude — Full Competitive Comparison (2026)
+
+:::COMPONENT:CompetitorMatrixTable:::
+
+### Gemini vs. GPT-5
+GPT-5 and Gemini 3.1 Pro are the two strongest frontier models as of February 2026. GPT-5.2 holds a pricing advantage at $1.25/$10 per million tokens versus Gemini 3.1 Pro at $2/$12. Gemini holds two structural advantages in return: a 1-million-token context window versus GPT-5's 128K, and broader multimodal support — native video and audio understanding that GPT-5 does not currently match architecturally.
+
+On pure reasoning benchmarks, Gemini 3.1 Pro leads: 77.1% vs. approximately 40–50% on ARC-AGI-2, and 2,887 vs. 2,393 on LiveCodeBench. For developers building multimodal or long-context applications, Gemini is technically superior. For teams deeply embedded in the Azure or Microsoft ecosystem, GPT-5 via Azure OpenAI may offer better operational integration despite weaker benchmark performance.
+
+### Gemini vs. Claude
+Anthropic's Claude family emphasizes safety alignment, nuanced instruction following, and long-form writing quality. Claude Opus 4.6 is competitive on SWE-Bench (~80.9%) and strong for software engineering tasks, closely matching Gemini 3.1 Pro. The meaningful gaps favor Gemini: context window (1M vs. 200K), multimodal breadth (video and audio vs. text and image only), ARC-AGI-2 reasoning (77.1% vs. ~65% for Opus 4.6), and pricing ($2/$12 vs. $3/$15 for Sonnet 4.6).
+
+Claude Sonnet 4.6 remains a strong choice for teams that prioritize instruction fidelity, careful writing quality, and safety alignment. For multimodal, long-context, and agentic workloads, Gemini's architecture is better suited. The decision is use-case driven, not categorical.
+
+🔗 **Related:** [ChatGPT vs Claude vs Gemini (2026): Ultimate AI Comparison](/news/chatgpt-vs-claude-vs-gemini-2026)
+
+## Gemini Model Pricing Breakdown
+
+:::COMPONENT:GeminiPricingTable:::
+
+*Pro models (2.5 Pro, 3 Pro, 3.1 Pro) apply 2× pricing for prompts exceeding 200K tokens. Flash models have flat pricing regardless of context length. Thinking tokens are billed within output token counts.*
+
+### Cost Optimization Levers
+*   **Batch API (50% discount).** All paid Gemini models support asynchronous batch processing at half the standard rate. Gemini 3 Pro in batch mode effectively costs $1.00/$6.00 per million tokens.
+*   **Context Caching (up to 90% reduction).** Frequently-used system prompts, product catalogs, or reference documents can be stored and referenced across requests. Cache reads are billed at 10% of the standard input rate. For applications with large static contexts, caching is the highest-ROI cost optimization available.
+*   **Model Routing via Vertex AI Model Optimizer.** A single API endpoint that intelligently routes each request to Flash or Pro based on a cost/quality/balance preference setting.
+*   **Audio input pricing.** Audio is priced 2–7× higher than text depending on the model. Plan carefully for voice-enabled applications.
+
+### Enterprise Cost Modeling Example
+An enterprise team processing 500 million tokens per month across code review and document intelligence — assuming a 3:1 output-to-input ratio:
+*   **Gemini 3 Flash (standard):** ~$3,750/month → **$1,875/month with Batch API**
+*   **Gemini 3 Pro (standard):** ~$20,000/month → **$10,000/month with Batch API**
+*   **GPT-5.2 equivalent:** ~$8,750/month standard
+
+The annualized difference between Gemini 3 Flash with Batch API and GPT-5.2 standard is approximately $82,500 — a material factor in enterprise AI budgets.
+
+## Which Gemini Model Should You Choose?
+
+### Solo Developer or AI Freelancer
+Start with **Gemini 2.5 Flash** for most work. For complex reasoning or multi-file code generation, upgrade to **Gemini 2.5 Pro**. For frontier-level work, access **Gemini 3.1 Pro** in preview via Google AI Studio — currently available without charge in preview for developers.
+
+### Startup Founder Building an AI Product
+Use **Gemini 3 Flash** for user-facing features and **Gemini 2.5 Flash-Lite** for background processing. Implement Batch API for all asynchronous workloads from day one (50% savings).
+
+### Enterprise CTO
+Evaluate **Gemini 3.1 Pro on Vertex AI** for intelligence-dependent flagship applications. Run a cost modeling exercise using Batch API and context caching to establish unit economics before committing to scale.
+
+### Building AI Agents
+**Gemini 3.1 Pro** is the strongest model for agentic workflows. For cost-sensitive agents with simpler tool requirements, Gemini 3 Flash provides strong tool use at significantly lower cost.
+
+### Building High-Scale SaaS
+Design a tiered model architecture: user-facing features on Gemini 3 Flash or Gemini 2.5 Flash for low latency; background intelligence on Gemini 3 Pro with Batch API; expensive operations gated behind premium subscription tiers.
+
+## Strengths and Limitations of Gemini Models
+
+### Strengths
+*   **Context window leadership.** At 1 million tokens, Gemini's input capacity is 5–8× larger than GPT-5 and 5× larger than Claude.
+*   **Multimodal breadth.** Gemini is the only major frontier model family with trained-in understanding of text, images, audio, and video natively.
+*   **Reasoning performance at the frontier.** Gemini 3.1 Pro's 77.1% ARC-AGI-2 score and 2,887 LiveCodeBench Elo represent the current state of the art in February 2026.
+*   **Cost efficiency at scale.** Flash-tier pricing, combined with Batch API and context caching, makes Gemini's cost architecture highly favorable.
+*   **Ecosystem integration.** Gemini is embedded across Google Cloud, Android, GitHub Copilot, and more.
+
+### Limitations and Honest Caveats
+*   **Preview model instability.** Gemini 3 Pro and 3.1 Pro are in preview as of February 2026. API behavior may change before general availability.
+*   **Google Cloud dependency.** Enterprise-grade deployment requires Vertex AI, which means a Google Cloud commitment.
+*   **Audio and image segmentation gaps.** Not designed around prioritizing specialized audio segmentation workloads.
+*   **Long-context pricing jump.** Pro models apply a 2× pricing multiplier for prompts exceeding 200K tokens.
+
+## The Future of Gemini Models: What to Watch in 2026
+
+The ".1" naming increment is a strategic signal. Google is moving toward more frequent, targeted update cycles — improving reasoning depth and agentic reliability between major architecture generations rather than waiting for annual overhauls.
+
+The agentic frontier is where competition will be decided. Google's investment in Gemini CLI, Google Antigravity, Computer Use, and MCP support positions Gemini as an agentic infrastructure platform.
+
+Multimodal AI will continue to differentiate. Gemini's native video and audio understanding positions Google to lead in real-time, media-rich AI applications.
+
+## Strategic Conclusion
+
+Gemini is no longer an alternative to consider. It is a primary platform to evaluate. For startups, the cost architecture at the Flash tier is among the most accessible in the market. For developers, the combination of a 1-million-token context window, industry-leading coding benchmarks, and the strongest agentic tool performance available makes Gemini 3.1 Pro the most capable model for complex, long-context, multi-tool applications.
+
+*All pricing, benchmark scores, and availability information reflects February 2026 data from Google DeepMind, Vertex AI documentation, and independent benchmark sources.*
