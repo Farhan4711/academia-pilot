@@ -14,39 +14,60 @@ export default function NewsletterSignup({ compact = false }: NewsletterSignupPr
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
+
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email)) {
+            setStatus('error');
+            setMessage('Please enter a valid email address.');
+            return;
+        }
+
         setStatus('loading');
+        setMessage('');
 
-        // TODO: Replace with actual Beehiiv API integration
-        // Example integration:
-        // const response = await fetch('/api/newsletter', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify({ email })
-        // });
+        // For static export, we use the Google Apps Script Web App URL
+        const scriptUrl = process.env.NEXT_PUBLIC_NEWSLETTER_SCRIPT_URL;
 
-        // Placeholder simulation - Remove when implementing real API
-        setTimeout(() => {
-            // Basic email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!scriptUrl) {
+            console.error('Missing NEXT_PUBLIC_NEWSLETTER_SCRIPT_URL environment variable');
+            setStatus('error');
+            setMessage('Newsletter service is currently unavailable.');
+            return;
+        }
 
-            if (!email) {
-                setStatus('error');
-                setMessage('Please enter an email address.');
-            } else if (!emailRegex.test(email)) {
-                setStatus('error');
-                setMessage('Please enter a valid email address.');
-            } else {
+        try {
+            // We use 'no-cors' or simple request to avoid preflight issues with Google Apps Script
+            // Sending it as text/plain and parsing JSON in the script is a common hack to bypass preflight
+            const response = await fetch(scriptUrl, {
+                method: 'POST',
+                mode: 'cors', // Google Apps Script handles cors if the script is right
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8',
+                },
+                body: JSON.stringify({ email })
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
                 setStatus('success');
-                setMessage('🎉 Welcome to the Flight Crew! Check your email for confirmation.');
+                setMessage('🎉 Welcome to the Flight Crew! You are now subscribed.');
                 setEmail('');
+            } else {
+                throw new Error(result.message || 'Failed to subscribe');
             }
+        } catch (error) {
+            console.error('Subscription error:', error);
+            setStatus('error');
+            setMessage('Network error or invalid service. Please try again later.');
+        }
 
-            // Reset status after 5 seconds
-            setTimeout(() => {
-                setStatus('idle');
-                setMessage('');
-            }, 5000);
-        }, 1000);
+        // Reset status after 5 seconds
+        setTimeout(() => {
+            setStatus('idle');
+            setMessage('');
+        }, 5000);
     };
 
     if (compact) {

@@ -23,16 +23,20 @@ export default function AIMasteryHubPage() {
 
     const faqItems = [
         {
-            question: "How do I save time with Antigravity?",
-            answer: "AI Mastery Hub workflows reduce development time by 70-90% for most projects. Instead of writing code line-by-line, you describe what you want and AI agents handle implementation, testing, and refactoring automatically."
+            question: "What exactly is the AI Mastery Hub?",
+            answer: "The AI Mastery Hub is an educational library featuring advanced, long-form guides and tutorials. It is designed to teach developers, researchers, and marketers how to leverage agentic AI, prompt engineering, and modern AI toolchains effectively."
         },
         {
-            question: "Is Antigravity better than Cursor or GitHub Copilot?",
-            answer: "AI Mastery Hub presents a fundamentally different approach. Traditional tools assist with coding, while the Hub teaches you to use autonomous agents to build entire features. Use AI Hub strategies for new projects and Cursor for incremental improvements."
+            question: "How are these guides different from the Prompt Vault?",
+            answer: "While the Prompt Vault provides ready-to-use, copy-paste templates for immediate tasks, the AI Mastery Hub focuses on deep-dive education. It teaches you the *why* and *how* behind advanced AI workflows, architecture, and orchestration."
         },
         {
-            question: "Can beginners use Antigravity effectively?",
-            answer: "Yes, but with caution. Agentic AI makes building apps easier, but you still need to understand architecture, databases, and APIs to review agent proposals effectively. It's best used by developers with at least 1-2 years of experience."
+            question: "Who are these tutorials designed for?",
+            answer: "Our guides range from intermediate to advanced levels. They are highly beneficial for developers looking to integrate AI into their apps, researchers needing to automate data pipelines, and technical marketers building autonomous generative workflows."
+        },
+        {
+            question: "Are these guides free to access?",
+            answer: "Yes, all current guides and tutorials housed in the AI Mastery Hub are completely free and openly accessible. We believe in democratizing advanced AI education for the community."
         }
     ];
 
@@ -172,11 +176,9 @@ export default function AIMasteryHubPage() {
             {/* FAQ */}
             <section className="section">
                 <div className="container container-lg">
-                    <h2 style={{ fontSize: 'var(--text-3xl)', fontWeight: 'var(--font-bold)', marginBottom: 'var(--space-8)', textAlign: 'center' }}>
-                        Frequently Asked Questions
-                    </h2>
-
                     <FAQAccordion
+                        title="Frequently Asked Questions"
+                        subtitle="Common questions about our tutorials and workflows."
                         faqs={faqItems.map(item => ({
                             ...item,
                             icon: '💡'

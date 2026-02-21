@@ -49,3 +49,6 @@ build_log.txt
 build_output*.txt
 out.zip
 cleanup-backup/
+
+# Local Subscriber Storage
+subscribers.json

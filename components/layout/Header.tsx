@@ -82,56 +82,53 @@ export default function Header({ newsItems = [] }: HeaderProps) {
 
                         {/* Desktop Navigation */}
                         <div className="hidden md:flex items-center" style={{ gap: 'var(--space-6)' }}>
-                            <Link href="/news/" className="text-secondary hover:text-accent transition-fast">
-                                News Radar
-                            </Link>
-                            <Link href="/prompt-vault/" className="text-secondary hover:text-accent transition-fast">
-                                Prompt Vault
-                            </Link>
-                            <Link href="/tool-hangar/" className="text-secondary hover:text-accent transition-fast">
-                                Tool Hangar
-                            </Link>
-                            <Link href="/ai-mastery-hub/" className="text-secondary hover:text-accent transition-fast">
-                                AI Mastery Hub
-                            </Link>
-                            <Link href="/about/" className="text-secondary hover:text-accent transition-fast">
-                                About
-                            </Link>
+                            {['News Radar', 'Prompt Vault', 'Tool Hangar', 'AI Mastery Hub', 'About'].map((item) => {
+                                const href = item === 'About' ? '/about/' : `/${item.toLowerCase().replace(/ /g, '-')}/`;
+                                return (
+                                    <Link key={item} href={href} className="nav-link">
+                                        {item}
+                                    </Link>
+                                );
+                            })}
                         </div>
                     </div>
 
                     {/* Right Side: Search + Mobile Menu Button */}
                     <div className="flex items-center" style={{ gap: 'var(--space-4)' }}>
                         {/* Search Bar - Desktop */}
-                        <div className="hidden md:flex items-center search-container" style={{
+                        <div className="hidden md:flex items-center search-container group" style={{
                             position: 'relative',
-                            width: '120px',
-                            transition: 'width 300ms cubic-bezier(0.4, 0, 0.2, 1)'
+                            width: '200px',
+                            transition: 'width 300ms cubic-bezier(0.4, 0, 0.2, 1)',
                         }}>
                             <input
                                 type="text"
-                                placeholder="Search"
+                                placeholder="Search..."
                                 style={{
                                     width: '100%',
                                     padding: 'var(--space-2) var(--space-4)',
-                                    paddingRight: 'var(--space-8)',
-                                    borderRadius: 'var(--radius-full)',
-                                    border: '1px solid var(--color-border)',
-                                    backgroundColor: 'var(--color-primary)',
+                                    paddingLeft: 'var(--space-10)', // Space for search icon on the left
+                                    paddingRight: 'var(--space-12)', // Space for CMD+K badge on right
+                                    borderRadius: 'var(--radius-md)', // More modern than rounded-full
+                                    border: '1px solid rgba(255,255,255,0.1)',
+                                    backgroundColor: 'rgba(255,255,255,0.03)',
                                     color: 'var(--color-text-primary)',
                                     fontSize: 'var(--text-sm)',
+                                    backdropFilter: 'blur(10px)',
                                     outline: 'none',
-                                    transition: 'all 300ms ease'
+                                    transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
                                 }}
                                 onFocus={(e) => {
                                     e.currentTarget.style.borderColor = 'var(--color-accent)';
-                                    e.currentTarget.style.boxShadow = '0 0 0 2px rgba(var(--color-accent-rgb), 0.2)';
-                                    e.currentTarget.parentElement!.style.width = '350px';
+                                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.06)';
+                                    e.currentTarget.style.boxShadow = '0 0 0 2px rgba(var(--color-accent-rgb), 0.15), 0 4px 12px rgba(0,0,0,0.5)';
+                                    e.currentTarget.parentElement!.style.width = '300px';
                                 }}
                                 onBlur={(e) => {
-                                    e.currentTarget.style.borderColor = 'var(--color-border)';
+                                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.03)';
                                     e.currentTarget.style.boxShadow = 'none';
-                                    e.currentTarget.parentElement!.style.width = '120px';
+                                    e.currentTarget.parentElement!.style.width = '200px';
                                 }}
                                 onKeyDown={(e) => {
                                     if (e.key === 'Enter') {
@@ -143,27 +140,59 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                 }}
                                 onMouseEnter={(e) => {
                                     if (document.activeElement !== e.currentTarget) {
-                                        e.currentTarget.style.borderColor = 'var(--color-accent)';
+                                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
                                     }
                                 }}
                                 onMouseLeave={(e) => {
                                     if (document.activeElement !== e.currentTarget) {
-                                        e.currentTarget.style.borderColor = 'var(--color-border)';
+                                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
                                     }
                                 }}
                             />
+                            {/* Left Search Icon */}
                             <svg
                                 style={{
                                     position: 'absolute',
-                                    right: 'var(--space-3)',
+                                    left: 'var(--space-3)',
                                     color: 'var(--color-text-muted)',
-                                    pointerEvents: 'none'
+                                    pointerEvents: 'none',
+                                    transition: 'color 300ms ease'
                                 }}
+                                className="search-icon"
                                 width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                             >
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                             </svg>
+
+                            {/* Right CMD+K Badge */}
+                            <div style={{
+                                position: 'absolute',
+                                right: 'var(--space-2)',
+                                pointerEvents: 'none',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '2px'
+                            }}>
+                                <kbd style={{
+                                    backgroundColor: 'rgba(255,255,255,0.1)',
+                                    color: 'var(--color-text-muted)',
+                                    padding: '2px 4px',
+                                    borderRadius: '4px',
+                                    fontSize: '10px',
+                                    fontFamily: 'monospace',
+                                    border: '1px solid rgba(255,255,255,0.1)'
+                                }}>⌘</kbd>
+                                <kbd style={{
+                                    backgroundColor: 'rgba(255,255,255,0.1)',
+                                    color: 'var(--color-text-muted)',
+                                    padding: '2px 4px',
+                                    borderRadius: '4px',
+                                    fontSize: '10px',
+                                    fontFamily: 'monospace',
+                                    border: '1px solid rgba(255,255,255,0.1)'
+                                }}>K</kbd>
+                            </div>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -173,6 +202,7 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                                 aria-expanded={mobileMenuOpen}
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
                             >
                                 {mobileMenuOpen ? (
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -210,11 +240,11 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                             right: 0,
                                             width: '250px',
                                             backgroundColor: 'var(--color-surface)',
-                                            border: '1px solid var(--color-border)',
+                                            border: '1px solid rgba(255,255,255,0.1)',
                                             borderRadius: 'var(--radius-lg)',
-                                            boxShadow: 'var(--shadow-xl)',
+                                            boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
                                             zIndex: 'calc(var(--z-dropdown) + 1)',
-                                            animation: 'slideDown 200ms ease-out',
+                                            animation: 'slideDown 200ms cubic-bezier(0.16, 1, 0.3, 1)',
                                             overflow: 'hidden'
                                         }}
                                     >
@@ -223,76 +253,33 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                             flexDirection: 'column',
                                             padding: 'var(--space-2)'
                                         }}>
-                                            <Link
-                                                href="/news/"
-                                                className="text-secondary hover:text-accent transition-fast"
-                                                onClick={() => setMobileMenuOpen(false)}
-                                                style={{
-                                                    padding: 'var(--space-3) var(--space-4)',
-                                                    borderRadius: 'var(--radius-md)',
-                                                    transition: 'background-color var(--transition-fast)'
-                                                }}
-                                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-surface-hover)'}
-                                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                                            >
-                                                News
-                                            </Link>
-                                            <Link
-                                                href="/prompt-vault/"
-                                                className="text-secondary hover:text-accent transition-fast"
-                                                onClick={() => setMobileMenuOpen(false)}
-                                                style={{
-                                                    padding: 'var(--space-3) var(--space-4)',
-                                                    borderRadius: 'var(--radius-md)',
-                                                    transition: 'background-color var(--transition-fast)'
-                                                }}
-                                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-surface-hover)'}
-                                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                                            >
-                                                Prompt Vault
-                                            </Link>
-                                            <Link
-                                                href="/tool-hangar/"
-                                                className="text-secondary hover:text-accent transition-fast"
-                                                onClick={() => setMobileMenuOpen(false)}
-                                                style={{
-                                                    padding: 'var(--space-3) var(--space-4)',
-                                                    borderRadius: 'var(--radius-md)',
-                                                    transition: 'background-color var(--transition-fast)'
-                                                }}
-                                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-surface-hover)'}
-                                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                                            >
-                                                Tool Hangar
-                                            </Link>
-                                            <Link
-                                                href="/ai-mastery-hub/"
-                                                className="text-secondary hover:text-accent transition-fast"
-                                                onClick={() => setMobileMenuOpen(false)}
-                                                style={{
-                                                    padding: 'var(--space-3) var(--space-4)',
-                                                    borderRadius: 'var(--radius-md)',
-                                                    transition: 'background-color var(--transition-fast)'
-                                                }}
-                                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-surface-hover)'}
-                                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                                            >
-                                                AI Mastery Hub
-                                            </Link>
-                                            <Link
-                                                href="/about/"
-                                                className="text-secondary hover:text-accent transition-fast"
-                                                onClick={() => setMobileMenuOpen(false)}
-                                                style={{
-                                                    padding: 'var(--space-3) var(--space-4)',
-                                                    borderRadius: 'var(--radius-md)',
-                                                    transition: 'background-color var(--transition-fast)'
-                                                }}
-                                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-surface-hover)'}
-                                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                                            >
-                                                About
-                                            </Link>
+                                            {['News', 'Prompt Vault', 'Tool Hangar', 'AI Mastery Hub', 'About'].map((item) => {
+                                                const href = item === 'About' ? '/about/' : `/${item.toLowerCase().replace(/ /g, '-')}/`;
+                                                return (
+                                                    <Link
+                                                        key={item}
+                                                        href={href}
+                                                        onClick={() => setMobileMenuOpen(false)}
+                                                        style={{
+                                                            padding: 'var(--space-3) var(--space-4)',
+                                                            borderRadius: 'var(--radius-md)',
+                                                            color: 'var(--color-text-secondary)',
+                                                            fontWeight: '500',
+                                                            transition: 'all var(--transition-fast)'
+                                                        }}
+                                                        onMouseEnter={(e) => {
+                                                            e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)';
+                                                            e.currentTarget.style.color = 'var(--color-text-primary)';
+                                                        }}
+                                                        onMouseLeave={(e) => {
+                                                            e.currentTarget.style.backgroundColor = 'transparent';
+                                                            e.currentTarget.style.color = 'var(--color-text-secondary)';
+                                                        }}
+                                                    >
+                                                        {item}
+                                                    </Link>
+                                                );
+                                            })}
                                         </div>
                                     </div>
                                 </>
@@ -302,6 +289,40 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                 </div>
             </nav>
             <NewsTicker items={newsItems} />
+            <style jsx>{`
+                .nav-link {
+                    position: relative;
+                    color: var(--color-text-secondary);
+                    font-size: 0.95rem;
+                    font-weight: 500;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                    padding: var(--space-1) 0;
+                }
+                .nav-link:hover {
+                    color: var(--color-text-primary);
+                }
+                .nav-link::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    transform: scaleX(0);
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: var(--color-accent);
+                    transform-origin: bottom right;
+                    transition: transform 0.25s ease-out;
+                }
+                .nav-link:hover::after {
+                    transform: scaleX(1);
+                    transform-origin: bottom left;
+                }
+
+                .search-container:focus-within .search-icon {
+                    color: var(--color-accent) !important;
+                }
+            `}</style>
         </header>
     );
 }

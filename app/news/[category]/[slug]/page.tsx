@@ -32,6 +32,13 @@ import PromptPillarsDiagram from '@/components/content/PromptPillarsDiagram';
 import PromptTemplateCard from '@/components/content/PromptTemplateCard';
 import BeforeAfterPromptComparison from '@/components/content/BeforeAfterPromptComparison';
 import InteractivePromptChecklist from '@/components/content/InteractivePromptChecklist';
+import AICodingToolsComparison from '@/components/content/AICodingToolsComparison';
+import ClaudeMDRelativeValue from '@/components/content/ClaudeMDRelativeValue';
+import AestheticDirectionsGrid from '@/components/content/AestheticDirectionsGrid';
+import ScreenshotLoopDiagram from '@/components/content/ScreenshotLoopDiagram';
+import ComponentUpgradeShowcase from '@/components/content/ComponentUpgradeShowcase';
+import VibeToProductionRoadmap from '@/components/content/VibeToProductionRoadmap';
+
 
 // Generate static params for all news articles (required for static export)
 export async function generateStaticParams() {
@@ -329,6 +336,13 @@ export default async function ArticlePage({ params }: PageProps) {
                                 'PromptTemplateCard': <PromptTemplateCard />,
                                 'BeforeAfterPromptComparison': <BeforeAfterPromptComparison />,
                                 'InteractivePromptChecklist': <InteractivePromptChecklist />,
+                                'AICodingToolsComparison': <AICodingToolsComparison />,
+                                'ClaudeMDRelativeValue': <ClaudeMDRelativeValue />,
+                                'AestheticDirectionsGrid': <AestheticDirectionsGrid />,
+                                'ScreenshotLoopDiagram': <ScreenshotLoopDiagram />,
+                                'ComponentUpgradeShowcase': <ComponentUpgradeShowcase />,
+                                'VibeToProductionRoadmap': <VibeToProductionRoadmap />,
+
                             };
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
                             const segments: Array<{ type: 'markdown' | 'component'; value: string }> = [];

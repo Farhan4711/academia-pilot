@@ -3,7 +3,17 @@ import Card, { CardTitle, CardDescription } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
+import FAQAccordion from '@/components/ui/FAQAccordion';
 import { getLatestContent, formatDate } from '@/lib/content';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Academia Pilot - Your Co-Pilot for AI Breakthroughs",
+  description: "Navigate the rapidly evolving world of AI with breaking news, tool reviews, battle-tested prompts, and curated courses. Built for entrepreneurs and creators.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   // Dynamically load latest 4 news articles
@@ -112,43 +122,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* Structured Data */}
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify({
-                  "@context": "https://schema.org",
-                  "@type": "FAQPage",
-                  "mainEntity": [
-                    {
-                      "@type": "Question",
-                      "name": "What is Academia Pilot?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Academia Pilot is your co-pilot for navigating the agentic frontier. We provide breaking AI news, tool reviews, battle-tested prompts, and curated courses to help entrepreneurs and creators stay ahead in the rapidly evolving AI landscape."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "How do I access premium prompts in the Vault?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Join the Flight Crew by subscribing to our newsletter. Premium prompts are available to all subscribers and include advanced agentic workflows that can save you 20+ hours per week."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "What makes Academia Pilot different from other AI resources?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We focus on the 'agentic' frontier - AI systems that can act autonomously. Our content is curated specifically for entrepreneurs and creators, cutting through the noise to deliver only what matters for building real businesses with AI."
-                      }
-                    }
-                  ]
-                })
-              }}
-            />
           </div>
         </div>
       </section>
@@ -295,52 +268,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ Section - AEO Optimization */}
+      {/* FAQ Section - Using FAQAccordion for consistency */}
       <section className="section">
-        <div className="container container-md">
-          <h2 style={{
-            fontSize: 'var(--text-3xl)',
-            fontWeight: 'var(--font-bold)',
-            marginBottom: 'var(--space-8)',
-            textAlign: 'center'
-          }}>
-            Frequently Asked Questions
-          </h2>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
-            <div>
-              <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 'var(--font-semibold)', marginBottom: 'var(--space-2)' }}>
-                What is Academia Pilot?
-              </h3>
-              <p className="text-secondary">
-                Academia Pilot is your co-pilot for navigating the agentic frontier. We provide breaking AI news,
-                tool reviews, battle-tested prompts, and curated courses to help entrepreneurs and creators stay
-                ahead in the rapidly evolving AI landscape.
-              </p>
-            </div>
-
-            <div>
-              <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 'var(--font-semibold)', marginBottom: 'var(--space-2)' }}>
-                How do I access premium prompts in the Vault?
-              </h3>
-              <p className="text-secondary">
-                Join the Flight Crew by subscribing to our newsletter. Premium prompts are available to all subscribers
-                and include advanced agentic workflows that can save you 20+ hours per week.
-              </p>
-            </div>
-
-            <div>
-              <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 'var(--font-semibold)', marginBottom: 'var(--space-2)' }}>
-                What makes Academia Pilot different from other AI resources?
-              </h3>
-              <p className="text-secondary">
-                We focus on the "agentic" frontier - AI systems that can act autonomously. Our content is curated
-                specifically for entrepreneurs and creators, cutting through the noise to deliver only what matters
-                for building real businesses with AI.
-              </p>
-            </div>
-          </div>
-        </div>
+        <FAQAccordion
+          title="Frequently Asked Questions"
+          subtitle="Everything you need to know about navigating the agentic frontier"
+          faqs={[
+            {
+              icon: '🚀',
+              question: "What is Academia Pilot?",
+              answer: "Academia Pilot is your co-pilot for navigating the agentic frontier. We provide breaking AI news, tool reviews, battle-tested prompts, and curated courses to help entrepreneurs and creators stay ahead in the rapidly evolving AI landscape."
+            },
+            {
+              icon: '🔒',
+              question: "How do I access premium prompts in the Vault?",
+              answer: "Join the Flight Crew by subscribing to our newsletter. Premium prompts are available to all subscribers and include advanced agentic workflows that can save you 20+ hours per week."
+            },
+            {
+              icon: '🛸',
+              question: "What makes Academia Pilot different from other AI resources?",
+              answer: "We focus on the \"agentic\" frontier - AI systems that can act autonomously. Our content is curated specifically for entrepreneurs and creators, cutting through the noise to deliver only what matters for building real businesses with AI."
+            }
+          ]}
+        />
       </section>
     </>
   );

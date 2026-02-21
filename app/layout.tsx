@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     template: "%s | Academia Pilot"
   },
   description: "Your co-pilot for navigating the agentic frontier. Get breaking AI news, tool reviews, prompts, and courses to simplify AI breakthroughs for entrepreneurs and creators.",
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "Academia Pilot AI",
     "AI Mastery Hub",
@@ -28,9 +31,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Academia Pilot" }],
   creator: "Academia Pilot",
   publisher: "Academia Pilot",
-  alternates: {
-    canonical: "/"
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -101,6 +101,7 @@ const jsonLd = {
 };
 
 import ExploreRelated from "@/components/ui/ExploreRelated";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -111,13 +112,15 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <head>
-        <script
+      <body className="antialiased" suppressHydrationWarning>
+        <Script
+          id="json-ld-website"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          strategy="beforeInteractive"
         />
-        <script dangerouslySetInnerHTML={{
-          __html: `
+        <Script id="global-error-handlers" strategy="afterInteractive">
+          {`
             window.addEventListener('unhandledrejection', function(event) {
               console.error('[CRITICAL] Unhandled Promise Rejection:', event.reason);
             });
@@ -130,10 +133,8 @@ export default function RootLayout({
                 console.log('[NAV] Clicked link:', target.getAttribute('href'));
               }
             }, true);
-          `
-        }} />
-      </head>
-      <body className="antialiased" suppressHydrationWarning>
+          `}
+        </Script>
         <Header newsItems={newsItems} />
         <main id="main-content" className="min-h-screen">
           {children}

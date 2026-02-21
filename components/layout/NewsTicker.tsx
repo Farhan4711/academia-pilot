@@ -64,8 +64,7 @@ export default function NewsTicker({ items }: NewsTickerProps) {
             }}>
                 <div className="ticker-move" style={{
                     display: 'flex',
-                    whiteSpace: 'nowrap',
-                    animation: 'ticker 30s linear infinite'
+                    whiteSpace: 'nowrap'
                 }}>
                     {/* Duplicate items for a seamless loop */}
                     {[...items, ...items].map((item, index) => (
@@ -114,12 +113,16 @@ export default function NewsTicker({ items }: NewsTickerProps) {
                     100% { transform: scale(1); opacity: 1; }
                 }
 
-                .news-ticker-container:hover .ticker-move {
-                    animation-play-state: paused;
+                .news-ticker-container:hover :global(.ticker-move) {
+                    animation-play-state: paused !important;
                 }
 
                 .ticker-item {
                     cursor: pointer;
+                }
+                
+                :global(.ticker-move) {
+                    animation: ticker 30s linear infinite;
                 }
 
                 .ticker-item:hover {
