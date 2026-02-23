@@ -41,6 +41,9 @@ import VibeToProductionRoadmap from '@/components/content/VibeToProductionRoadma
 import ClaudePricingTable from '@/components/content/ClaudePricingTable';
 import ClaudeVsCompetitorsTable from '@/components/content/ClaudeVsCompetitorsTable';
 import ClaudeModelComparisonTable from '@/components/content/ClaudeModelComparisonTable';
+import IDEvsBuilderMetaTable from '@/components/content/IDEvsBuilderMetaTable';
+import EasternAIIDEComparison from '@/components/content/EasternAIIDEComparison';
+import AIGlobalPricingMatrix from '@/components/content/AIGlobalPricingMatrix';
 
 // Generate static params for all news articles (required for static export)
 export async function generateStaticParams() {
@@ -352,6 +355,9 @@ export default async function ArticlePage({ params }: PageProps) {
                                 'ClaudePricingTable': <ClaudePricingTable />,
                                 'ClaudeVsCompetitorsTable': <ClaudeVsCompetitorsTable />,
                                 'ClaudeModelComparisonTable': <ClaudeModelComparisonTable />,
+                                'IDEvsBuilderMetaTable': <IDEvsBuilderMetaTable />,
+                                'EasternAIIDEComparison': <EasternAIIDEComparison />,
+                                'AIGlobalPricingMatrix': <AIGlobalPricingMatrix />,
 
                             };
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;

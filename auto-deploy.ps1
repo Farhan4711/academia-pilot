@@ -32,15 +32,20 @@ if (-not (Test-Path "out")) { exit 1 }
 $outPath = (Resolve-Path "out").Path
 $files = Get-ChildItem -Path "out" -Recurse -File
 
-Write-Host "[3/3] Uploading..." -ForegroundColor $WarningColor
+$Global:UploadSuccess = 0
+$Global:UploadFailed = 0
 
 function Upload-File {
     param($Loc, $Rem)
     try {
-        # Ensure URI is correctly formatted with a slash after host
         $remPath = $Rem
         if (-not $remPath.StartsWith("/")) { $remPath = "/$remPath" }
-        $uri = "ftp://$FTP_HOST$remPath"
+        
+        # Manually escape parts to handle $ and other chars without breaking slashes
+        $parts = $remPath.Split('/') | ForEach-Object { [Uri]::EscapeDataString($_) }
+        $escapedPath = $parts -join "/"
+        $uri = "ftp://$FTP_HOST$escapedPath"
+        
         $req = [System.Net.FtpWebRequest]::Create($uri)
         $req.Credentials = New-Object System.Net.NetworkCredential($FTP_USERNAME, $FTP_PASSWORD)
         $req.Method = [System.Net.WebRequestMethods+Ftp]::UploadFile
@@ -49,9 +54,11 @@ function Upload-File {
         $s.Write($b, 0, $b.Length)
         $s.Close()
         $req.GetResponse().Close()
+        $Global:UploadSuccess++
         return $true
     } catch {
         Write-Host "  [X] Failed: $Rem ($($_.Exception.Message))" -ForegroundColor $ErrorColor
+        $Global:UploadFailed++
         return $false
     }
 }
@@ -61,7 +68,11 @@ function Create-Dir {
     try {
         $remPath = $Rem
         if (-not $remPath.StartsWith("/")) { $remPath = "/$remPath" }
-        $uri = "ftp://$FTP_HOST$remPath"
+        
+        $parts = $remPath.Split('/') | ForEach-Object { [Uri]::EscapeDataString($_) }
+        $escapedPath = $parts -join "/"
+        $uri = "ftp://$FTP_HOST$escapedPath"
+        
         $req = [System.Net.FtpWebRequest]::Create($uri)
         $req.Credentials = New-Object System.Net.NetworkCredential($FTP_USERNAME, $FTP_PASSWORD)
         $req.Method = [System.Net.WebRequestMethods+Ftp]::MakeDirectory
@@ -77,6 +88,8 @@ if ($FTP_REMOTE_DIR) {
     $FTP_REMOTE_DIR = ""
 }
 
+Write-Host "[3/3] Uploading..." -ForegroundColor $WarningColor
+
 foreach ($f in $files) {
     $rel = $f.FullName.Substring($outPath.Length).TrimStart('\').Replace('\', '/')
     $parts = $rel.Split('/')
@@ -86,6 +99,7 @@ foreach ($f in $files) {
     
     for ($i=0; $i -lt ($parts.Length - 1); $i++) {
         $currPath = "$remoteBase"
+        if ($currPath -eq "/") { $currPath = "" }
         for ($j=0; $j -le $i; $j++) {
             $currPath = "$currPath/$($parts[$j])"
         }
@@ -93,14 +107,29 @@ foreach ($f in $files) {
     }
     
     $rem = "$remoteBase/$rel"
+    if ($remoteBase -eq "/" -or $remoteBase -eq "") { $rem = "/$rel" }
+    
     Write-Host "  Uploading: $rel -> $rem"
     Upload-File -Loc $f.FullName -Rem $rem | Out-Null
 }
 
 if (Test-Path "public\.htaccess") {
     $remHt = "$($FTP_REMOTE_DIR.TrimEnd('/'))/.htaccess"
+    if ($FTP_REMOTE_DIR -eq "/" -or $FTP_REMOTE_DIR -eq "") { $remHt = "/.htaccess" }
     Write-Host "  Uploading .htaccess -> $remHt"
     Upload-File -Loc "public\.htaccess" -Rem $remHt | Out-Null
 }
 
-Write-Host "Deployment Complete! ✅" -ForegroundColor $SuccessColor
+Write-Host "`n========================================" -ForegroundColor $InfoColor
+Write-Host "  Deployment Summary" -ForegroundColor $InfoColor
+Write-Host "  Success: $Global:UploadSuccess" -ForegroundColor $SuccessColor
+$failColor = if ($Global:UploadFailed -gt 0) { "Red" } else { "Green" }
+Write-Host "  Failed:  $Global:UploadFailed" -ForegroundColor $failColor
+Write-Host "========================================" -ForegroundColor $InfoColor
+
+if ($Global:UploadFailed -gt 0) {
+    Write-Host "Deployment finished with errors. ⚠️" -ForegroundColor $WarningColor
+    exit 1
+} else {
+    Write-Host "Deployment Complete! ✅" -ForegroundColor $SuccessColor
+}
