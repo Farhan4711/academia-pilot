@@ -38,7 +38,9 @@ import AestheticDirectionsGrid from '@/components/content/AestheticDirectionsGri
 import ScreenshotLoopDiagram from '@/components/content/ScreenshotLoopDiagram';
 import ComponentUpgradeShowcase from '@/components/content/ComponentUpgradeShowcase';
 import VibeToProductionRoadmap from '@/components/content/VibeToProductionRoadmap';
-
+import ClaudePricingTable from '@/components/content/ClaudePricingTable';
+import ClaudeVsCompetitorsTable from '@/components/content/ClaudeVsCompetitorsTable';
+import ClaudeModelComparisonTable from '@/components/content/ClaudeModelComparisonTable';
 
 // Generate static params for all news articles (required for static export)
 export async function generateStaticParams() {
@@ -347,6 +349,9 @@ export default async function ArticlePage({ params }: PageProps) {
                                 'ScreenshotLoopDiagram': <ScreenshotLoopDiagram />,
                                 'ComponentUpgradeShowcase': <ComponentUpgradeShowcase />,
                                 'VibeToProductionRoadmap': <VibeToProductionRoadmap />,
+                                'ClaudePricingTable': <ClaudePricingTable />,
+                                'ClaudeVsCompetitorsTable': <ClaudeVsCompetitorsTable />,
+                                'ClaudeModelComparisonTable': <ClaudeModelComparisonTable />,
 
                             };
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
