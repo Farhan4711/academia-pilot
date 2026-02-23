@@ -8,7 +8,7 @@ import { getCategoryMetadata } from '@/lib/categories';
 const meta = getCategoryMetadata('tool-hangar');
 
 export const metadata = {
-    title: meta?.title || "The Tool Hangar - Pilot-Vetted AI Tools | Academia Pilot",
+    title: "The Tool Hangar - Pilot-Vetted AI Tools",
     description: meta?.seoDescription || "The ultimate directory for the agentic era. Vetted AI models, IDEs, and research tools that power 10x workflows.",
     alternates: {
         canonical: "/tool-hangar/",

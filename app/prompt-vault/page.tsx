@@ -9,7 +9,7 @@ import { getCategoryMetadata } from '@/lib/categories';
 const meta = getCategoryMetadata('prompt-vault');
 
 export const metadata = {
-    title: meta?.title || "The Prompt Vault - Battle-Tested AI Prompts | Academia Pilot",
+    title: "The Prompt Vault - Battle-Tested AI Prompts",
     description: meta?.seoDescription || "Copy, paste, and get results. Battle-tested AI prompts, templates, and configurations that save you 20+ hours per week.",
     alternates: {
         canonical: "/prompt-vault/",

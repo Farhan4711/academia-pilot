@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/antigravity-guide',
         '/tool-hangar',
         '/prompt-vault',
-        '/course-navigator',
         '/about',
         '/privacy-policy',
         '/terms-of-service',
@@ -41,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         const category = article.category || 'uncategorized';
         const cleanSlug = article.slug.split('/').pop() || article.slug;
         return {
-            url: `${BASE_URL}/news/${category}/${cleanSlug}/`,
+            url: `${BASE_URL}/news/${category}/${cleanSlug}`,
             lastModified: new Date(article.date).toISOString(),
             changeFrequency: 'monthly' as const,
             priority: 0.7,
@@ -53,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         const category = tool.category || 'uncategorized';
         const cleanSlug = tool.slug.split('/').pop() || tool.slug;
         return {
-            url: `${BASE_URL}/tool-hangar/${category}/${cleanSlug}/`,
+            url: `${BASE_URL}/tool-hangar/${category}/${cleanSlug}`,
             lastModified: new Date(tool.date).toISOString(),
             changeFrequency: 'monthly' as const,
             priority: 0.8,
@@ -65,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         const category = prompt.category || 'uncategorized';
         const cleanSlug = prompt.slug.split('/').pop() || prompt.slug;
         return {
-            url: `${BASE_URL}/prompt-vault/${category}/${cleanSlug}/`,
+            url: `${BASE_URL}/prompt-vault/${category}/${cleanSlug}`,
             lastModified: new Date(prompt.date).toISOString(),
             changeFrequency: 'monthly' as const,
             priority: 0.8,
@@ -77,7 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         const category = article.category || 'uncategorized';
         const cleanSlug = article.slug.split('/').pop() || article.slug;
         return {
-            url: `${BASE_URL}/ai-mastery-hub/${category}/${cleanSlug}/`,
+            url: `${BASE_URL}/ai-mastery-hub/${category}/${cleanSlug}`,
             lastModified: new Date(article.date).toISOString(),
             changeFrequency: 'monthly' as const,
             priority: 0.9,

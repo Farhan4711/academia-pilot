@@ -124,11 +124,6 @@ export default function Footer() {
                                     Prompt Vault
                                 </Link>
                             </li>
-                            <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/course-navigator/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
-                                    Course Navigator
-                                </Link>
-                            </li>
                         </ul>
                     </div>
 

@@ -76,8 +76,13 @@ export async function generateMetadata({ params }: PageProps) {
             };
         }
 
+        let metaTitle = `${article.title} | ${article.category || 'News'} | Academia Pilot`;
+        if (metaTitle.length > 70) {
+            metaTitle = `${article.title.substring(0, 50)}... | AP`;
+        }
+
         return {
-            title: `${article.title} | ${article.category || 'News'} | Academia Pilot`,
+            title: metaTitle,
             description: article.excerpt,
             keywords: article.tags?.join(', '),
             alternates: {

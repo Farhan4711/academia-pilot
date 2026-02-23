@@ -9,7 +9,7 @@ import FAQAccordion from '@/components/ui/FAQAccordion';
 const meta = getCategoryMetadata('ai-mastery-hub');
 
 export const metadata = {
-    title: "AI Mastery Hub: Advanced Guides, Tutorials & Workflows",
+    title: "AI Mastery Hub: Advanced Guides & Tutorials",
     description: "The AI Mastery Hub is your ultimate resource for mastering artificial intelligence. Advanced guides, agentic workflows, and expert tutorials for developers.",
     alternates: {
         canonical: "/ai-mastery-hub/",

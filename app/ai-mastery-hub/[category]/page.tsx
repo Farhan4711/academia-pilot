@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     const readableCategory = category.replace(/-/g, ' ');
 
     return {
-        title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} Mastery - AI Mastery Hub | Academia Pilot`,
+        title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} Mastery - AI Hub`,
         description: meta?.seoDescription || `Expert guides and tutorials on ${readableCategory} to help you master AI development.`,
         alternates: {
             canonical: `/ai-mastery-hub/${category}/`,

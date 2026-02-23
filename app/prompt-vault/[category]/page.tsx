@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     const readableCategory = category.replace(/-/g, ' ');
 
     return {
-        title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} Prompts - Prompt Vault | Academia Pilot`,
+        title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} Prompts`,
         description: meta?.seoDescription || `Unlock battle-tested AI prompts for ${readableCategory}. Battle-tested, optimized, and ready to use.`,
         alternates: {
             canonical: `/prompt-vault/${category}/`,

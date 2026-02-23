@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     const readableCategory = category.replace(/-/g, ' ');
 
     return {
-        title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} Tools - Tool Hangar | Academia Pilot`,
+        title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} Tools`,
         description: meta?.seoDescription || `Discovery the best AI tools for ${readableCategory}. Pilot-vetted, battle-tested, and ready to deploy.`,
         alternates: {
             canonical: `/tool-hangar/${category}/`,

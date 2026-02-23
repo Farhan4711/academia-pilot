@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     const readableCategory = category.replace(/-/g, ' ');
 
     return {
-        title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} AI News - Academia Pilot`,
+        title: meta?.title || `${readableCategory.charAt(0).toUpperCase() + readableCategory.slice(1)} AI News`,
         description: meta?.seoDescription || `Explore the latest ${readableCategory} AI news, breakthroughs, and analysis on Academia Pilot.`,
         alternates: {
             canonical: `/news/${category}/`,

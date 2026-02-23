@@ -36,8 +36,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             };
         }
 
+        let metaTitle = `${article.title} - Academia Pilot`;
+        if (metaTitle.length > 70) {
+            metaTitle = `${article.title.substring(0, 50)}... - AP`;
+        }
+
         return {
-            title: `${article.title} - Academia Pilot`,
+            title: metaTitle,
             description: article.excerpt,
             keywords: article.tags?.join(', '),
         };

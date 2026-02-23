@@ -14,7 +14,7 @@ import MCPOrchestrationDiagram from '@/components/diagrams/MCPOrchestrationDiagr
 import FAQAccordion from '@/components/ui/FAQAccordion';
 
 export const metadata: Metadata = {
-    title: 'What Is Model Context Protocol (MCP)? Complete Technical Breakdown (2026 Guide)',
+    title: 'Complete MCP Technical Breakdown (2026)',
     description: 'Model Context Protocol (MCP) explained — architecture, security model, SDK, enterprise use cases, and MCP vs OpenAI function calling. The definitive 2026 developer guide.',
     keywords: ['Model Context Protocol', 'MCP', 'AI Agents', 'Claude MCP', 'OpenAI Function Calling', 'AI Architecture'],
     alternates: {

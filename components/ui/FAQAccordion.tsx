@@ -30,7 +30,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
     return (
         <div className={styles.faqContainer}>
             <div className={styles.faqHeader}>
-                <h1>{title}</h1>
+                <h2>{title}</h2>
                 <p>{subtitle}</p>
             </div>
 

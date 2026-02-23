@@ -7,7 +7,7 @@ import Badge from '@/components/ui/Badge';
 const meta = getCategoryMetadata('news');
 
 export const metadata = {
-    title: meta?.title || "News - Breaking AI News Radar",
+    title: meta?.title || "Breaking AI News Radar",
     description: meta?.seoDescription || "Stay updated with the latest AI breakthroughs, tool releases, and industry insights. Your radar for navigating the agentic frontier.",
     alternates: {
         canonical: "/news/",
