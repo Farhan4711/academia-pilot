@@ -45,6 +45,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             title: metaTitle,
             description: article.excerpt,
             keywords: article.tags?.join(', '),
+            alternates: {
+                canonical: `/news-radar/${slug}/`,
+            },
         };
     } catch (error) {
         console.error('Error in generateMetadata:', error);

@@ -20,6 +20,11 @@ export interface ContentItem {
     premium?: boolean;
     author?: string;
     pricing?: string;
+    pricingTier?: string; // e.g., "Free", "Freemium", "Paid", "Enterprise"
+    apiAvailable?: boolean;
+    openSource?: boolean;
+    enterpriseReady?: boolean;
+    localDeployment?: boolean;
     features?: string[];
     level?: string;
     duration?: string;
@@ -82,6 +87,11 @@ export function getAllContent(type: 'news' | 'tools' | 'prompts' | 'courses' | '
             premium: data.premium || false,
             author: data.author,
             pricing: data.pricing,
+            pricingTier: data.pricingTier,
+            apiAvailable: data.apiAvailable || false,
+            openSource: data.openSource || false,
+            enterpriseReady: data.enterpriseReady || false,
+            localDeployment: data.localDeployment || false,
             features: data.features || [],
             level: data.level,
             duration: data.duration,
@@ -240,6 +250,11 @@ export function getContentBySlug(type: 'news' | 'tools' | 'prompts' | 'courses' 
         premium: data.premium || false,
         author: data.author,
         pricing: data.pricing,
+        pricingTier: data.pricingTier,
+        apiAvailable: data.apiAvailable || false,
+        openSource: data.openSource || false,
+        enterpriseReady: data.enterpriseReady || false,
+        localDeployment: data.localDeployment || false,
         features: data.features || [],
         level: data.level,
         duration: data.duration,

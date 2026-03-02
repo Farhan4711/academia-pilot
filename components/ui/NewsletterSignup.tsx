@@ -37,26 +37,21 @@ export default function NewsletterSignup({ compact = false }: NewsletterSignupPr
         }
 
         try {
-            // We use 'no-cors' or simple request to avoid preflight issues with Google Apps Script
-            // Sending it as text/plain and parsing JSON in the script is a common hack to bypass preflight
-            const response = await fetch(scriptUrl, {
+            // We use 'no-cors' to avoid browser CORS issues with Google Apps Script's 302 redirects
+            await fetch(scriptUrl, {
                 method: 'POST',
-                mode: 'cors', // Google Apps Script handles cors if the script is right
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'text/plain;charset=utf-8',
                 },
                 body: JSON.stringify({ email })
             });
 
-            const result = await response.json();
-
-            if (response.ok && result.success) {
-                setStatus('success');
-                setMessage('🎉 Welcome to the Flight Crew! You are now subscribed.');
-                setEmail('');
-            } else {
-                throw new Error(result.message || 'Failed to subscribe');
-            }
+            // With mode: 'no-cors', the response is opaque. We cannot read response.json() or response.ok.
+            // If fetch() resolves without throwing a network error, the request was sent successfully to Google.
+            setStatus('success');
+            setMessage('🎉 Welcome to the Flight Crew! You are now subscribed.');
+            setEmail('');
         } catch (error) {
             console.error('Subscription error:', error);
             setStatus('error');

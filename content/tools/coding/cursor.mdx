@@ -1,0 +1,86 @@
+---
+title: "Cursor"
+date: "2024-05-10"
+excerpt: "The AI-first IDE built to make you an extraordinarily fast developer. Forked from VS Code with deep AI integration."
+category: "coding"
+tags: ["IDE", "Coding Assistant", "AI Editor", "Developer Tool"]
+badge: "Developer Favorite"
+featured: true
+pilotScore: 9.8
+author: "Anysphere"
+pricing: "Freemium ($20/mo)"
+pricingTier: "Freemium"
+apiAvailable: false
+openSource: false
+enterpriseReady: true
+localDeployment: true
+url: "https://cursor.com"
+faq:
+  - question: "Is Cursor based on VS Code?"
+    answer: "Yes, Cursor is a fork of VS Code. This means all your VS Code extensions, themes, and keybindings work seamlessly."
+    icon: "💻"
+  - question: "Can I use my own API keys?"
+    answer: "Yes, Cursor allows you to bring your own API keys for OpenAI or Anthropic if you prefer to pay per token rather than a flat subscription."
+    icon: "🔑"
+  - question: "Is my code private?"
+    answer: "Cursor has a 'Privacy Mode' that ensures your code is not stored on their servers or used for model training."
+    icon: "🔒"
+---
+
+import ProsConsCard from '@/components/tools/ProsConsCard';
+import PricingMatrix from '@/components/tools/PricingMatrix';
+
+## What Is Cursor?
+
+Cursor is an AI-first Code Editor built as a fork of VS Code. It is designed from the ground up to integrate advanced AI models (like GPT-4 and Claude 3.5 Sonnet) directly into the coding experience. It understands your entire codebase and acts as an expert pair programmer.
+
+## Core Functions
+
+*   **Codebase Indexing:** Analyzes your entire repository to provide context-aware answers.
+*   **Command-K (Cmd-K):** Generate code inline, edit existing code, automatically fix lint errors, and add comments.
+*   **Chat Sidebar:** Ask questions about your code, search documentation, and refactor architecture.
+*   **AI Terminal:** Automatically catches terminal errors and suggests fixes before you even ask.
+*   **Composer:** Generate multi-file features and structural changes simultaneously.
+
+## Key Features Breakdown
+
+Cursor goes beyond simple autocomplete by giving the AI native understanding of the file system and IDE state.
+*   **Context Management:** It automatically attaches relevant files to your prompt by reading your open editors and mentions via `@Files` or `@Web`.
+*   **Multiple Models:** Seamlessly switch between Claude 3.5 Sonnet for fast coding and GPT-4o for complex reasoning depending on the task.
+*   **Privacy Mode:** A strict enterprise-ready policy to ensure proprietary code is never stored or trained on by Anysphere.
+
+## How It Works (Architecture Level)
+
+Because it's a VS Code fork, it runs a locally hosted Electron app with the standard VS Code architecture. However, the AI layer communicates securely with Anysphere's proxy servers, which route requests to the best available models. Cursor builds a local embedding database of your files to enable instantaneous RAG (Retrieval-Augmented Generation) when you ask codebase-wide questions.
+
+<PricingMatrix 
+  tiers={[
+    { plan: "Free", price: "$0", features: ["14-day Pro trial", "Basic code completions", "Bring your own API key"], apiAccess: "BYOK", limits: "Slower requests" },
+    { plan: "Pro", price: "$20/mo", features: ["500 fast premium requests (GPT-4 / Claude 3.5)", "Unlimited slow requests", "Privacy mode"], apiAccess: "Included", limits: "500 Fast/mo" },
+    { plan: "Business", price: "$40/mo/user", features: ["Centralized billing", "Admin dashboard", "Zero data retention"], apiAccess: "Included", limits: "Custom" }
+  ]} 
+/>
+
+<ProsConsCard 
+  pros={[
+    "Zero friction for VS Code users moving over",
+    "Unmatched codebase context awareness",
+    "Claude 3.5 Sonnet integration is arguably the best coding AI currently available",
+    "Composer feature revolutionizes multi-file scaffolding"
+  ]}
+  cons={[
+    "Forking VS Code means updates occasionally lag behind Microsoft's upstream",
+    "High usage of large codebases can lead to token limit exhaustion quickly on Pro",
+    "No mobile or web-only environment currently available"
+  ]}
+/>
+
+## Use Cases by Persona
+
+*   **Developers:** 10x-ing feature velocity, understanding legacy spaghetti code, and writing boilerplates.
+*   **Founders & Indie Hackers:** Allowing non-technical founders to rapidly prototype robust full-stack applications without hiring immediately.
+*   **Students:** Demystifying complex computer science concepts with inline, context-aware explanations.
+
+## Final Strategic Summary
+
+Cursor is currently the apex predator of AI coding tools. By choosing to fork VS Code rather than build a mere extension (like Copilot), the Anysphere team unlocked deep IDE integrations that make the AI feel like a native feature rather than an afterthought. If you write code for a living, adopting Cursor isn't an option; it's a necessity to stay competitive in 2026.

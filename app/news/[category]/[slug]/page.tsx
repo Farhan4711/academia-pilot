@@ -43,7 +43,30 @@ import ClaudeVsCompetitorsTable from '@/components/content/ClaudeVsCompetitorsTa
 import ClaudeModelComparisonTable from '@/components/content/ClaudeModelComparisonTable';
 import IDEvsBuilderMetaTable from '@/components/content/IDEvsBuilderMetaTable';
 import EasternAIIDEComparison from '@/components/content/EasternAIIDEComparison';
+import FileLevelLimitationMatrix from '@/components/content/FileLevelLimitationMatrix';
+import MicrosoftCoursesComparison from '@/components/content/MicrosoftCoursesComparison';
+import MicrosoftLearningPathDiagram from '@/components/content/MicrosoftLearningPathDiagram';
+import MicrosoftCredentialArchitecture from '@/components/content/MicrosoftCredentialArchitecture';
+import MicrosoftLearnPlatformComparison from '@/components/content/MicrosoftLearnPlatformComparison';
+import MicrosoftCourseROI from '@/components/content/MicrosoftCourseROI';
+import MicrosoftSkillMethod from '@/components/content/MicrosoftSkillMethod';
+import MicrosoftCourseDetailBreakdown from '@/components/content/MicrosoftCourseDetailBreakdown';
+import OpenClawArchitectureDiagram from '@/components/content/OpenClawArchitectureDiagram';
+import OpenClawTechComparison from '@/components/content/OpenClawTechComparison';
+import OpenClawMonetizationTable from '@/components/content/OpenClawMonetizationTable';
+import OpenClawRiskMatrix from '@/components/content/OpenClawRiskMatrix';
+import CLAWExecutionFramework from '@/components/content/CLAWExecutionFramework';
+import OpenClawProductionComponents from '@/components/content/OpenClawProductionComponents';
+import OpenClawMistakes from '@/components/content/OpenClawMistakes';
+import OpenClawEcosystemComparison from '@/components/content/OpenClawEcosystemComparison';
+import OpenClawCostStructure from '@/components/content/OpenClawCostStructure';
 import AIGlobalPricingMatrix from '@/components/content/AIGlobalPricingMatrix';
+import LiteracyVsFluencyTable from '@/components/content/LiteracyVsFluencyTable';
+import FluencyBehaviorsMatrix from '@/components/content/FluencyBehaviorsMatrix';
+import FluencyDimensionsGrid from '@/components/content/FluencyDimensionsGrid';
+import FluencyMaturityModel from '@/components/content/FluencyMaturityModel';
+import FluencySelfAssessmentChecklist from '@/components/content/FluencySelfAssessmentChecklist';
+import ArticleReader from '@/components/content/ArticleReader';
 
 // Generate static params for all news articles (required for static export)
 export async function generateStaticParams() {
@@ -81,13 +104,15 @@ export async function generateMetadata({ params }: PageProps) {
             };
         }
 
-        let metaTitle = `${article.title} | ${article.category || 'News'} | Academia Pilot`;
-        if (metaTitle.length > 70) {
-            metaTitle = `${article.title.substring(0, 50)}... | AP`;
+        // Next.js layout template adds " | Academia Pilot" (17 chars)
+        // Ensure base title is under 53 chars to stay within the 70 char limit
+        let baseTitle = article.title;
+        if (baseTitle.length > 50) {
+            baseTitle = `${baseTitle.substring(0, 47)}...`;
         }
 
         return {
-            title: metaTitle,
+            title: baseTitle,
             description: article.excerpt,
             keywords: article.tags?.join(', '),
             alternates: {
@@ -248,6 +273,10 @@ export default async function ArticlePage({ params }: PageProps) {
                                 ))}
                             </div>
                         )}
+                        {/* Article Reader Feature */}
+                        <div style={{ marginTop: 'var(--space-8)' }}>
+                            <ArticleReader content={article.content} title={article.title} />
+                        </div>
                     </div>
                 </section>
 
@@ -358,6 +387,28 @@ export default async function ArticlePage({ params }: PageProps) {
                                 'IDEvsBuilderMetaTable': <IDEvsBuilderMetaTable />,
                                 'EasternAIIDEComparison': <EasternAIIDEComparison />,
                                 'AIGlobalPricingMatrix': <AIGlobalPricingMatrix />,
+                                'LiteracyVsFluencyTable': <LiteracyVsFluencyTable />,
+                                'FluencyBehaviorsMatrix': <FluencyBehaviorsMatrix />,
+                                'FluencyDimensionsGrid': <FluencyDimensionsGrid />,
+                                'FluencyMaturityModel': <FluencyMaturityModel />,
+                                'FluencySelfAssessmentChecklist': <FluencySelfAssessmentChecklist />,
+                                'FileLevelLimitationMatrix': <FileLevelLimitationMatrix />,
+                                'MicrosoftCoursesComparison': <MicrosoftCoursesComparison />,
+                                'MicrosoftLearningPathDiagram': <MicrosoftLearningPathDiagram />,
+                                'MicrosoftCredentialArchitecture': <MicrosoftCredentialArchitecture />,
+                                'MicrosoftLearnPlatformComparison': <MicrosoftLearnPlatformComparison />,
+                                'MicrosoftCourseROI': <MicrosoftCourseROI />,
+                                'MicrosoftSkillMethod': <MicrosoftSkillMethod />,
+                                'MicrosoftCourseDetailBreakdown': <MicrosoftCourseDetailBreakdown />,
+                                'OpenClawArchitectureDiagram': <OpenClawArchitectureDiagram />,
+                                'OpenClawTechComparison': <OpenClawTechComparison />,
+                                'OpenClawMonetizationTable': <OpenClawMonetizationTable />,
+                                'OpenClawRiskMatrix': <OpenClawRiskMatrix />,
+                                'CLAWExecutionFramework': <CLAWExecutionFramework />,
+                                'OpenClawProductionComponents': <OpenClawProductionComponents />,
+                                'OpenClawMistakes': <OpenClawMistakes />,
+                                'OpenClawEcosystemComparison': <OpenClawEcosystemComparison />,
+                                'OpenClawCostStructure': <OpenClawCostStructure />,
 
                             };
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
@@ -382,7 +433,7 @@ export default async function ArticlePage({ params }: PageProps) {
                                 <>
                                     {segments.map((seg, i) =>
                                         seg.type === 'component' ? (
-                                            <div key={i} style={{ margin: 'var(--space-10) 0' }}>
+                                            <div key={i} className="not-readable" style={{ margin: 'var(--space-10) 0' }}>
                                                 {COMPONENT_MAP[seg.value] ?? null}
                                             </div>
                                         ) : (

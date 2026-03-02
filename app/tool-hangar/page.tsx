@@ -1,25 +1,52 @@
-import { getAllContent, getCategories } from '@/lib/content';
+import { getAllContent, getCategories, searchContent } from '@/lib/content';
 import Badge from '@/components/ui/Badge';
-import Button from '@/components/ui/Button';
 import Card, { CardTitle, CardDescription } from '@/components/ui/Card';
-import Link from 'next/link';
+import Button from '@/components/ui/Button';
 import { getCategoryMetadata } from '@/lib/categories';
+import ToolHangarFilters from '@/components/tools/ToolHangarFilters';
 
 const meta = getCategoryMetadata('tool-hangar');
 
 export const metadata = {
-    title: "The Tool Hangar - Pilot-Vetted AI Tools",
+    title: "The Tool Hangar - Pilot-Vetted AI Tools & Ranking Engine",
     description: meta?.seoDescription || "The ultimate directory for the agentic era. Vetted AI models, IDEs, and research tools that power 10x workflows.",
     alternates: {
         canonical: "/tool-hangar/",
     },
 };
 
-export default function ToolHangarPage() {
+export default function ToolHangarPage({
+    searchParams
+}: {
+    searchParams: { q?: string; category?: string; pricing?: string }
+}) {
     const allTools = getAllContent('tools');
     const categories = getCategories('tools');
 
-    const pilotsPicks = allTools.slice(0, 3); // Featured tools
+    // Filtering logic
+    const query = searchParams.q?.toLowerCase() || '';
+    const activeCategory = searchParams.category || '';
+    const activePricing = searchParams.pricing || '';
+
+    let displayedTools = allTools;
+
+    if (query) {
+        displayedTools = searchContent('tools', query);
+    }
+
+    if (activeCategory) {
+        displayedTools = displayedTools.filter(t => t.category === activeCategory);
+    }
+
+    if (activePricing) {
+        displayedTools = displayedTools.filter(t => t.pricingTier?.toLowerCase() === activePricing.toLowerCase() || t.pricing?.toLowerCase().includes(activePricing.toLowerCase()));
+    }
+
+    const featuredTools = allTools.filter(t => t.featured).slice(0, 3);
+    const trendingTools = allTools.slice(0, 6); // Just newest for now
+
+    // Derived filters
+    const pricingTiers = Array.from(new Set(allTools.map(t => t.pricingTier).filter(Boolean))) as string[];
 
     return (
         <div>
@@ -29,118 +56,143 @@ export default function ToolHangarPage() {
                 paddingTop: 'var(--space-16)',
                 paddingBottom: 'var(--space-12)'
             }}>
-                <div className="container">
-                    <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+                <div className="container" style={{ maxWidth: '1000px' }}>
+                    <div style={{ margin: '0 auto', textAlign: 'center' }}>
                         <h1 style={{
-                            fontSize: 'var(--text-5xl)',
+                            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                             fontWeight: 'var(--font-black)',
                             marginBottom: 'var(--space-4)',
                             background: 'linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent) 100%)',
                             WebkitBackgroundClip: 'text',
                             WebkitTextFillColor: 'transparent',
-                            backgroundClip: 'text'
+                            backgroundClip: 'text',
+                            lineHeight: '1.2'
                         }}>
-                            {meta?.introTitle || 'The Tool Hangar'}
+                            {meta?.introTitle || 'The Agentic Directory'}
                         </h1>
 
                         <div style={{
-                            fontSize: 'var(--text-lg)',
+                            fontSize: 'var(--text-xl)',
                             color: 'var(--color-text-secondary)',
                             marginBottom: 'var(--space-8)',
-                            lineHeight: '1.7',
-                            whiteSpace: 'pre-wrap',
-                            textAlign: 'left',
-                            maxWidth: '800px',
+                            lineHeight: '1.6',
+                            textAlign: 'center',
+                            maxWidth: '900px',
                             margin: '0 auto var(--space-8)'
                         }}>
-                            {meta?.introContent || 'Vetted tools for the agentic era. We test the models, IDEs, and agents so you can just focus on building.'}
+                            {meta?.introContent || 'Discover, compare, and deploy the most powerful AI models, IDEs, and tools vetted for modern workflows.'}
                         </div>
 
-
-
-                        {/* Category Quick Links */}
-                        <div className="flex flex-wrap justify-center gap-3">
-                            {categories.map(cat => (
-                                <Link
-                                    key={cat}
-                                    href={`/tool-hangar/${cat}/`}
-                                    className="btn btn-secondary btn-sm"
-                                    style={{ textTransform: 'capitalize' }}
-                                >
-                                    {cat.replace(/-/g, ' ')}
-                                </Link>
-                            ))}
+                        {/* Premium Search & Filters Wrapper */}
+                        <div style={{
+                            backgroundColor: 'rgba(26, 31, 46, 0.7)', /* Dark surface color (#1A1F2E) with opacity */
+                            backdropFilter: 'blur(12px)',
+                            WebkitBackdropFilter: 'blur(12px)',
+                            padding: 'var(--space-6)',
+                            borderRadius: 'calc(var(--radius-xl) + 4px)',
+                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            boxShadow: '0 20px 40px -10px rgba(0,0,0,0.3)',
+                            marginBottom: 'var(--space-12)',
+                            position: 'relative',
+                            zIndex: 10
+                        }}>
+                            <ToolHangarFilters
+                                query={query}
+                                activeCategory={activeCategory}
+                                activePricing={activePricing}
+                                categories={categories}
+                                pricingTiers={pricingTiers}
+                            />
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Pilot's Picks */}
-            <section className="section">
-                <div className="container">
-                    <h2 className="section-title">Pilot's Picks</h2>
-                    <div className="grid grid-3">
-                        {pilotsPicks.map((tool) => (
-                            <Card key={tool.slug} href={`/tool-hangar/${tool.category || 'uncategorized'}/${tool.slug.split('/').pop()}/`} variant="highlight">
-                                <div className="flex justify-between items-center" style={{ marginBottom: 'var(--space-3)' }}>
-                                    <Badge variant="success">Pilot's Pick</Badge>
-                                    <span style={{ fontSize: 'var(--text-xl)' }}>🔥</span>
-                                </div>
+            {/* Featured & Trending Section (Only show if no search/filters active) */}
+            {(!query && !activeCategory && !activePricing) && (
+                <>
+                    {featuredTools.length > 0 && (
+                        <section className="section">
+                            <div className="container">
+                                <h2 className="section-title">Featured Tools</h2>
+                                <div className="grid grid-3">
+                                    {featuredTools.map((tool) => (
+                                        <Card key={tool.slug} href={`/tool-hangar/${tool.category || 'uncategorized'}/${tool.slug.split('/').pop()}/`} variant="highlight">
+                                            <div className="flex justify-between items-center" style={{ marginBottom: 'var(--space-3)' }}>
+                                                <Badge variant="success">Featured</Badge>
+                                                <span style={{ fontSize: 'var(--text-xl)' }}>🔥</span>
+                                            </div>
 
-                                <CardTitle>{tool.title}</CardTitle>
-                                <CardDescription>{tool.excerpt}</CardDescription>
+                                            <CardTitle>{tool.title}</CardTitle>
+                                            <CardDescription>{tool.excerpt}</CardDescription>
 
-                                <div className="flex flex-wrap gap-1" style={{ marginTop: 'var(--space-4)' }}>
-                                    {tool.tags?.slice(0, 3).map(tag => (
-                                        <Badge key={tag} variant="secondary" style={{ fontSize: '10px' }}>{tag}</Badge>
+                                            <div className="flex flex-wrap gap-1" style={{ marginTop: 'var(--space-4)' }}>
+                                                {tool.tags?.slice(0, 3).map(tag => (
+                                                    <Badge key={tag} variant="secondary" style={{ fontSize: '10px' }}>{tag}</Badge>
+                                                ))}
+                                            </div>
+                                        </Card>
                                     ))}
                                 </div>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            </section>
+                            </div>
+                        </section>
+                    )}
 
-            {/* All Tools Grid */}
-            <section className="section" style={{ backgroundColor: 'var(--color-surface)' }}>
-                <div className="container">
-                    <h2 className="section-title">All Vetted Tools</h2>
-                    <div className="grid grid-3">
-                        {allTools.map((tool) => (
-                            <Card key={tool.slug} href={`/tool-hangar/${tool.category || 'uncategorized'}/${tool.slug.split('/').pop()}/`}>
-                                <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
-                                    <Badge variant="accent">{tool.pricing || 'Freemium'}</Badge>
-                                    <Badge variant="secondary" style={{ textTransform: 'capitalize' }}>
-                                        {tool.category?.replace(/-/g, ' ')}
-                                    </Badge>
-                                </div>
-                                <CardTitle>{tool.title}</CardTitle>
-                                <CardDescription>{tool.excerpt}</CardDescription>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            </section>
+                    <section className="section" style={{ backgroundColor: 'var(--color-surface)' }}>
+                        <div className="container">
+                            <h2 className="section-title">Trending & Updated</h2>
+                            <div className="grid grid-3">
+                                {trendingTools.map((tool) => (
+                                    <Card key={tool.slug} href={`/tool-hangar/${tool.category || 'uncategorized'}/${tool.slug.split('/').pop()}/`}>
+                                        <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
+                                            <Badge variant="accent">{tool.pricingTier || tool.pricing || 'Freemium'}</Badge>
+                                            {tool.apiAvailable && <Badge variant="success">API</Badge>}
+                                        </div>
+                                        <CardTitle>{tool.title}</CardTitle>
+                                        <CardDescription>{tool.excerpt}</CardDescription>
+                                    </Card>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                </>
+            )}
 
-            {/* Tool Suggestion CTA */}
+            {/* All Tools Grid or Filter Results */}
             <section className="section">
-                <div className="container container-md">
-                    <div style={{
-                        textAlign: 'center',
-                        padding: 'var(--space-12)',
-                        backgroundColor: 'var(--color-primary)',
-                        borderRadius: 'var(--radius-xl)',
-                        border: '1px solid var(--color-border)'
-                    }}>
-                        <h2 style={{ fontSize: 'var(--text-3xl)', fontWeight: 'var(--font-bold)', marginBottom: 'var(--space-4)' }}>
-                            Have a Tool to Suggest?
+                <div className="container">
+                    <div className="flex justify-between items-end mb-8">
+                        <h2 className="section-title" style={{ marginBottom: 0 }}>
+                            {query || activeCategory || activePricing ? 'Search Results' : 'All Vetted Tools'}
                         </h2>
-                        <p className="text-secondary" style={{ marginBottom: 'var(--space-8)' }}>
-                            We're always looking for the next game-changing tool for the agentic era.
-                            If you've built or found something incredible, let us know.
-                        </p>
-                        <Button variant="cta" href="mailto:pilot@academiapilot.com">Suggest a Tool</Button>
+                        <span style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--text-sm)' }}>
+                            Showing {displayedTools.length} results
+                        </span>
                     </div>
+
+                    {displayedTools.length > 0 ? (
+                        <div className="grid grid-3">
+                            {displayedTools.map((tool) => (
+                                <Card key={tool.slug} href={`/tool-hangar/${tool.category || 'uncategorized'}/${tool.slug.split('/').pop()}/`}>
+                                    <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
+                                        <Badge variant="accent">{tool.pricingTier || tool.pricing || 'Freemium'}</Badge>
+                                        <Badge variant="secondary" style={{ textTransform: 'capitalize' }}>
+                                            {tool.category?.replace(/-/g, ' ')}
+                                        </Badge>
+                                        {tool.enterpriseReady && <Badge variant="success">Enterprise</Badge>}
+                                    </div>
+                                    <CardTitle>{tool.title}</CardTitle>
+                                    <CardDescription>{tool.excerpt}</CardDescription>
+                                </Card>
+                            ))}
+                        </div>
+                    ) : (
+                        <div style={{ textAlign: 'center', padding: 'var(--space-12) 0' }}>
+                            <h3 style={{ fontSize: 'var(--text-2xl)', color: 'var(--color-text-secondary)' }}>No tools found</h3>
+                            <p>Try adjusting your filters or search query.</p>
+                            <Button href="/tool-hangar" variant="secondary" style={{ marginTop: 'var(--space-4)' }}>Clear All Filters</Button>
+                        </div>
+                    )}
                 </div>
             </section>
         </div>

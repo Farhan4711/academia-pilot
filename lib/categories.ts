@@ -8,7 +8,7 @@ export interface CategoryMetadata {
 
 export const categoryRegistry: Record<string, CategoryMetadata> = {
     "news": {
-        title: "AI News Radar: Global Artificial Intelligence Updates & Industry Insights",
+        title: "AI News Radar: Global Updates & Insights",
         seoDescription: "Global AI news, product launches, security updates, policy shifts, and industry analysis. Stay ahead of artificial intelligence trends in 2026 and beyond.",
         introTitle: "AI News Radar: Global Artificial Intelligence Updates & Industry Insights",
         introContent: `Welcome to the AI News Radar, your trusted source for the latest developments in artificial intelligence, machine learning, generative AI, cybersecurity, and emerging AI technologies.
@@ -27,7 +27,7 @@ Whether you're a founder, developer, policymaker, educator, or AI enthusiast, th
         ]
     },
     "ai-security": { // Keeping for /news/ai-security backward compatibility
-        title: "AI Security News: Stay Ahead of Threats & Vulnerabilities",
+        title: "AI Security News: Threats & Vulnerabilities",
         seoDescription: "Latest AI security news, vulnerability reports, threat analysis, and best practices. Stay informed on AI risks and defenses worldwide in 2026.",
         introTitle: "AI Security News: Stay Ahead of Threats & Vulnerabilities",
         introContent: `The AI Security section delivers timely, in-depth coverage of cybersecurity, risk management, and threat intelligence in artificial intelligence systems. As AI adoption grows globally, security concerns—from model manipulation to data breaches—become increasingly critical. This hub is your go-to resource for understanding and mitigating these risks.
@@ -41,7 +41,7 @@ Here, we analyze model vulnerabilities, data privacy, and security incidents. Ou
         ]
     },
     "generative-ai": {
-        title: "Generative AI News: Models, Breakthroughs & Applications",
+        title: "Generative AI News: Models & Breakthroughs",
         seoDescription: "Breaking news and insights on generative AI, including GPT, Claude, DALL·E, and AI creative applications. Stay updated with 2026 trends.",
         introTitle: "Generative AI News: Models, Breakthroughs & Applications",
         introContent: `The Generative AI section tracks the latest innovations in AI that create text, images, audio, video, and other content. With models like GPT, Claude, DALL·E, and Stable Diffusion transforming industries, staying informed is essential for developers, marketers, researchers, and creatives worldwide.
@@ -55,7 +55,7 @@ Our coverage includes launches, benchmarks, and real-world applications. Each ar
         ]
     },
     "prompt-vault": {
-        title: "AI Prompt Vault: Ready-to-Use Templates for Every Task",
+        title: "AI Prompt Vault: Templates for Every Task",
         seoDescription: "Discover AI prompt templates for productivity, research, coding, and creative work. Boost results with ready-to-use prompts for ChatGPT, Claude, and more.",
         introTitle: "AI Prompt Vault: Ready-to-Use Templates for Every Task",
         introContent: `The Prompt Vault is your ultimate collection of AI prompts, templates, and frameworks designed to save you time, enhance productivity, and unlock the full potential of AI systems. Whether you are a developer, researcher, marketer, or educator, these prompts help you generate high-quality outputs without guesswork.
@@ -129,7 +129,7 @@ They are fully integrated with AI Mastery Hub guides and Tool Hangar comparisons
         ]
     },
     "tool-hangar": {
-        title: "AI Tool Hangar: Compare, Discover & Use the Best AI Tools",
+        title: "AI Tool Hangar: Discover Best AI Tools",
         seoDescription: "Discover and compare the best AI tools for productivity, creativity, coding, marketing, and more. Reviews, guides, and comparisons updated for 2026.",
         introTitle: "AI Tool Hangar: Compare, Discover & Use the Best AI Tools",
         introContent: `The Tool Hangar is your ultimate AI tools directory and comparison hub. Whether you’re a developer, marketer, designer, educator, or researcher, this section helps you discover the most powerful AI tools and understand which ones fit your workflow.
@@ -200,7 +200,7 @@ Stay updated on the newest AI image tools and trends to remain competitive and i
         ]
     },
     "ai-mastery-hub": {
-        title: "AI Mastery Hub: Advanced Guides, Tutorials & Workflows",
+        title: "AI Mastery Hub: Advanced Guides & Workflows",
         seoDescription: "Deep-dive AI guides, tutorials, and workflows. Learn prompt engineering, AI security, and advanced applications for developers, marketers, and researchers.",
         introTitle: "AI Mastery Hub: Advanced Guides, Tutorials & Workflows",
         introContent: `The AI Mastery Hub is your ultimate resource for mastering artificial intelligence. This hub is designed for developers, researchers, marketers, and AI enthusiasts who want to move beyond basic usage and unlock advanced skills, techniques, and strategies.
