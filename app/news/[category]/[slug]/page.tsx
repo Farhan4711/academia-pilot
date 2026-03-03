@@ -66,6 +66,18 @@ import FluencyBehaviorsMatrix from '@/components/content/FluencyBehaviorsMatrix'
 import FluencyDimensionsGrid from '@/components/content/FluencyDimensionsGrid';
 import FluencyMaturityModel from '@/components/content/FluencyMaturityModel';
 import FluencySelfAssessmentChecklist from '@/components/content/FluencySelfAssessmentChecklist';
+import GravityConfigVisual from '@/components/content/GravityConfigVisual';
+import TerminalPolicyTiers from '@/components/content/TerminalPolicyTiers';
+import ModelRotationStrategy from '@/components/content/ModelRotationStrategy';
+import ArtifactReviewPolicyCard from '@/components/content/ArtifactReviewPolicyCard';
+import MCPServerCards from '@/components/content/MCPServerCards';
+import AntigravityFixesSummary from '@/components/content/AntigravityFixesSummary';
+import NxMIntegrationVisual from '@/components/content/NxMIntegrationVisual';
+import ProtocolAdoptionStats from '@/components/content/ProtocolAdoptionStats';
+import ProtocolLayerArchitecture from '@/components/content/ProtocolLayerArchitecture';
+import StackDecisionFramework from '@/components/content/StackDecisionFramework';
+import ProtocolSecurityMatrix from '@/components/content/ProtocolSecurityMatrix';
+import ProtocolComparisonTable from '@/components/content/ProtocolComparisonTable';
 import ArticleReader from '@/components/content/ArticleReader';
 
 // Generate static params for all news articles (required for static export)
@@ -409,6 +421,18 @@ export default async function ArticlePage({ params }: PageProps) {
                                 'OpenClawMistakes': <OpenClawMistakes />,
                                 'OpenClawEcosystemComparison': <OpenClawEcosystemComparison />,
                                 'OpenClawCostStructure': <OpenClawCostStructure />,
+                                'GravityConfigVisual': <GravityConfigVisual />,
+                                'TerminalPolicyTiers': <TerminalPolicyTiers />,
+                                'ModelRotationStrategy': <ModelRotationStrategy />,
+                                'ArtifactReviewPolicyCard': <ArtifactReviewPolicyCard />,
+                                'MCPServerCards': <MCPServerCards />,
+                                'AntigravityFixesSummary': <AntigravityFixesSummary />,
+                                'NxMIntegrationVisual': <NxMIntegrationVisual />,
+                                'ProtocolAdoptionStats': <ProtocolAdoptionStats />,
+                                'ProtocolLayerArchitecture': <ProtocolLayerArchitecture />,
+                                'StackDecisionFramework': <StackDecisionFramework />,
+                                'ProtocolSecurityMatrix': <ProtocolSecurityMatrix />,
+                                'ProtocolComparisonTable': <ProtocolComparisonTable />,
 
                             };
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
