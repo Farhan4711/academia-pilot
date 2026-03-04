@@ -1,0 +1,118 @@
+---
+title: "Claude"
+date: "2026-02-01"
+excerpt: "Anthropic's AI with the largest context window (200K+), superior document analysis, Claude Code for terminal-native agentic coding, and precise instruction-following built on Constitutional AI."
+category: "ai-chatbots-llms"
+tags: ["LLM", "Chatbot", "Anthropic", "AI Chatbots", "Claude", "Long Context", "Coding"]
+badge: "Best Long Context"
+featured: true
+pilotScore: 9.3
+author: "Anthropic"
+pricing: "Freemium ($20/mo)"
+pricingTier: "Freemium"
+apiAvailable: true
+openSource: false
+enterpriseReady: true
+localDeployment: false
+url: "https://claude.ai"
+faq:
+  - question: "What makes Claude different from ChatGPT?"
+    answer: "Claude's primary differentiation is its 200K+ token context window, which handles full codebases and lengthy documents without degradation. Claude also offers superior instruction-following on complex multi-constraint tasks, the Artifacts live rendering system, and Claude Code for terminal-native agentic coding. ChatGPT offers broader modalities: image generation, voice, browser agent, and a larger custom assistant ecosystem."
+    icon: "🔍"
+  - question: "What is Claude's context window in practice?"
+    answer: "The standard Claude context window is 200K tokens — approximately 150,000 words. On Max 20x plans, 1M token context access is in beta. In practice, this means Claude can hold an entire software codebase, a full legal contract, or dozens of research papers in a single session without chunking or summarization loss."
+    icon: "📄"
+  - question: "What is Claude Code and do I need it?"
+    answer: "Claude Code is a separate CLI tool (installed via npm) that gives Claude terminal-level access to your local development environment — reading files, running commands, executing tests, and making multi-file edits autonomously. It is designed for developers who want an agentic coding agent without a GUI IDE. It is not required for using Claude.ai."
+    icon: "💻"
+  - question: "What is Extended Thinking and when should I use it?"
+    answer: "Extended Thinking is Claude's deep reasoning mode where the model works through a problem step-by-step before generating its final response. The thinking process is visible to users. Use it for mathematically complex problems, multi-constraint planning, strategy analysis, and any task where you want an auditable reasoning chain."
+    icon: "🧠"
+  - question: "Can Claude access the internet?"
+    answer: "Claude does not have native web search in the standard interface. Web search capability requires explicit tool-use integration via the API or via third-party integrations. Projects and the Artifacts system do not include web access."
+    icon: "🌐"
+  - question: "Is Claude safe and privacy-focused?"
+    answer: "Anthropic was founded specifically around AI safety research. Claude's training includes Constitutional AI (CAI) methods designed to produce helpful, harmless, and honest responses. For enterprise users, Anthropic offers data processing agreements, data isolation, and audit logging."
+    icon: "🔒"
+---
+
+## What Is Claude?
+
+Claude is Anthropic's AI assistant built for long-document analysis, precise writing, complex coding tasks, and extended reasoning — distinguished by its **200K+ token context window**, structured Artifacts output system, and Claude Code terminal-native agentic coding agent. It is designed with a safety-first development philosophy and is widely used in professional and enterprise contexts.
+
+## Core Functions
+
+- Long-form document analysis (200K+ context)
+- Precise instruction-following across complex tasks
+- Code writing, review, and multi-file refactoring
+- Artifacts — renders live code, React components, diagrams
+- Projects — persistent context across sessions
+- Extended Thinking mode for complex reasoning problems
+- PDF, file, and spreadsheet analysis
+- Claude Code — terminal-native agentic coding
+- API access for application development
+- MCP integration for external tool connectivity
+
+## Pricing Structure
+
+:::COMPONENT:ClaudeAIPricingTable:::
+
+## Key Features Breakdown
+
+### 200K+ Token Context Window
+
+Claude's context window holds approximately **150,000 words** — equivalent to a full novel, a large codebase, or an extensive legal document. This enables tasks that are architecturally impossible for smaller-context models: analyzing an entire codebase in one session, reviewing full contracts, or synthesizing a lengthy research corpus without chunking.
+
+### Artifacts System
+
+Artifacts is a side-panel rendering system that displays generated outputs as live, interactive elements rather than raw text in the conversation. Use cases: live code execution, React component preview, SVG diagram visualization, Mermaid chart rendering, and interactive data tables. Artifacts transforms Claude from a chatbot into a workbench.
+
+### Extended Thinking Mode
+
+Extended Thinking is Claude's deep reasoning mode — the model works through complex problems step-by-step before producing its final response. The internal reasoning chain is visible to the user. Available on Pro and above plans, this is designed for mathematical problem solving, multi-constraint planning, and strategic analysis.
+
+### Projects
+
+Projects are persistent workspaces where users upload documents, set custom instructions, and maintain context across multiple sessions. A legal team can create a Project loaded with case files. A developer can create a Project with codebase documentation and coding standards.
+
+### Claude Code
+
+Claude Code is a separate terminal-native agentic coding agent — not a chat interface but a CLI tool that reads, edits, runs, and tests code autonomously across full codebases. It connects to any editor via the terminal and uses the full 200K+ context window for multi-file reasoning.
+
+### MCP (Model Context Protocol)
+
+Claude supports MCP, Anthropic's open protocol for connecting AI models to external tools, APIs, databases, and services. This enables Claude to interact with GitHub, Notion, databases, and custom enterprise systems within a conversation.
+
+## Pros and Cons
+
+:::COMPONENT:ClaudeAIProsCons:::
+
+## Use Cases by Persona
+
+**Developer:** Multi-file code review across an entire codebase, architectural refactoring, Claude Code for terminal-native autonomous coding, MCP integration for GitHub/Jira connectivity.
+
+**Enterprise Team:** Legal contract analysis (full contracts fit in one context window), compliance policy review, research synthesis across lengthy regulatory documents.
+
+**Researcher:** Full paper analysis without chunking, multi-document corpus synthesis, precise citation-aware summarization, data analysis via code execution in Artifacts.
+
+**Founder:** Long-form investor memo analysis, competitive intelligence synthesis across large document sets, technical documentation for product teams.
+
+## Claude vs Gemini
+
+| Dimension | Claude | Gemini |
+|-----------|--------|--------|
+| Context Window | 200K (standard) | 2M (Pro) |
+| Document Analysis | Superior synthesis | Better for video/audio |
+| Code Generation | Excellent — multi-file | Strong — Google Workspace |
+| Web Search | Via tool use | Native Google Search |
+| Ecosystem | MCP for broad tools | Deep Google Workspace |
+| Voice | No | Yes |
+| Best Use Case | Long text, precise coding | Google-ecosystem integration |
+
+## Strategic Summary
+
+Claude occupies a distinct professional position in 2026: it is the preferred tool for knowledge workers who spend most of their time in text-heavy, document-intensive, or code-heavy workflows — particularly where **precision, context depth, and instruction fidelity matter more than breadth of modality.**
+
+The 200K context window is a structural advantage that no other consumer LLM matches at equivalent quality. For lawyers reviewing contracts, engineers auditing codebases, researchers synthesizing literature — that advantage is practical and daily.
+
+Claude Code extends that advantage into professional development workflows, making Claude the most complete platform for developers who want a single AI stack that handles both conversational analysis and terminal-native agentic coding.

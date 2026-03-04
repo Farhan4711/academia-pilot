@@ -84,16 +84,17 @@ export default function NewsletterSignup({ compact = false }: NewsletterSignupPr
             borderColor: 'var(--color-accent)'
         }}>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-4)' }}>
+                <div style={{ fontSize: '3rem', marginBottom: 'var(--space-2)' }}>🎁</div>
                 <h3 style={{
                     fontSize: 'var(--text-2xl)',
                     fontWeight: 'var(--font-bold)',
                     marginBottom: 'var(--space-2)',
                     color: 'var(--color-text-primary)'
                 }}>
-                    Join the Flight Crew
+                    Claim Your Free 2026 AI Starter Kit
                 </h3>
                 <p className="text-secondary" style={{ fontSize: 'var(--text-sm)' }}>
-                    Get weekly AI insights, tool reviews, and exclusive prompts delivered to your inbox.
+                    Get our definitive guide to the essential AI tools, top prompts, and career templates. Plus, join 10,000+ professionals getting our weekly AI insights.
                 </p>
             </div>
 
@@ -125,7 +126,7 @@ export default function NewsletterSignup({ compact = false }: NewsletterSignupPr
                         variant="cta"
                         disabled={status === 'loading'}
                     >
-                        {status === 'loading' ? 'Joining...' : 'Subscribe'}
+                        {status === 'loading' ? 'Sending...' : 'Send Me the Kit'}
                     </Button>
                 </div>
 

@@ -24,7 +24,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !^/_next/
 RewriteCond %{REQUEST_URI} !^/assets/
-RewriteRule ^(.*)$ /404.html [L]
+RewriteRule ^ - [R=404,L]
 
 # Cache static assets (1 year)
 <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|ico|css|js|woff|woff2|ttf|eot|otf)$">

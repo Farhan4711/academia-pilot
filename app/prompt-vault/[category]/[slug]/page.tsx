@@ -36,17 +36,42 @@ export async function generateMetadata({ params }: PageProps) {
             return { title: 'Prompt Not Found - Academia Pilot' };
         }
 
+        const pageTitle = `${prompt.title} | ${prompt.category || 'AI Prompts'} | Prompt Vault`;
+        const description = prompt.excerpt || `A curated AI prompt for ${prompt.category || 'professionals'} — copy, paste, and get instant results.`;
+
         return {
-            title: `${prompt.title} | ${prompt.category || 'Prompts'} | Prompt Vault`,
-            description: prompt.excerpt,
+            title: pageTitle,
+            description,
+            keywords: prompt.tags?.join(', '),
             alternates: {
                 canonical: `/prompt-vault/${category}/${slug}/`,
+            },
+            openGraph: {
+                title: pageTitle,
+                description,
+                type: 'website',
+                url: `https://academiapilot.com/prompt-vault/${category}/${slug}/`,
+                images: [
+                    {
+                        url: '/og-image.png',
+                        width: 1200,
+                        height: 630,
+                        alt: `${prompt.title} — AI Prompt | Academia Pilot`,
+                    },
+                ],
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title: pageTitle,
+                description,
+                images: ['/og-image.png'],
             },
         };
     } catch (error) {
         return { title: 'Error - Academia Pilot' };
     }
 }
+
 
 export default async function PromptPage({ params }: PageProps) {
     const { category, slug } = await params;

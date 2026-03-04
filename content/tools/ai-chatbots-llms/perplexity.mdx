@@ -1,0 +1,114 @@
+---
+title: "Perplexity"
+date: "2026-02-01"
+excerpt: "The AI-powered search engine that replaces traditional search results with source-cited, structured answers — using a retrieve-first RAG architecture that dramatically reduces hallucination risk for factual queries."
+category: "ai-chatbots-llms"
+tags: ["LLM", "AI Search", "Perplexity", "AI Chatbots", "Research AI", "Cited Answers", "Real-Time Search"]
+badge: "Best for Research"
+featured: false
+pilotScore: 8.8
+author: "Perplexity AI"
+pricing: "Freemium ($20/mo)"
+pricingTier: "Freemium"
+apiAvailable: true
+openSource: false
+enterpriseReady: false
+localDeployment: false
+url: "https://perplexity.ai"
+faq:
+  - question: "How is Perplexity different from Google Search?"
+    answer: "Google Search returns a list of links. Perplexity synthesizes those sources into a direct, structured answer with every claim traced back to its source. The difference is the gap between finding information and having information — Perplexity handles the synthesis step that Google leaves to the user."
+    icon: "🔍"
+  - question: "Does Perplexity hallucinate?"
+    answer: "Less than standard LLMs for factual queries. Because Perplexity retrieves sources before generating responses, and every claim maps to a source citation, the hallucination risk is structurally lower than models generating from training data. However, retrieval-grounded answers can still be incorrect if the retrieved source is incorrect."
+    icon: "🧠"
+  - question: "What is the Perplexity Sonar API?"
+    answer: "The Sonar API is Perplexity's developer API that provides access to its search-augmented LLM. Developers can query Sonar to get cited, real-time answers in their applications without building their own search and retrieval infrastructure. Use cases: research assistant applications, fact-checking pipelines, news aggregation."
+    icon: "🔌"
+  - question: "What is Perplexity Deep Research?"
+    answer: "Perplexity's Deep Research mode runs sequential searches, synthesizes findings across dozens of sources, resolves conflicting claims, and generates structured research reports. Similar in goal to ChatGPT's Deep Research — the primary difference is Perplexity's greater source transparency."
+    icon: "🔬"
+  - question: "What is the Comet browser agent?"
+    answer: "Comet is Perplexity's autonomous browser agent — capable of navigating websites, filling forms, collecting information, and completing multi-step web tasks. Available in early access on Pro."
+    icon: "🤖"
+---
+
+## What Is Perplexity?
+
+Perplexity is an AI-powered search engine and research assistant that provides structured, **source-cited answers** to research questions by synthesizing real-time web content — replacing the traditional search results page with a directly usable, verifiable answer that cites every claim, updated continuously with live web data.
+
+## Core Functions
+
+- Real-time web search with inline source citations
+- Pro Search: multi-query, complex research questions
+- Deep Research: extended multi-source synthesis reports
+- Comet: autonomous browser agent for multi-step tasks
+- Collections: organized research project management
+- Perplexity Pages: publish research as structured documents
+- Multiple AI model access: Sonar, Claude, GPT-4o, Gemini
+- API access via Sonar model for developer integration
+- File upload and analysis
+
+## How It Works — Architecture
+
+Perplexity's core architecture is inverted relative to most LLMs. The standard LLM flow is generate-from-training-data. Perplexity's flow is:
+
+1. **Retrieve** current sources
+2. **Generate** from retrieved sources
+
+This is a **RAG (Retrieval-Augmented Generation)** architecture deployed at search engine scale.
+
+**Real-Time Index:** Perplexity maintains a real-time web index that is updated continuously — distinct from static training data. This enables answers that reflect information published within the last hours, not months.
+
+## Key Features Breakdown
+
+### Source-Cited Answers
+
+Every claim in a Perplexity answer is attributed to a specific source with an inline numbered citation. Users can click any citation to read the source directly. This is the defining structural feature — it is architecturally different from ChatGPT, which generates responses from training data and may cite sources accurately or inaccurately.
+
+### Multi-Model Access
+
+Pro users can select which underlying model generates the response: Perplexity's proprietary Sonar model optimized for search, or third-party models (Claude, GPT-4o, Gemini). This is unique — Perplexity functions as a research layer on top of other LLMs.
+
+## Pricing Structure
+
+| Plan | Price | Key Features |
+|------|-------|--------------|
+| Free | $0 | 5 Pro searches/day, unlimited standard queries |
+| Pro | $20/mo | Unlimited Pro searches, Deep Research, model selection, Comet (beta), $5 API credit |
+
+**API:** Sonar model — usage-based pricing for developers
+
+## Perplexity vs ChatGPT
+
+| Dimension | Perplexity | ChatGPT |
+|-----------|------------|---------|
+| Source Transparency | Every claim cited inline | Citations available but hallucination risk higher |
+| Real-Time Data | Yes — continuously indexed | Yes — via Search tool |
+| Creative Generation | Limited | Excellent |
+| Code Generation | Limited | Excellent |
+| Research Synthesis | Superior (source-grounded) | Strong (Deep Research) |
+| Voice | No | Yes |
+| Image Generation | No | Yes |
+| Best Use Case | Verifiable research | Broad professional tasks |
+
+## Pros and Cons
+
+**Pros:**
+- Every claim is source-cited — dramatically lower hallucination risk on factual queries
+- Real-time index means answers reflect current information, not training data
+- Multi-model access lets users choose the best underlying LLM per query
+- Deep Research mode produces structured research reports with full source trails
+- Clean, minimal interface optimized for research workflow
+
+**Cons:**
+- Not suitable for creative writing, code generation, or complex reasoning tasks
+- No image generation
+- Context window is smaller than Claude or Gemini for document analysis
+- Comet browser agent is early access and limited
+
+## Strategic Summary
+
+Perplexity solves one problem better than any other AI tool: **finding accurate, current, verifiable information quickly.** The source citation architecture is not a UI feature — it is a fundamental structural property that makes Perplexity responses more trustworthy for factual queries.
+
+For professionals whose primary AI use case is research, competitive intelligence, and current events analysis, **Perplexity Pro at $20/month is the highest-value specialized tool in the category.** For users who also need code generation, document analysis, and creative writing — it is best used alongside, not instead of, ChatGPT or Claude.

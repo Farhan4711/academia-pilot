@@ -128,31 +128,7 @@ They are fully integrated with AI Mastery Hub guides and Tool Hangar comparisons
             { label: "🔹 News Radar → AI Marketing & Ads Trends", href: "/news/" }
         ]
     },
-    "tool-hangar": {
-        title: "AI Tool Hangar: Discover Best AI Tools",
-        seoDescription: "Discover and compare the best AI tools for productivity, creativity, coding, marketing, and more. Reviews, guides, and comparisons updated for 2026.",
-        introTitle: "AI Tool Hangar: Compare, Discover & Use the Best AI Tools",
-        introContent: `The Tool Hangar is your ultimate AI tools directory and comparison hub. Whether you’re a developer, marketer, designer, educator, or researcher, this section helps you discover the most powerful AI tools and understand which ones fit your workflow.
 
-Here you’ll find:
-- In-depth AI tool reviews and analysis
-- Feature comparisons, pricing breakdowns, and pros/cons
-- Step-by-step guides for setup and usage
-- Best tools for coding, content creation, design, and marketing
-- Updates on new AI releases, including GPT, Claude, and generative AI platforms
-
-Every tool page is structured for clarity and practical guidance. You can quickly assess which AI solution suits your needs, compare alternatives, and learn how to use it effectively.
-
-The Tool Hangar is fully integrated with Prompt Vault templates and AI Mastery Hub guides, making it easy to combine tools with prompts and workflows for maximum productivity.
-
-Whether you want to automate workflows, create content faster, or analyze data intelligently, this hub ensures you make informed decisions and stay ahead in the AI landscape.`,
-        internalLinks: [
-            { label: "🔹 Prompt Vault → Relevant AI Prompts", href: "/prompt-vault/" },
-            { label: "🔹 AI Mastery Hub → Tool Integration Guides", href: "/ai-mastery-hub/" },
-            { label: "🔹 News Radar → Latest AI Tools & Updates", href: "/news/" },
-            { label: "🔹 Subcategories → Writing Tools, Image Tools, Productivity Tools", href: "/tool-hangar/" }
-        ]
-    },
     "writing-tools": {
         title: "AI Writing Tools: Boost Productivity & Creativity",
         seoDescription: "Best AI writing tools for content creation, copywriting, emails, and blogs. Compare features, pricing, and integrations to boost productivity in 2026.",
@@ -243,6 +219,54 @@ Each guide is actionable, with examples and variations to help you customize pro
             { label: "🔹 News Radar → AI Model Updates", href: "/news/" }
         ]
     },
+    "ai-chatbots-llms": {
+        title: "AI Chatbots & LLMs: Complete 2026 Guide",
+        seoDescription: "The most complete guide to AI chatbots and LLMs in 2026. Compare ChatGPT, Claude, Gemini, Grok, Perplexity, DeepSeek, and more — features, pricing, architecture, and use cases.",
+        introTitle: "AI Chatbots & Large Language Models — The Definitive 2026 Guide",
+        introContent: `AI chatbots and large language models are the foundational layer of the 2026 AI ecosystem. Every major AI workflow — coding, writing, research, analysis, and automation — runs on top of one or more LLMs. This category covers the conversational AI interfaces that knowledge workers, developers, founders, and researchers interact with daily.
+
+The distinction that matters most in 2026: these are no longer simple Q&A tools. The leading platforms combine reasoning, web search, code execution, image generation, document analysis, and autonomous agent behavior in a single interface. The right tool depends on your use case, context window requirements, model architecture, privacy posture, and workflow integration needs.
+
+**At a Glance:**
+- **ChatGPT** — Best for: broad professional use, multimodal tasks, research synthesis
+- **Claude** — Best for: long documents, precise coding, instruction fidelity  
+- **Gemini** — Best for: Google Workspace users, video/audio analysis
+- **Grok** — Best for: real-time X/social data, trend analysis
+- **Microsoft Copilot** — Best for: Microsoft 365 enterprise teams
+- **Perplexity** — Best for: cited research, current events queries
+- **Meta AI / Llama** — Best for: open-source, local deployment, privacy-critical apps
+- **DeepSeek** — Best for: cost-sensitive API applications, coding at scale`,
+        internalLinks: [
+            { label: "🤖 ChatGPT — GPT-5 Review", href: "/tool-hangar/ai-chatbots-llms/chatgpt/" },
+            { label: "🧠 Claude — 200K Context Review", href: "/tool-hangar/ai-chatbots-llms/claude/" },
+            { label: "♊ Gemini — Google AI Review", href: "/tool-hangar/ai-chatbots-llms/gemini/" },
+            { label: "🔍 Perplexity — AI Search Review", href: "/tool-hangar/ai-chatbots-llms/perplexity/" },
+            { label: "🛠 Explore AI Coding Tools", href: "/tool-hangar/ai-coding-dev-tools/" },
+            { label: "📰 AI News Radar", href: "/news/" }
+        ]
+    },
+    "ai-coding-dev-tools": {
+        title: "AI Coding & Dev Tools: The Complete 2026 Guide",
+        seoDescription: "The definitive 2026 guide to 14 AI coding tools — Claude Code, Cursor, Windsurf, GitHub Copilot, Replit, Bolt.new, Lovable, Codeium, and more.",
+        introTitle: "AI Coding & Dev Tools — The Complete 2026 Guide",
+        introContent: `The AI coding ecosystem divides into four layers: Agentic IDEs that operate on local codebases with multi-file agent execution; Browser Builders that generate and deploy full-stack apps from natural language; Code Completion tools that augment specific workflow stages; and Local Runtimes that run models entirely on-device.
+
+Every tool in this category lives in one primary layer. Most professional stacks combine 2–3 layers. The decision is not which single tool to use — it is which combination of layers your workflow requires.
+
+**The Four-Layer Taxonomy:**
+- **Agentic IDEs:** (e.g., Cursor, Windsurf, Claude Code) — Multi-file autonomous coding on local repositories.
+- **Browser Builders:** (e.g., Replit, Bolt.new, Lovable) — Zero-setup app generation and deployment from a browser.
+- **Specialist Agents:** (e.g., Codex, Devin, Codeium) — Targeted capabilities like async tasks or code completion.
+- **Local Runtimes:** (e.g., Ollama, LM Studio) — On-device model execution without cloud API costs.`,
+        internalLinks: [
+            { label: "💻 Cursor IDE Review", href: "/tool-hangar/ai-coding-dev-tools/cursor/" },
+            { label: "🚀 Windsurf IDE Review", href: "/tool-hangar/ai-coding-dev-tools/windsurf/" },
+            { label: "🛠 Claude Code Terminal Agent", href: "/tool-hangar/ai-coding-dev-tools/claude-code/" },
+            { label: "🌐 Bolt.new Full-Stack Builder", href: "/tool-hangar/ai-coding-dev-tools/bolt-new/" },
+            { label: "🤖 Explore AI Chatbots & LLMs", href: "/tool-hangar/ai-chatbots-llms/" },
+            { label: "🧠 AI Mastery Hub", href: "/ai-mastery-hub/" }
+        ]
+    },
     "hub-ai-security": { // Differentiating from news-ai-security
         title: "AI Security: Protect Models, Data & Infrastructure",
         seoDescription: "Comprehensive AI security guides. Learn best practices, risk mitigation, and safe deployment of AI models for enterprises, developers, and researchers.",
@@ -263,8 +287,24 @@ Each guide provides actionable insights, templates, and step-by-step instruction
             { label: "🔹 AI Mastery Hub → Prompt Engineering Guides", href: "/ai-mastery-hub/prompt-engineering/" },
             { label: "🔹 News Radar → AI Security Updates", href: "/news/ai-security/" }
         ]
+    },
+    "tool-hangar": {
+        title: "The Tool Hangar: Vetted AI Tools & Rankings",
+        seoDescription: "The ultimate directory for the agentic era. Vetted AI models, IDEs, and research tools that power 10x workflows.",
+        introTitle: "The Tool Hangar: Expert-Vetted AI Tools & Ranking Engine",
+        introContent: `Welcome to the Tool Hangar, the definitive directory for the agentic era. 
+We discover, test, and rank the most powerful AI models, IDEs, and autonomous agents. 
+Every tool listed here is vetted for performance, security, and real-world workflow integration. 
+Explore our curated selection to find the perfect engine for your next project.`,
+        internalLinks: [
+            { label: "🤖 AI Chatbots & LLMs", href: "/tool-hangar/ai-chatbots-llms/" },
+            { label: "💻 AI Coding & Dev Tools", href: "/tool-hangar/ai-coding-dev-tools/" },
+            { label: "🔍 AI Search & Research", href: "/tool-hangar/search-research/" },
+            { label: "🧠 AI Mastery Hub", href: "/ai-mastery-hub/" }
+        ]
     }
 };
+
 
 export function getCategoryMetadata(category: string): CategoryMetadata | undefined {
     return categoryRegistry[category];

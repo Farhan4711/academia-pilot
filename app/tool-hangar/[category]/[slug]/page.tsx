@@ -1,12 +1,23 @@
 import { getAllContent, getContentBySlug } from '@/lib/content';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import React from 'react';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
 import ToolSnapshot from '@/components/tools/ToolSnapshot';
 import ToolAlternatives from '@/components/tools/ToolAlternatives';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
+import LLMComparisonMatrix from '@/components/content/LLMComparisonMatrix';
+import LLMPricingTable from '@/components/content/LLMPricingTable';
+import LLMProsCons from '@/components/content/LLMProsCons';
+import ChatGPTPricingTable from '@/components/content/ChatGPTPricingTable';
+import ChatGPTProsCons from '@/components/content/ChatGPTProsCons';
+import ClaudeAIPricingTable from '@/components/content/ClaudeAIPricingTable';
+import ClaudeAIProsCons from '@/components/content/ClaudeAIProsCons';
+import GeminiAIPricingTable from '@/components/content/GeminiAIPricingTable';
+import GeminiAIProsCons from '@/components/content/GeminiAIProsCons';
+import CodingToolComparisonMatrix from '@/components/content/CodingToolComparisonMatrix';
 
 export async function generateStaticParams() {
     try {
@@ -37,11 +48,34 @@ export async function generateMetadata({ params }: PageProps) {
             return { title: 'Tool Not Found - Academia Pilot' };
         }
 
+        const baseTitle = `${tool.title} Review & Features`;
+
         return {
-            title: `${tool.title} Review & Features - The Agentic Era Guide`,
+            title: baseTitle,
             description: tool.excerpt,
+            keywords: tool.tags?.join(', '),
             alternates: {
                 canonical: `/tool-hangar/${category}/${slug}/`,
+            },
+            openGraph: {
+                title: `${tool.title} — AI Tool Review | Academia Pilot`,
+                description: tool.excerpt,
+                type: 'website',
+                url: `https://academiapilot.com/tool-hangar/${category}/${slug}/`,
+                images: [
+                    {
+                        url: '/og-image.png',
+                        width: 1200,
+                        height: 630,
+                        alt: `${tool.title} — AI Tool Review`,
+                    },
+                ],
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title: `${tool.title} Review & Features`,
+                description: tool.excerpt,
+                images: ['/og-image.png'],
             },
         };
     } catch (error) {
@@ -114,11 +148,55 @@ export default async function ToolPage({ params }: PageProps) {
                 </div>
             </section>
 
-            {/* Content Section - The "What is it", "Pros Cons", "Features" will be inside MDX */}
+            {/* Content Section */}
             <section className="section" style={{ paddingBottom: 'var(--space-8)' }}>
                 <div className="container container-md">
                     <div className="prose">
-                        <MarkdownRenderer content={tool.content} />
+                        {(() => {
+                            const COMPONENT_MAP: Record<string, React.ReactNode> = {
+                                'LLMComparisonMatrix': <LLMComparisonMatrix />,
+                                'LLMPricingTable': <LLMPricingTable toolName={tool.title} tiers={[]} />,
+                                'LLMProsCons': <LLMProsCons pros={[]} cons={[]} />,
+                                'ChatGPTPricingTable': <ChatGPTPricingTable />,
+                                'ChatGPTProsCons': <ChatGPTProsCons />,
+                                'ClaudeAIPricingTable': <ClaudeAIPricingTable />,
+                                'ClaudeAIProsCons': <ClaudeAIProsCons />,
+                                'GeminiAIPricingTable': <GeminiAIPricingTable />,
+                                'GeminiAIProsCons': <GeminiAIProsCons />,
+                                'CodingToolComparisonMatrix': <CodingToolComparisonMatrix />,
+                            };
+                            const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
+                            const segments: Array<{ type: 'markdown' | 'component'; value: string }> = [];
+                            let lastIndex = 0;
+                            let match;
+                            const content = tool.content;
+                            while ((match = MARKER_REGEX.exec(content)) !== null) {
+                                if (match.index > lastIndex) {
+                                    segments.push({ type: 'markdown', value: content.slice(lastIndex, match.index) });
+                                }
+                                segments.push({ type: 'component', value: match[1] });
+                                lastIndex = match.index + match[0].length;
+                            }
+                            if (lastIndex < content.length) {
+                                segments.push({ type: 'markdown', value: content.slice(lastIndex) });
+                            }
+                            if (segments.length === 0) {
+                                return <MarkdownRenderer content={content} />;
+                            }
+                            return (
+                                <>
+                                    {segments.map((seg, i) =>
+                                        seg.type === 'component' ? (
+                                            <div key={i} className="not-readable" style={{ margin: 'var(--space-10) 0' }}>
+                                                {COMPONENT_MAP[seg.value] ?? null}
+                                            </div>
+                                        ) : (
+                                            <MarkdownRenderer key={i} content={seg.value} />
+                                        )
+                                    )}
+                                </>
+                            );
+                        })()}
                     </div>
 
                     <div style={{ marginTop: 'var(--space-8)', display: 'flex', justifyContent: 'center' }}>
@@ -128,6 +206,7 @@ export default async function ToolPage({ params }: PageProps) {
                     </div>
                 </div>
             </section>
+
 
             {/* Alternatives Section */}
             <section className="section" style={{ backgroundColor: 'var(--color-surface)' }}>

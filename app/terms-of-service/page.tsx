@@ -46,92 +46,45 @@ export default function TermsOfServicePage() {
                 <div className="container container-md">
                     <div className="card" style={{ padding: 'var(--space-8)' }}>
                         <div style={{
-                            textAlign: 'center',
-                            padding: 'var(--space-12) 0',
-                            borderRadius: 'var(--radius-lg)',
-                            background: 'linear-gradient(135deg, var(--color-surface) 0%, rgba(255, 77, 0, 0.05) 100%)'
+                            padding: 'var(--space-8) 0',
+                            color: 'var(--color-text-secondary)',
+                            lineHeight: '1.8',
+                            fontSize: 'var(--text-base)'
                         }}>
-                            <div style={{ fontSize: 'var(--text-6xl)', marginBottom: 'var(--space-4)' }}>
-                                📜
-                            </div>
-                            <h2 style={{
-                                fontSize: 'var(--text-3xl)',
-                                fontWeight: 'var(--font-bold)',
-                                marginBottom: 'var(--space-4)',
-                                color: 'var(--color-text-primary)'
-                            }}>
-                                Coming Soon
-                            </h2>
-                            <p className="text-secondary" style={{
-                                fontSize: 'var(--text-lg)',
-                                marginBottom: 'var(--space-6)',
-                                maxWidth: '600px',
-                                margin: '0 auto var(--space-6)'
-                            }}>
-                                We're currently finalizing our Terms of Service.
-                                By using Academia Pilot, you agree to use our platform
-                                responsibly and in accordance with applicable laws.
+                            <h2 style={{ fontSize: 'var(--text-3xl)', color: 'var(--color-text-primary)', marginBottom: 'var(--space-4)', fontWeight: 'var(--font-bold)' }}>1. Agreement to Terms</h2>
+                            <p style={{ marginBottom: 'var(--space-6)' }}>
+                                By accessing or using Academia Pilot, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access the service. These Terms apply to all visitors, users, and others who wish to access or use the Service.
                             </p>
 
-                            <div style={{
-                                textAlign: 'left',
-                                maxWidth: '700px',
-                                margin: '0 auto',
-                                padding: 'var(--space-6)',
-                                backgroundColor: 'var(--color-primary)',
-                                borderRadius: 'var(--radius-md)',
-                                border: '1px solid var(--color-border)'
-                            }}>
-                                <h3 style={{
-                                    fontSize: 'var(--text-xl)',
-                                    fontWeight: 'var(--font-semibold)',
-                                    marginBottom: 'var(--space-4)',
-                                    color: 'var(--color-text-primary)'
-                                }}>
-                                    Key Points
-                                </h3>
-                                <ul style={{
-                                    listStyle: 'none',
-                                    padding: 0,
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: 'var(--space-3)'
-                                }}>
-                                    <li className="text-secondary" style={{ display: 'flex', gap: 'var(--space-2)' }}>
-                                        <span style={{ color: 'var(--color-cta)' }}>•</span>
-                                        Use our content for personal and educational purposes
-                                    </li>
-                                    <li className="text-secondary" style={{ display: 'flex', gap: 'var(--space-2)' }}>
-                                        <span style={{ color: 'var(--color-cta)' }}>•</span>
-                                        Respect intellectual property rights
-                                    </li>
-                                    <li className="text-secondary" style={{ display: 'flex', gap: 'var(--space-2)' }}>
-                                        <span style={{ color: 'var(--color-cta)' }}>•</span>
-                                        No spam, abuse, or malicious activity
-                                    </li>
-                                    <li className="text-secondary" style={{ display: 'flex', gap: 'var(--space-2)' }}>
-                                        <span style={{ color: 'var(--color-cta)' }}>•</span>
-                                        We reserve the right to modify services
-                                    </li>
-                                    <li className="text-secondary" style={{ display: 'flex', gap: 'var(--space-2)' }}>
-                                        <span style={{ color: 'var(--color-cta)' }}>•</span>
-                                        Content is provided "as is" for informational purposes
-                                    </li>
-                                </ul>
-                            </div>
+                            <h2 style={{ fontSize: 'var(--text-3xl)', color: 'var(--color-text-primary)', marginBottom: 'var(--space-4)', fontWeight: 'var(--font-bold)' }}>2. Use of Content</h2>
+                            <p style={{ marginBottom: 'var(--space-4)' }}>The content on Academia Pilot (including text, graphics, images, prompts, and information) is for informational and educational purposes only.</p>
+                            <ul style={{ marginBottom: 'var(--space-6)', paddingLeft: 'var(--space-6)', listStyleType: 'disc' }}>
+                                <li style={{ marginBottom: 'var(--space-2)' }}>You may use the prompts and tool recommendations for personal and commercial projects.</li>
+                                <li style={{ marginBottom: 'var(--space-2)' }}>You may not reproduce, distribute, modify, or create derivative works of our original articles or guides without explicit permission.</li>
+                                <li style={{ marginBottom: 'var(--space-2)' }}>Automated scraping or extraction of data from our website is strictly prohibited.</li>
+                            </ul>
 
-                            <div style={{ marginTop: 'var(--space-8)' }}>
-                                <p className="text-secondary" style={{ fontSize: 'var(--text-sm)', marginBottom: 'var(--space-4)' }}>
-                                    Questions about our terms?
-                                </p>
-                                <a
-                                    href="mailto:legal@academiapilot.com"
-                                    className="btn-primary"
-                                    style={{ display: 'inline-flex' }}
-                                >
-                                    Contact Us
-                                </a>
-                            </div>
+                            <h2 style={{ fontSize: 'var(--text-3xl)', color: 'var(--color-text-primary)', marginBottom: 'var(--space-4)', fontWeight: 'var(--font-bold)' }}>3. User Accounts & Subscriptions</h2>
+                            <p style={{ marginBottom: 'var(--space-6)' }}>
+                                When you create an account or subscribe to our newsletter, you guarantee that the information you provide is accurate, complete, and current. We reserve the right to suspend or terminate accounts that violate our terms or provide false information.
+                            </p>
+
+                            <h2 style={{ fontSize: 'var(--text-3xl)', color: 'var(--color-text-primary)', marginBottom: 'var(--space-4)', fontWeight: 'var(--font-bold)' }}>4. Third-Party Links & Services</h2>
+                            <p style={{ marginBottom: 'var(--space-6)' }}>
+                                Our Service may contain links to third-party web sites or services that are not owned or controlled by Academia Pilot. We have no control over, and assume no responsibility for the content, privacy policies, or practices of any third party web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party websites that you visit.
+                            </p>
+
+                            <h2 style={{ fontSize: 'var(--text-3xl)', color: 'var(--color-text-primary)', marginBottom: 'var(--space-4)', fontWeight: 'var(--font-bold)' }}>5. Limitation of Liability</h2>
+                            <p style={{ marginBottom: 'var(--space-6)' }}>
+                                In no event shall Academia Pilot, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.
+                            </p>
+
+                            <h2 style={{ fontSize: 'var(--text-3xl)', color: 'var(--color-text-primary)', marginBottom: 'var(--space-4)', fontWeight: 'var(--font-bold)' }}>6. Changes to Terms</h2>
+                            <p style={{ marginBottom: 'var(--space-6)' }}>
+                                We reserve the right, at our sole discretion, to modify or replace these Terms at any time. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.
+                            </p>
+
+                            <p style={{ marginTop: 'var(--space-8)' }}>If you have any questions about these Terms, please contact us at <a href="mailto:legal@academiapilot.com" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>legal@academiapilot.com</a>.</p>
                         </div>
 
                         <div style={{ marginTop: 'var(--space-8)', textAlign: 'center' }}>

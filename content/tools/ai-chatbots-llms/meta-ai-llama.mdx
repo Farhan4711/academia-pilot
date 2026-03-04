@@ -1,0 +1,100 @@
+---
+title: "Meta AI / Llama"
+date: "2026-02-01"
+excerpt: "Meta's dual-track AI strategy: a free consumer assistant deployed in WhatsApp and Instagram for 3.27B users, and Llama 4 — open-source model weights with a 10M-token context window for developers to download, fine-tune, and deploy locally."
+category: "ai-chatbots-llms"
+tags: ["LLM", "Chatbot", "Meta", "AI Chatbots", "Open Source", "Llama 4", "Local AI", "Local Deployment"]
+badge: "Best Open Source"
+featured: false
+pilotScore: 8.4
+author: "Meta"
+pricing: "Free"
+pricingTier: "Free"
+apiAvailable: true
+openSource: true
+enterpriseReady: true
+localDeployment: true
+url: "https://ai.meta.com"
+faq:
+  - question: "What is the difference between Meta AI and Llama?"
+    answer: "Meta AI is the consumer product — the AI assistant you interact with in WhatsApp, Instagram, and Facebook. Llama is the model family powering it — the actual neural network weights that Meta releases openly for download. Developers use Llama directly; consumers use Meta AI as the interface."
+    icon: "🔍"
+  - question: "Can I run Llama 4 locally?"
+    answer: "Llama 4 Scout (the 17B active parameter model) can run on consumer hardware — specifically machines with at least 32GB VRAM (a high-end consumer GPU like RTX 4090) for quantized versions. The full Llama 4 Maverick requires enterprise GPU infrastructure. Ollama and LM Studio provide the simplest local deployment path."
+    icon: "💻"
+  - question: "Is Llama actually open source?"
+    answer: "Llama is released under Meta's custom community license — permissive for research and commercial use up to 700M users. Beyond that threshold, a separate commercial agreement with Meta is required. It is not fully open source by OSI definition but is freely available for the vast majority of use cases."
+    icon: "📄"
+  - question: "What is the 10M token context window in Llama 4 Scout?"
+    answer: "Llama 4 Scout is a 17B active parameter model using a Mixture-of-Experts architecture with 109B total parameters. Its 10M token context window is the longest available in any model, enabling processing of extremely large document corpora, entire codebases, or extended multi-session conversation histories."
+    icon: "📊"
+---
+
+## What Is Meta AI / Llama?
+
+**Meta AI** is Meta's consumer AI assistant deployed across WhatsApp, Instagram, Facebook, and Messenger — available to 3.27 billion daily active users. **Llama** is the open-source family of large language models behind Meta AI, released publicly with permissive licensing for research and commercial use, enabling developers worldwide to download, fine-tune, and deploy frontier-grade models without API costs.
+
+## Core Functions — Meta AI (Consumer)
+
+- Conversational AI across WhatsApp, Instagram, Facebook, Messenger
+- Web search with real-time information
+- Image generation built in
+- Meta AI.com web interface
+- Meta AI Studio for creating custom AI personas
+
+## Core Functions — Llama (Developer / Open Source)
+
+- Download and run locally via Ollama, LM Studio, or custom deployment
+- Fine-tune on custom datasets for domain specialization
+- Deploy on-premise with zero cloud dependency
+- Integrate via Hugging Face Transformers library
+- Build custom AI applications with no API cost per query
+- Access via Meta's Llama API for cloud-hosted inference
+
+## Key Features Breakdown
+
+### Llama 4 Scout — 10 Million Token Context
+
+Llama 4 Scout is a 17B active parameter model using a **Mixture-of-Experts (MoE) architecture** with 109B total parameters. Its 10M token context window is the longest available in any model. MoE architecture means only a portion of parameters are active per inference — making it more efficient than dense models of equivalent total parameter count.
+
+### Open-Source Licensing
+
+Llama models are released under Meta's custom open license — permissive for research and commercial use (with some usage restrictions for large-scale commercial deployment). Developers can download weights, fine-tune on proprietary data, and deploy in their own infrastructure without per-token API costs.
+
+### Local Deployment Privacy
+
+When running locally via Ollama or LM Studio, inference is fully local. The model weights are downloaded once to the machine. All processing happens on local CPU/GPU — **no data leaves the device.** This is the primary privacy and cost advantage over cloud APIs.
+
+## Pricing Structure
+
+| Option | Price | Details |
+|--------|-------|---------|
+| Meta AI (consumer) | Free | Available in Meta apps and meta.ai |
+| Llama models (download) | Free | Download from Meta or Hugging Face |
+| Meta Llama API | Usage-based | Hosted inference via Meta |
+| Ollama (local) | Free | Self-hosted, no API cost |
+
+## Pros and Cons
+
+**Pros:**
+- Free open-source weights — no per-token API cost at scale
+- 10M token context window (Scout) — longest available in any model
+- Local deployment with full privacy — data never leaves the device
+- Fine-tunable on proprietary data for domain specialization
+- Accessible via WhatsApp and Instagram for 3B+ users at no cost
+- MoE efficiency enables large-parameter performance on consumer hardware
+
+**Cons:**
+- Meta AI consumer interface lacks depth compared to ChatGPT or Claude
+- Llama local deployment requires technical setup (GPU, quantization management)
+- Commercial use has restrictions for very large deployments (>700M users)
+- No built-in persistent memory in consumer interface
+- Local inference quality depends heavily on hardware
+
+## Strategic Summary
+
+Meta's dual-track strategy — consumer deployment at massive scale through its social apps, and developer enablement through open-source model releases — makes it uniquely positioned in the AI landscape.
+
+For developers and enterprises, **Llama is the most important open-source model family available.** It enables frontier-grade AI capability without cloud API cost, with full local deployment for privacy-critical applications, and with fine-tuning capability for domain specialization.
+
+For general consumers, **Meta AI is the most accessible AI assistant** — available where they already spend time, with no friction, at no cost.

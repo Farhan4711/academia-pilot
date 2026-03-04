@@ -9,6 +9,10 @@ import Button from '@/components/ui/Button';
 import NewsletterSignup from '@/components/ui/NewsletterSignup';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
 import FAQAccordion from '@/components/ui/FAQAccordion';
+import TLDRBox from '@/components/ui/TLDRBox';
+import TableOfContents from '@/components/ui/TableOfContents';
+import SocialShare from '@/components/ui/SocialShare';
+import InlineCTA from '@/components/ui/InlineCTA';
 import AgenticVsIDETable from '@/components/content/AgenticVsIDETable';
 import AgenticArchitecture from '@/components/content/AgenticArchitecture';
 import WorkflowComparison from '@/components/content/WorkflowComparison';
@@ -78,6 +82,21 @@ import ProtocolLayerArchitecture from '@/components/content/ProtocolLayerArchite
 import StackDecisionFramework from '@/components/content/StackDecisionFramework';
 import ProtocolSecurityMatrix from '@/components/content/ProtocolSecurityMatrix';
 import ProtocolComparisonTable from '@/components/content/ProtocolComparisonTable';
+import AgentHQArchitectureDiagram from '@/components/content/AgentHQArchitectureDiagram';
+import MultiAgentOrchestrationFlow from '@/components/content/MultiAgentOrchestrationFlow';
+import AgentHQCompetitorMatrix from '@/components/content/AgentHQCompetitorMatrix';
+import AgentSessionCostMatrix from '@/components/content/AgentSessionCostMatrix';
+import GravityVariantsTable from '@/components/content/GravityVariantsTable';
+import DOMPhysicsLayerDiagram from '@/components/content/DOMPhysicsLayerDiagram';
+import PhysicsMaterialSelector from '@/components/content/PhysicsMaterialSelector';
+import PHYSICSMethodFramework from '@/components/content/PHYSICSMethodFramework';
+import PerformanceOptimizationRanking from '@/components/content/PerformanceOptimizationRanking';
+import BrowserCompatibilityMatrix from '@/components/content/BrowserCompatibilityMatrix';
+import MigrationEventTimeline from '@/components/content/MigrationEventTimeline';
+import UninstallSurgeStats from '@/components/content/UninstallSurgeStats';
+import ClaudeVsChatGPTMatrix from '@/components/content/ClaudeVsChatGPTMatrix';
+import OutageIncidentTracker from '@/components/content/OutageIncidentTracker';
+import SwitchDecisionFramework from '@/components/content/SwitchDecisionFramework';
 import ArticleReader from '@/components/content/ArticleReader';
 
 // Generate static params for all news articles (required for static export)
@@ -86,7 +105,7 @@ export async function generateStaticParams() {
         const allNews = getAllContent('news');
         console.log('generateStaticParams - Found articles:', allNews.length);
         return allNews.map(news => ({
-            category: news.category || 'uncategorized',
+            category: (news.category || 'uncategorized').toLowerCase(),
             slug: news.slug.split('/').pop() || news.slug,
         }));
     } catch (error) {
@@ -362,14 +381,23 @@ export default async function ArticlePage({ params }: PageProps) {
                 {/* Article Content */}
                 <section className="section">
                     <div className="container container-article">
+                        {/* TL;DR / Key Takeaways */}
+                        {article.tldr && Array.isArray(article.tldr) && article.tldr.length > 0 && (
+                            <TLDRBox points={article.tldr} />
+                        )}
+                        {/* Auto table of contents */}
+                        <TableOfContents content={article.content} />
+
                         {(() => {
                             const COMPONENT_MAP: Record<string, React.ReactNode> = {
+
                                 'AgenticVsIDETable': <AgenticVsIDETable />,
                                 'AgenticArchitecture': <AgenticArchitecture />,
                                 'WorkflowComparison': <WorkflowComparison />,
                                 'AIOverviewTable': <AIOverviewTable />,
                                 'AITestResults': <AITestResults />,
                                 'AIFinalVerdict': <AIFinalVerdict />,
+                                'InlineCTA': <InlineCTA title="Explore the Vault" description="Check out our curated prompts." buttonText="View Prompts" href="/prompt-vault/" />,
                                 'SkillsVsTraditionalTable': <SkillsVsTraditionalTable />,
                                 'AIToolsGrid': <AIToolsGrid />,
                                 'CareerRoadmap': <CareerRoadmap />,
@@ -433,6 +461,21 @@ export default async function ArticlePage({ params }: PageProps) {
                                 'StackDecisionFramework': <StackDecisionFramework />,
                                 'ProtocolSecurityMatrix': <ProtocolSecurityMatrix />,
                                 'ProtocolComparisonTable': <ProtocolComparisonTable />,
+                                'AgentHQArchitectureDiagram': <AgentHQArchitectureDiagram />,
+                                'MultiAgentOrchestrationFlow': <MultiAgentOrchestrationFlow />,
+                                'AgentHQCompetitorMatrix': <AgentHQCompetitorMatrix />,
+                                'AgentSessionCostMatrix': <AgentSessionCostMatrix />,
+                                'GravityVariantsTable': <GravityVariantsTable />,
+                                'DOMPhysicsLayerDiagram': <DOMPhysicsLayerDiagram />,
+                                'PhysicsMaterialSelector': <PhysicsMaterialSelector />,
+                                'PHYSICSMethodFramework': <PHYSICSMethodFramework />,
+                                'PerformanceOptimizationRanking': <PerformanceOptimizationRanking />,
+                                'BrowserCompatibilityMatrix': <BrowserCompatibilityMatrix />,
+                                'MigrationEventTimeline': <MigrationEventTimeline />,
+                                'UninstallSurgeStats': <UninstallSurgeStats />,
+                                'ClaudeVsChatGPTMatrix': <ClaudeVsChatGPTMatrix />,
+                                'OutageIncidentTracker': <OutageIncidentTracker />,
+                                'SwitchDecisionFramework': <SwitchDecisionFramework />,
 
                             };
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
@@ -469,8 +512,19 @@ export default async function ArticlePage({ params }: PageProps) {
                         })()}
                     </div>
                 </section>
+                {/* Social Share */}
+                <section style={{ padding: '0 0 var(--space-4)' }}>
+                    <div className="container container-article">
+                        <SocialShare
+                            url={`/news/${category}/${article.slug.split('/').pop()}/`}
+                            title={article.title}
+                            excerpt={article.excerpt}
+                        />
+                    </div>
+                </section>
 
                 {/* Dynamic FAQ Section */}
+
                 {article.faq && article.faq.length > 0 && (
                     <section className="section" style={{ padding: 0 }}>
                         <FAQAccordion

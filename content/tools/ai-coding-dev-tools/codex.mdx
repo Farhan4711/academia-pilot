@@ -1,0 +1,54 @@
+---
+title: "Codex"
+excerpt: "OpenAI's cloud-based software engineering agent designed for async background task delegation, capable of autonomously reading GitHub and opening PRs."
+category: "ai-coding-dev-tools"
+author: "Tool Hangar Team"
+date: "2026-03-04"
+featured: false
+pricingTier: "Pro ($200/mo) / API"
+apiAvailable: true
+openSource: false
+enterpriseReady: true
+localDeployment: false
+tags:
+  - "Cloud Agent"
+  - "Async Orchestration"
+  - "OpenAI"
+faq:
+  - question: "Is Codex part of ChatGPT?"
+    answer: "Codex functionality is available via ChatGPT Pro ($200/mo) and heavily accessed via the API for programmatic execution."
+    icon: "🤖"
+  - question: "Does Codex write code in real-time?"
+    answer: "Instead of real-time IDE pairing, Codex operates asynchronously—you assign it a task via GitHub or API, and it executes entirely in the background."
+    icon: "🔄"
+  - question: "What replaces the OpenAI Assistants API?"
+    answer: "As OpenAI phases out the Assistants API in 2026, Codex stands as the production agentic coding surface optimized for integration via MCP (Model Context Protocol)."
+    icon: "🔌"
+---
+
+OpenAI's Codex architecture has quietly shifted from a backend code generation API to a full-fledged robust **Cloud Agent**.
+
+In 2026, Codex is not a tool you 'pair program' with inside an editor. It is an asynchronous software engineer that lives in the cloud, reads GitHub repositories autonomously, executes shell commands in sandboxed containers, runs tests, and ultimately opens pull requests.
+
+## The Async Execution Model
+
+Codex represents the "assign-and-review" workflow. High-volume teams utilize Codex by integrating it with CI/CD pipelines or GitHub Actions. When a well-documented issue is tagged, Codex spins up, analyzes the codebase, implements the fix in an isolated cloud container, verifies its work with internal tools, and submits a PR.
+
+### Transition to MCP
+With OpenAI sunsetting their proprietary Assistants API in mid-2026, Codex relies heavily on the open standard Model Context Protocol (MCP) to access tools, databases, and enterprise systems, ensuring its behavior remains governable and highly structured.
+
+:::COMPONENT:CodingToolComparisonMatrix:::
+
+## High-Volume Teams, Not Solo Builders
+
+Because Codex operates asynchronously, its true value is unlocked when executing tasks in parallel dynamically. A team can tag 15 isolated frontend styling bugs on Jira, and Codex will execute 15 isolated cloud containers simultaneously without human oversight until the PR review stage.
+
+:::COMPONENT:LLMPricingTable:::
+
+## Who Should Use Codex?
+
+Development teams capable of issuing highly specific, well-defined coding tasks. Codex struggles with ambiguous requirements or evolving codebases, making it poorly suited for collaborative exploratory development, but exceptional at clearly bounded implementations and test suite expansion.
+
+:::COMPONENT:LLMProsCons:::
+
+**The Verdict:** If you are building automated engineering pipelines that require code to be generated asynchronously and verified without human supervision, OpenAI's Codex API remains the premier enterprise cloud agent.

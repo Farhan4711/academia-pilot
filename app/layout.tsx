@@ -102,6 +102,7 @@ const jsonLd = {
 
 import ExploreRelated from "@/components/ui/ExploreRelated";
 import Script from "next/script";
+import CookieBanner from "@/components/layout/CookieBanner";
 
 export default function RootLayout({
   children,
@@ -112,6 +113,13 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        {/* Preconnect to speed up CDN / font connections */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      </head>
       <body className="antialiased" suppressHydrationWarning>
         <Script
           id="json-ld-website"
@@ -119,7 +127,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           strategy="beforeInteractive"
         />
-        <Script id="global-error-handlers" strategy="afterInteractive">
+        {/* Low-priority debug helpers — loaded only when browser is idle */}
+        <Script id="global-error-handlers" strategy="lazyOnload">
           {`
             window.addEventListener('unhandledrejection', function(event) {
               console.error('[CRITICAL] Unhandled Promise Rejection:', event.reason);
@@ -127,12 +136,6 @@ export default function RootLayout({
             window.addEventListener('error', function(event) {
               console.error('[CRITICAL] Global Error:', event.error);
             });
-            document.addEventListener('click', function(event) {
-              var target = event.target.closest('a');
-              if (target) {
-                console.log('[NAV] Clicked link:', target.getAttribute('href'));
-              }
-            }, true);
           `}
         </Script>
         <Header newsItems={newsItems} />
@@ -140,8 +143,10 @@ export default function RootLayout({
           {children}
         </main>
         <ExploreRelated />
+        <CookieBanner />
         <Footer />
       </body>
     </html>
   );
 }
+
