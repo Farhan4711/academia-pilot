@@ -115,7 +115,7 @@ export default function ToolHangarPage({
                             {displayedTools.map((tool) => (
                                 <Card
                                     key={tool.slug}
-                                    href={`/tool-hangar/${tool.category || 'uncategorized'}/${tool.slug.split('/').pop()}/`}
+                                    href={`/tool-hangar/${(tool.category || 'uncategorized').toLowerCase()}/${tool.slug.split('/').pop()}/`}
                                     variant={tool.featured ? 'highlight' : 'default'}
                                 >
                                     <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>

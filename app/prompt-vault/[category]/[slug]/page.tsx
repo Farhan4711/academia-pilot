@@ -247,7 +247,7 @@ export default async function PromptPage({ params }: PageProps) {
                         </h2>
                         <div className="grid grid-3">
                             {relatedPrompts.map((related) => (
-                                <Card key={related.slug} href={`/prompt-vault/${related.category || 'uncategorized'}/${related.slug.split('/').pop()}/`}>
+                                <Card key={related.slug} href={`/prompt-vault/${(related.category || 'uncategorized').toLowerCase()}/${related.slug.split('/').pop()}/`}>
                                     <CardTitle>{related.title}</CardTitle>
                                     <CardDescription>{related.excerpt}</CardDescription>
                                 </Card>

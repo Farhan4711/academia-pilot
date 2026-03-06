@@ -84,7 +84,7 @@ export default function PromptVaultPage() {
                     <h2 className="section-title">Latest Free Prompts</h2>
                     <div className="grid grid-3">
                         {featuredPrompts.map((item) => (
-                            <Card key={item.slug} href={`/prompt-vault/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}/`}>
+                            <Card key={item.slug} href={`/prompt-vault/${(item.category || 'uncategorized').toLowerCase()}/${item.slug.split('/').pop()}/`}>
                                 <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                     <Badge variant="accent">
                                         {item.level || 'Intermediate'}
@@ -122,7 +122,7 @@ export default function PromptVaultPage() {
                     {premiumPrompts.length > 0 ? (
                         <div className="grid grid-3">
                             {premiumPrompts.map((item) => (
-                                <Card key={item.slug} href={`/prompt-vault/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}/`} variant="highlight">
+                                <Card key={item.slug} href={`/prompt-vault/${(item.category || 'uncategorized').toLowerCase()}/${item.slug.split('/').pop()}/`} variant="highlight">
                                     <div className="flex justify-between items-start" style={{ marginBottom: 'var(--space-3)' }}>
                                         <Badge variant="cta">Premium</Badge>
                                         <div style={{ fontSize: 'var(--text-2xl)' }}>🔒</div>

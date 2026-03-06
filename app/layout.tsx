@@ -103,6 +103,7 @@ const jsonLd = {
 import ExploreRelated from "@/components/ui/ExploreRelated";
 import Script from "next/script";
 import CookieBanner from "@/components/layout/CookieBanner";
+import AIAssistant from "@/components/ui/AIAssistant";
 
 export default function RootLayout({
   children,
@@ -144,6 +145,7 @@ export default function RootLayout({
         </main>
         <ExploreRelated />
         <CookieBanner />
+        <AIAssistant />
         <Footer />
       </body>
     </html>

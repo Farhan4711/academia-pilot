@@ -138,7 +138,7 @@ export default function Home() {
 
           <div className="grid grid-3">
             {trendingNews.map((news, index) => (
-              <Card key={index} href={`/news/${news.category || 'uncategorized'}/${news.slug.split('/').pop()}/`}>
+              <Card key={index} href={`/news/${(news.category || 'uncategorized').toLowerCase()}/${news.slug.split('/').pop()}/`}>
                 <div style={{ marginBottom: 'var(--space-2)' }}>
                   <Badge variant="cta">{formatDate(news.date)}</Badge>
                 </div>

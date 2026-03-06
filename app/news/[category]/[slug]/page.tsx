@@ -97,6 +97,11 @@ import UninstallSurgeStats from '@/components/content/UninstallSurgeStats';
 import ClaudeVsChatGPTMatrix from '@/components/content/ClaudeVsChatGPTMatrix';
 import OutageIncidentTracker from '@/components/content/OutageIncidentTracker';
 import SwitchDecisionFramework from '@/components/content/SwitchDecisionFramework';
+import ClaudeProductStack from '@/components/content/ClaudeProductStack';
+import ClaudeModelMatrix2026 from '@/components/content/ClaudeModelMatrix2026';
+import LearnMethodFramework from '@/components/content/LearnMethodFramework';
+import IndustryCurriculumGrid from '@/components/content/IndustryCurriculumGrid';
+import ClaudeSelectionLogic from '@/components/content/ClaudeSelectionLogic';
 import ArticleReader from '@/components/content/ArticleReader';
 
 // Generate static params for all news articles (required for static export)
@@ -476,6 +481,11 @@ export default async function ArticlePage({ params }: PageProps) {
                                 'ClaudeVsChatGPTMatrix': <ClaudeVsChatGPTMatrix />,
                                 'OutageIncidentTracker': <OutageIncidentTracker />,
                                 'SwitchDecisionFramework': <SwitchDecisionFramework />,
+                                'ClaudeProductStack': <ClaudeProductStack />,
+                                'ClaudeModelMatrix2026': <ClaudeModelMatrix2026 />,
+                                'LearnMethodFramework': <LearnMethodFramework />,
+                                'IndustryCurriculumGrid': <IndustryCurriculumGrid />,
+                                'ClaudeSelectionLogic': <ClaudeSelectionLogic />,
 
                             };
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
@@ -583,7 +593,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
                             <div className="grid grid-3">
                                 {relatedArticles.map((related) => (
-                                    <Card key={related.slug} href={`/news/${related.category || 'uncategorized'}/${related.slug.split('/').pop()}/`}>
+                                    <Card key={related.slug} href={`/news/${(related.category || 'uncategorized').toLowerCase()}/${related.slug.split('/').pop()}/`}>
                                         <div style={{ marginBottom: 'var(--space-3)' }}>
                                             <Badge variant="cta">
                                                 {new Date(related.date).toLocaleDateString('en-US', {

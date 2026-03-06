@@ -3,6 +3,7 @@ import { getAllContent, formatDate } from '@/lib/content';
 import { getCategoryMetadata } from '@/lib/categories';
 import Card, { CardTitle, CardDescription } from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
+import NextImage from 'next/image';
 
 const meta = getCategoryMetadata('news');
 
@@ -64,7 +65,19 @@ export default function NewsPage() {
                     ) : (
                         <div className="grid grid-3">
                             {newsItems.map((item) => (
-                                <Card key={item.slug} href={`/news/${item.category || 'uncategorized'}/${item.slug.split('/').pop()}/`}>
+                                <Card key={item.slug} href={`/news/${(item.category || 'uncategorized').toLowerCase()}/${item.slug.split('/').pop()}/`}>
+                                    {item.image && (
+                                        <div style={{ marginBottom: 'var(--space-4)', borderRadius: 'var(--radius-sm)', overflow: 'hidden' }}>
+                                            <NextImage
+                                                src={item.image}
+                                                alt={item.title}
+                                                width={600}
+                                                height={315}
+                                                style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+                                                unoptimized
+                                            />
+                                        </div>
+                                    )}
                                     <div className="flex gap-2 items-center" style={{ marginBottom: 'var(--space-3)' }}>
                                         <Badge variant="cta">
                                             {formatDate(item.date)}
