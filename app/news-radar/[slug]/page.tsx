@@ -99,13 +99,21 @@ import OutageIncidentTracker from '@/components/content/OutageIncidentTracker';
 import SwitchDecisionFramework from '@/components/content/SwitchDecisionFramework';
 import DatabaseSelector from '@/components/content/DatabaseSelector';
 import RelationalDatabaseTable from '@/components/content/RelationalDatabaseTable';
+import AgentSuccessBenchmark from '@/components/content/AgentSuccessBenchmark';
+import CompoundAccuracyVisualizer from '@/components/content/CompoundAccuracyVisualizer';
+import AbandonmentStatsCards from '@/components/content/AbandonmentStatsCards';
+import AgentCapabilityMatrix from '@/components/content/AgentCapabilityMatrix';
+import VerifyFrameworkGuide from '@/components/content/VerifyFrameworkGuide';
+import ToolSelectionMatrix from '@/components/content/ToolSelectionMatrix';
+import NoCodeStackVisualizer from '@/components/content/NoCodeStackVisualizer';
+import LAUNCHFrameworkCards from '@/components/content/LAUNCHFrameworkCards';
+import HandoffChecklist from '@/components/content/HandoffChecklist';
+import NoCodePricingTable from '@/components/content/NoCodePricingTable';
 
 // Generate static params for all news articles (required for static export)
 export async function generateStaticParams() {
     try {
         const allNews = getAllContent('news');
-        console.log('generateStaticParams - Found articles:', allNews.length);
-        console.log('generateStaticParams - Slugs:', allNews.map(n => n.slug));
         return allNews.map(news => ({
             slug: news.slug.split('/').pop() || news.slug,
         }));
@@ -372,6 +380,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                                 'SwitchDecisionFramework': <SwitchDecisionFramework />,
                                 'DatabaseSelector': <DatabaseSelector />,
                                 'RelationalDatabaseTable': <RelationalDatabaseTable />,
+                                'AgentSuccessBenchmark': <AgentSuccessBenchmark />,
+                                'CompoundAccuracyVisualizer': <CompoundAccuracyVisualizer />,
+                                'AbandonmentStatsCards': <AbandonmentStatsCards />,
+                                'AgentCapabilityMatrix': <AgentCapabilityMatrix />,
+                                'VerifyFrameworkGuide': <VerifyFrameworkGuide />,
+                                'ToolSelectionMatrix': <ToolSelectionMatrix />,
+                                'NoCodeStackVisualizer': <NoCodeStackVisualizer />,
+                                'LAUNCHFrameworkCards': <LAUNCHFrameworkCards />,
+                                'HandoffChecklist': <HandoffChecklist />,
+                                'NoCodePricingTable': <NoCodePricingTable />,
                             };
 
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;

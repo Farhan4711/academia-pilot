@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -71,7 +71,7 @@ export default function NewsTicker({ items }: NewsTickerProps) {
                         <Link
                             key={`${item.slug}-${index}`}
                             prefetch={false}
-                            href={`/news/${(item.category || 'uncategorized').toLowerCase()}/${item.slug.split('/').pop()}/`}
+                            href={`/news-radar/${item.slug.split('/').pop()}/`}
                             className="ticker-item"
                             style={{
                                 display: 'inline-flex',

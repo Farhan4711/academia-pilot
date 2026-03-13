@@ -11,9 +11,6 @@ export const metadata: Metadata = {
     template: "%s | Academia Pilot"
   },
   description: "Your co-pilot for navigating the agentic frontier. Get breaking AI news, tool reviews, prompts, and courses to simplify AI breakthroughs for entrepreneurs and creators.",
-  alternates: {
-    canonical: "/",
-  },
   keywords: [
     "Academia Pilot AI",
     "AI Mastery Hub",

@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -25,11 +25,11 @@ export default function AICodingHub() {
 
                 <h2 className="text-2xl font-bold mt-10 mb-6 border-b pb-2">Step 1: Understand the Shift (The Why)</h2>
                 <div className="grid md:grid-cols-2 gap-6 not-prose">
-                    <Link href="/news/ai-learning/self-taught-ai-developer-no-cs-degree-2026" className="block p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-indigo-100 transition-all">
+                    <Link href="/news-radar/self-taught-ai-developer-no-cs-degree-2026/" className="block p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-indigo-100 transition-all">
                         <h3 className="font-semibold text-gray-900 text-lg mb-2">The End of the CS Degree?</h3>
                         <p className="text-gray-600 text-sm">How self-taught developers are using AI to bypass traditional credentialing.</p>
                     </Link>
-                    <Link href="/news/analysis/agentic-ai-end-of-traditional-ides" className="block p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-indigo-100 transition-all">
+                    <Link href="/news-radar/agentic-ai-end-of-traditional-ides/" className="block p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-indigo-100 transition-all">
                         <h3 className="font-semibold text-gray-900 text-lg mb-2">RIP Traditional IDEs</h3>
                         <p className="text-gray-600 text-sm">Why text editors are becoming obsolete in the face of agentic builders.</p>
                     </Link>

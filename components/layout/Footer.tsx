@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 
@@ -85,7 +85,7 @@ export default function Footer() {
                                     }}
                                     aria-label="GitHub"
                                 >
-                                    ⚡
+                                    âš¡
                                 </a>
                             </div>
                         </div>
@@ -105,7 +105,7 @@ export default function Footer() {
                         </h4>
                         <ul style={{ listStyle: 'none', padding: 0 }}>
                             <li style={{ marginBottom: 'var(--space-2)' }}>
-                                <Link href="/news/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
+                                <Link href="/news-radar/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-sm)' }}>
                                     News
                                 </Link>
                             </li>
@@ -193,7 +193,7 @@ export default function Footer() {
                 <div className="container" style={{ paddingTop: 'var(--space-4)', paddingBottom: 'var(--space-4)' }}>
                     <div className="flex flex-col md:flex-row justify-between items-center gap-3">
                         <p className="text-secondary" style={{ fontSize: 'var(--text-xs)' }}>
-                            © {currentYear} Academia Pilot. Navigating the agentic frontier.
+                            Â© {currentYear} Academia Pilot. Navigating the agentic frontier.
                         </p>
                         <div className="flex gap-4">
                             <Link href="/privacy-policy/" className="text-secondary hover:text-accent transition-fast" style={{ fontSize: 'var(--text-xs)' }}>

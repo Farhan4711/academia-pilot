@@ -1,9 +1,16 @@
-import { MetadataRoute } from 'next';
+﻿import { MetadataRoute } from 'next';
 import { getAllContent } from '@/lib/content';
 
 export const dynamic = 'force-static';
 
 const BASE_URL = 'https://academiapilot.com';
+
+// Safely compute lastModified so missing/invalid dates don't break the sitemap
+const safeLastModified = (date?: string) => {
+    if (!date) return new Date().toISOString();
+    const parsed = new Date(date);
+    return isNaN(parsed.getTime()) ? new Date().toISOString() : parsed.toISOString();
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
     // 1. Static Pages
@@ -21,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/privacy-policy',
         '/terms-of-service',
     ].map((route) => ({
-        url: `${BASE_URL}${route}`,
+        url: `${BASE_URL}${route === '' ? '' : route}/`,
         lastModified: new Date().toISOString(),
         changeFrequency: (route === '' || route === '/news-radar') ? 'daily' : 'weekly',
         priority: route === '' ? 1.0 : (route === '/privacy-policy' || route === '/terms-of-service') ? 0.3 : 0.8,
@@ -32,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/resources/agency-blueprint',
         '/resources/codex-mastery-pack',
     ].map((route) => ({
-        url: `${BASE_URL}${route}`,
+        url: `${BASE_URL}${route}/`,
         lastModified: new Date().toISOString(),
         changeFrequency: 'weekly',
         priority: 0.8,
@@ -40,11 +47,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // 3. Dynamic News Articles
     const newsPages = getAllContent('news').map((article) => {
-        const category = article.category || 'uncategorized';
         const cleanSlug = article.slug.split('/').pop() || article.slug;
         return {
-            url: `${BASE_URL}/news/${category}/${cleanSlug}`,
-            lastModified: new Date(article.date).toISOString(),
+            // News articles live under /news-radar/{slug}
+            url: `${BASE_URL}/news-radar/${cleanSlug}/`,
+            lastModified: safeLastModified(article.date),
             changeFrequency: 'monthly' as const,
             priority: 0.7,
         };
@@ -55,8 +62,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         const category = tool.category || 'uncategorized';
         const cleanSlug = tool.slug.split('/').pop() || tool.slug;
         return {
-            url: `${BASE_URL}/tool-hangar/${category}/${cleanSlug}`,
-            lastModified: new Date(tool.date).toISOString(),
+            url: `${BASE_URL}/tool-hangar/${category}/${cleanSlug}/`,
+            lastModified: safeLastModified(tool.date),
             changeFrequency: 'monthly' as const,
             priority: 0.8,
         };
@@ -67,8 +74,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         const category = prompt.category || 'uncategorized';
         const cleanSlug = prompt.slug.split('/').pop() || prompt.slug;
         return {
-            url: `${BASE_URL}/prompt-vault/${category}/${cleanSlug}`,
-            lastModified: new Date(prompt.date).toISOString(),
+            url: `${BASE_URL}/prompt-vault/${category}/${cleanSlug}/`,
+            lastModified: safeLastModified(prompt.date),
             changeFrequency: 'monthly' as const,
             priority: 0.8,
         };
@@ -79,8 +86,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         const category = article.category || 'uncategorized';
         const cleanSlug = article.slug.split('/').pop() || article.slug;
         return {
-            url: `${BASE_URL}/ai-mastery-hub/${category}/${cleanSlug}`,
-            lastModified: new Date(article.date).toISOString(),
+            url: `${BASE_URL}/ai-mastery-hub/${category}/${cleanSlug}/`,
+            lastModified: safeLastModified(article.date),
             changeFrequency: 'monthly' as const,
             priority: 0.9,
         };

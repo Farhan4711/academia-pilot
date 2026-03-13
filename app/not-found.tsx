@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Button from '@/components/ui/Button';
 
 export default function NotFound() {
@@ -18,7 +18,7 @@ export default function NotFound() {
                             marginBottom: 'var(--space-6)',
                             filter: 'grayscale(0.3)'
                         }}>
-                            🛸
+                            ðŸ›¸
                         </div>
 
                         {/* Error Code */}
@@ -60,7 +60,7 @@ export default function NotFound() {
                             <Button variant="cta" size="lg" href="/">
                                 Return to Base
                             </Button>
-                            <Button variant="secondary" size="lg" href="/news/">
+                            <Button variant="secondary" size="lg" href="/news-radar/">
                                 Browse News
                             </Button>
                         </div>

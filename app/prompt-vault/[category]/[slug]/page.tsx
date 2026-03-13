@@ -75,13 +75,9 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function PromptPage({ params }: PageProps) {
     const { category, slug } = await params;
-    console.log(`[Page] Loading prompt: /prompt-vault/${category}/${slug}`);
-
     const prompt = getContentBySlug('prompts', slug);
-    console.log(`[Page] getContentBySlug result: ${prompt ? 'Found' : 'NOT Found'} (Canonical slug: ${prompt?.slug})`);
 
     if (!prompt) {
-        console.warn(`[Page] Triggering notFound() for: /prompt-vault/${category}/${slug}`);
         notFound();
     }
 

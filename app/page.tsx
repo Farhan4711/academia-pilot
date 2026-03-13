@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Card, { CardTitle, CardDescription } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
@@ -138,7 +138,7 @@ export default function Home() {
 
           <div className="grid grid-3">
             {trendingNews.map((news, index) => (
-              <Card key={index} href={`/news/${(news.category || 'uncategorized').toLowerCase()}/${news.slug.split('/').pop()}/`}>
+              <Card key={index} href={`/news-radar/${news.slug.split('/').pop()}/`}>
                 <div style={{ marginBottom: 'var(--space-2)' }}>
                   <Badge variant="cta">{formatDate(news.date)}</Badge>
                 </div>
@@ -146,7 +146,7 @@ export default function Home() {
                 <CardDescription>{news.excerpt}</CardDescription>
                 <div style={{ marginTop: 'var(--space-4)' }}>
                   <span className="text-accent" style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--font-semibold)' }}>
-                    Read more →
+                    Read more â†’
                   </span>
                 </div>
               </Card>
@@ -154,7 +154,7 @@ export default function Home() {
           </div>
 
           <div className="text-center" style={{ marginTop: 'var(--space-8)' }}>
-            <Button variant="secondary" href="/news/">
+            <Button variant="secondary" href="/news-radar/">
               View All News
             </Button>
           </div>
@@ -188,7 +188,7 @@ export default function Home() {
                 <CardDescription>{tool.description}</CardDescription>
                 <div style={{ marginTop: 'var(--space-4)' }}>
                   <span className="text-accent" style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--font-semibold)' }}>
-                    View in Tool Hangar →
+                    View in Tool Hangar â†’
                   </span>
                 </div>
               </Card>
@@ -245,7 +245,7 @@ export default function Home() {
                       )}
                     </div>
                     {index >= 2 && (
-                      <div style={{ fontSize: 'var(--text-2xl)' }}>🔒</div>
+                      <div style={{ fontSize: 'var(--text-2xl)' }}>ðŸ”’</div>
                     )}
                   </div>
                 </div>
@@ -275,17 +275,17 @@ export default function Home() {
           subtitle="Everything you need to know about navigating the agentic frontier"
           faqs={[
             {
-              icon: '🚀',
+              icon: 'ðŸš€',
               question: "What is Academia Pilot?",
               answer: "Academia Pilot is your co-pilot for navigating the agentic frontier. We provide breaking AI news, tool reviews, battle-tested prompts, and curated courses to help entrepreneurs and creators stay ahead in the rapidly evolving AI landscape."
             },
             {
-              icon: '🔒',
+              icon: 'ðŸ”’',
               question: "How do I access premium prompts in the Vault?",
               answer: "Join the Flight Crew by subscribing to our newsletter. Premium prompts are available to all subscribers and include advanced agentic workflows that can save you 20+ hours per week."
             },
             {
-              icon: '🛸',
+              icon: 'ðŸ›¸',
               question: "What makes Academia Pilot different from other AI resources?",
               answer: "We focus on the \"agentic\" frontier - AI systems that can act autonomously. Our content is curated specifically for entrepreneurs and creators, cutting through the noise to deliver only what matters for building real businesses with AI."
             }

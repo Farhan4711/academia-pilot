@@ -1,13 +1,13 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 
 export default function ExploreRelated() {
     const links = [
-        { label: "🔐 AI Security Updates", href: "/news" },
-        { label: "🤖 Generative AI Breakthroughs", href: "/news" },
-        { label: "🧠 AI Mastery Hub (In-depth Guides)", href: "/ai-mastery-hub" },
-        { label: "🛠 AI Tool Comparisons", href: "/tool-hangar" },
-        { label: "📦 Prompt Vault (Ready-to-Use Prompts)", href: "/prompt-vault" }
+        { label: "ðŸ” AI Security Updates", href: "/news-radar/" },
+        { label: "ðŸ¤– Generative AI Breakthroughs", href: "/news-radar/" },
+        { label: "ðŸ§  AI Mastery Hub (In-depth Guides)", href: "/ai-mastery-hub" },
+        { label: "ðŸ›  AI Tool Comparisons", href: "/tool-hangar" },
+        { label: "ðŸ“¦ Prompt Vault (Ready-to-Use Prompts)", href: "/prompt-vault" }
     ];
 
     return (

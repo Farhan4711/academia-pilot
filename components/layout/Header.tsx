@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import NextImage from 'next/image';
 import NewsTicker from './NewsTicker';
 import type { ContentItem } from '@/lib/content';
 
@@ -56,14 +57,16 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                 border: '1px solid var(--color-accent)',
                                 display: 'flex',
                                 alignItems: 'center',
-                                justifyContent: 'center'
+                                justifyContent: 'center',
+                                position: 'relative'
                             }}>
-                                <img
+                                <NextImage
                                     src="/logo.png"
                                     alt="Academia Pilot Logo"
+                                    fill
+                                    priority
+                                    sizes="40px"
                                     style={{
-                                        width: '100%',
-                                        height: '100%',
                                         objectFit: 'cover'
                                     }}
                                 />
