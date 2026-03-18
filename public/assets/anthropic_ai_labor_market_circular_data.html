@@ -1,0 +1,179 @@
+
+<style>
+  .wrap { font-family: var(--font-sans); padding: 1.5rem 0; }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 1.2rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .ring-card { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1.2rem 1rem; text-align: center; }
+  .ring-wrap { position: relative; width: 110px; height: 110px; margin: 0 auto 12px; }
+  .ring-canvas { width: 110px; height: 110px; }
+  .ring-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; pointer-events: none; }
+  .ring-pct { font-size: 20px; font-weight: 500; color: var(--color-text-primary); line-height: 1; }
+  .ring-unit { font-size: 10px; color: var(--color-text-secondary); margin-top: 2px; }
+  .ring-label { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+  .ring-sub { font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; }
+  .gap-card { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1.2rem; }
+  .gap-row { margin-bottom: 14px; }
+  .gap-row:last-child { margin-bottom: 0; }
+  .gap-row-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+  .gap-name { font-size: 12px; font-weight: 500; color: var(--color-text-primary); }
+  .gap-nums { font-size: 11px; color: var(--color-text-secondary); }
+  .bar-track { background: var(--color-border-tertiary); border-radius: 4px; height: 8px; position: relative; overflow: hidden; }
+  .bar-theory { position: absolute; top: 0; left: 0; height: 100%; border-radius: 4px; background: #B5D4F4; }
+  .bar-observed { position: absolute; top: 0; left: 0; height: 100%; border-radius: 4px; }
+  .profile-card { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1.2rem 1rem; }
+  .profile-rings { display: flex; justify-content: space-around; align-items: flex-end; flex-wrap: wrap; gap: 8px; }
+  .p-ring-wrap { text-align: center; }
+  .legend-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--color-text-secondary); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+</style>
+
+<div class="wrap">
+  <p class="section-label">Top exposed occupations — observed AI coverage</p>
+  <div class="grid-3" id="topOcc"></div>
+
+  <p class="section-label">Theoretical capability vs observed deployment gap</p>
+  <div class="gap-card">
+    <div class="legend-row">
+      <span class="legend-item"><span class="legend-dot" style="background:#B5D4F4"></span>Theoretical capability</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#185FA5"></span>Observed exposure</span>
+    </div>
+    <div id="gapRows"></div>
+  </div>
+
+  <p class="section-label" style="margin-top:1.2rem">US workforce exposure distribution</p>
+  <div class="grid-2" id="workforceGrid"></div>
+
+  <p class="section-label">Profile of most AI-exposed worker</p>
+  <div class="profile-card">
+    <div class="profile-rings" id="profileRings"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+
+function makeDonut(id, pct, color, trackColor) {
+  const ctx = document.getElementById(id).getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [pct, 100 - pct],
+        backgroundColor: [color, trackColor],
+        borderWidth: 0,
+        hoverBackgroundColor: [color, trackColor]
+      }]
+    },
+    options: {
+      responsive: false,
+      cutout: '72%',
+      animation: { animateRotate: true, duration: 900 },
+      plugins: { legend: { display: false }, tooltip: { enabled: false } }
+    }
+  });
+}
+
+const track = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.07)';
+
+const topOccs = [
+  { label: 'Computer programmers', pct: 74.5, color: '#185FA5', sub: 'Highest single occupation' },
+  { label: 'Customer service reps', pct: 70.1, color: '#1D9E75', sub: 'Highest non-technical role' },
+  { label: 'Data entry keyers', pct: 67.1, color: '#185FA5', sub: 'Fully automatable pipeline' },
+  { label: 'Medical record specialists', pct: 66.7, color: '#1D9E75', sub: 'Healthcare admin only' },
+  { label: 'Market research analysts', pct: 64.8, color: '#185FA5', sub: 'Synthesis & reporting' },
+  { label: 'Legal occupations', pct: 20.4, color: '#BA7517', sub: 'Low observed, high theoretical' },
+];
+
+const topEl = document.getElementById('topOcc');
+topOccs.forEach((d, i) => {
+  const cid = 'ring' + i;
+  topEl.innerHTML += `
+    <div class="ring-card">
+      <div class="ring-wrap">
+        <canvas id="${cid}" class="ring-canvas" width="110" height="110"></canvas>
+        <div class="ring-center">
+          <div class="ring-pct">${d.pct}%</div>
+          <div class="ring-unit">exposed</div>
+        </div>
+      </div>
+      <div class="ring-label">${d.label}</div>
+      <div class="ring-sub">${d.sub}</div>
+    </div>`;
+});
+topOccs.forEach((d, i) => makeDonut('ring' + i, d.pct, d.color, track));
+
+const gaps = [
+  { name: 'Computer & Math', theory: 94.3, observed: 35.8 },
+  { name: 'Business & Finance', theory: 94.3, observed: 28.4 },
+  { name: 'Office & Admin', theory: 90.0, observed: 34.3 },
+  { name: 'Legal', theory: 89.0, observed: 20.4 },
+  { name: 'Arts & Media', theory: 83.7, observed: 19.2 },
+  { name: 'Education & Library', theory: 82.0, observed: 18.2 },
+];
+
+const gapEl = document.getElementById('gapRows');
+gaps.forEach(d => {
+  const gap = (d.theory - d.observed).toFixed(1);
+  gapEl.innerHTML += `
+    <div class="gap-row">
+      <div class="gap-row-top">
+        <span class="gap-name">${d.name}</span>
+        <span class="gap-nums">${d.theory}% theory · ${d.observed}% observed · <strong style="color:var(--color-text-primary)">${gap}pt gap</strong></span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-theory" style="width:${d.theory}%"></div>
+        <div class="bar-observed" style="width:${d.observed}%; background:#185FA5"></div>
+      </div>
+    </div>`;
+});
+
+const workforce = [
+  { label: 'Jobs with 25%+ AI exposure', pct: 49, color: '#185FA5', sub: 'Up from 36% a year ago' },
+  { label: 'Workers with zero AI exposure', pct: 30, color: '#1D9E75', sub: 'Cooks, mechanics, bartenders' },
+];
+
+const wfEl = document.getElementById('workforceGrid');
+workforce.forEach((d, i) => {
+  const cid = 'wf' + i;
+  wfEl.innerHTML += `
+    <div class="ring-card">
+      <div class="ring-wrap" style="width:130px;height:130px;margin:0 auto 14px">
+        <canvas id="${cid}" width="130" height="130" style="width:130px;height:130px"></canvas>
+        <div class="ring-center">
+          <div class="ring-pct" style="font-size:24px">${d.pct}%</div>
+          <div class="ring-unit">of US jobs</div>
+        </div>
+      </div>
+      <div class="ring-label" style="font-size:13px">${d.label}</div>
+      <div class="ring-sub">${d.sub}</div>
+    </div>`;
+});
+workforce.forEach((d, i) => makeDonut('wf' + i, d.pct, d.color, track));
+
+const profile = [
+  { label: 'More likely female', pct: 16, unit: 'pts higher', color: '#D85A30', size: 100 },
+  { label: 'Higher earnings', pct: 47, unit: '% more pay', color: '#185FA5', size: 100 },
+  { label: 'Graduate degree', pct: 75, unit: '4× more likely', color: '#1D9E75', size: 100 },
+  { label: 'Entry hire drop', pct: 14, unit: '% age 22–25', color: '#BA7517', size: 100 },
+];
+
+const prEl = document.getElementById('profileRings');
+profile.forEach((d, i) => {
+  const cid = 'pr' + i;
+  prEl.innerHTML += `
+    <div class="p-ring-wrap">
+      <div class="ring-wrap" style="width:${d.size}px;height:${d.size}px;margin:0 auto 8px">
+        <canvas id="${cid}" width="${d.size}" height="${d.size}" style="width:${d.size}px;height:${d.size}px"></canvas>
+        <div class="ring-center">
+          <div class="ring-pct" style="font-size:17px">${d.pct}</div>
+          <div class="ring-unit">${d.unit}</div>
+        </div>
+      </div>
+      <div class="ring-label" style="font-size:11px;max-width:90px;margin:0 auto">${d.label}</div>
+    </div>`;
+});
+profile.forEach((d, i) => makeDonut('pr' + i, Math.min(d.pct, 100), d.color, track));
+</script>
