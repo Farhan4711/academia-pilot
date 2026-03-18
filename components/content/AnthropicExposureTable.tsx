@@ -17,7 +17,7 @@ const AnthropicExposureTable: React.FC = () => {
       <div className="gap-card">
         <div className="legend-row">
           <span className="legend-item"><span className="legend-dot" style={{ background: '#B5D4F4' }}></span>Theoretical capability</span>
-          <span className="legend-item"><span class="legend-dot" style={{ background: '#185FA5' }}></span>Observed exposure</span>
+          <span className="legend-item"><span className="legend-dot" style={{ background: '#185FA5' }}></span>Observed exposure</span>
         </div>
         
         <div className="gap-rows-container">
