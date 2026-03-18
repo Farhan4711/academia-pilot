@@ -35,7 +35,7 @@ export default function ProtocolComparisonTable() {
 
     const colHead = (letter: string, label: string, color: string, gradient: string, glow: string) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <div style={{ width: 28, height: 28, borderRadius: 8, background: gradient, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 13, boxShadow: glow }}>{letter}</div>
+            <div style={{ width: 28, height: 28, borderRadius: 8, background: gradient, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-text-primary)', fontWeight: 900, fontSize: 13, boxShadow: glow }}>{letter}</div>
             <span style={{ color, fontWeight: 700, fontSize: 14 }}>{label}</span>
         </div>
     );

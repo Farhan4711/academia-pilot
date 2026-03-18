@@ -123,7 +123,7 @@ const AIOverviewTable: React.FC = () => {
 
             {/* Coding Stars Row */}
             <div style={{ display: 'grid', gridTemplateColumns: '160px repeat(3, 1fr)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                <div style={{ padding: '16px 24px', color: '#94a3b8', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'center' }}>
+                <div style={{ padding: '16px 24px', color: 'var(--color-text-muted)', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'center' }}>
                     Coding Ability
                 </div>
                 {models.map((m, i) => (
@@ -154,7 +154,7 @@ const AIOverviewTable: React.FC = () => {
                         gridTemplateColumns: '160px repeat(3, 1fr)',
                         borderBottom: ri < rows.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                     }}>
-                    <div style={{ padding: '14px 24px', color: '#94a3b8', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'center' }}>
+                    <div style={{ padding: '14px 24px', color: 'var(--color-text-muted)', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'center' }}>
                         {row.label}
                     </div>
                     {models.map((m, i) => (
@@ -164,7 +164,7 @@ const AIOverviewTable: React.FC = () => {
                             onMouseLeave={() => setHoveredCol(null)}
                             style={{
                                 padding: '14px 24px',
-                                color: '#cbd5e1',
+                                color: 'var(--color-text-secondary)',
                                 fontSize: '13px',
                                 lineHeight: '1.5',
                                 textAlign: 'center',
@@ -180,7 +180,7 @@ const AIOverviewTable: React.FC = () => {
 
             {/* Strengths */}
             <div style={{ display: 'grid', gridTemplateColumns: '160px repeat(3, 1fr)', borderTop: '1px solid rgba(255,255,255,0.08)', background: 'rgba(0,0,0,0.15)' }}>
-                <div style={{ padding: '20px 24px', color: '#94a3b8', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'flex-start', paddingTop: '24px' }}>
+                <div style={{ padding: '20px 24px', color: 'var(--color-text-muted)', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'flex-start', paddingTop: '24px' }}>
                     Key Strengths
                 </div>
                 {models.map((m, i) => (
@@ -197,7 +197,7 @@ const AIOverviewTable: React.FC = () => {
                         {m.strengths.map((s, si) => (
                             <div key={si} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                                 <span style={{ color: m.color, fontSize: '14px' }}>✓</span>
-                                <span style={{ color: '#94a3b8', fontSize: '13px' }}>{s}</span>
+                                <span style={{ color: 'var(--color-text-muted)', fontSize: '13px' }}>{s}</span>
                             </div>
                         ))}
                     </div>
@@ -206,7 +206,7 @@ const AIOverviewTable: React.FC = () => {
 
             {/* Free Tier Footer */}
             <div style={{ display: 'grid', gridTemplateColumns: '160px repeat(3, 1fr)', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                <div style={{ padding: '16px 24px', color: '#94a3b8', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'center' }}>
+                <div style={{ padding: '16px 24px', color: 'var(--color-text-muted)', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'center' }}>
                     Free Tier
                 </div>
                 {models.map((m, i) => (

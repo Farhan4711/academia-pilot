@@ -167,7 +167,7 @@ const AgenticVsIDETable: React.FC = () => {
                                 </td>
                                 <td style={{
                                     padding: '16px 20px',
-                                    color: '#cbd5e1',
+                                    color: 'var(--color-text-secondary)',
                                     fontSize: '13px',
                                     lineHeight: '1.6',
                                     borderRight: '1px solid rgba(71, 85, 105, 0.2)'
@@ -176,7 +176,7 @@ const AgenticVsIDETable: React.FC = () => {
                                 </td>
                                 <td style={{
                                     padding: '16px 20px',
-                                    color: '#cbd5e1',
+                                    color: 'var(--color-text-secondary)',
                                     fontSize: '13px',
                                     lineHeight: '1.6',
                                     position: 'relative'
@@ -206,7 +206,7 @@ const AgenticVsIDETable: React.FC = () => {
                 borderRadius: '4px'
             }}>
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     fontSize: '13px',
                     lineHeight: '1.6',
                     margin: 0,

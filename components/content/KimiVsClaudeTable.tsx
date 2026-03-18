@@ -33,7 +33,7 @@ const KimiVsClaudeTable: React.FC = () => {
             border: '1px solid #27272a',
             overflowX: 'auto'
         }}>
-            <h3 style={{ color: '#fff', fontSize: '24px', fontWeight: 'bold', textAlign: 'center', marginBottom: '8px' }}>
+            <h3 style={{ color: 'var(--color-text-primary)', fontSize: '24px', fontWeight: 'bold', textAlign: 'center', marginBottom: '8px' }}>
                 Tool Landscape Summary
             </h3>
             <p style={{ color: '#a1a1aa', textAlign: 'center', marginBottom: '24px', fontSize: '14px' }}>
@@ -53,7 +53,7 @@ const KimiVsClaudeTable: React.FC = () => {
                         onClick={() => setActiveCategory(btn.id as any)}
                         style={{
                             background: activeCategory === btn.id ? '#3b82f6' : '#27272a',
-                            color: activeCategory === btn.id ? '#fff' : '#d4d4d8',
+                            color: activeCategory === btn.id ? 'var(--color-text-primary)' : '#d4d4d8',
                             border: '1px solid',
                             borderColor: activeCategory === btn.id ? '#60a5fa' : '#3f3f46',
                             padding: '8px 16px',

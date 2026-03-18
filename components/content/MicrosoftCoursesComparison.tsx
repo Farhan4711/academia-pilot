@@ -10,27 +10,27 @@ const MicrosoftCoursesComparison: React.FC = () => {
         { id: 5, name: 'GitHub Actions Automation', modules: 7, duration: '1 hr', level: 'Beginner', credential: 'Badge', color: '#fbbf24' },
         { id: 6, name: 'ML for Beginners (12-Week)', modules: '26 L', duration: '12 wks', level: 'Begg-Int', credential: 'GitHub Badge', color: '#2dd4bf' },
         { id: 7, name: 'AI for Beginners (12-Week)', modules: '24 L', duration: '12 wks', level: 'Intermediate', credential: 'GitHub Badge', color: '#6366f1' },
-        { id: 8, name: 'Data Science for Beginners', modules: '20 L', duration: '10 wks', level: 'Beginner', credential: 'Completion Badge', color: '#94a3b8' },
+        { id: 8, name: 'Data Science for Beginners', modules: '20 L', duration: '10 wks', level: 'Beginner', credential: 'Completion Badge', color: 'var(--color-text-muted)' },
     ];
 
     return (
         <div className="not-readable" style={{
             fontFamily: "'Inter', sans-serif",
             margin: '40px 0',
-            background: 'rgba(15, 23, 42, 0.6)',
+            background: 'var(--color-surface)',
             borderRadius: '16px',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            border: '1px solid var(--color-border)',
             backdropFilter: 'blur(12px)',
             overflow: 'hidden',
             boxShadow: '0 20px 50px rgba(0,0,0,0.3)'
         }}>
             <div style={{
                 padding: '24px 30px',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                borderBottom: '1px solid var(--color-border-light)',
                 background: 'rgba(255, 255, 255, 0.02)'
             }}>
                 <h3 style={{ margin: 0, color: '#f8fafc', fontSize: '20px', fontWeight: '700' }}>At-a-Glance Comparison: All 8 Courses (2026)</h3>
-                <p style={{ margin: '4px 0 0', color: '#94a3b8', fontSize: '13px' }}>Compare duration, difficulty, and rewards for the top 8 free tracks.</p>
+                <p style={{ margin: '4px 0 0', color: 'var(--color-text-muted)', fontSize: '13px' }}>Compare duration, difficulty, and rewards for the top 8 free tracks.</p>
             </div>
 
             <div style={{ overflowX: 'auto' }}>
@@ -61,8 +61,8 @@ const MicrosoftCoursesComparison: React.FC = () => {
                                 <td style={{ padding: '16px 20px' }}>
                                     <div style={{ color: '#f1f5f9', fontSize: '14px', fontWeight: '600' }}>{course.name}</div>
                                 </td>
-                                <td style={{ padding: '16px 20px', color: '#cbd5e1', fontSize: '13px' }}>{course.modules}</td>
-                                <td style={{ padding: '16px 20px', color: '#cbd5e1', fontSize: '13px' }}>{course.duration}</td>
+                                <td style={{ padding: '16px 20px', color: 'var(--color-text-secondary)', fontSize: '13px' }}>{course.modules}</td>
+                                <td style={{ padding: '16px 20px', color: 'var(--color-text-secondary)', fontSize: '13px' }}>{course.duration}</td>
                                 <td style={{ padding: '16px 20px' }}>
                                     <span style={{
                                         padding: '4px 10px',
@@ -88,7 +88,7 @@ const MicrosoftCoursesComparison: React.FC = () => {
             </div>
 
             <div style={{ padding: '20px 30px', background: 'rgba(56, 189, 248, 0.03)', borderTop: '1px solid rgba(56, 189, 248, 0.1)' }}>
-                <p style={{ margin: 0, fontSize: '14px', color: '#94a3b8', lineHeight: '1.6' }}>
+                <p style={{ margin: 0, fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: '1.6' }}>
                     <strong style={{ color: '#38bdf8' }}>Key Insight:</strong> Python is the "Master Key" for this matrix. While Course 2 has the longest duration among the short tracks, completion makes Course 6, 7, and 8 significantly more accessible.
                 </p>
             </div>

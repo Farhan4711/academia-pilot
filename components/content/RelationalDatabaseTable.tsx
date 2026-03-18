@@ -21,7 +21,7 @@ const categoryStyle: Record<string, { color: string; bg: string; border: string 
 export default function RelationalDatabaseTable() {
     const card: React.CSSProperties = {
         backgroundColor: '#0f172a', // Match the dark theme surface
-        border: '1px solid rgba(255,255,255,0.1)',
+        border: '1px solid var(--color-border)',
         borderRadius: 'var(--radius-lg)',
         overflow: 'hidden',
         boxShadow: '0 10px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)',
@@ -32,7 +32,7 @@ export default function RelationalDatabaseTable() {
     const colHead = (icon: string, label: string) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <span style={{ fontSize: 16 }}>{icon}</span>
-            <span style={{ color: '#cbd5e1', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</span>
+            <span style={{ color: 'var(--color-text-secondary)', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</span>
         </div>
     );
 
@@ -42,7 +42,7 @@ export default function RelationalDatabaseTable() {
             <div style={{ padding: '20px 28px', borderBottom: '1px solid rgba(255,255,255,0.1)', background: 'linear-gradient(135deg, rgba(52,211,153,0.07) 0%, rgba(59,130,246,0.04) 100%)' }}>
                 <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#6ee7b7', marginBottom: 6 }}>📊 Relational Engines</div>
                 <h3 style={{ fontSize: 20, fontWeight: 800, color: '#f8fafc', margin: '0 0 6px' }}>Major SQL Databases (2026)</h3>
-                <p style={{ color: '#94a3b8', fontSize: 14, margin: 0 }}>The absolute strongest choices for table-based, structured workloads.</p>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: 14, margin: 0 }}>The absolute strongest choices for table-based, structured workloads.</p>
             </div>
 
             {/* Column headers */}
@@ -83,12 +83,12 @@ export default function RelationalDatabaseTable() {
 
                         {/* Best For */}
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <div style={{ fontSize: 13, color: '#e2e8f0', lineHeight: 1.5 }}>{row.bestFor}</div>
+                            <div style={{ fontSize: 13, color: 'var(--color-border)', lineHeight: 1.5 }}>{row.bestFor}</div>
                         </div>
 
                         {/* Key Feature */}
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <div style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.5 }}>{row.feature}</div>
+                            <div style={{ fontSize: 13, color: 'var(--color-text-muted)', lineHeight: 1.5 }}>{row.feature}</div>
                         </div>
                     </div>
                 );

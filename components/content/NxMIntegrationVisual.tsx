@@ -29,7 +29,7 @@ export default function NxMIntegrationVisual() {
     background: 'linear-gradient(135deg, rgba(37,99,235,0.08) 0%, transparent 60%)',
   };
   const pill = (bg: string): React.CSSProperties => ({
-    backgroundColor: bg, color: '#fff', fontSize: 11, fontWeight: 700,
+    backgroundColor: bg, color: 'var(--color-text-primary)', fontSize: 11, fontWeight: 700,
     padding: '6px 12px', borderRadius: 20, whiteSpace: 'nowrap',
     display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0,
   });
@@ -68,7 +68,7 @@ export default function NxMIntegrationVisual() {
                   {services.map(svc => (
                     <div key={svc.name} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
                       <div style={{ width: '100%', borderTop: '1.5px dashed rgba(239,68,68,0.5)' }} />
-                      <div style={{ backgroundColor: svc.bg, color: '#fff', fontSize: 9, fontWeight: 700, padding: '3px 4px', borderRadius: 6, textAlign: 'center', width: '100%' }}>{svc.name}</div>
+                      <div style={{ backgroundColor: svc.bg, color: 'var(--color-text-primary)', fontSize: 9, fontWeight: 700, padding: '3px 4px', borderRadius: 6, textAlign: 'center', width: '100%' }}>{svc.name}</div>
                     </div>
                   ))}
                 </div>
@@ -118,7 +118,7 @@ export default function NxMIntegrationVisual() {
             }}>
               {/* Decorative shine */}
               <div style={{ position: 'absolute', top: 0, left: '30%', right: '30%', height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)' }} />
-              <div style={{ color: '#fff', fontWeight: 900, fontSize: 18, letterSpacing: 1 }}>⬡ MCP Protocol</div>
+              <div style={{ color: 'var(--color-text-primary)', fontWeight: 900, fontSize: 18, letterSpacing: 1 }}>⬡ MCP Protocol</div>
               <div style={{ color: '#c7d2fe', fontSize: 10, fontWeight: 600, marginTop: 2, letterSpacing: 2, textTransform: 'uppercase' }}>Standard Interface Layer</div>
             </div>
 

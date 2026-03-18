@@ -1,0 +1,184 @@
+---
+title: "Vibe Coding in Production: What Actually Breaks (2026 Complete Guide)"
+date: "2026-03-18"
+updated: "2026-03-18"
+excerpt: "40–48% of AI-generated code has exploitable vulnerabilities. The Tea App exposed 72,000 IDs. The Spaghetti Point arrives at month 3. This is the only guide written for developers who already shipped — with the GROUND Framework for hardening vibe-coded apps."
+author: "AcademiaPilot Editorial"
+category: "guide"
+tags: ["vibe coding in production 2026", "vibe coding what breaks after prototype", "vibe coding security vulnerabilities", "Tea App Firebase breach vibe coding", "Spaghetti Point vibe coding explained", "six month wall vibe coding", "Cumulative Refactor Deficit CRD metric", "GROUND Framework production hardening", "Lovable CVE-2025-48757", "illusion of correctness AI code review"]
+featured: true
+image: "/assets/news/vibe-coding-production-what-breaks-after-prototype-2026.jpeg"
+tldr:
+  - "40–48% of AI-generated code contains exploitable security vulnerabilities (Georgetown University, CMU)."
+  - "The Spaghetti Point arrives at month 3: features start breaking each other."
+  - "The Six-Month Wall arrives at month 6 without intervention: codebase becomes unmaintainable."
+  - "Firebase and Supabase default settings are the #1 documented cause of vibe-coded data breaches."
+  - "The Cumulative Refactor Deficit (CRD) is the measurable early warning: refactoring below 10% of commits = Spaghetti Point approaching."
+  - "The GROUND Framework (Guard → Refactor → Own → Underpin → Notify → Document) is the six-stage production hardening path."
+faq:
+  - question: "What breaks when a vibe-coded app goes to production?"
+    answer: "Six documented failure categories: (1) exposed databases — Firebase and Supabase deployed with default settings that provide zero access control, (2) hardcoded API keys committed to git history and exploited within minutes by automated scanners, (3) broken authorization — authenticated users can access other users' data by modifying request parameters, (4) AI agents with production database access executing destructive 'cleanup' operations, (5) slopsquatting — hallucinated package names registered by attackers and installed by developers who skip registry verification, and (6) prompt injection attacks against the development tooling itself via malicious code comments."
+  - question: "What percentage of AI-generated code has security vulnerabilities?"
+    answer: "Georgetown University research found 48% of AI-generated code contains exploitable flaws. Carnegie Mellon's analysis corroborated this range. CodeRabbit's analysis of 470 open-source pull requests found AI-co-authored code had 2.74× more security vulnerabilities than human-only code. The consistent cross-research finding is 40–48%."
+  - question: "What is the Spaghetti Point in vibe coding?"
+    answer: "The Spaghetti Point is the threshold — arriving at approximately month three of a vibe-coded codebase's life — where adding new features begins breaking existing ones due to accumulated technical debt. By month three, the codebase contains enough copy-pasted, undocumented, entangled functions that the AI agent lacks sufficient context to make safe changes."
+  - question: "Why does vibe coding velocity collapse after three months?"
+    answer: "Two compounding mechanisms. First, the Cumulative Refactor Deficit: vibe-coded development skips the refactoring that healthy codebases require. Refactoring dropped from 25% to under 10% of changes. Second, context window limits: AI agents generate code for the files they can see, producing duplicate implementations. Modifying shared behavior requires fixing every copy."
+  - question: "What are the most common security flaws in vibe-coded apps?"
+    answer: "Ranked by frequency: (1) exposed cloud storage buckets and databases with default settings; (2) missing Supabase Row Level Security; (3) broken object-level authorization (BOLA); (4) hardcoded credentials committed to git history; (5) missing rate limiting; (6) SQL injection via string concatenation; (7) server-side input validation absent."
+  - question: "How do I audit a codebase I did not fully write?"
+    answer: "Four steps from the GROUND Framework's Own stage: (1) Generate a codebase map using AI with full repository context. (2) Line-by-line review of every authentication and data access function simply by asking the AI to translate the code. (3) Create a technical risk register — a list of every function you cannot confidently explain. (4) Document decisions as you discover them."
+  - question: "What is the illusion of correctness in AI-generated code?"
+    answer: "A cognitive bias where the visual neatness, confident prose, and consistent formatting of AI-generated code creates a false sense of reliability and correctness. The bias caused code review participation to fall 30% as developers trusted AI output 'out of the box,' skipping the review that would catch insecurity."
+  - question: "What happened in the Tea App vibe coding data breach?"
+    answer: "Tea, a women-only dating safety app built with AI-generated code, exposed 72,000 images (including 13,000 government IDs) and 1.1 million private messages in July 2025. The root cause was deploying their Firebase storage bucket with default settings: zero authentication, zero rules, zero encryption. Discovering the exposure required just three browser clicks."
+  - question: "Should I rewrite my vibe-coded prototype from scratch?"
+    answer: "The decision depends on codebase age, vulnerability density, test coverage, and production user count. Rewrite if the codebase is under three months old with auth vulnerabilities and no production users. Refactor incrementally if the codebase has production users and no confirmed auth vulnerabilities. Emergency fix plus a rewrite plan if user data is actively exposed."
+  - question: "What is the GROUND Framework for vibe coding production hardening?"
+    answer: "GROUND is a six-stage methodology for hardening a vibe-coded prototype: Guard (security audit, data protection, agent limitation), Refactor (eliminate duplication), Own (build mental model of the code), Underpin (test coverage, particularly security limits), Notify (structured monitoring), and Document (architecture, constraints, limitations)."
+---
+
+## The Database That Was Never Locked
+
+Nobody hacked the Tea App. They just opened it.
+
+In July 2025, a women-only dating safety app — four million users, #1 on the App Store, built with AI-generated code, marketed as a platform for safely sharing information about dangerous men — left its entire Firebase storage bucket unconfigured. No authentication. No rules. Default settings. Accessing every user's private data required exactly three browser clicks: View Source → Developer Tools → Network tab.
+
+The result: 72,000 exposed images including 13,000 government ID photographs. 59.3 gigabytes scraped and distributed on BitTorrent. A second breach two days later exposed 1.1 million private direct messages. Class-action lawsuits filed against the product that was supposed to protect its users.
+
+The person who found it stated the cause in eight words: "They literally did not apply any authorization policies."
+
+Tea is the most prominent documented vibe coding production failure. It is not the only one. Between January 2025 and February 2026, every documented production breach of an AI-generated application traced back to the same four preventable root causes: unconfigured Firebase databases, missing Supabase Row Level Security, hardcoded API keys in git history, and exposed cloud backends with default credentials.
+
+Every article about vibe coding teaches you how to start building.
+
+This is the article that exists for after you did — when your prototype has real users, handles real data, and is about to meet the production environment for the first time.
+
+## What Is Vibe Coding? The Production-Relevant Definition
+
+Vibe coding was coined by Andrej Karpathy — OpenAI co-founder, former Tesla AI director — in February 2025 and named Collins English Dictionary Word of the Year for 2025. Karpathy defined it as fully giving in to the vibes, embracing exponentials, and forgetting that the code even exists. The critical production-relevant element of the definition: acceptance of AI-generated code without fully understanding it.
+
+Simon Willison, co-creator of Django, drew the precise boundary that matters for this guide: if an LLM wrote every line of your code but you reviewed, tested, and understood it all, that is using an LLM as a typing assistant — not vibe coding. Vibe coding is the gap between generation and understanding. That gap is exactly where production failures live.
+
+The risk is not AI-generated code. It is AI-generated code that ships without the review, understanding, and validation that transforms generated output into owned software.
+
+## Why Vibe Coding Creates a Specific Production Risk Profile
+
+Vibe coding's production risk is architecturally different from ordinary "bad code" risk. Understanding the mechanism is the prerequisite for addressing it.
+
+AI models are optimized to produce working answers fast. They are not optimized to ask security questions. The output is code that runs correctly, authenticates users adequately, and passes a demo review — but omits the security configurations, rate limiting controls, authorization policies, and input validation that only matter when real users with real adversarial intent interact with the system.
+
+The result is a codebase that is insecure by default. Not by malice. Not by incompetence. By the optimization function of the model that generated it.
+
+The scale of this problem across the industry: 40–48% of AI-generated code contains exploitable security vulnerabilities, according to Georgetown University research corroborated by Carnegie Mellon's analysis of 800+ GitHub repositories. CodeRabbit's analysis of 470 open-source pull requests found AI-co-authored code had 2.74× more security vulnerabilities than human-only code. Apiiro's Fortune 50 research found code duplication — the primary structural indicator of AI generation — increased 48% across analyzed codebases.
+
+This is an architectural mismatch between how AI models generate code and what production environments require. It is not fixed by using a better AI model. It is fixed by the GROUND Framework.
+
+## The Complete Vibe Coding Production Failure Taxonomy
+
+The following catalogue covers every documented vibe coding production failure mode as of March 2026. Assembled from security research, breach disclosures, CVE filings, and verified incident reports.
+
+:::COMPONENT:ProductionFailureTaxonomy:::
+
+## The Velocity Collapse Timeline — The Developer Calendar Every Vibe Coder Needs
+
+The single most consistent finding across vibe coding production research: velocity collapses on a predictable schedule. Understanding the timeline tells a developer exactly when to intervene.
+
+:::COMPONENT:VelocityCollapseTimeline:::
+
+## The GROUND Framework: From Vibe-Coded Prototype to Production-Grade System
+
+**GROUND** is the systematic six-stage methodology for hardening a vibe-coded prototype for production use. The sequence is not arbitrary: Guard first because exposed data is exploitable now; Document last because documentation of a system you have not yet secured, refactored, and understood is documentation of a system that will change.
+
+:::COMPONENT:GroundFramework:::
+
+### G — Guard: The Security Hardening Audit
+
+Guard is the non-negotiable first stage. Security debt is uniquely urgent because unlike performance debt or architecture debt, it is actively exploitable while it exists.
+
+**Supabase — Row Level Security Audit:**
+```sql
+-- Run this in your Supabase SQL editor to find every table with RLS disabled
+SELECT schemaname, tablename, rowsecurity
+FROM pg_tables
+WHERE schemaname = 'public'
+ORDER BY rowsecurity ASC;
+-- Any row showing rowsecurity = false is a liability
+```
+
+**Firebase — Security Rules:**
+```javascript
+// Replace default open rules with authenticated-only access minimum:
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    match /users/{userId}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+```
+
+### R — Refactor: Eliminating the Cumulative Refactor Deficit
+
+Refactoring a vibe-coded codebase requires a different approach. The code did not accumulate debt through poor decisions — it accumulated debt through repetition.
+
+:::COMPONENT:RewriteDecisionMatrix:::
+
+### O — Own: Building a Mental Model of Code You Didn't Write
+
+This is the production problem vibe coding creates that no prior software engineering methodology addresses: you are expected to own, debug, and extend a system you generated but did not author. GitClear's 2025 research quantified the organizational impact: code review participation fell by nearly 30% as developers trusted AI output without independent review. The "illusion of correctness" is a cognitive bias — it is not visible until the production incident that reveals it.
+
+[Also read: Repository Intelligence Guide](/news-radar/repository-intelligence-ai-coding-2026)
+
+### U — Underpin: Test Coverage for Code You Did Not Write
+
+Vibe-coded codebases have a characteristic coverage pattern: strong on the happy path, absent on edge cases, and missing entirely on security-relevant inputs. Writing tests for code you do not fully understand requires knowing the correct expected behavior for every input.
+
+:::COMPONENT:CoverageTargetsTable:::
+
+### N — Notify: Observability for Systems You Imperfectly Understand
+
+When a failure occurs, the developer does not know what the system should have done — because they did not write the logic that failed. Observability is the only way to build understanding of a system in production that you did not fully understand before deploying it. Include Sentry error tracking, structured logging with correlation IDs, database query monitoring, auth logging, and explicit rate limiting.
+
+### D — Document: Architecture and Dependency Clarity
+
+Documentation written before the other GROUND stages is disposable. Documentation written after them is durable. Create Architecture Decision Records (ADRs), a Dependency Inventory with Risk Ratings, and a Known-Limitations Register.
+
+## Part 5: The Code Review Problem — Why Vibe Coding Makes Review Harder
+
+Vibe coding creates a specific cultural problem that amplifies every security risk: social pressure not to admit uncertainty about code you generated.
+
+When a developer generates code with an AI assistant, the social expectation is that they understand what was built. Requesting a code review for AI-generated code — particularly as a senior developer — carries an implicit admission that you do not fully own your output. This pressure causes review to be skipped precisely when it is most needed: on the code the developer understands least.
+
+The review questions that AI does not ask itself:
+- What is the authorization model for every data access in this change?
+- What does this function do when it receives an empty string, null, a very large input, or a malicious payload?
+- Does this change introduce any new dependency? Has that dependency been verified in the registry?
+- Does this change access production systems or credentials directly?
+- Does this change duplicate any existing function already in the codebase?
+
+## How to Audit a Vibe-Coded Codebase With Claude Code
+
+Claude Code's 200K token context window makes it uniquely suited to post-prototype codebase auditing — the use case where the developer needs to understand a system they did not build.
+
+[Also read: Claude Code Hacks](/news-radar/claude-code-hacks-build-beautiful-websites-2026)
+
+These four prompts, run in sequence with your full codebase loaded, produce a complete security audit, architectural map, dependency review, and test suite:
+1. **Architecture audit:** Produce a module dependency map and find every duplicated function.
+2. **Security surface analysis:** Analyze API route authentication, authorization verifications, and input/output validation.
+3. **Dependency and supply chain review:** Check each package for maintenance cadence and open CVEs.
+4. **Test coverage gap analysis:** Ensure test coverage reaches edge cases, security payload injections, and auth validations.
+
+## Strategic Conclusion: The Vibe Was Never the Problem
+
+Andrej Karpathy's instruction to forget that the code even exists describes the prototype experience with perfect accuracy. It also describes precisely what cannot be sustained past the prototype.
+
+The problem is not the pace of generation. It is what the pace of generation structurally skips: the security configuration that protects real users, the refactoring that keeps the architecture coherent, the review that catches what the model does not volunteer, and the codebase understanding that makes a developer the owner rather than the operator of their own system.
+
+The GROUND Framework does not make vibe coding slower. It makes the transition from prototype to production systematic: replacing the hope that the AI configured security correctly with an audit that verifies it, replacing the assumption that the codebase will remain maintainable with measurements that confirm or contradict it, and replacing the illusion of correctness with documented, tested evidence of correctness.
+
+The developers who thrive with vibe coding are not the ones who generate the fastest. They are the ones who understand exactly where generation ends and engineering begins — and who have a framework for crossing that boundary before the six-month wall crosses it for them.

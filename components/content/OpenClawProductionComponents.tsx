@@ -46,7 +46,7 @@ const OpenClawProductionComponents: React.FC = () => {
             fontFamily: "'Inter', sans-serif",
             margin: '48px 0',
             padding: '40px',
-            background: 'rgba(30, 41, 59, 0.4)',
+            background: 'var(--color-surface)',
             borderRadius: '28px',
             border: '1px solid rgba(255, 255, 255, 0.05)',
             backdropFilter: 'blur(10px)'
@@ -66,7 +66,7 @@ const OpenClawProductionComponents: React.FC = () => {
                     }}>
                         <div style={{ fontSize: '24px', marginBottom: '16px' }}>{comp.icon}</div>
                         <h4 style={{ color: '#f1f5f9', fontSize: '16px', fontWeight: '700', marginBottom: '10px' }}>{comp.title}</h4>
-                        <p style={{ color: '#94a3b8', fontSize: '13px', lineHeight: '1.6', margin: 0 }}>{comp.desc}</p>
+                        <p style={{ color: 'var(--color-text-muted)', fontSize: '13px', lineHeight: '1.6', margin: 0 }}>{comp.desc}</p>
                     </div>
                 ))}
             </div>

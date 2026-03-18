@@ -290,7 +290,7 @@ export default function ArticleReader({ content, title }: ArticleReaderProps) {
                 title={isPlaying ? (isPaused ? "Resume Reading" : "Pause Reading") : "Listen to Article"}
                 style={{
                     background: 'var(--color-primary)',
-                    color: '#fff',
+                    color: 'var(--color-text-primary)',
                     border: 'none',
                     borderRadius: '50%',
                     width: '44px',

@@ -85,7 +85,7 @@ const COSTFrameworkCards: React.FC = () => {
                 }}>
                     The COST Framework
                 </h3>
-                <p style={{ color: '#94a3b8', fontSize: '15px', maxWidth: '600px', margin: '0 auto' }}>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '15px', maxWidth: '600px', margin: '0 auto' }}>
                     How to evaluate open-source AI tooling: Capability Gap, Ownership Advantage, Scale Economics, and Toolchain Fit.
                 </p>
             </div>
@@ -118,7 +118,7 @@ const COSTFrameworkCards: React.FC = () => {
                                     height: '40px',
                                     borderRadius: '10px',
                                     background: item.color,
-                                    color: '#fff',
+                                    color: 'var(--color-text-primary)',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
@@ -129,10 +129,10 @@ const COSTFrameworkCards: React.FC = () => {
                                     {item.letter}
                                 </div>
                                 <div>
-                                    <h4 style={{ margin: 0, color: activeCard === idx ? '#fff' : '#e2e8f0', fontSize: '18px', fontWeight: '700' }}>
+                                    <h4 style={{ margin: 0, color: activeCard === idx ? 'var(--color-text-primary)' : 'var(--color-border)', fontSize: '18px', fontWeight: '700' }}>
                                         {item.title}
                                     </h4>
-                                    <p style={{ margin: '4px 0 0 0', color: '#94a3b8', fontSize: '14px' }}>
+                                    <p style={{ margin: '4px 0 0 0', color: 'var(--color-text-muted)', fontSize: '14px' }}>
                                         {item.summary}
                                     </p>
                                 </div>
@@ -158,7 +158,7 @@ const COSTFrameworkCards: React.FC = () => {
                             <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                 {item.points.map((point, pIdx) => (
                                     <li key={pIdx} style={{ 
-                                        color: '#cbd5e1', 
+                                        color: 'var(--color-text-secondary)', 
                                         fontSize: '15px', 
                                         lineHeight: 1.5,
                                         display: 'flex',

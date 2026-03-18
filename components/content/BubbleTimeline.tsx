@@ -26,7 +26,7 @@ const BubbleTimeline: React.FC = () => {
             position: 'relative'
         }}>
             <h3 style={{
-                color: '#fff',
+                color: 'var(--color-text-primary)',
                 textAlign: 'center',
                 fontSize: '28px',
                 fontWeight: 'bold',
@@ -64,11 +64,11 @@ const BubbleTimeline: React.FC = () => {
                             zIndex: 2,
                             border: '4px solid #0f172a'
                         }}>
-                            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#fff' }} />
+                            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-text-primary)' }} />
                         </div>
                         
                         <div style={{
-                            background: 'rgba(30, 41, 59, 0.5)',
+                            background: 'var(--color-surface)',
                             border: '1px solid rgba(255,255,255,0.05)',
                             padding: '20px',
                             borderRadius: '12px',
@@ -80,8 +80,8 @@ const BubbleTimeline: React.FC = () => {
                             <div style={{ color: evt.color, fontWeight: 'bold', fontSize: '14px', marginBottom: '8px' }}>
                                 {evt.date}
                             </div>
-                            <h4 style={{ color: '#fff', fontSize: '18px', margin: '0 0 8px 0' }}>{evt.title}</h4>
-                            <p style={{ color: '#cbd5e1', fontSize: '14px', margin: 0, lineHeight: 1.5 }}>{evt.desc}</p>
+                            <h4 style={{ color: 'var(--color-text-primary)', fontSize: '18px', margin: '0 0 8px 0' }}>{evt.title}</h4>
+                            <p style={{ color: 'var(--color-text-secondary)', fontSize: '14px', margin: 0, lineHeight: 1.5 }}>{evt.desc}</p>
                         </div>
                     </div>
                 ))}

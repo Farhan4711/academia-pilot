@@ -72,7 +72,7 @@ const AIToolsGrid: React.FC = () => {
     return (
         <div style={{
             fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
-            background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%)',
+            background: 'var(--color-surface)',
             padding: '48px 24px',
             borderRadius: '20px',
             margin: '48px 0',
@@ -127,7 +127,7 @@ const AIToolsGrid: React.FC = () => {
                         <div
                             key={tool.name}
                             style={{
-                                background: 'linear-gradient(135deg, rgba(30, 27, 75, 0.8) 0%, rgba(49, 46, 129, 0.6) 100%)',
+                                background: 'var(--color-surface)',
                                 border: `2px solid ${tool.color}40`,
                                 borderRadius: '16px',
                                 padding: '24px',
@@ -182,7 +182,7 @@ const AIToolsGrid: React.FC = () => {
 
                             {/* Subtitle */}
                             <div style={{
-                                color: '#94a3b8',
+                                color: 'var(--color-text-muted)',
                                 fontSize: '13px',
                                 fontWeight: '600',
                                 marginBottom: '12px',
@@ -195,7 +195,7 @@ const AIToolsGrid: React.FC = () => {
 
                             {/* Description */}
                             <p style={{
-                                color: '#cbd5e1',
+                                color: 'var(--color-text-secondary)',
                                 fontSize: '14px',
                                 lineHeight: '1.6',
                                 marginBottom: '16px'
@@ -240,7 +240,7 @@ const AIToolsGrid: React.FC = () => {
                     borderRadius: '8px'
                 }}>
                     <p style={{
-                        color: '#cbd5e1',
+                        color: 'var(--color-text-secondary)',
                         fontSize: '14px',
                         lineHeight: '1.7',
                         margin: 0

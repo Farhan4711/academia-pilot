@@ -59,7 +59,7 @@ TONE:
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '16px 24px',
-                background: 'linear-gradient(90deg, rgba(2, 132, 199, 0.2), rgba(15, 23, 42, 1))',
+                background: 'var(--color-surface)',
                 borderBottom: '1px solid rgba(56, 189, 248, 0.2)'
             }}>
                 <h4 style={{ margin: 0, color: '#e0f2fe', fontSize: '16px', fontWeight: 'bold' }}>
@@ -69,7 +69,7 @@ TONE:
                     onClick={handleCopy}
                     style={{
                         background: copied ? '#10b981' : 'rgba(56, 189, 248, 0.2)',
-                        color: copied ? '#fff' : '#38bdf8',
+                        color: copied ? 'var(--color-text-primary)' : '#38bdf8',
                         border: '1px solid',
                         borderColor: copied ? '#10b981' : 'rgba(56, 189, 248, 0.5)',
                         padding: '6px 16px',
@@ -93,60 +93,60 @@ TONE:
                     fontFamily: "'Space Mono', 'Courier New', monospace",
                     fontSize: '14px',
                     lineHeight: '1.6',
-                    color: '#94a3b8'
+                    color: 'var(--color-text-muted)'
                 }}>
                     <code>
                         <span style={{ color: '#f472b6', fontWeight: 'bold' }}>ROLE:</span>
                         <br />
-                        <span style={{ color: '#e2e8f0' }}>You are [specific expert identity with relevant credentials and specialization].</span>
+                        <span style={{ color: 'var(--color-border)' }}>You are [specific expert identity with relevant credentials and specialization].</span>
                         <br /><br />
 
                         <span style={{ color: '#f472b6', fontWeight: 'bold' }}>OBJECTIVE:</span>
                         <br />
-                        <span style={{ color: '#e2e8f0' }}>[Exact deliverable] — [specific output type] that [achieves this specific goal] for [this specific audience].</span>
+                        <span style={{ color: 'var(--color-border)' }}>[Exact deliverable] — [specific output type] that [achieves this specific goal] for [this specific audience].</span>
                         <br /><br />
 
                         <span style={{ color: '#f472b6', fontWeight: 'bold' }}>AUDIENCE:</span>
                         <br />
-                        <span style={{ color: '#e2e8f0' }}>[Who will read/use this output. Their knowledge level, role, goals, and context.]</span>
+                        <span style={{ color: 'var(--color-border)' }}>[Who will read/use this output. Their knowledge level, role, goals, and context.]</span>
                         <br /><br />
 
                         <span style={{ color: '#f472b6', fontWeight: 'bold' }}>CONTEXT:</span>
                         <br />
-                        <span style={{ color: '#e2e8f0' }}>[Everything the model needs to reason correctly that it cannot infer:</span><br />
-                        <span style={{ color: '#94a3b8' }}>- Background on the situation</span><br />
-                        <span style={{ color: '#94a3b8' }}>- Constraints you are working within</span><br />
-                        <span style={{ color: '#94a3b8' }}>- What has already been tried</span><br />
-                        <span style={{ color: '#94a3b8' }}>- Any relevant data, frameworks, or examples]</span>
+                        <span style={{ color: 'var(--color-border)' }}>[Everything the model needs to reason correctly that it cannot infer:</span><br />
+                        <span style={{ color: 'var(--color-text-muted)' }}>- Background on the situation</span><br />
+                        <span style={{ color: 'var(--color-text-muted)' }}>- Constraints you are working within</span><br />
+                        <span style={{ color: 'var(--color-text-muted)' }}>- What has already been tried</span><br />
+                        <span style={{ color: 'var(--color-text-muted)' }}>- Any relevant data, frameworks, or examples]</span>
                         <br /><br />
 
                         <span style={{ color: '#f472b6', fontWeight: 'bold' }}>REQUIREMENTS:</span>
                         <br />
-                        <span style={{ color: '#94a3b8' }}>- [Specific requirement 1]</span><br />
-                        <span style={{ color: '#94a3b8' }}>- [Specific requirement 2]</span><br />
-                        <span style={{ color: '#94a3b8' }}>- [Specific requirement 3]</span>
+                        <span style={{ color: 'var(--color-text-muted)' }}>- [Specific requirement 1]</span><br />
+                        <span style={{ color: 'var(--color-text-muted)' }}>- [Specific requirement 2]</span><br />
+                        <span style={{ color: 'var(--color-text-muted)' }}>- [Specific requirement 3]</span>
                         <br /><br />
 
                         <span style={{ color: '#f472b6', fontWeight: 'bold' }}>KEYWORDS / TERMINOLOGY:</span>
                         <br />
-                        <span style={{ color: '#e2e8f0' }}>[Specific terms, phrases, brand language, or technical vocabulary that must appear or must be avoided.]</span>
+                        <span style={{ color: 'var(--color-border)' }}>[Specific terms, phrases, brand language, or technical vocabulary that must appear or must be avoided.]</span>
                         <br /><br />
 
                         <span style={{ color: '#f472b6', fontWeight: 'bold' }}>FORMAT:</span>
                         <br />
-                        <span style={{ color: '#e2e8f0' }}>[Exact structural specification: markdown, JSON, table, numbered list, paragraphs, code blocks, etc.]</span>
+                        <span style={{ color: 'var(--color-border)' }}>[Exact structural specification: markdown, JSON, table, numbered list, paragraphs, code blocks, etc.]</span>
                         <br /><br />
 
                         <span style={{ color: '#f472b6', fontWeight: 'bold' }}>CONSTRAINTS:</span>
                         <br />
-                        <span style={{ color: '#94a3b8' }}>- [What to exclude]</span><br />
-                        <span style={{ color: '#94a3b8' }}>- [What not to assume]</span><br />
-                        <span style={{ color: '#94a3b8' }}>- [Hard limits: length, scope, complexity level]</span>
+                        <span style={{ color: 'var(--color-text-muted)' }}>- [What to exclude]</span><br />
+                        <span style={{ color: 'var(--color-text-muted)' }}>- [What not to assume]</span><br />
+                        <span style={{ color: 'var(--color-text-muted)' }}>- [Hard limits: length, scope, complexity level]</span>
                         <br /><br />
 
                         <span style={{ color: '#f472b6', fontWeight: 'bold' }}>TONE:</span>
                         <br />
-                        <span style={{ color: '#e2e8f0' }}>[Specific tone description. Reference a comparable voice if possible.]</span>
+                        <span style={{ color: 'var(--color-border)' }}>[Specific tone description. Reference a comparable voice if possible.]</span>
                     </code>
                 </pre>
             </div>

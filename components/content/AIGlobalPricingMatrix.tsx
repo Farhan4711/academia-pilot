@@ -28,10 +28,10 @@ const AIGlobalPricingMatrix: React.FC = () => {
                     </h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                         {idePricing.map((item, i) => (
-                            <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', alignItems: 'center', paddingBottom: '16px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                            <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', alignItems: 'center', paddingBottom: '16px', borderBottom: '1px solid var(--color-border-light)' }}>
                                 <strong style={{ color: '#f8fafc', fontSize: '15px' }}>{item.name}</strong>
                                 <div>
-                                    <div style={{ color: '#94a3b8', fontSize: '12px', marginBottom: '4px' }}>Free: {item.free}</div>
+                                    <div style={{ color: 'var(--color-text-muted)', fontSize: '12px', marginBottom: '4px' }}>Free: {item.free}</div>
                                     <div style={{ color: '#4ade80', fontSize: '14px', fontWeight: 'bold' }}>Pro: {item.pro}</div>
                                 </div>
                             </div>
@@ -46,10 +46,10 @@ const AIGlobalPricingMatrix: React.FC = () => {
                     </h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                         {builderPricing.map((item, i) => (
-                            <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', alignItems: 'center', paddingBottom: '16px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                            <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', alignItems: 'center', paddingBottom: '16px', borderBottom: '1px solid var(--color-border-light)' }}>
                                 <strong style={{ color: '#f8fafc', fontSize: '15px' }}>{item.name}</strong>
                                 <div>
-                                    <div style={{ color: '#94a3b8', fontSize: '12px', marginBottom: '4px' }}>Free: {item.free}</div>
+                                    <div style={{ color: 'var(--color-text-muted)', fontSize: '12px', marginBottom: '4px' }}>Free: {item.free}</div>
                                     <div style={{ color: '#fb923c', fontSize: '14px', fontWeight: 'bold' }}>Pro: {item.pro}</div>
                                 </div>
                             </div>

@@ -89,7 +89,7 @@ const SkillsVsTraditionalTable: React.FC = () => {
                 Traditional vs AI Software Engineer
             </h3>
             <p style={{
-                color: '#94a3b8',
+                color: 'var(--color-text-muted)',
                 textAlign: 'center',
                 fontSize: '14px',
                 marginBottom: '32px',
@@ -181,7 +181,7 @@ const SkillsVsTraditionalTable: React.FC = () => {
                                 </td>
                                 <td style={{
                                     padding: '16px 20px',
-                                    color: '#cbd5e1',
+                                    color: 'var(--color-text-secondary)',
                                     fontSize: '13px',
                                     lineHeight: '1.6',
                                     borderRight: '1px solid rgba(71, 85, 105, 0.2)'
@@ -190,7 +190,7 @@ const SkillsVsTraditionalTable: React.FC = () => {
                                 </td>
                                 <td style={{
                                     padding: '16px 20px',
-                                    color: '#cbd5e1',
+                                    color: 'var(--color-text-secondary)',
                                     fontSize: '13px',
                                     lineHeight: '1.6',
                                     position: 'relative'
@@ -220,7 +220,7 @@ const SkillsVsTraditionalTable: React.FC = () => {
                 borderRadius: '4px'
             }}>
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     fontSize: '13px',
                     lineHeight: '1.6',
                     margin: 0,

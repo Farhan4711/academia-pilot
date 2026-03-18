@@ -28,7 +28,7 @@ const ClaudeSelectionLogic: React.FC = () => {
                 <div style={{
                     padding: 'var(--space-3) var(--space-6)',
                     backgroundColor: 'var(--color-accent)',
-                    color: '#FFFFFF',
+                    color: 'var(--color-text-primary)',
                     fontWeight: 'var(--font-black)',
                     fontSize: 'var(--text-xs)',
                     textTransform: 'uppercase',

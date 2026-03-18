@@ -103,7 +103,7 @@ const LearningRoadmap: React.FC = () => {
 
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <h3 style={{
-                    color: '#e2e8f0',
+                    color: 'var(--color-border)',
                     textAlign: 'center',
                     fontSize: '28px',
                     fontWeight: '700',
@@ -113,7 +113,7 @@ const LearningRoadmap: React.FC = () => {
                     Self-Taught AI Developer Roadmap
                 </h3>
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     textAlign: 'center',
                     fontSize: '15px',
                     marginBottom: '48px'
@@ -167,7 +167,7 @@ const LearningRoadmap: React.FC = () => {
                                 <div
                                     style={{
                                         flex: 1,
-                                        background: 'rgba(15, 23, 42, 0.6)',
+                                        background: 'var(--color-surface)',
                                         borderRadius: '16px',
                                         padding: '24px',
                                         border: `1px solid ${phase.color}25`,
@@ -218,7 +218,7 @@ const LearningRoadmap: React.FC = () => {
                                         marginBottom: '16px'
                                     }}>
                                         <div>
-                                            <div style={{ color: '#94a3b8', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
+                                            <div style={{ color: 'var(--color-text-muted)', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
                                                 What to Learn
                                             </div>
                                             {phase.skills.map((skill, i) => (
@@ -227,7 +227,7 @@ const LearningRoadmap: React.FC = () => {
                                                     alignItems: 'flex-start',
                                                     gap: '8px',
                                                     marginBottom: '6px',
-                                                    color: '#cbd5e1',
+                                                    color: 'var(--color-text-secondary)',
                                                     fontSize: '13px',
                                                     lineHeight: '1.5'
                                                 }}>
@@ -237,7 +237,7 @@ const LearningRoadmap: React.FC = () => {
                                             ))}
                                         </div>
                                         <div>
-                                            <div style={{ color: '#94a3b8', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
+                                            <div style={{ color: 'var(--color-text-muted)', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
                                                 📖 Resources
                                             </div>
                                             {phase.resources.map((res, i) => (
@@ -246,7 +246,7 @@ const LearningRoadmap: React.FC = () => {
                                                     alignItems: 'flex-start',
                                                     gap: '8px',
                                                     marginBottom: '6px',
-                                                    color: '#94a3b8',
+                                                    color: 'var(--color-text-muted)',
                                                     fontSize: '12px',
                                                     lineHeight: '1.5'
                                                 }}>
@@ -272,7 +272,7 @@ const LearningRoadmap: React.FC = () => {
                                             <div style={{ color: phase.color, fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
                                                 🎯 Project
                                             </div>
-                                            <p style={{ color: '#94a3b8', fontSize: '12px', lineHeight: '1.5', margin: 0 }}>{phase.project}</p>
+                                            <p style={{ color: 'var(--color-text-muted)', fontSize: '12px', lineHeight: '1.5', margin: 0 }}>{phase.project}</p>
                                         </div>
                                         <div style={{
                                             background: 'rgba(52, 211, 153, 0.06)',
@@ -283,7 +283,7 @@ const LearningRoadmap: React.FC = () => {
                                             <div style={{ color: '#34d399', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
                                                 ✅ Milestone
                                             </div>
-                                            <p style={{ color: '#94a3b8', fontSize: '12px', lineHeight: '1.5', margin: 0 }}>{phase.milestone}</p>
+                                            <p style={{ color: 'var(--color-text-muted)', fontSize: '12px', lineHeight: '1.5', margin: 0 }}>{phase.milestone}</p>
                                         </div>
                                     </div>
 

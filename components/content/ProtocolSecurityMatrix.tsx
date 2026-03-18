@@ -112,7 +112,7 @@ export default function ProtocolSecurityMatrix() {
                 {/* MCP Section */}
                 <div style={{ marginBottom: 24 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-                        <div style={{ width: 28, height: 28, borderRadius: 8, background: 'linear-gradient(135deg, #2563eb, #1d4ed8)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 13, boxShadow: '0 3px 10px rgba(37,99,235,0.3)' }}>M</div>
+                        <div style={{ width: 28, height: 28, borderRadius: 8, background: 'linear-gradient(135deg, #2563eb, #1d4ed8)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-text-primary)', fontWeight: 900, fontSize: 13, boxShadow: '0 3px 10px rgba(37,99,235,0.3)' }}>M</div>
                         <span style={{ fontSize: 14, fontWeight: 700, color: '#60a5fa', textTransform: 'uppercase', letterSpacing: '0.06em' }}>MCP Risks — Tool Layer</span>
                     </div>
                     {mcpRisks.map(riskCard)}
@@ -124,7 +124,7 @@ export default function ProtocolSecurityMatrix() {
                 {/* A2A Section */}
                 <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-                        <div style={{ width: 28, height: 28, borderRadius: 8, background: 'linear-gradient(135deg, #6366f1, #4338ca)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 13, boxShadow: '0 3px 10px rgba(99,102,241,0.3)' }}>A</div>
+                        <div style={{ width: 28, height: 28, borderRadius: 8, background: 'linear-gradient(135deg, #6366f1, #4338ca)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-text-primary)', fontWeight: 900, fontSize: 13, boxShadow: '0 3px 10px rgba(99,102,241,0.3)' }}>A</div>
                         <span style={{ fontSize: 14, fontWeight: 700, color: '#a5b4fc', textTransform: 'uppercase', letterSpacing: '0.06em' }}>A2A Risks — Agent Network Layer</span>
                     </div>
                     {a2aRisks.map(riskCard)}

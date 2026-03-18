@@ -67,7 +67,7 @@ const AIFinalVerdict: React.FC = () => {
                         {/* Category */}
                         <div style={{ padding: '16px 28px', display: 'flex', alignItems: 'center', gap: '12px' }}>
                             <span style={{ fontSize: '18px' }}>{v.icon}</span>
-                            <span style={{ color: '#94a3b8', fontSize: '14px', fontWeight: '500' }}>{v.category}</span>
+                            <span style={{ color: 'var(--color-text-muted)', fontSize: '14px', fontWeight: '500' }}>{v.category}</span>
                         </div>
                         {/* Winner */}
                         <div style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '8px', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>
@@ -94,7 +94,7 @@ const AIFinalVerdict: React.FC = () => {
                 <div style={{ padding: '12px 20px', color: '#fbbf24', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>
                     🥇 Winner
                 </div>
-                <div style={{ padding: '12px 20px', color: '#94a3b8', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>
+                <div style={{ padding: '12px 20px', color: 'var(--color-text-muted)', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>
                     🥈 Runner-Up
                 </div>
             </div>

@@ -69,7 +69,7 @@ export default function StackDecisionFramework() {
                 <div key={i} style={{ padding: '24px 28px', borderBottom: i < steps.length - 1 ? '1px solid var(--color-border)' : 'none', display: 'flex', gap: 20 }}>
 
                     {/* Letter badge */}
-                    <div style={{ flexShrink: 0, width: 52, height: 52, borderRadius: 14, background: `linear-gradient(135deg, ${step.color}, ${step.color}cc)`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 22, boxShadow: `0 4px 16px ${step.glow}`, border: `1px solid rgba(255,255,255,0.15)` }}>
+                    <div style={{ flexShrink: 0, width: 52, height: 52, borderRadius: 14, background: `linear-gradient(135deg, ${step.color}, ${step.color}cc)`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-text-primary)', fontWeight: 900, fontSize: 22, boxShadow: `0 4px 16px ${step.glow}`, border: `1px solid rgba(255,255,255,0.15)` }}>
                         {step.letter}
                     </div>
 

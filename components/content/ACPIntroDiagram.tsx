@@ -17,7 +17,7 @@ const ACPIntroDiagram: React.FC = () => {
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
                 <h3 style={{
                     fontFamily: "'Inter', sans-serif",
-                    color: '#fff',
+                    color: 'var(--color-text-primary)',
                     fontSize: '24px',
                     fontWeight: '800',
                     margin: '0 0 16px 0'
@@ -30,7 +30,7 @@ const ACPIntroDiagram: React.FC = () => {
                         onClick={() => setSelectedTab('acp')}
                         style={{
                             background: selectedTab === 'acp' ? '#3b82f6' : 'transparent',
-                            color: selectedTab === 'acp' ? '#fff' : '#a1a1aa',
+                            color: selectedTab === 'acp' ? 'var(--color-text-primary)' : '#a1a1aa',
                             border: 'none',
                             padding: '8px 16px',
                             borderRadius: '6px',
@@ -47,7 +47,7 @@ const ACPIntroDiagram: React.FC = () => {
                         onClick={() => setSelectedTab('pre-acp')}
                         style={{
                             background: selectedTab === 'pre-acp' ? '#ef4444' : 'transparent',
-                            color: selectedTab === 'pre-acp' ? '#fff' : '#a1a1aa',
+                            color: selectedTab === 'pre-acp' ? 'var(--color-text-primary)' : '#a1a1aa',
                             border: 'none',
                             padding: '8px 16px',
                             borderRadius: '6px',
@@ -105,7 +105,7 @@ const ACPIntroDiagram: React.FC = () => {
 
                         {/* Bottom Row: Agents */}
                         <div style={{ display: 'flex', gap: '32px', width: '100%', justifyContent: 'center' }}>
-                            <div style={{ background: 'linear-gradient(to bottom right, #f43f5e, #be123c)', padding: '16px 32px', borderRadius: '8px', color: '#fff', textAlign: 'center', boxShadow: '0 0 20px rgba(244, 63, 94, 0.4)' }}>
+                            <div style={{ background: 'linear-gradient(to bottom right, #f43f5e, #be123c)', padding: '16px 32px', borderRadius: '8px', color: 'var(--color-text-primary)', textAlign: 'center', boxShadow: '0 0 20px rgba(244, 63, 94, 0.4)' }}>
                                 <div style={{ fontWeight: 'bold' }}>Kimi Code</div>
                                 <div style={{ fontSize: '11px', opacity: 0.8, marginTop: '4px' }}>Native Support</div>
                             </div>
@@ -118,7 +118,7 @@ const ACPIntroDiagram: React.FC = () => {
                         </div>
 
                         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#a1a1aa', textAlign: 'center', maxWidth: '600px', margin: 0 }}>
-                            <span style={{ color: '#fff', fontWeight: 'bold' }}>The ACP Advantage:</span> Any new agent implementing ACP works immediately in any supporting IDE. Kimi Code arrived in JetBrains on day one without waiting for a custom plugin.
+                            <span style={{ color: 'var(--color-text-primary)', fontWeight: 'bold' }}>The ACP Advantage:</span> Any new agent implementing ACP works immediately in any supporting IDE. Kimi Code arrived in JetBrains on day one without waiting for a custom plugin.
                         </p>
                     </>
                 ) : (
@@ -127,7 +127,7 @@ const ACPIntroDiagram: React.FC = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', maxWidth: '600px', alignItems: 'center' }}>
                             {/* Editor */}
                             <div style={{ background: '#27272a', padding: '24px 40px', borderRadius: '8px', border: '1px solid #3f3f46', textAlign: 'center' }}>
-                                <div style={{ fontWeight: 'bold', color: '#fff', fontSize: '18px' }}>Cursor IDE</div>
+                                <div style={{ fontWeight: 'bold', color: 'var(--color-text-primary)', fontSize: '18px' }}>Cursor IDE</div>
                                 <div style={{ fontSize: '12px', color: '#a1a1aa', marginTop: '8px' }}>Proprietary Agent System</div>
                             </div>
 
@@ -143,14 +143,14 @@ const ACPIntroDiagram: React.FC = () => {
                             </div>
 
                             {/* Agent */}
-                            <div style={{ background: '#f43f5e', padding: '24px', borderRadius: '8px', color: '#fff', textAlign: 'center', opacity: 0.5 }}>
+                            <div style={{ background: '#f43f5e', padding: '24px', borderRadius: '8px', color: 'var(--color-text-primary)', textAlign: 'center', opacity: 0.5 }}>
                                 <div style={{ fontWeight: 'bold' }}>Kimi Code CLI</div>
                                 <div style={{ fontSize: '11px', marginTop: '4px' }}>Waiting for support</div>
                             </div>
                         </div>
 
                         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#a1a1aa', textAlign: 'center', maxWidth: '600px', margin: 0 }}>
-                            <span style={{ color: '#fff', fontWeight: 'bold' }}>The Friction Point:</span> Without ACP, Cursor users must wait for the Cursor team to manually build integrations for new agents, or use clunky workarounds.
+                            <span style={{ color: 'var(--color-text-primary)', fontWeight: 'bold' }}>The Friction Point:</span> Without ACP, Cursor users must wait for the Cursor team to manually build integrations for new agents, or use clunky workarounds.
                         </p>
                     </>
                 )}

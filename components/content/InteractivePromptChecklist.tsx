@@ -45,20 +45,20 @@ const InteractivePromptChecklist: React.FC = () => {
             <div style={{ padding: '24px 32px', background: 'rgba(14, 165, 233, 0.1)', borderBottom: '1px solid rgba(14, 165, 233, 0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
                 <div>
                     <h3 style={{ margin: 0, color: '#38bdf8', fontSize: '20px', fontWeight: 'bold' }}>Pre-Flight Prompt Checklist</h3>
-                    <p style={{ margin: '4px 0 0 0', color: '#94a3b8', fontSize: '14px' }}>Run through these 14 checks before submitting any high-stakes prompt.</p>
+                    <p style={{ margin: '4px 0 0 0', color: 'var(--color-text-muted)', fontSize: '14px' }}>Run through these 14 checks before submitting any high-stakes prompt.</p>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(0,0,0,0.4)', padding: '8px 16px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
                     <div style={{ width: '100px', height: '8px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', overflow: 'hidden' }}>
                         <div style={{ width: `${progress}%`, height: '100%', background: progress === 100 ? '#10b981' : '#38bdf8', transition: 'width 0.3s ease, background 0.3s ease' }}></div>
                     </div>
-                    <span style={{ color: progress === 100 ? '#10b981' : '#e2e8f0', fontWeight: 'bold', fontSize: '14px' }}>{progress}%</span>
+                    <span style={{ color: progress === 100 ? '#10b981' : 'var(--color-border)', fontWeight: 'bold', fontSize: '14px' }}>{progress}%</span>
                 </div>
             </div>
 
             <div style={{ padding: '32px' }}>
                 {categories.map(category => (
                     <div key={category} style={{ marginBottom: '32px' }}>
-                        <h4 style={{ color: '#7dd3fc', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1.5px', margin: '0 0 16px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '8px' }}>
+                        <h4 style={{ color: '#7dd3fc', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1.5px', margin: '0 0 16px 0', borderBottom: '1px solid var(--color-border-light)', paddingBottom: '8px' }}>
                             {category}
                         </h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -105,7 +105,7 @@ const InteractivePromptChecklist: React.FC = () => {
                                         style={{ display: 'none' }}
                                     />
                                     <span style={{
-                                        color: item.checked ? '#94a3b8' : '#e2e8f0',
+                                        color: item.checked ? 'var(--color-text-muted)' : 'var(--color-border)',
                                         fontSize: '15px',
                                         lineHeight: '1.5',
                                         textDecoration: item.checked ? 'line-through' : 'none',

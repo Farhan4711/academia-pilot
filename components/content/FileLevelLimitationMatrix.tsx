@@ -53,7 +53,7 @@ const FileLevelLimitationMatrix: React.FC = () => {
     return (
         <div style={{
             fontFamily: "'Space Mono', 'Courier New', monospace",
-            background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)',
+            background: 'var(--color-surface)',
             padding: '48px 24px',
             borderRadius: '16px',
             margin: '48px 0',
@@ -148,7 +148,7 @@ const FileLevelLimitationMatrix: React.FC = () => {
                                 }}>
                                 <td style={{
                                     padding: '16px 20px',
-                                    color: '#e2e8f0',
+                                    color: 'var(--color-border)',
                                     fontWeight: '600',
                                     fontSize: '14px',
                                     borderRight: '1px solid rgba(71, 85, 105, 0.2)'
@@ -197,7 +197,7 @@ const FileLevelLimitationMatrix: React.FC = () => {
                 borderRadius: '4px'
             }}>
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     fontSize: '13px',
                     lineHeight: '1.6',
                     margin: 0,

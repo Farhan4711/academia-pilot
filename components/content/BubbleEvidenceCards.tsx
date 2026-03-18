@@ -84,7 +84,7 @@ const BubbleEvidenceCards: React.FC = () => {
                     The AI Bubble Debate: Evidence at a Glance
                 </h3>
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     textAlign: 'center',
                     fontSize: '16px',
                     marginBottom: '32px',
@@ -101,7 +101,7 @@ const BubbleEvidenceCards: React.FC = () => {
                             padding: '14px 28px',
                             background: activeTab === 'for' ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(185, 28, 28, 0.1))' : 'rgba(30, 41, 59, 0.5)',
                             border: activeTab === 'for' ? '2px solid rgba(239, 68, 68, 0.5)' : '2px solid rgba(71, 85, 105, 0.3)',
-                            color: activeTab === 'for' ? '#fca5a5' : '#94a3b8',
+                            color: activeTab === 'for' ? '#fca5a5' : 'var(--color-text-muted)',
                             borderRadius: '12px',
                             cursor: 'pointer',
                             fontSize: '15px',
@@ -117,7 +117,7 @@ const BubbleEvidenceCards: React.FC = () => {
                             padding: '14px 28px',
                             background: activeTab === 'against' ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(4, 120, 87, 0.1))' : 'rgba(30, 41, 59, 0.5)',
                             border: activeTab === 'against' ? '2px solid rgba(16, 185, 129, 0.5)' : '2px solid rgba(71, 85, 105, 0.3)',
-                            color: activeTab === 'against' ? '#6ee7b7' : '#94a3b8',
+                            color: activeTab === 'against' ? '#6ee7b7' : 'var(--color-text-muted)',
                             borderRadius: '12px',
                             cursor: 'pointer',
                             fontSize: '15px',
@@ -132,7 +132,7 @@ const BubbleEvidenceCards: React.FC = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
                     {activeData.map((item, i) => (
                         <div key={i} style={{
-                            background: 'rgba(15, 23, 42, 0.5)',
+                            background: 'var(--color-surface)',
                             border: `1px solid ${activeTab === 'for' ? 'rgba(239, 68, 68, 0.2)' : 'rgba(16, 185, 129, 0.2)'}`,
                             borderRadius: '16px',
                             padding: '24px',
@@ -159,10 +159,10 @@ const BubbleEvidenceCards: React.FC = () => {
                             }}>
                                 {item.title}
                             </h4>
-                            <p style={{ color: '#e2e8f0', fontSize: '14px', fontWeight: '500', marginBottom: '12px', lineHeight: '1.5' }}>
+                            <p style={{ color: 'var(--color-border)', fontSize: '14px', fontWeight: '500', marginBottom: '12px', lineHeight: '1.5' }}>
                                 {item.description}
                             </p>
-                            <p style={{ color: '#94a3b8', fontSize: '13px', lineHeight: '1.6' }}>
+                            <p style={{ color: 'var(--color-text-muted)', fontSize: '13px', lineHeight: '1.6' }}>
                                 {item.detail}
                             </p>
                         </div>

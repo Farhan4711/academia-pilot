@@ -44,8 +44,8 @@ const IDEvsBuilderMetaTable: React.FC = () => {
                     </thead>
                     <tbody>
                         {data.map((row, index) => (
-                            <tr key={index} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', backgroundColor: index % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
-                                <td style={{ padding: '16px', color: '#cbd5e1', fontWeight: '600' }}>{row.feature}</td>
+                            <tr key={index} style={{ borderBottom: '1px solid var(--color-border-light)', backgroundColor: index % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
+                                <td style={{ padding: '16px', color: 'var(--color-text-secondary)', fontWeight: '600' }}>{row.feature}</td>
                                 <td style={{ padding: '16px', color: '#bae6fd', borderLeft: '1px solid rgba(255,255,255,0.05)', lineHeight: '1.5' }}>{row.ide}</td>
                                 <td style={{ padding: '16px', color: '#fbcfe8', borderLeft: '1px solid rgba(255,255,255,0.05)', lineHeight: '1.5' }}>{row.builder}</td>
                             </tr>

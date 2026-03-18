@@ -41,7 +41,7 @@ const EasternAIIDEComparison: React.FC = () => {
                         transition: 'transform 0.2s ease',
                         cursor: 'default',
                     }} onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-4px)'} onMouseOut={(e) => e.currentTarget.style.transform = 'none'}>
-                        <h4 style={{ color: '#fff', fontSize: '18px', fontWeight: 'bold', marginBottom: '8px' }}>{tool.name}</h4>
+                        <h4 style={{ color: 'var(--color-text-primary)', fontSize: '18px', fontWeight: 'bold', marginBottom: '8px' }}>{tool.name}</h4>
                         <div style={{ marginBottom: '16px' }}>
                             <span style={{ display: 'inline-block', background: 'rgba(248, 113, 113, 0.1)', color: '#fca5a5', padding: '4px 10px', borderRadius: '20px', fontSize: '12px', fontWeight: '600' }}>
                                 {tool.models}

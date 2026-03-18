@@ -112,12 +112,12 @@ CONSTRAINTS: Solo founder, no funding, technical (can code), 20 hours per week a
             border: '1px solid rgba(139, 92, 246, 0.3)',
             background: '#0a0f1d'
         }}>
-            <div style={{ padding: '24px', background: 'linear-gradient(90deg, #1e1b4b, #0a0f1d)', borderBottom: '1px solid rgba(139, 92, 246, 0.2)' }}>
+            <div style={{ padding: '24px', background: 'var(--color-surface)', borderBottom: '1px solid rgba(139, 92, 246, 0.2)' }}>
                 <h3 style={{ margin: 0, color: '#c4b5fd', fontSize: '20px', fontWeight: 'bold' }}>Before & After: The Impact of Engineering</h3>
-                <p style={{ margin: '8px 0 0 0', color: '#94a3b8', fontSize: '14px' }}>Select a use case to see the difference between chatting and orchestrating.</p>
+                <p style={{ margin: '8px 0 0 0', color: 'var(--color-text-muted)', fontSize: '14px' }}>Select a use case to see the difference between chatting and orchestrating.</p>
             </div>
 
-            <div style={{ display: 'flex', overflowX: 'auto', padding: '16px', gap: '8px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+            <div style={{ display: 'flex', overflowX: 'auto', padding: '16px', gap: '8px', borderBottom: '1px solid var(--color-border-light)' }}>
                 {examples.map((ex, idx) => (
                     <button
                         key={idx}
@@ -133,7 +133,7 @@ CONSTRAINTS: Solo founder, no funding, technical (can code), 20 hours per week a
                             transition: 'all 0.2s',
                             backgroundColor: activeTab === idx ? 'rgba(139, 92, 246, 0.2)' : 'transparent',
                             borderColor: activeTab === idx ? '#8b5cf6' : 'rgba(255,255,255,0.1)',
-                            color: activeTab === idx ? '#c4b5fd' : '#94a3b8'
+                            color: activeTab === idx ? '#c4b5fd' : 'var(--color-text-muted)'
                         }}
                     >
                         {ex.title}
@@ -147,8 +147,8 @@ CONSTRAINTS: Solo founder, no funding, technical (can code), 20 hours per week a
                         <span style={{ fontSize: '20px' }}>❌</span>
                         <h4 style={{ margin: 0, color: '#fca5a5', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px' }}>Weak Prompt (Chatting)</h4>
                     </div>
-                    <p style={{ margin: 0, color: '#e2e8f0', fontSize: '15px', fontStyle: 'italic', lineHeight: '1.6' }}>"{examples[activeTab].weak}"</p>
-                    <div style={{ marginTop: '16px', padding: '12px', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', fontSize: '13px', color: '#94a3b8' }}>
+                    <p style={{ margin: 0, color: 'var(--color-border)', fontSize: '15px', fontStyle: 'italic', lineHeight: '1.6' }}>"{examples[activeTab].weak}"</p>
+                    <div style={{ marginTop: '16px', padding: '12px', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', fontSize: '13px', color: 'var(--color-text-muted)' }}>
                         <strong>Output:</strong> Generic, shallow, templates that require heavy editing. Fails to meet specific business needs.
                     </div>
                 </div>
@@ -158,10 +158,10 @@ CONSTRAINTS: Solo founder, no funding, technical (can code), 20 hours per week a
                         <span style={{ fontSize: '20px' }}>✅</span>
                         <h4 style={{ margin: 0, color: '#6ee7b7', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px' }}>Engineered Prompt (Orchestrating)</h4>
                     </div>
-                    <pre style={{ margin: 0, color: '#e2e8f0', fontSize: '14px', lineHeight: '1.6', whiteSpace: 'pre-wrap', fontFamily: "'Space Mono', 'Courier New', monospace" }}>
+                    <pre style={{ margin: 0, color: 'var(--color-border)', fontSize: '14px', lineHeight: '1.6', whiteSpace: 'pre-wrap', fontFamily: "'Space Mono', 'Courier New', monospace" }}>
                         {examples[activeTab].strong}
                     </pre>
-                    <div style={{ marginTop: '16px', padding: '12px', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', fontSize: '13px', color: '#94a3b8' }}>
+                    <div style={{ marginTop: '16px', padding: '12px', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', fontSize: '13px', color: 'var(--color-text-muted)' }}>
                         <strong>Output:</strong> Specific, audience-calibrated, highly actionable, and production-ready with minimal editing.
                     </div>
                 </div>

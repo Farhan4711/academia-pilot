@@ -13,7 +13,7 @@ const PromptPillarsDiagram: React.FC = () => {
     return (
         <div style={{
             fontFamily: "'Inter', sans-serif",
-            background: 'linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)',
+            background: 'var(--color-surface)',
             padding: '48px 24px',
             borderRadius: '16px',
             margin: '48px 0',
@@ -72,8 +72,8 @@ const PromptPillarsDiagram: React.FC = () => {
                         }}>
                             {pillar.icon}
                         </div>
-                        <h4 style={{ color: '#e2e8f0', fontSize: '16px', fontWeight: 'bold', margin: '0 0 8px 0', textAlign: 'center' }}>{pillar.title}</h4>
-                        <p style={{ color: '#94a3b8', fontSize: '13px', margin: 0, textAlign: 'center', lineHeight: '1.4' }}>{pillar.desc}</p>
+                        <h4 style={{ color: 'var(--color-border)', fontSize: '16px', fontWeight: 'bold', margin: '0 0 8px 0', textAlign: 'center' }}>{pillar.title}</h4>
+                        <p style={{ color: 'var(--color-text-muted)', fontSize: '13px', margin: 0, textAlign: 'center', lineHeight: '1.4' }}>{pillar.desc}</p>
                     </div>
                 ))}
             </div>

@@ -81,7 +81,7 @@ const NoCodeStackVisualizer: React.FC = () => {
                                 alignItems: 'center',
                                 gap: '16px',
                                 boxShadow: activeLayer === idx ? `0 20px 25px -5px ${item.color}40` : '0 4px 6px -1px rgba(0,0,0,0.1)',
-                                border: '1px solid rgba(255,255,255,0.1)',
+                                border: '1px solid var(--color-border)',
                                 opacity: activeLayer === idx ? 1 : 0.7
                             }}
                         >

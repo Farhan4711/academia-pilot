@@ -13,6 +13,7 @@ import TLDRBox from '@/components/ui/TLDRBox';
 import TableOfContents from '@/components/ui/TableOfContents';
 import SocialShare from '@/components/ui/SocialShare';
 import InlineCTA from '@/components/ui/InlineCTA';
+import Comments from '@/components/ui/Comments';
 import AgenticVsIDETable from '@/components/content/AgenticVsIDETable';
 import AgenticArchitecture from '@/components/content/AgenticArchitecture';
 import WorkflowComparison from '@/components/content/WorkflowComparison';
@@ -109,6 +110,11 @@ import NoCodeStackVisualizer from '@/components/content/NoCodeStackVisualizer';
 import LAUNCHFrameworkCards from '@/components/content/LAUNCHFrameworkCards';
 import HandoffChecklist from '@/components/content/HandoffChecklist';
 import NoCodePricingTable from '@/components/content/NoCodePricingTable';
+import ProductionFailureTaxonomy from '@/components/content/ProductionFailureTaxonomy';
+import VelocityCollapseTimeline from '@/components/content/VelocityCollapseTimeline';
+import RewriteDecisionMatrix from '@/components/content/RewriteDecisionMatrix';
+import GroundFramework from '@/components/content/GroundFramework';
+import CoverageTargetsTable from '@/components/content/CoverageTargetsTable';
 
 // Generate static params for all news articles (required for static export)
 export async function generateStaticParams() {
@@ -390,6 +396,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                                 'LAUNCHFrameworkCards': <LAUNCHFrameworkCards />,
                                 'HandoffChecklist': <HandoffChecklist />,
                                 'NoCodePricingTable': <NoCodePricingTable />,
+                                'ProductionFailureTaxonomy': <ProductionFailureTaxonomy />,
+                                'VelocityCollapseTimeline': <VelocityCollapseTimeline />,
+                                'RewriteDecisionMatrix': <RewriteDecisionMatrix />,
+                                'GroundFramework': <GroundFramework />,
+                                'CoverageTargetsTable': <CoverageTargetsTable />,
                             };
 
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
@@ -435,6 +446,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                             title={article.title}
                             excerpt={article.excerpt}
                         />
+                    </div>
+                </section>
+
+                {/* Comments Section */}
+                <section style={{ padding: '0 0 var(--space-8)' }}>
+                    <div className="container container-article">
+                        <Comments term={slug} />
                     </div>
                 </section>
 

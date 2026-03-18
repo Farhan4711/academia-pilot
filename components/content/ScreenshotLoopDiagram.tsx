@@ -50,7 +50,7 @@ const ScreenshotLoopDiagram: React.FC = () => {
                 background: 'rgba(59,130,246,0.05)',
                 borderRadius: '12px',
                 border: '1px dashed rgba(59,130,246,0.3)',
-                color: '#94a3b8',
+                color: 'var(--color-text-muted)',
                 fontSize: '14px'
             }}>
                 "The loop doesn't just fix code; it optimizes for **human perception** which is invisible to the LLM's raw text analysis."

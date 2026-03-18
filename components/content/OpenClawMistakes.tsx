@@ -51,7 +51,7 @@ const OpenClawMistakes: React.FC = () => {
                 {mistakes.map((m, idx) => (
                     <div key={idx} style={{
                         padding: '24px',
-                        background: 'rgba(15, 23, 42, 0.3)',
+                        background: 'var(--color-surface)',
                         borderRadius: '20px',
                         border: '1px solid rgba(239, 68, 68, 0.15)',
                         display: 'flex',
@@ -61,7 +61,7 @@ const OpenClawMistakes: React.FC = () => {
                         <div style={{ fontSize: '20px', marginTop: '4px' }}>{m.icon}</div>
                         <div>
                             <h4 style={{ color: '#fca5a5', fontSize: '15px', fontWeight: '700', marginBottom: '6px' }}>{m.title}</h4>
-                            <p style={{ color: '#94a3b8', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>{m.desc}</p>
+                            <p style={{ color: 'var(--color-text-muted)', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>{m.desc}</p>
                         </div>
                     </div>
                 ))}

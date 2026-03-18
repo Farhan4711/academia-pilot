@@ -119,7 +119,7 @@ const WorkflowComparison: React.FC = () => {
 
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <h3 style={{
-                    color: '#e2e8f0',
+                    color: 'var(--color-border)',
                     textAlign: 'center',
                     fontSize: '28px',
                     fontWeight: '700',
@@ -130,7 +130,7 @@ const WorkflowComparison: React.FC = () => {
                 </h3>
 
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     textAlign: 'center',
                     fontSize: '15px',
                     marginBottom: '32px'
@@ -159,7 +159,7 @@ const WorkflowComparison: React.FC = () => {
                                 background: activeWorkflow === view
                                     ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%)'
                                     : 'rgba(30, 41, 59, 0.5)',
-                                color: activeWorkflow === view ? '#c4b5fd' : '#94a3b8',
+                                color: activeWorkflow === view ? '#c4b5fd' : 'var(--color-text-muted)',
                                 fontSize: '14px',
                                 fontWeight: '600',
                                 cursor: 'pointer',
@@ -237,7 +237,7 @@ const WorkflowComparison: React.FC = () => {
                                     <div
                                         key={index}
                                         style={{
-                                            background: 'rgba(15, 23, 42, 0.6)',
+                                            background: 'var(--color-surface)',
                                             borderRadius: '12px',
                                             padding: '20px',
                                             border: '1px solid rgba(251, 191, 36, 0.15)',
@@ -287,7 +287,7 @@ const WorkflowComparison: React.FC = () => {
                                                     {step.stage}
                                                 </h5>
                                                 <p style={{
-                                                    color: '#cbd5e1',
+                                                    color: 'var(--color-text-secondary)',
                                                     fontSize: '14px',
                                                     lineHeight: '1.6',
                                                     marginBottom: '12px'
@@ -376,7 +376,7 @@ const WorkflowComparison: React.FC = () => {
                                     <div
                                         key={index}
                                         style={{
-                                            background: 'rgba(15, 23, 42, 0.6)',
+                                            background: 'var(--color-surface)',
                                             borderRadius: '12px',
                                             padding: '20px',
                                             border: '1px solid rgba(52, 211, 153, 0.15)',
@@ -426,7 +426,7 @@ const WorkflowComparison: React.FC = () => {
                                                     {step.stage}
                                                 </h5>
                                                 <p style={{
-                                                    color: '#cbd5e1',
+                                                    color: 'var(--color-text-secondary)',
                                                     fontSize: '14px',
                                                     lineHeight: '1.6',
                                                     marginBottom: '12px'
@@ -496,7 +496,7 @@ const WorkflowComparison: React.FC = () => {
                         The Workflow Transformation
                     </h4>
                     <p style={{
-                        color: '#cbd5e1',
+                        color: 'var(--color-text-secondary)',
                         fontSize: '15px',
                         lineHeight: '1.7',
                         margin: 0

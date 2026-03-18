@@ -14,7 +14,7 @@ const GeminiPricingTable: React.FC = () => {
     return (
         <div style={{
             fontFamily: "'Space Mono', 'Courier New', monospace",
-            background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)',
+            background: 'var(--color-surface)',
             padding: '40px 24px',
             borderRadius: '16px',
             margin: '40px 0',
@@ -30,24 +30,24 @@ const GeminiPricingTable: React.FC = () => {
                 textTransform: 'uppercase'
             }}>Current Pricing Tables (Feb 2026)</h3>
 
-            <div style={{ overflowX: 'auto', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div style={{ overflowX: 'auto', borderRadius: '8px', border: '1px solid var(--color-border)' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '600px', fontSize: '14px' }}>
                     <thead>
                         <tr style={{ background: 'rgba(139, 92, 246, 0.2)' }}>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Model</th>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Input / 1M tokens</th>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Output / 1M tokens</th>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Context</th>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Status</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Model</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Input / 1M tokens</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Output / 1M tokens</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Context</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         {pricingData.map((row, i) => (
                             <tr key={i} style={{ background: i % 2 === 0 ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0)' }}>
-                                <td style={{ padding: '12px 16px', color: '#e2e8f0', fontWeight: 'bold' }}>{row.model}</td>
+                                <td style={{ padding: '12px 16px', color: 'var(--color-border)', fontWeight: 'bold' }}>{row.model}</td>
                                 <td style={{ padding: '12px 16px', color: '#34d399' }}>{row.input}</td>
                                 <td style={{ padding: '12px 16px', color: '#f87171' }}>{row.output}</td>
-                                <td style={{ padding: '12px 16px', color: '#cbd5e1' }}>{row.context}</td>
+                                <td style={{ padding: '12px 16px', color: 'var(--color-text-secondary)' }}>{row.context}</td>
                                 <td style={{ padding: '12px 16px', color: row.status === 'GA' ? '#34d399' : '#fbbf24' }}>{row.status}</td>
                             </tr>
                         ))}

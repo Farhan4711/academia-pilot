@@ -12,6 +12,7 @@ import MCPVsOpenAI from '@/components/diagrams/MCPVsOpenAI';
 import MCPSecurityDiagram from '@/components/diagrams/MCPSecurityDiagram';
 import MCPOrchestrationDiagram from '@/components/diagrams/MCPOrchestrationDiagram';
 import FAQAccordion from '@/components/ui/FAQAccordion';
+import Comments from '@/components/ui/Comments';
 
 export const metadata: Metadata = {
     title: 'Complete MCP Technical Breakdown (2026)',
@@ -430,6 +431,13 @@ export default function MCPGuidePage() {
                 <section className="section">
                     <div className="container container-article">
                         {renderContent(ARTICLE_CONTENT)}
+                    </div>
+                </section>
+
+                {/* Comments Section */}
+                <section style={{ padding: '0 0 var(--space-8)' }}>
+                    <div className="container container-article">
+                        <Comments term="model-context-protocol" />
                     </div>
                 </section>
 

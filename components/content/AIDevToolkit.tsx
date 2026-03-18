@@ -40,7 +40,7 @@ const AIDevToolkit: React.FC = () => {
     return (
         <div style={{
             fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
-            background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%)',
+            background: 'var(--color-surface)',
             padding: '48px 24px',
             borderRadius: '20px',
             margin: '48px 0',
@@ -104,7 +104,7 @@ const AIDevToolkit: React.FC = () => {
                                     <div
                                         key={tool.name}
                                         style={{
-                                            background: 'linear-gradient(135deg, rgba(30, 27, 75, 0.8) 0%, rgba(49, 46, 129, 0.6) 100%)',
+                                            background: 'var(--color-surface)',
                                             border: `1px solid ${tool.color}35`,
                                             borderRadius: '14px',
                                             padding: '20px',
@@ -132,7 +132,7 @@ const AIDevToolkit: React.FC = () => {
                                                 <div style={{ color: '#64748b', fontSize: '11px', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{tool.subtitle}</div>
                                             </div>
                                         </div>
-                                        <p style={{ color: '#94a3b8', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>{tool.desc}</p>
+                                        <p style={{ color: 'var(--color-text-muted)', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>{tool.desc}</p>
                                         <div style={{
                                             position: 'absolute',
                                             bottom: 0, left: 0, right: 0, height: '2px',
@@ -153,7 +153,7 @@ const AIDevToolkit: React.FC = () => {
                     borderLeft: '4px solid #818cf8',
                     borderRadius: '8px'
                 }}>
-                    <p style={{ color: '#cbd5e1', fontSize: '14px', lineHeight: '1.7', margin: 0 }}>
+                    <p style={{ color: 'var(--color-text-secondary)', fontSize: '14px', lineHeight: '1.7', margin: 0 }}>
                         <strong style={{ color: '#c4b5fd' }}>Total Cost to Start:</strong>{' '}
                         $0–$10/month. Python, VS Code, Git, LangChain, Hugging Face, and all AI API free tiers
                         are sufficient for your first 6 months of learning. No expensive hardware needed.

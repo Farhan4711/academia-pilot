@@ -139,6 +139,35 @@
   --container-padding: var(--space-4);
 }
 
+/* Light Theme Overrides */
+.light {
+  /* Colors - Light Theme Palette (Slate based) */
+  --color-primary: #F8FAFC;
+  --color-accent: #2563EB;
+  --color-cta: #EA580C;
+
+  /* Supporting Colors */
+  --color-bg-dark: #E2E8F0;
+  --color-bg-light: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F1F5F9;
+
+  /* Text Colors */
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748B;
+  --color-text-inverse: #FFFFFF;
+
+  /* Borders & Dividers */
+  --color-border: #E2E8F0;
+  --color-border-light: #CBD5E1;
+
+  /* Shadows - HUD-inspired but adapted for light mode */
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15);
+  --shadow-glow-orange: 0 0 20px rgba(234, 88, 12, 0.15);
+}
+
+
 @media (min-width: 768px) {
   :root {
     --container-padding: var(--space-8);

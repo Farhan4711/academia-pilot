@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const staticPages = [
         '',
         '/news-radar',
+        '/eid',
         '/resources',
         '/antigravity-guide',
         '/tool-hangar',
@@ -102,3 +103,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...masteryPages
     ] as MetadataRoute.Sitemap;
 }
+
+

@@ -45,8 +45,8 @@ const CompetitorMatrixTable: React.FC = () => {
                     </thead>
                     <tbody>
                         {data.map((row, index) => (
-                            <tr key={index} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', backgroundColor: index % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent' }}>
-                                <td style={{ padding: '16px', color: '#e2e8f0', fontWeight: 'bold' }}>{row.dim}</td>
+                            <tr key={index} style={{ borderBottom: '1px solid var(--color-border-light)', backgroundColor: index % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent' }}>
+                                <td style={{ padding: '16px', color: 'var(--color-border)', fontWeight: 'bold' }}>{row.dim}</td>
                                 <td style={{ padding: '16px', color: '#93c5fd', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>{row.gemini}</td>
                                 <td style={{ padding: '16px', color: '#6ee7b7', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>{row.gpt}</td>
                                 <td style={{ padding: '16px', color: '#fcd34d', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>{row.claude}</td>

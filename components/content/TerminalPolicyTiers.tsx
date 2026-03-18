@@ -70,7 +70,7 @@ export default function TerminalPolicyTiers() {
                         top: 0,
                         right: 0,
                         backgroundColor: tier.color,
-                        color: idx === 1 ? '#000' : '#fff',
+                        color: idx === 1 ? '#000' : 'var(--color-text-primary)',
                         fontSize: '10px',
                         fontWeight: 'bold',
                         padding: '4px 12px',

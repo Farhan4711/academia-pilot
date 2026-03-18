@@ -105,7 +105,7 @@ const CLAWExecutionFramework: React.FC = () => {
                             <div style={{ color: '#f1f5f9', fontSize: '16px', fontWeight: '800', marginBottom: '4px' }}>
                                 Phase {idx + 1}: {phase.name}
                             </div>
-                            <div style={{ color: '#94a3b8', fontSize: '13.5px', lineHeight: '1.5' }}>
+                            <div style={{ color: 'var(--color-text-muted)', fontSize: '13.5px', lineHeight: '1.5' }}>
                                 {phase.desc}
                             </div>
                         </div>

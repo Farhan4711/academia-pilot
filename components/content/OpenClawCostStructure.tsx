@@ -35,7 +35,7 @@ const OpenClawCostStructure: React.FC = () => {
             fontFamily: "'Inter', sans-serif",
             margin: '48px 0',
             padding: '40px',
-            background: 'rgba(15, 23, 42, 0.4)',
+            background: 'var(--color-surface)',
             borderRadius: '28px',
             border: '1px solid rgba(255, 255, 255, 0.05)',
             backdropFilter: 'blur(12px)',
@@ -44,7 +44,7 @@ const OpenClawCostStructure: React.FC = () => {
                 <h3 style={{ color: '#f8fafc', fontSize: '22px', fontWeight: '800', marginBottom: '8px' }}>
                     OpenClaw Unit Economics: LLM Cost Structure
                 </h3>
-                <p style={{ color: '#94a3b8', fontSize: '14px', maxWidth: '600px', margin: '0 auto' }}>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '14px', maxWidth: '600px', margin: '0 auto' }}>
                     Running autonomous agentic loops requires high-frequency token exchange. These tiers represent verified production averages.
                 </p>
             </div>
@@ -88,7 +88,7 @@ const OpenClawCostStructure: React.FC = () => {
                             <div style={{ color: '#64748b', fontSize: '13px', fontWeight: '600' }}>Estimated: {tier.monthly}</div>
                         </div>
 
-                        <p style={{ color: '#94a3b8', fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
+                        <p style={{ color: 'var(--color-text-muted)', fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
                             {tier.desc}
                         </p>
                     </div>
@@ -103,7 +103,7 @@ const OpenClawCostStructure: React.FC = () => {
                 border: '1px dashed rgba(56, 189, 248, 0.2)',
                 textAlign: 'center'
             }}>
-                <p style={{ margin: 0, color: '#94a3b8', fontSize: '13px' }}>
+                <p style={{ margin: 0, color: 'var(--color-text-muted)', fontSize: '13px' }}>
                     <strong style={{ color: '#38bdf8' }}>Strategy Tip:</strong> Use <strong>OpenRouter</strong> with fallback routing to minimize costs during "Heavy" reasoning phases.
                 </p>
             </div>

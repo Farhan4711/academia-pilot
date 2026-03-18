@@ -13,7 +13,7 @@ const VibeToProductionRoadmap: React.FC = () => {
         <div style={{
             margin: '48px 0',
             padding: '32px',
-            background: 'linear-gradient(90deg, rgba(30,58,138,0.1) 0%, rgba(15,23,42,0.6) 100%)',
+            background: 'var(--color-surface)',
             borderRadius: '20px',
             border: '1px solid rgba(59,130,246,0.2)',
             fontFamily: "'Inter', sans-serif"
@@ -35,7 +35,7 @@ const VibeToProductionRoadmap: React.FC = () => {
                     }}>
                         <div style={{ fontSize: '24px', marginBottom: '8px' }}>{step.icon}</div>
                         <div style={{ fontSize: '11px', fontWeight: '800', color: step.color, textTransform: 'uppercase', letterSpacing: '1px' }}>{step.title}</div>
-                        <div style={{ fontSize: '13px', color: '#94a3b8', marginTop: '4px' }}>{step.task}</div>
+                        <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', marginTop: '4px' }}>{step.task}</div>
                     </div>
                 ))}
             </div>

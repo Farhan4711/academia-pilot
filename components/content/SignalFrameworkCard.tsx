@@ -52,7 +52,7 @@ const SignalFrameworkCard: React.FC = () => {
     return (
         <div style={{
             fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
-            background: 'rgba(15, 23, 42, 0.8)',
+            background: 'var(--color-surface)',
             padding: '40px 24px',
             borderRadius: '24px',
             margin: '48px 0',
@@ -82,7 +82,7 @@ const SignalFrameworkCard: React.FC = () => {
                 }}>
                     The SIGNAL Framework
                 </h3>
-                <p style={{ color: '#94a3b8', maxWidth: '500px', margin: '0 auto', fontSize: '15px' }}>
+                <p style={{ color: 'var(--color-text-muted)', maxWidth: '500px', margin: '0 auto', fontSize: '15px' }}>
                     How to identify which AI companies will survive a market correction based on dot-com survivor patterns.
                 </p>
             </div>
@@ -137,7 +137,7 @@ const SignalFrameworkCard: React.FC = () => {
 
                 {/* Content Area */}
                 <div style={{
-                    background: 'rgba(30, 41, 59, 0.4)',
+                    background: 'var(--color-surface)',
                     border: `1px solid ${signals[activeIndex].color}40`,
                     borderRadius: '20px',
                     padding: '32px',
@@ -190,7 +190,7 @@ const SignalFrameworkCard: React.FC = () => {
                     </div>
 
                     <p style={{ 
-                        color: '#cbd5e1', 
+                        color: 'var(--color-text-secondary)', 
                         fontSize: '16px', 
                         lineHeight: '1.7', 
                         margin: 0,

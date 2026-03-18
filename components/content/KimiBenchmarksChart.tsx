@@ -19,7 +19,7 @@ const KimiBenchmarksChart: React.FC = () => {
             padding: '40px 24px',
             borderRadius: '24px',
             margin: '48px 0',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            border: '1px solid var(--color-border)',
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
         }}>
             <div style={{ textAlign: 'center', marginBottom: '40px' }}>
@@ -85,7 +85,7 @@ const KimiBenchmarksChart: React.FC = () => {
                                 alignItems: 'center',
                                 justifyContent: 'flex-end',
                                 paddingRight: '12px',
-                                color: '#fff',
+                                color: 'var(--color-text-primary)',
                                 fontSize: '13px',
                                 fontWeight: 'bold',
                                 transition: 'width 1s ease-out'
@@ -106,7 +106,7 @@ const KimiBenchmarksChart: React.FC = () => {
                                 alignItems: 'center',
                                 justifyContent: 'flex-end',
                                 paddingRight: '12px',
-                                color: '#fff',
+                                color: 'var(--color-text-primary)',
                                 fontSize: '13px',
                                 fontWeight: '600',
                                 transition: 'width 1s ease-out'

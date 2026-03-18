@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import NextImage from 'next/image';
 import NewsTicker from './NewsTicker';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import type { ContentItem } from '@/lib/content';
 
 interface HeaderProps {
@@ -96,7 +97,7 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                         </div>
                     </div>
 
-                    {/* Right Side: Search + Mobile Menu Button */}
+                    {/* Right Side: Search + Theme Toggle + Mobile Menu Button */}
                     <div className="flex items-center" style={{ gap: 'var(--space-4)' }}>
                         {/* Search Bar - Desktop */}
                         <div className="hidden md:flex items-center search-container group" style={{
@@ -110,26 +111,23 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                 style={{
                                     width: '100%',
                                     padding: 'var(--space-2) var(--space-4)',
-                                    paddingLeft: 'var(--space-10)', // Space for search icon on the left
-                                    paddingRight: 'var(--space-12)', // Space for CMD+K badge on right
-                                    borderRadius: 'var(--radius-md)', // More modern than rounded-full
-                                    border: '1px solid rgba(255,255,255,0.1)',
-                                    backgroundColor: 'rgba(255,255,255,0.03)',
+                                    paddingLeft: 'var(--space-10)',
+                                    paddingRight: 'var(--space-12)',
+                                    borderRadius: 'var(--radius-md)',
+                                    border: '1px solid var(--color-border)',
+                                    backgroundColor: 'var(--color-surface)',
                                     color: 'var(--color-text-primary)',
                                     fontSize: 'var(--text-sm)',
-                                    backdropFilter: 'blur(10px)',
                                     outline: 'none',
                                     transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
                                 }}
                                 onFocus={(e) => {
                                     e.currentTarget.style.borderColor = 'var(--color-accent)';
-                                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.06)';
-                                    e.currentTarget.style.boxShadow = '0 0 0 2px rgba(var(--color-accent-rgb), 0.15), 0 4px 12px rgba(0,0,0,0.5)';
+                                    e.currentTarget.style.boxShadow = 'var(--shadow-glow)';
                                     e.currentTarget.parentElement!.style.width = '300px';
                                 }}
                                 onBlur={(e) => {
-                                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
-                                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.03)';
+                                    e.currentTarget.style.borderColor = 'var(--color-border)';
                                     e.currentTarget.style.boxShadow = 'none';
                                     e.currentTarget.parentElement!.style.width = '200px';
                                 }}
@@ -143,12 +141,12 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                 }}
                                 onMouseEnter={(e) => {
                                     if (document.activeElement !== e.currentTarget) {
-                                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                                        e.currentTarget.style.borderColor = 'var(--color-border-light)';
                                     }
                                 }}
                                 onMouseLeave={(e) => {
                                     if (document.activeElement !== e.currentTarget) {
-                                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                                        e.currentTarget.style.borderColor = 'var(--color-border)';
                                     }
                                 }}
                             />
@@ -178,25 +176,28 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                 gap: '2px'
                             }}>
                                 <kbd style={{
-                                    backgroundColor: 'rgba(255,255,255,0.1)',
+                                    backgroundColor: 'var(--color-surface-hover)',
                                     color: 'var(--color-text-muted)',
                                     padding: '2px 4px',
                                     borderRadius: '4px',
                                     fontSize: '10px',
                                     fontFamily: 'monospace',
-                                    border: '1px solid rgba(255,255,255,0.1)'
+                                    border: '1px solid var(--color-border)'
                                 }}>⌘</kbd>
                                 <kbd style={{
-                                    backgroundColor: 'rgba(255,255,255,0.1)',
+                                    backgroundColor: 'var(--color-surface-hover)',
                                     color: 'var(--color-text-muted)',
                                     padding: '2px 4px',
                                     borderRadius: '4px',
                                     fontSize: '10px',
                                     fontFamily: 'monospace',
-                                    border: '1px solid rgba(255,255,255,0.1)'
+                                    border: '1px solid var(--color-border)'
                                 }}>K</kbd>
                             </div>
                         </div>
+
+                        {/* Theme Toggle */}
+                        <ThemeToggle />
 
                         {/* Mobile Menu Button */}
                         <div style={{ position: 'relative' }}>
@@ -205,7 +206,7 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                                 aria-expanded={mobileMenuOpen}
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                                style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}
                             >
                                 {mobileMenuOpen ? (
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -243,7 +244,7 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                             right: 0,
                                             width: '250px',
                                             backgroundColor: 'var(--color-surface)',
-                                            border: '1px solid rgba(255,255,255,0.1)',
+                                            border: '1px solid var(--color-border)',
                                             borderRadius: 'var(--radius-lg)',
                                             boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
                                             zIndex: 'calc(var(--z-dropdown) + 1)',
@@ -271,7 +272,7 @@ export default function Header({ newsItems = [] }: HeaderProps) {
                                                             transition: 'all var(--transition-fast)'
                                                         }}
                                                         onMouseEnter={(e) => {
-                                                            e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)';
+                                                            e.currentTarget.style.backgroundColor = 'var(--color-surface-hover)';
                                                             e.currentTarget.style.color = 'var(--color-text-primary)';
                                                         }}
                                                         onMouseLeave={(e) => {

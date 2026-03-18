@@ -73,7 +73,7 @@ const MicrosoftLearningPathDiagram: React.FC = () => {
                     <div
                         key={index}
                         style={{
-                            background: 'rgba(15, 23, 42, 0.4)',
+                            background: 'var(--color-surface)',
                             borderRadius: '20px',
                             padding: '30px',
                             border: `1px solid ${item.color}20`,
@@ -133,7 +133,7 @@ const MicrosoftLearningPathDiagram: React.FC = () => {
                             {item.course}
                         </div>
 
-                        <p style={{ color: '#94a3b8', fontSize: '13.5px', lineHeight: '1.6', margin: 0 }}>
+                        <p style={{ color: 'var(--color-text-muted)', fontSize: '13.5px', lineHeight: '1.6', margin: 0 }}>
                             {item.details}
                         </p>
 
@@ -152,7 +152,7 @@ const MicrosoftLearningPathDiagram: React.FC = () => {
                 marginTop: '40px',
                 textAlign: 'center',
                 padding: '24px',
-                background: 'rgba(30, 41, 59, 0.5)',
+                background: 'var(--color-surface)',
                 borderRadius: '16px',
                 border: '1px dashed rgba(255, 255, 255, 0.1)'
             }}>

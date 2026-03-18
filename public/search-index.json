@@ -321,6 +321,16 @@
   },
   {
     "id": "32",
+    "slug": "vibe-coding-production-what-breaks-after-prototype-2026",
+    "title": "Vibe Coding in Production: What Actually Breaks (2026 Complete Guide)",
+    "excerpt": "40–48% of AI-generated code has exploitable vulnerabilities. The Tea App exposed 72,000 IDs. The Spaghetti Point arrives at month 3. This is the only guide written for developers who already shipped — with the GROUND Framework for hardening vibe-coded apps.",
+    "type": "news",
+    "category": "guide",
+    "tags": "vibe coding in production 2026 vibe coding what breaks after prototype vibe coding security vulnerabilities Tea App Firebase breach vibe coding Spaghetti Point vibe coding explained six month wall vibe coding Cumulative Refactor Deficit CRD metric GROUND Framework production hardening Lovable CVE-2025-48757 illusion of correctness AI code review",
+    "date": "2026-03-18"
+  },
+  {
+    "id": "33",
     "slug": "why-users-leaving-chatgpt-for-claude-ethics-outage-ai-race-2026",
     "title": "Why Users Are Leaving ChatGPT for Claude: Ethics, Outages, and the AI Race (2026)",
     "excerpt": "ChatGPT uninstalls spiked 295% in a single day after OpenAI's Pentagon deal. Claude hit #1 on the App Store. Then Claude went down. Here's the full story of the AI migration event that changed the industry.",
@@ -330,7 +340,7 @@
     "date": "2026-03-05"
   },
   {
-    "id": "33",
+    "id": "34",
     "slug": "windsurf-wave-13-review-vs-cursor-2026",
     "title": "Windsurf vs Cursor 2.0 (2026): Wave 13 Review & Best AI IDE Comparison",
     "excerpt": "Windsurf hit #1 in the February 2026 LogRocket AI IDE power rankings. Here's every Wave 13 feature — Arena Mode, SWE-1.5 Free, parallel agents, Fast Context — and the full Windsurf vs Cursor 2.0 breakdown.",
@@ -340,7 +350,7 @@
     "date": "2026-03-10"
   },
   {
-    "id": "34",
+    "id": "35",
     "slug": "ai-chatbots-llms/chatgpt",
     "title": "ChatGPT",
     "excerpt": "OpenAI's flagship AI — the world's most-used general-purpose LLM combining GPT-5 reasoning, Deep Research, image generation, voice, and browser agent in a single platform.",
@@ -350,7 +360,7 @@
     "date": "2026-02-01"
   },
   {
-    "id": "35",
+    "id": "36",
     "slug": "ai-chatbots-llms/claude",
     "title": "Claude",
     "excerpt": "Anthropic's AI with the largest context window (200K+), superior document analysis, Claude Code for terminal-native agentic coding, and precise instruction-following built on Constitutional AI.",
@@ -360,7 +370,7 @@
     "date": "2026-02-01"
   },
   {
-    "id": "36",
+    "id": "37",
     "slug": "ai-chatbots-llms/deepseek",
     "title": "DeepSeek",
     "excerpt": "A Chinese AI company's open-source LLM family delivering frontier-level coding and reasoning at 60–80% lower API cost than Western equivalents — available as downloadable weights for local deployment or via a cost-competitive cloud API.",
@@ -370,7 +380,7 @@
     "date": "2026-02-01"
   },
   {
-    "id": "37",
+    "id": "38",
     "slug": "ai-chatbots-llms/gemini",
     "title": "Gemini",
     "excerpt": "Google DeepMind's multimodal AI with a 2M-token context window, native video and audio understanding, and deep integration across Gmail, Docs, Drive, Sheets, and all of Google Workspace.",
@@ -380,7 +390,7 @@
     "date": "2026-02-01"
   },
   {
-    "id": "38",
+    "id": "39",
     "slug": "ai-chatbots-llms/grok",
     "title": "Grok",
     "excerpt": "xAI's conversational AI with unique real-time access to the X (Twitter) data firehose, live web search, Grok 4 frontier reasoning, and audio/image generation — with fewer content restrictions than competitors.",
@@ -390,7 +400,7 @@
     "date": "2026-02-01"
   },
   {
-    "id": "39",
+    "id": "40",
     "slug": "ai-chatbots-llms/meta-ai-llama",
     "title": "Meta AI / Llama",
     "excerpt": "Meta's dual-track AI strategy: a free consumer assistant deployed in WhatsApp and Instagram for 3.27B users, and Llama 4 — open-source model weights with a 10M-token context window for developers to download, fine-tune, and deploy locally.",
@@ -400,7 +410,7 @@
     "date": "2026-02-01"
   },
   {
-    "id": "40",
+    "id": "41",
     "slug": "ai-chatbots-llms/microsoft-copilot",
     "title": "Microsoft Copilot",
     "excerpt": "Microsoft's AI layer embedded across Word, Excel, PowerPoint, Teams, and Outlook — powered by OpenAI models via Azure, with organization-wide Microsoft Graph data access for enterprise knowledge work.",
@@ -410,7 +420,7 @@
     "date": "2026-02-01"
   },
   {
-    "id": "41",
+    "id": "42",
     "slug": "ai-chatbots-llms/perplexity",
     "title": "Perplexity",
     "excerpt": "The AI-powered search engine that replaces traditional search results with source-cited, structured answers — using a retrieve-first RAG architecture that dramatically reduces hallucination risk for factual queries.",
@@ -420,7 +430,7 @@
     "date": "2026-02-01"
   },
   {
-    "id": "42",
+    "id": "43",
     "slug": "ai-coding-dev-tools/bolt-new",
     "title": "Bolt.new",
     "excerpt": "Zero-setup full-stack app generator offering the highest framework flexibility (React, Vue, Svelte) and enterprise-grade managed infrastructure from StackBlitz.",
@@ -430,7 +440,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "43",
+    "id": "44",
     "slug": "ai-coding-dev-tools/claude-code",
     "title": "Claude Code",
     "excerpt": "Anthropic's terminal-native agentic coding system with an 80.8% SWE-bench Verified score, 1M token context window, and 16+ parallel agent team support.",
@@ -440,7 +450,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "44",
+    "id": "45",
     "slug": "ai-coding-dev-tools/codeium",
     "title": "Codeium",
     "excerpt": "The leading free-tier AI code completion engine, providing unlimited fast multi-line completion across 40+ editors — the same tech powering the Windsurf IDE.",
@@ -450,7 +460,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "45",
+    "id": "46",
     "slug": "ai-coding-dev-tools/codex",
     "title": "Codex",
     "excerpt": "OpenAI's cloud-based software engineering agent designed for async background task delegation, capable of autonomously reading GitHub and opening PRs.",
@@ -460,7 +470,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "46",
+    "id": "47",
     "slug": "ai-coding-dev-tools/continue-dev",
     "title": "Continue.dev",
     "excerpt": "The premier open-source AI coding assistant plugin for VS Code and JetBrains. Connects to any LLM (local or cloud) for ultimate control and data privacy.",
@@ -470,7 +480,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "47",
+    "id": "48",
     "slug": "ai-coding-dev-tools/cursor",
     "title": "Cursor",
     "excerpt": "The most widely adopted AI-native IDE — a VS Code fork with 1M+ users, 360,000+ paying customers, and advanced parallel agent execution via Composer.",
@@ -480,7 +490,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "48",
+    "id": "49",
     "slug": "ai-coding-dev-tools/devin",
     "title": "Devin",
     "excerpt": "Cognition's fully autonomous AI software engineer. Plans, executes, debugs, and deploys complete software tasks with zero human supervision.",
@@ -490,7 +500,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "49",
+    "id": "50",
     "slug": "ai-coding-dev-tools/github-copilot",
     "title": "GitHub Copilot",
     "excerpt": "GitHub's native AI coding assistant featuring multi-agent orchestration via Agent HQ, multi-model access, and the deepest repository integration available.",
@@ -500,7 +510,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "50",
+    "id": "51",
     "slug": "ai-coding-dev-tools/lm-studio",
     "title": "LM Studio",
     "excerpt": "The premier desktop application for managing and running local AI models with a polished GUI, built-in chat interface, and a local inference server.",
@@ -510,7 +520,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "51",
+    "id": "52",
     "slug": "ai-coding-dev-tools/lovable",
     "title": "Lovable",
     "excerpt": "The AI app builder producing the highest UI quality output — React + Tailwind CSS generation with one-click Supabase backend and Figma integration.",
@@ -520,7 +530,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "52",
+    "id": "53",
     "slug": "ai-coding-dev-tools/ollama",
     "title": "Ollama",
     "excerpt": "The definitive local AI model runtime. Run Llama, DeepSeek, Mistral, and 100+ open-source models completely on-device with an OpenAI-compatible API.",
@@ -530,7 +540,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "53",
+    "id": "54",
     "slug": "ai-coding-dev-tools/replit",
     "title": "Replit",
     "excerpt": "Cloud-native Browser Builder with Agent 3, supporting 200-minute autonomous coding sessions, native Python/Node hosting, and instant mobile app generation.",
@@ -540,7 +550,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "54",
+    "id": "55",
     "slug": "ai-coding-dev-tools/trae-ide",
     "title": "Trae IDE",
     "excerpt": "ByteDance's AI-native IDE offering multi-model access with an incredibly generous free tier, targeting cost-sensitive global development teams.",
@@ -550,7 +560,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "55",
+    "id": "56",
     "slug": "ai-coding-dev-tools/windsurf",
     "title": "Windsurf",
     "excerpt": "The #1 ranked AI IDE in LogRocket's Feb 2026 power rankings. Features the SWE-1.5 model, Fast Context retrieval, and direct Devin integration.",
@@ -560,7 +570,7 @@
     "date": "2026-03-04"
   },
   {
-    "id": "56",
+    "id": "57",
     "slug": "ai-models/chatgpt-vs-claude-vs-gemini",
     "title": "ChatGPT vs Claude vs Gemini: 2026 AI Comparison",
     "excerpt": "The ultimate 2026 comparison of ChatGPT, Claude, and Gemini. Real-world testing, benchmarks, pricing, and which AI wins for coding, writing, and research.",
@@ -570,7 +580,7 @@
     "date": "2026-02-17"
   },
   {
-    "id": "57",
+    "id": "58",
     "slug": "ai-models/claude-sonnet",
     "title": "Claude 3.5 Sonnet",
     "excerpt": "Claude 3.5 Sonnet is the king of coding and reasoning. Discover why it is considered perfect for modern Vibe Coding and complex agentic orchestration workflows.",
@@ -580,7 +590,7 @@
     "date": "2026-02-14"
   },
   {
-    "id": "58",
+    "id": "59",
     "slug": "research/perplexity-pro",
     "title": "Perplexity Pro",
     "excerpt": "Discover Perplexity Pro, the ultimate AI research engine. Master real-time citations, multiple model switching, and experience unparalleled search speed today.",
@@ -590,7 +600,7 @@
     "date": "2026-02-14"
   },
   {
-    "id": "59",
+    "id": "60",
     "slug": "education/research-assistant",
     "title": "Research Assistant Prompt",
     "excerpt": "Analyze complex topics with citations. Perfect for Perplexity Pro, Google Gemini, or ChatGPT with web search enabled.",
@@ -600,7 +610,7 @@
     "date": "2026-02-14"
   },
   {
-    "id": "60",
+    "id": "61",
     "slug": "education/vibe-coding-starter",
     "title": "The Vibe Coding Starter",
     "excerpt": "A perfect primer for your first Antigravity project. Learn how to bridge the gap between idea and architecture today.",
@@ -610,7 +620,7 @@
     "date": "2026-02-14"
   },
   {
-    "id": "61",
+    "id": "62",
     "slug": "marketing/content-repurposing",
     "title": "Content Repurposing Agent",
     "excerpt": "Repurpose your content effortlessly. Turn one piece of content into 10. Best utilized alongside Claude 3.5 Sonnet or GPT-4.",
@@ -620,7 +630,7 @@
     "date": "2026-02-14"
   },
   {
-    "id": "62",
+    "id": "63",
     "slug": "security/cloud-perimeter-guard",
     "title": "The Cloud Perimeter Guard",
     "excerpt": "Ensure your AWS settings aren't leaving the door open to attackers. This guard prompt is best for Infrastructure Configs.",
@@ -630,7 +640,7 @@
     "date": "2026-02-14"
   },
   {
-    "id": "63",
+    "id": "64",
     "slug": "security/data-leak-auditor",
     "title": "The Data Leak Auditor",
     "excerpt": "Make sure your app isn't accidentally sharing private user data. The premier prompt for testing API Functions.",
@@ -640,7 +650,7 @@
     "date": "2026-02-14"
   },
   {
-    "id": "64",
+    "id": "65",
     "slug": "security/ghost-library-scanner",
     "title": "The Ghost Library Scanner",
     "excerpt": "Verify that your AI isn't hallucinating dangerous packages. This is the optimal prompt for Dependency Checks.",
@@ -650,7 +660,7 @@
     "date": "2026-02-14"
   },
   {
-    "id": "65",
+    "id": "66",
     "slug": "security/senior-security-review",
     "title": "The Senior Security Reviewer",
     "excerpt": "Audit your entire script for vulnerabilities in seconds. It operates best when used with GPT-4 or Claude 3.5 Sonnet to ensure robust codebase security.",
@@ -660,7 +670,7 @@
     "date": "2026-02-14"
   },
   {
-    "id": "66",
+    "id": "67",
     "slug": "model-context-protocol",
     "title": "Model Context Protocol (MCP) Guide",
     "excerpt": "Model Context Protocol (MCP) explained. Explore its architecture, security model, SDK, and compare MCP versus OpenAI function calling in this 2026 guide.",

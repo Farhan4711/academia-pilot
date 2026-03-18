@@ -16,13 +16,13 @@ const OpenClawEcosystemComparison: React.FC = () => {
         <div className="not-readable" style={{
             fontFamily: "'Inter', sans-serif",
             margin: '48px 0',
-            background: 'rgba(15, 23, 42, 0.4)',
+            background: 'var(--color-surface)',
             borderRadius: '24px',
             border: '1px solid rgba(255, 255, 255, 0.05)',
             backdropFilter: 'blur(10px)',
             overflow: 'hidden'
         }}>
-            <div style={{ padding: '24px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+            <div style={{ padding: '24px', borderBottom: '1px solid var(--color-border-light)' }}>
                 <h3 style={{ margin: 0, color: '#f1f5f9', fontSize: '18px', fontWeight: '700' }}>Competitive Comparison: Ecosystem Options</h3>
             </div>
             <div style={{ overflowX: 'auto' }}>
@@ -40,7 +40,7 @@ const OpenClawEcosystemComparison: React.FC = () => {
                                 <td style={{ padding: '16px 20px', color: '#f8fafc', fontWeight: '700', fontSize: '13px' }}>{row.opt}</td>
                                 <td style={{ padding: '16px 20px', color: '#34d399', fontSize: '13px' }}>{row.strength}</td>
                                 <td style={{ padding: '16px 20px', color: '#f87171', fontSize: '13px' }}>{row.weakness}</td>
-                                <td style={{ padding: '16px 20px', color: '#94a3b8', fontSize: '13px' }}>{row.use}</td>
+                                <td style={{ padding: '16px 20px', color: 'var(--color-text-muted)', fontSize: '13px' }}>{row.use}</td>
                             </tr>
                         ))}
                     </tbody>

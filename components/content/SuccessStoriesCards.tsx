@@ -60,7 +60,7 @@ const SuccessStoriesCards: React.FC = () => {
 
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <h3 style={{
-                    color: '#e2e8f0',
+                    color: 'var(--color-border)',
                     textAlign: 'center',
                     fontSize: '28px',
                     fontWeight: '700',
@@ -70,7 +70,7 @@ const SuccessStoriesCards: React.FC = () => {
                     Real Self-Taught Success Stories
                 </h3>
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     textAlign: 'center',
                     fontSize: '15px',
                     marginBottom: '40px'
@@ -89,7 +89,7 @@ const SuccessStoriesCards: React.FC = () => {
                         <div
                             key={index}
                             style={{
-                                background: 'rgba(15, 23, 42, 0.7)',
+                                background: 'var(--color-surface)',
                                 borderRadius: '16px',
                                 padding: '28px',
                                 border: `1px solid ${story.color}30`,
@@ -143,7 +143,7 @@ const SuccessStoriesCards: React.FC = () => {
                                 borderRadius: '10px'
                             }}>
                                 <div style={{
-                                    color: '#94a3b8',
+                                    color: 'var(--color-text-muted)',
                                     fontSize: '13px',
                                     fontWeight: '500'
                                 }}>
@@ -168,7 +168,7 @@ const SuccessStoriesCards: React.FC = () => {
                                 <div style={{ color: '#64748b', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
                                     Background
                                 </div>
-                                <div style={{ color: '#94a3b8', fontSize: '13px' }}>{story.degree}</div>
+                                <div style={{ color: 'var(--color-text-muted)', fontSize: '13px' }}>{story.degree}</div>
                             </div>
 
                             {/* Learning path */}
@@ -176,7 +176,7 @@ const SuccessStoriesCards: React.FC = () => {
                                 <div style={{ color: '#64748b', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
                                     Learning Path
                                 </div>
-                                <div style={{ color: '#cbd5e1', fontSize: '13px' }}>{story.path}</div>
+                                <div style={{ color: 'var(--color-text-secondary)', fontSize: '13px' }}>{story.path}</div>
                             </div>
 
                             {/* First project */}
@@ -184,7 +184,7 @@ const SuccessStoriesCards: React.FC = () => {
                                 <div style={{ color: '#64748b', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
                                     Breakout Project
                                 </div>
-                                <div style={{ color: '#cbd5e1', fontSize: '13px' }}>{story.project}</div>
+                                <div style={{ color: 'var(--color-text-secondary)', fontSize: '13px' }}>{story.project}</div>
                             </div>
 
                             {/* Outcome */}
@@ -231,7 +231,7 @@ const SuccessStoriesCards: React.FC = () => {
                     margin: '32px auto 0'
                 }}>
                     <p style={{
-                        color: '#cbd5e1',
+                        color: 'var(--color-text-secondary)',
                         fontSize: '14px',
                         lineHeight: '1.7',
                         margin: 0

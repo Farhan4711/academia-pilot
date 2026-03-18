@@ -70,7 +70,7 @@ export default function LLMPricingTable({ toolName, tiers, apiNote }: LLMPricing
                                 left: '50%',
                                 transform: 'translateX(-50%)',
                                 background: '#6366f1',
-                                color: '#fff',
+                                color: 'var(--color-text-primary)',
                                 fontSize: '10px',
                                 fontWeight: '700',
                                 letterSpacing: '0.1em',

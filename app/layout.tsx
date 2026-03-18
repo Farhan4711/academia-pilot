@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import Script from "next/script";
 import { getLatestContent } from "@/lib/content";
+import RouteChrome from "@/components/layout/RouteChrome";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://academiapilot.com"),
@@ -97,11 +98,6 @@ const jsonLd = {
   }
 };
 
-import ExploreRelated from "@/components/ui/ExploreRelated";
-import Script from "next/script";
-import CookieBanner from "@/components/layout/CookieBanner";
-import AIAssistant from "@/components/ui/AIAssistant";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -119,33 +115,28 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className="antialiased" suppressHydrationWarning>
-        <Script
-          id="json-ld-website"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          strategy="beforeInteractive"
-        />
-        {/* Low-priority debug helpers — loaded only when browser is idle */}
-        <Script id="global-error-handlers" strategy="lazyOnload">
-          {`
-            window.addEventListener('unhandledrejection', function(event) {
-              console.error('[CRITICAL] Unhandled Promise Rejection:', event.reason);
-            });
-            window.addEventListener('error', function(event) {
-              console.error('[CRITICAL] Global Error:', event.error);
-            });
-          `}
-        </Script>
-        <Header newsItems={newsItems} />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
-        <ExploreRelated />
-        <CookieBanner />
-        <AIAssistant />
-        <Footer />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <Script
+            id="json-ld-website"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            strategy="beforeInteractive"
+          />
+          {/* Low-priority debug helpers — loaded only when browser is idle */}
+          <Script id="global-error-handlers" strategy="lazyOnload">
+            {`
+              window.addEventListener('unhandledrejection', function(event) {
+                console.error('[CRITICAL] Unhandled Promise Rejection:', event.reason);
+              });
+              window.addEventListener('error', function(event) {
+                console.error('[CRITICAL] Global Error:', event.error);
+              });
+            `}
+          </Script>
+
+          <RouteChrome newsItems={newsItems}>{children}</RouteChrome>
+        </ThemeProvider>
       </body>
     </html>
   );
 }
-

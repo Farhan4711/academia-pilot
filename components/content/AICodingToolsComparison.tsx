@@ -11,7 +11,7 @@ const AICodingToolsComparison: React.FC = () => {
     return (
         <div style={{
             margin: '40px 0',
-            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%)',
+            background: 'var(--color-surface)',
             padding: '32px',
             borderRadius: '16px',
             border: '1px solid rgba(59, 130, 246, 0.3)',
@@ -32,22 +32,22 @@ const AICodingToolsComparison: React.FC = () => {
             </h3>
 
             <div style={{ overflowX: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', color: '#cbd5e1' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', color: 'var(--color-text-secondary)' }}>
                     <thead>
-                        <tr style={{ borderBottom: '2px solid rgba(255,255,255,0.1)' }}>
-                            <th style={{ textAlign: 'left', padding: '12px', color: '#94a3b8' }}>Tool</th>
-                            <th style={{ textAlign: 'left', padding: '12px', color: '#94a3b8' }}>Primary Use Case</th>
-                            <th style={{ textAlign: 'left', padding: '12px', color: '#94a3b8' }}>Development Speed</th>
-                            <th style={{ textAlign: 'left', padding: '12px', color: '#94a3b8' }}>Output Style</th>
+                        <tr style={{ borderBottom: '2px solid var(--color-border)' }}>
+                            <th style={{ textAlign: 'left', padding: '12px', color: 'var(--color-text-muted)' }}>Tool</th>
+                            <th style={{ textAlign: 'left', padding: '12px', color: 'var(--color-text-muted)' }}>Primary Use Case</th>
+                            <th style={{ textAlign: 'left', padding: '12px', color: 'var(--color-text-muted)' }}>Development Speed</th>
+                            <th style={{ textAlign: 'left', padding: '12px', color: 'var(--color-text-muted)' }}>Output Style</th>
                         </tr>
                     </thead>
                     <tbody>
                         {tools.map((tool, idx) => (
                             <tr key={idx} style={{
-                                borderBottom: '1px solid rgba(255,255,255,0.05)',
+                                borderBottom: '1px solid var(--color-border-light)',
                                 transition: 'background 0.2s',
                             }}>
-                                <td style={{ padding: '16px 12px', fontWeight: '700', color: '#fff' }}>
+                                <td style={{ padding: '16px 12px', fontWeight: '700', color: 'var(--color-text-primary)' }}>
                                     <span style={{ marginRight: '8px' }}>{tool.icon}</span> {tool.name}
                                 </td>
                                 <td style={{ padding: '16px 12px' }}>{tool.useCase}</td>
@@ -68,7 +68,7 @@ const AICodingToolsComparison: React.FC = () => {
                 </table>
             </div>
 
-            <p style={{ marginTop: '20px', fontSize: '13px', color: '#94a3b8', fontStyle: 'italic' }}>
+            <p style={{ marginTop: '20px', fontSize: '13px', color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
                 * Claude Code leads in architectural coherence due to its deep context capabilities.
             </p>
         </div>

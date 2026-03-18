@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ export default function NewsTicker({ items }: NewsTickerProps) {
     return (
         <div className="news-ticker-container"
             style={{
-                backgroundColor: 'rgba(15, 23, 42, 0.8)',
+                backgroundColor: 'var(--color-surface)',
                 backdropFilter: 'blur(8px)',
                 borderBottom: '1px solid var(--color-border)',
                 height: '40px',

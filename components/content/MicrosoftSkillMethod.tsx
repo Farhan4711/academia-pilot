@@ -92,7 +92,7 @@ const MicrosoftSkillMethod: React.FC = () => {
                         }}>
                             {step.label}
                         </div>
-                        <div style={{ color: '#fff', fontSize: '14px', fontWeight: '800', marginBottom: '8px' }}>{step.name}</div>
+                        <div style={{ color: 'var(--color-text-primary)', fontSize: '14px', fontWeight: '800', marginBottom: '8px' }}>{step.name}</div>
                     </div>
                 ))}
             </div>
@@ -113,7 +113,7 @@ const MicrosoftSkillMethod: React.FC = () => {
                             <div style={{ color: '#f1f5f9', fontSize: '15px', fontWeight: '700', marginBottom: '4px' }}>
                                 Phase {idx + 1}: {step.name}
                             </div>
-                            <div style={{ color: '#94a3b8', fontSize: '13.5px', lineHeight: '1.5' }}>
+                            <div style={{ color: 'var(--color-text-muted)', fontSize: '13.5px', lineHeight: '1.5' }}>
                                 {step.desc} <span style={{ color: step.color }}>{step.detail}</span>
                             </div>
                         </div>

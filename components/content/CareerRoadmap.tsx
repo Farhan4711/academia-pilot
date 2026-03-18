@@ -116,7 +116,7 @@ const CareerRoadmap: React.FC = () => {
 
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <h3 style={{
-                    color: '#e2e8f0',
+                    color: 'var(--color-border)',
                     textAlign: 'center',
                     fontSize: '28px',
                     fontWeight: '700',
@@ -127,7 +127,7 @@ const CareerRoadmap: React.FC = () => {
                 </h3>
 
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     textAlign: 'center',
                     fontSize: '15px',
                     marginBottom: '48px'
@@ -186,7 +186,7 @@ const CareerRoadmap: React.FC = () => {
                                 <div
                                     style={{
                                         flex: 1,
-                                        background: 'rgba(15, 23, 42, 0.6)',
+                                        background: 'var(--color-surface)',
                                         borderRadius: '16px',
                                         padding: '24px',
                                         border: `1px solid ${phase.color}25`,
@@ -240,7 +240,7 @@ const CareerRoadmap: React.FC = () => {
                                         <div>
                                             {phase.aiSkills.length > 0 && (
                                                 <div style={{
-                                                    color: '#94a3b8',
+                                                    color: 'var(--color-text-muted)',
                                                     fontSize: '11px',
                                                     fontWeight: '700',
                                                     textTransform: 'uppercase',
@@ -256,7 +256,7 @@ const CareerRoadmap: React.FC = () => {
                                                     alignItems: 'flex-start',
                                                     gap: '8px',
                                                     marginBottom: '6px',
-                                                    color: '#cbd5e1',
+                                                    color: 'var(--color-text-secondary)',
                                                     fontSize: '13px',
                                                     lineHeight: '1.5'
                                                 }}>
@@ -268,7 +268,7 @@ const CareerRoadmap: React.FC = () => {
                                         {phase.aiSkills.length > 0 && (
                                             <div>
                                                 <div style={{
-                                                    color: '#94a3b8',
+                                                    color: 'var(--color-text-muted)',
                                                     fontSize: '11px',
                                                     fontWeight: '700',
                                                     textTransform: 'uppercase',
@@ -283,7 +283,7 @@ const CareerRoadmap: React.FC = () => {
                                                         alignItems: 'flex-start',
                                                         gap: '8px',
                                                         marginBottom: '6px',
-                                                        color: '#cbd5e1',
+                                                        color: 'var(--color-text-secondary)',
                                                         fontSize: '13px',
                                                         lineHeight: '1.5'
                                                     }}>
@@ -313,7 +313,7 @@ const CareerRoadmap: React.FC = () => {
                                             🎯 Project Goal
                                         </div>
                                         <p style={{
-                                            color: '#94a3b8',
+                                            color: 'var(--color-text-muted)',
                                             fontSize: '13px',
                                             lineHeight: '1.5',
                                             margin: 0
@@ -348,7 +348,7 @@ const CareerRoadmap: React.FC = () => {
                     margin: '40px auto 0'
                 }}>
                     <p style={{
-                        color: '#cbd5e1',
+                        color: 'var(--color-text-secondary)',
                         fontSize: '14px',
                         lineHeight: '1.7',
                         margin: 0

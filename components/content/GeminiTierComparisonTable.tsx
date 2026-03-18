@@ -72,9 +72,9 @@ const GeminiTierComparisonTable: React.FC = () => {
                                 transition: 'background 0.3s ease'
                             }}>
                                 <td style={{ padding: '16px 20px', color: '#e0e7ff', fontWeight: '600', borderRight: '1px solid rgba(71, 85, 105, 0.2)' }}>{row.feature}</td>
-                                <td style={{ padding: '16px 20px', color: '#cbd5e1', borderRight: '1px solid rgba(71, 85, 105, 0.2)' }}>{row.flashLite}</td>
-                                <td style={{ padding: '16px 20px', color: '#cbd5e1', borderRight: '1px solid rgba(71, 85, 105, 0.2)' }}>{row.flash3}</td>
-                                <td style={{ padding: '16px 20px', color: '#cbd5e1', borderRight: '1px solid rgba(71, 85, 105, 0.2)' }}>{row.pro3}</td>
+                                <td style={{ padding: '16px 20px', color: 'var(--color-text-secondary)', borderRight: '1px solid rgba(71, 85, 105, 0.2)' }}>{row.flashLite}</td>
+                                <td style={{ padding: '16px 20px', color: 'var(--color-text-secondary)', borderRight: '1px solid rgba(71, 85, 105, 0.2)' }}>{row.flash3}</td>
+                                <td style={{ padding: '16px 20px', color: 'var(--color-text-secondary)', borderRight: '1px solid rgba(71, 85, 105, 0.2)' }}>{row.pro3}</td>
                                 <td style={{ padding: '16px 20px', color: '#93c5fd', fontWeight: 'bold' }}>{row.pro31}</td>
                             </tr>
                         ))}

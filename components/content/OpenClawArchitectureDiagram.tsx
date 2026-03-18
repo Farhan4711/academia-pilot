@@ -52,7 +52,7 @@ const OpenClawArchitectureDiagram: React.FC = () => {
             fontFamily: "'Inter', sans-serif",
             margin: '60px 0',
             padding: '40px',
-            background: 'rgba(15, 23, 42, 0.4)',
+            background: 'var(--color-surface)',
             borderRadius: '32px',
             border: '1px solid rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(16px)',
@@ -131,7 +131,7 @@ const OpenClawArchitectureDiagram: React.FC = () => {
                                 {layer.title}
                             </h4>
                             <p style={{
-                                color: '#94a3b8',
+                                color: 'var(--color-text-muted)',
                                 fontSize: '14px',
                                 lineHeight: '1.6',
                                 margin: 0
@@ -164,7 +164,7 @@ const OpenClawArchitectureDiagram: React.FC = () => {
                 border: '1px dashed rgba(56, 189, 248, 0.2)',
                 textAlign: 'center'
             }}>
-                <p style={{ margin: 0, color: '#94a3b8', fontSize: '13px' }}>
+                <p style={{ margin: 0, color: 'var(--color-text-muted)', fontSize: '13px' }}>
                     <strong style={{ color: '#38bdf8' }}>Technical Insight:</strong> The integration of <strong>MEMORY.md</strong> and <strong>SOUL.md</strong> at Layer 3 allows for persistent identity across multiple messaging channels simultaneously.
                 </p>
             </div>

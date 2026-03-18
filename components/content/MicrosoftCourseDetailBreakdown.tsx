@@ -64,7 +64,7 @@ const MicrosoftCourseDetailBreakdown: React.FC = () => {
             title: 'Data Science for Beginners (10-Week)',
             metrics: { lessons: 20, duration: '10 Weeks', repos: 'GitHub', type: 'Curriculum' },
             description: 'The practical bridge between Python and ML. Covers data collection, cleaning, visualization, and strategic ethics.',
-            color: '#94a3b8',
+            color: 'var(--color-text-muted)',
             tags: ['Data Cleaning', 'Visualization']
         }
     ];
@@ -74,7 +74,7 @@ const MicrosoftCourseDetailBreakdown: React.FC = () => {
             fontFamily: "'Inter', sans-serif",
             margin: '60px 0',
             padding: '24px',
-            background: 'rgba(15, 23, 42, 0.4)',
+            background: 'var(--color-surface)',
             borderRadius: '24px',
             border: '1px solid rgba(255, 255, 255, 0.05)',
             backdropFilter: 'blur(16px)'
@@ -156,7 +156,7 @@ const MicrosoftCourseDetailBreakdown: React.FC = () => {
                                         {key}
                                     </div>
                                     <div style={{
-                                        color: '#cbd5e1',
+                                        color: 'var(--color-text-secondary)',
                                         fontSize: '13px',
                                         fontWeight: '600'
                                     }}>
@@ -167,7 +167,7 @@ const MicrosoftCourseDetailBreakdown: React.FC = () => {
                         </div>
 
                         <p style={{
-                            color: '#94a3b8',
+                            color: 'var(--color-text-muted)',
                             fontSize: '13.5px',
                             lineHeight: '1.6',
                             marginBottom: '20px',

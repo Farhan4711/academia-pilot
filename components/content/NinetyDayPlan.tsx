@@ -154,7 +154,7 @@ const NinetyDayPlan: React.FC = () => {
 
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <h3 style={{
-                    color: '#e2e8f0',
+                    color: 'var(--color-border)',
                     textAlign: 'center',
                     fontSize: '28px',
                     fontWeight: '700',
@@ -164,7 +164,7 @@ const NinetyDayPlan: React.FC = () => {
                     90-Day Action Plan
                 </h3>
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     textAlign: 'center',
                     fontSize: '15px',
                     marginBottom: '32px'
@@ -239,7 +239,7 @@ const NinetyDayPlan: React.FC = () => {
                                     <div
                                         key={weekIndex}
                                         style={{
-                                            background: 'rgba(15, 23, 42, 0.6)',
+                                            background: 'var(--color-surface)',
                                             borderRadius: '14px',
                                             padding: '20px 24px',
                                             border: `1px solid ${month.color}20`,
@@ -284,7 +284,7 @@ const NinetyDayPlan: React.FC = () => {
                                                     display: 'flex',
                                                     alignItems: 'flex-start',
                                                     gap: '8px',
-                                                    color: '#cbd5e1',
+                                                    color: 'var(--color-text-secondary)',
                                                     fontSize: '13px',
                                                     lineHeight: '1.5'
                                                 }}>
@@ -323,7 +323,7 @@ const NinetyDayPlan: React.FC = () => {
                                     ✅ {month.title} Outcome
                                 </div>
                                 <p style={{
-                                    color: '#e2e8f0',
+                                    color: 'var(--color-border)',
                                     fontSize: '14px',
                                     fontWeight: '600',
                                     margin: 0

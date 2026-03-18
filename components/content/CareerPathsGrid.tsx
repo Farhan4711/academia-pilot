@@ -86,7 +86,7 @@ const CareerPathsGrid: React.FC = () => {
 
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <h3 style={{
-                    color: '#e2e8f0',
+                    color: 'var(--color-border)',
                     textAlign: 'center',
                     fontSize: '28px',
                     fontWeight: '700',
@@ -96,7 +96,7 @@ const CareerPathsGrid: React.FC = () => {
                     Career Paths for Self-Taught AI Developers
                 </h3>
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     textAlign: 'center',
                     fontSize: '15px',
                     marginBottom: '40px'
@@ -115,7 +115,7 @@ const CareerPathsGrid: React.FC = () => {
                         <div
                             key={index}
                             style={{
-                                background: 'rgba(15, 23, 42, 0.7)',
+                                background: 'var(--color-surface)',
                                 borderRadius: '16px',
                                 padding: '24px',
                                 border: `1px solid ${path.color}25`,
@@ -157,7 +157,7 @@ const CareerPathsGrid: React.FC = () => {
                             </div>
 
                             {/* What you do */}
-                            <p style={{ color: '#cbd5e1', fontSize: '13px', lineHeight: '1.6', marginBottom: '12px' }}>
+                            <p style={{ color: 'var(--color-text-secondary)', fontSize: '13px', lineHeight: '1.6', marginBottom: '12px' }}>
                                 {path.what}
                             </p>
 
@@ -166,7 +166,7 @@ const CareerPathsGrid: React.FC = () => {
                                 {path.skills.map((skill, i) => (
                                     <span key={i} style={{
                                         background: 'rgba(71, 85, 105, 0.3)',
-                                        color: '#94a3b8',
+                                        color: 'var(--color-text-muted)',
                                         fontSize: '11px',
                                         fontWeight: '600',
                                         padding: '3px 10px',
@@ -180,7 +180,7 @@ const CareerPathsGrid: React.FC = () => {
 
                             {/* Where */}
                             <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '10px' }}>
-                                <strong style={{ color: '#94a3b8' }}>Where:</strong> {path.where}
+                                <strong style={{ color: 'var(--color-text-muted)' }}>Where:</strong> {path.where}
                             </div>
 
                             {/* Why accessible */}
@@ -193,7 +193,7 @@ const CareerPathsGrid: React.FC = () => {
                                 <div style={{ color: path.color, fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '2px' }}>
                                     Why It&apos;s Accessible
                                 </div>
-                                <p style={{ color: '#94a3b8', fontSize: '12px', lineHeight: '1.5', margin: 0 }}>{path.why}</p>
+                                <p style={{ color: 'var(--color-text-muted)', fontSize: '12px', lineHeight: '1.5', margin: 0 }}>{path.why}</p>
                             </div>
 
                             <div style={{

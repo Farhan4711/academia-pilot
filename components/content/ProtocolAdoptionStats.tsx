@@ -27,7 +27,7 @@ export default function ProtocolAdoptionStats() {
             <div style={cardBase}>
                 {/* Header */}
                 <div style={{ padding: '18px 22px', borderBottom: '1px solid var(--color-border)', background: 'linear-gradient(135deg, rgba(37,99,235,0.12) 0%, transparent 70%)', display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <div style={{ width: 36, height: 36, borderRadius: 10, background: 'linear-gradient(135deg, #2563eb, #1d4ed8)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 16, boxShadow: '0 4px 12px rgba(37,99,235,0.3)' }}>M</div>
+                    <div style={{ width: 36, height: 36, borderRadius: 10, background: 'linear-gradient(135deg, #2563eb, #1d4ed8)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-text-primary)', fontWeight: 900, fontSize: 16, boxShadow: '0 4px 12px rgba(37,99,235,0.3)' }}>M</div>
                     <div>
                         <div style={{ color: 'var(--color-text)', fontWeight: 700, fontSize: 16 }}>MCP Timeline</div>
                         <div style={{ color: 'var(--color-text-muted)', fontSize: 11 }}>Nov 2024 → Dec 2025</div>
@@ -70,7 +70,7 @@ export default function ProtocolAdoptionStats() {
             <div style={cardBase}>
                 {/* Header */}
                 <div style={{ padding: '18px 22px', borderBottom: '1px solid var(--color-border)', background: 'linear-gradient(135deg, rgba(99,102,241,0.12) 0%, transparent 70%)', display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <div style={{ width: 36, height: 36, borderRadius: 10, background: 'linear-gradient(135deg, #6366f1, #4338ca)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 16, boxShadow: '0 4px 12px rgba(99,102,241,0.3)' }}>A</div>
+                    <div style={{ width: 36, height: 36, borderRadius: 10, background: 'linear-gradient(135deg, #6366f1, #4338ca)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-text-primary)', fontWeight: 900, fontSize: 16, boxShadow: '0 4px 12px rgba(99,102,241,0.3)' }}>A</div>
                     <div>
                         <div style={{ color: 'var(--color-text)', fontWeight: 700, fontSize: 16 }}>A2A Adoption</div>
                         <div style={{ color: 'var(--color-text-muted)', fontSize: 11 }}>Apr 2025 → Present</div>

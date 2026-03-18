@@ -7,7 +7,7 @@ const ComponentUpgradeShowcase: React.FC = () => {
             margin: '40px 0',
             fontFamily: "'Inter', sans-serif"
         }}>
-            <h4 style={{ color: '#fff', fontSize: '18px', marginBottom: '20px' }}>Ex: The CTA Button Upgrade</h4>
+            <h4 style={{ color: 'var(--color-text-primary)', fontSize: '18px', marginBottom: '20px' }}>Ex: The CTA Button Upgrade</h4>
 
             <div style={{
                 display: 'grid',
@@ -16,7 +16,7 @@ const ComponentUpgradeShowcase: React.FC = () => {
             }}>
                 {/* Basic */}
                 <div style={{ padding: '24px', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ fontSize: '12px', color: '#94a3b8', marginBottom: '16px', textTransform: 'uppercase' }}>Basic Prompt Output</div>
+                    <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginBottom: '16px', textTransform: 'uppercase' }}>Basic Prompt Output</div>
                     <button style={{
                         padding: '10px 20px',
                         background: '#3b82f6',
@@ -46,7 +46,7 @@ const ComponentUpgradeShowcase: React.FC = () => {
                     }}>
                         Get Started <span style={{ transition: 'transform 0.2s' }}>→</span>
                     </button>
-                    <div style={{ marginTop: '16px', fontSize: '12px', color: '#94a3b8' }}>High contrast, elevation depth, and micro-copy signals.</div>
+                    <div style={{ marginTop: '16px', fontSize: '12px', color: 'var(--color-text-muted)' }}>High contrast, elevation depth, and micro-copy signals.</div>
                 </div>
             </div>
         </div>

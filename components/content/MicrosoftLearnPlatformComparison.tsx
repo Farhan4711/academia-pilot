@@ -16,11 +16,11 @@ const MicrosoftLearnPlatformComparison: React.FC = () => {
             margin: '48px 0',
             background: '#0f172a',
             borderRadius: '20px',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            border: '1px solid var(--color-border)',
             overflow: 'hidden',
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
         }}>
-            <div style={{ padding: '24px', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+            <div style={{ padding: '24px', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid var(--color-border-light)' }}>
                 <h3 style={{ margin: 0, color: '#f8fafc', fontSize: '20px', fontWeight: '800' }}>Platform Comparison Matrix</h3>
                 <p style={{ margin: '4px 0 0', color: '#64748b', fontSize: '13px' }}>How Microsoft Learn stacks up against the 2026 technical education leaders.</p>
             </div>
@@ -29,11 +29,11 @@ const MicrosoftLearnPlatformComparison: React.FC = () => {
                 <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                     <thead>
                         <tr style={{ background: 'rgba(0,0,0,0.3)' }}>
-                            <th style={{ padding: '16px 20px', color: '#94a3b8', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>Platform</th>
-                            <th style={{ padding: '16px 20px', color: '#94a3b8', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>Focus Area</th>
-                            <th style={{ padding: '16px 20px', color: '#94a3b8', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>Free Tier</th>
-                            <th style={{ padding: '16px 20px', color: '#94a3b8', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>Voucher Path</th>
-                            <th style={{ padding: '16px 20px', color: '#94a3b8', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>Best For</th>
+                            <th style={{ padding: '16px 20px', color: 'var(--color-text-muted)', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>Platform</th>
+                            <th style={{ padding: '16px 20px', color: 'var(--color-text-muted)', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>Focus Area</th>
+                            <th style={{ padding: '16px 20px', color: 'var(--color-text-muted)', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>Free Tier</th>
+                            <th style={{ padding: '16px 20px', color: 'var(--color-text-muted)', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>Voucher Path</th>
+                            <th style={{ padding: '16px 20px', color: 'var(--color-text-muted)', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>Best For</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,15 +43,15 @@ const MicrosoftLearnPlatformComparison: React.FC = () => {
                                 background: p.name === 'Microsoft Learn' ? 'rgba(56, 189, 248, 0.05)' : 'transparent'
                             }}>
                                 <td style={{ padding: '16px 20px', color: p.name === 'Microsoft Learn' ? '#38bdf8' : '#f1f5f9', fontWeight: '700', fontSize: '14px' }}>{p.name}</td>
-                                <td style={{ padding: '16px 20px', color: '#94a3b8', fontSize: '13px' }}>{p.focus}</td>
-                                <td style={{ padding: '16px 20px', color: '#cbd5e1', fontSize: '13px', fontWeight: '600' }}>{p.free}</td>
-                                <td style={{ padding: '16px 20px', color: '#cbd5e1', fontSize: '13px' }}>{p.voucher}</td>
+                                <td style={{ padding: '16px 20px', color: 'var(--color-text-muted)', fontSize: '13px' }}>{p.focus}</td>
+                                <td style={{ padding: '16px 20px', color: 'var(--color-text-secondary)', fontSize: '13px', fontWeight: '600' }}>{p.free}</td>
+                                <td style={{ padding: '16px 20px', color: 'var(--color-text-secondary)', fontSize: '13px' }}>{p.voucher}</td>
                                 <td style={{ padding: '16px 20px' }}>
                                     <span style={{
                                         padding: '4px 10px',
                                         background: 'rgba(255,255,255,0.05)',
                                         borderRadius: '12px',
-                                        color: '#94a3b8',
+                                        color: 'var(--color-text-muted)',
                                         fontSize: '11px',
                                         fontWeight: '600'
                                     }}>

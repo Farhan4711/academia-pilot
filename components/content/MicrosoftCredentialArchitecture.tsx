@@ -11,7 +11,7 @@ const MicrosoftCredentialArchitecture: React.FC = () => {
             description: 'The gateway drug of Microsoft Learn. Useful for LinkedIn vanity but generally ignored by technical recruiters.',
             renewal: 'Never expires',
             icon: '🏅',
-            color: '#94a3b8'
+            color: 'var(--color-text-muted)'
         },
         {
             title: 'Applied Skills',
@@ -40,7 +40,7 @@ const MicrosoftCredentialArchitecture: React.FC = () => {
             fontFamily: "'Inter', sans-serif",
             margin: '48px 0',
             padding: '32px',
-            background: 'rgba(15, 23, 42, 0.4)',
+            background: 'var(--color-surface)',
             borderRadius: '24px',
             border: '1px solid rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(12px)',
@@ -85,7 +85,7 @@ const MicrosoftCredentialArchitecture: React.FC = () => {
                             <div style={{ color: '#f1f5f9', fontSize: '18px', fontWeight: '700', marginBottom: '8px' }}>
                                 {tier.title}
                             </div>
-                            <div style={{ color: '#94a3b8', fontSize: '13px', lineHeight: '1.6', marginBottom: '12px' }}>
+                            <div style={{ color: 'var(--color-text-muted)', fontSize: '13px', lineHeight: '1.6', marginBottom: '12px' }}>
                                 {tier.description}
                             </div>
                             <div style={{ color: '#64748b', fontSize: '12px', fontStyle: 'italic' }}>
@@ -96,7 +96,7 @@ const MicrosoftCredentialArchitecture: React.FC = () => {
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', background: 'rgba(0,0,0,0.2)', padding: '16px', borderRadius: '12px' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px' }}>
                                 <span style={{ color: '#475569' }}>Cost:</span>
-                                <span style={{ color: '#cbd5e1', fontWeight: '600' }}>{tier.cost}</span>
+                                <span style={{ color: 'var(--color-text-secondary)', fontWeight: '600' }}>{tier.cost}</span>
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px' }}>
                                 <span style={{ color: '#475569' }}>Signal:</span>
@@ -104,7 +104,7 @@ const MicrosoftCredentialArchitecture: React.FC = () => {
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px' }}>
                                 <span style={{ color: '#475569' }}>Renewal:</span>
-                                <span style={{ color: '#cbd5e1' }}>{tier.renewal}</span>
+                                <span style={{ color: 'var(--color-text-secondary)' }}>{tier.renewal}</span>
                             </div>
                         </div>
 
@@ -134,7 +134,7 @@ const MicrosoftCredentialArchitecture: React.FC = () => {
                 border: '1px dashed rgba(251, 191, 36, 0.2)',
                 textAlign: 'center'
             }}>
-                <p style={{ margin: 0, color: '#94a3b8', fontSize: '13px' }}>
+                <p style={{ margin: 0, color: 'var(--color-text-muted)', fontSize: '13px' }}>
                     <strong style={{ color: '#fbbf24' }}>Strategic Warning:</strong> Badges are engagement signals, not machine-verifiable certifications. Passing a proctored exam is the only way to earn a globally recognized professional credential.
                 </p>
             </div>

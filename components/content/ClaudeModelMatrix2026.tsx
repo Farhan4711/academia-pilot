@@ -17,7 +17,7 @@ const models: ModelData[] = [
         context: '200K',
         bestUse: 'High-volume, sub-agents',
         cost: 'Lowest',
-        color: '#94a3b8' // Slate
+        color: 'var(--color-text-muted)' // Slate
     },
     {
         name: 'Sonnet 4.6',

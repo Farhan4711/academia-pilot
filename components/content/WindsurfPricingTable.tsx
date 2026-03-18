@@ -17,7 +17,7 @@ const WindsurfPricingTable: React.FC = () => {
                 </div>
 
                 <div className="hud-border transition" style={{ padding: 'var(--space-6)', backgroundColor: 'var(--color-surface)', textAlign: 'center', borderRadius: 'var(--radius-lg)', border: '2px solid var(--color-accent)', position: 'relative', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)' }}>
-                    <div style={{ position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)', background: 'var(--color-accent)', color: '#fff', fontSize: 'var(--text-xs)', padding: '4px 12px', borderRadius: '20px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Most Popular</div>
+                    <div style={{ position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)', background: 'var(--color-accent)', color: 'var(--color-text-primary)', fontSize: 'var(--text-xs)', padding: '4px 12px', borderRadius: '20px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Most Popular</div>
                     <h3 style={{ margin: '0 0 var(--space-2)', fontSize: 'var(--text-xl)', color: 'var(--color-accent)' }}>Pro</h3>
                     <div style={{ fontSize: 'var(--text-4xl)', fontWeight: 'bold', margin: 'var(--space-4) 0', color: 'var(--color-accent)' }}>$15<span style={{ fontSize: 'var(--text-lg)', color: 'var(--color-text-muted)', fontWeight: 'normal' }}>/mo</span></div>
                     <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-text-muted)', marginBottom: 'var(--space-6)' }}>25% cheaper than Cursor</p>

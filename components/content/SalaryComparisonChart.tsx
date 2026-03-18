@@ -51,7 +51,7 @@ const SalaryComparisonChart: React.FC = () => {
 
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <h3 style={{
-                    color: '#e2e8f0',
+                    color: 'var(--color-border)',
                     textAlign: 'center',
                     fontSize: '28px',
                     fontWeight: '700',
@@ -61,7 +61,7 @@ const SalaryComparisonChart: React.FC = () => {
                     Career Opportunities & Salary Outlook 2026
                 </h3>
                 <p style={{
-                    color: '#94a3b8',
+                    color: 'var(--color-text-muted)',
                     textAlign: 'center',
                     fontSize: '15px',
                     marginBottom: '40px'
@@ -139,7 +139,7 @@ const SalaryComparisonChart: React.FC = () => {
                                     marginBottom: '8px'
                                 }}>
                                     <span style={{
-                                        color: '#e2e8f0',
+                                        color: 'var(--color-border)',
                                         fontSize: '14px',
                                         fontWeight: '600'
                                     }}>
@@ -151,14 +151,14 @@ const SalaryComparisonChart: React.FC = () => {
                                         fontWeight: '700',
                                         fontFamily: "'Space Mono', monospace"
                                     }}>
-                                        {item.range} {item.equity && <span style={{ color: '#94a3b8', fontWeight: '400', fontSize: '12px' }}>{item.equity}</span>}
+                                        {item.range} {item.equity && <span style={{ color: 'var(--color-text-muted)', fontWeight: '400', fontSize: '12px' }}>{item.equity}</span>}
                                     </span>
                                 </div>
                                 {/* Bar */}
                                 <div style={{
                                     position: 'relative',
                                     height: '28px',
-                                    background: 'rgba(30, 41, 59, 0.6)',
+                                    background: 'var(--color-surface)',
                                     borderRadius: '6px',
                                     overflow: 'hidden'
                                 }}>
@@ -247,7 +247,7 @@ const SalaryComparisonChart: React.FC = () => {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                                 {traditionalPath.map((step, i) => (
                                     <div key={i} style={{
-                                        background: 'rgba(15, 23, 42, 0.5)',
+                                        background: 'var(--color-surface)',
                                         borderRadius: '10px',
                                         padding: '14px 16px',
                                         borderLeft: `3px solid ${step.color}`
@@ -261,14 +261,14 @@ const SalaryComparisonChart: React.FC = () => {
                                             {step.title}
                                         </div>
                                         <div style={{
-                                            color: '#94a3b8',
+                                            color: 'var(--color-text-muted)',
                                             fontSize: '12px',
                                             marginBottom: '4px'
                                         }}>
                                             {step.years}
                                         </div>
                                         <div style={{
-                                            color: '#cbd5e1',
+                                            color: 'var(--color-text-secondary)',
                                             fontSize: '15px',
                                             fontWeight: '700',
                                             fontFamily: "'Space Mono', monospace"
@@ -308,7 +308,7 @@ const SalaryComparisonChart: React.FC = () => {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                                 {aiPath.map((step, i) => (
                                     <div key={i} style={{
-                                        background: 'rgba(15, 23, 42, 0.5)',
+                                        background: 'var(--color-surface)',
                                         borderRadius: '10px',
                                         padding: '14px 16px',
                                         borderLeft: `3px solid ${step.color}`
@@ -322,14 +322,14 @@ const SalaryComparisonChart: React.FC = () => {
                                             {step.title}
                                         </div>
                                         <div style={{
-                                            color: '#94a3b8',
+                                            color: 'var(--color-text-muted)',
                                             fontSize: '12px',
                                             marginBottom: '4px'
                                         }}>
                                             {step.years}
                                         </div>
                                         <div style={{
-                                            color: '#cbd5e1',
+                                            color: 'var(--color-text-secondary)',
                                             fontSize: '15px',
                                             fontWeight: '700',
                                             fontFamily: "'Space Mono', monospace"
@@ -354,7 +354,7 @@ const SalaryComparisonChart: React.FC = () => {
                     margin: '32px auto 0'
                 }}>
                     <p style={{
-                        color: '#cbd5e1',
+                        color: 'var(--color-text-secondary)',
                         fontSize: '14px',
                         lineHeight: '1.7',
                         margin: 0

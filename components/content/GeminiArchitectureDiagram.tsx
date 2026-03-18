@@ -27,7 +27,7 @@ const GeminiArchitectureDiagram: React.FC = () => {
                     padding: '16px 32px',
                     borderRadius: '8px',
                     background: 'rgba(255,255,255,0.1)',
-                    color: '#e2e8f0',
+                    color: 'var(--color-border)',
                     border: '1px dashed rgba(255,255,255,0.3)',
                     textAlign: 'center'
                 }}>
@@ -42,7 +42,7 @@ const GeminiArchitectureDiagram: React.FC = () => {
                     padding: '16px 32px',
                     borderRadius: '8px',
                     background: 'linear-gradient(90deg, #0284c7, #2563eb)',
-                    color: '#fff',
+                    color: 'var(--color-text-primary)',
                     textAlign: 'center',
                     boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3)',
                     width: '100%',
@@ -59,7 +59,7 @@ const GeminiArchitectureDiagram: React.FC = () => {
                     padding: '16px 32px',
                     borderRadius: '8px',
                     background: 'linear-gradient(90deg, #7c3aed, #9333ea)',
-                    color: '#fff',
+                    color: 'var(--color-text-primary)',
                     textAlign: 'center',
                     boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3)',
                     width: '100%',
@@ -112,7 +112,7 @@ const GeminiArchitectureDiagram: React.FC = () => {
                     padding: '16px 32px',
                     borderRadius: '8px',
                     background: 'rgba(255,255,255,0.1)',
-                    color: '#e2e8f0',
+                    color: 'var(--color-border)',
                     border: '1px dashed rgba(255,255,255,0.3)',
                     textAlign: 'center'
                 }}>

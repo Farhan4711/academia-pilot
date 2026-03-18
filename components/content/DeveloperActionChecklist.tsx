@@ -45,7 +45,7 @@ const DeveloperActionChecklist: React.FC = () => {
     return (
         <div style={{
             fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
-            background: 'linear-gradient(to right, #0f172a, #1e1b4b)',
+            background: 'var(--color-surface)',
             padding: '40px 24px',
             borderRadius: '24px',
             margin: '48px 0',
@@ -55,8 +55,8 @@ const DeveloperActionChecklist: React.FC = () => {
         }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', maxWidth: '800px', margin: '0 auto' }}>
                 <div style={{ textAlign: 'center' }}>
-                    <h3 style={{ color: '#fff', fontSize: '28px', fontWeight: '800', margin: '0 0 12px 0' }}>Concrete Action Plan</h3>
-                    <p style={{ color: '#94a3b8', fontSize: '15px', margin: 0 }}>Not predictions. Actionable next steps for the 2026 market.</p>
+                    <h3 style={{ color: 'var(--color-text-primary)', fontSize: '28px', fontWeight: '800', margin: '0 0 12px 0' }}>Concrete Action Plan</h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: '15px', margin: 0 }}>Not predictions. Actionable next steps for the 2026 market.</p>
                 </div>
 
                 {/* Category Selector */}
@@ -72,7 +72,7 @@ const DeveloperActionChecklist: React.FC = () => {
                                 padding: '12px 24px',
                                 background: activeCategory === cat.id ? `${cat.color}20` : 'rgba(30, 41, 59, 0.5)',
                                 border: `1px solid ${activeCategory === cat.id ? cat.color : 'rgba(71, 85, 105, 0.3)'}`,
-                                color: activeCategory === cat.id ? '#fff' : '#94a3b8',
+                                color: activeCategory === cat.id ? 'var(--color-text-primary)' : 'var(--color-text-muted)',
                                 borderRadius: '30px',
                                 cursor: 'pointer',
                                 fontSize: '15px',
@@ -88,9 +88,9 @@ const DeveloperActionChecklist: React.FC = () => {
                 </div>
 
                 {/* Progress Bar */}
-                <div style={{ background: 'rgba(15, 23, 42, 0.6)', borderRadius: '12px', padding: '16px 20px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <div style={{ background: 'var(--color-surface)', borderRadius: '12px', padding: '16px 20px', border: '1px solid rgba(255,255,255,0.05)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '13px', fontWeight: '600' }}>
-                        <span style={{ color: '#cbd5e1' }}>Category Progress</span>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>Category Progress</span>
                         <span style={{ color: activeColor }}>{completedCount} of {activeList.length} Completed</span>
                     </div>
                     <div style={{ height: '8px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', overflow: 'hidden' }}>
@@ -138,10 +138,10 @@ const DeveloperActionChecklist: React.FC = () => {
                                 marginTop: '2px',
                                 transition: 'all 0.2s'
                             }}>
-                                {checkedItems[item.id] && <span style={{ color: '#fff', fontSize: '14px', fontWeight: 'bold' }}>✓</span>}
+                                {checkedItems[item.id] && <span style={{ color: 'var(--color-text-primary)', fontSize: '14px', fontWeight: 'bold' }}>✓</span>}
                             </div>
                             <span style={{ 
-                                color: checkedItems[item.id] ? '#cbd5e1' : '#f8fafc',
+                                color: checkedItems[item.id] ? 'var(--color-text-secondary)' : '#f8fafc',
                                 fontSize: '16px',
                                 lineHeight: '1.5',
                                 textDecoration: checkedItems[item.id] ? 'line-through' : 'none',

@@ -15,7 +15,7 @@ const ClaudeVsCompetitorsTable: React.FC = () => {
     return (
         <div style={{
             fontFamily: "'Space Mono', 'Courier New', monospace",
-            background: 'linear-gradient(135deg, #4c1d95 0%, #1e1b4b 100%)',
+            background: 'var(--color-surface)',
             padding: '48px 24px',
             borderRadius: '16px',
             margin: '48px 0',
@@ -43,8 +43,8 @@ const ClaudeVsCompetitorsTable: React.FC = () => {
                     </thead>
                     <tbody>
                         {data.map((row, index) => (
-                            <tr key={index} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', backgroundColor: index % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent' }}>
-                                <td style={{ padding: '16px', color: '#e2e8f0', fontWeight: 'bold' }}>{row.dim}</td>
+                            <tr key={index} style={{ borderBottom: '1px solid var(--color-border-light)', backgroundColor: index % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent' }}>
+                                <td style={{ padding: '16px', color: 'var(--color-border)', fontWeight: 'bold' }}>{row.dim}</td>
                                 <td style={{ padding: '16px', color: '#fcd34d', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>{row.claude}</td>
                                 <td style={{ padding: '16px', color: '#6ee7b7', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>{row.gpt}</td>
                                 <td style={{ padding: '16px', color: '#93c5fd', borderLeft: '1px solid rgba(255,255,255,0.05)' }}>{row.gemini}</td>

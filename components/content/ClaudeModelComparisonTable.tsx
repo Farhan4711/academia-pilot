@@ -32,29 +32,29 @@ const ClaudeModelComparisonTable: React.FC = () => {
                 textTransform: 'uppercase'
             }}>Model Comparison Table</h3>
 
-            <div style={{ overflowX: 'auto', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div style={{ overflowX: 'auto', borderRadius: '8px', border: '1px solid var(--color-border)' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '800px', fontSize: '14px' }}>
                     <thead>
                         <tr style={{ background: 'rgba(244, 114, 182, 0.15)' }}>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Model</th>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Tier</th>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Input ($/M)</th>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Output ($/M)</th>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Context Window</th>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>SWE-bench</th>
-                            <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Best For</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Model</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Tier</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Input ($/M)</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Output ($/M)</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Context Window</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>SWE-bench</th>
+                            <th style={{ padding: '12px 16px', textAlign: 'left', color: 'var(--color-text-primary)' }}>Best For</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map((row, i) => (
-                            <tr key={i} style={{ background: i % 2 === 0 ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                                <td style={{ padding: '12px 16px', color: '#e2e8f0', fontWeight: 'bold' }}>{row.model}</td>
+                            <tr key={i} style={{ background: i % 2 === 0 ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0)', borderBottom: '1px solid var(--color-border-light)' }}>
+                                <td style={{ padding: '12px 16px', color: 'var(--color-border)', fontWeight: 'bold' }}>{row.model}</td>
                                 <td style={{ padding: '12px 16px', color: '#f472b6' }}>{row.tier}</td>
                                 <td style={{ padding: '12px 16px', color: '#34d399' }}>{row.input}</td>
                                 <td style={{ padding: '12px 16px', color: '#f87171' }}>{row.output}</td>
                                 <td style={{ padding: '12px 16px', color: '#bfdbfe' }}>{row.context}</td>
                                 <td style={{ padding: '12px 16px', color: '#fde047' }}>{row.swe}</td>
-                                <td style={{ padding: '12px 16px', color: '#cbd5e1' }}>{row.bestFor}</td>
+                                <td style={{ padding: '12px 16px', color: 'var(--color-text-secondary)' }}>{row.bestFor}</td>
                             </tr>
                         ))}
                     </tbody>

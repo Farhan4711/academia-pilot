@@ -49,15 +49,15 @@ const OpenClawMonetizationTable: React.FC = () => {
         <div className="not-readable" style={{
             fontFamily: "'Inter', sans-serif",
             margin: '48px 0',
-            background: 'rgba(15, 23, 42, 0.4)',
+            background: 'var(--color-surface)',
             borderRadius: '24px',
             border: '1px solid rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(12px)',
             overflow: 'hidden'
         }}>
-            <div style={{ padding: '32px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+            <div style={{ padding: '32px', borderBottom: '1px solid var(--color-border-light)' }}>
                 <h3 style={{ margin: 0, color: '#f8fafc', fontSize: '20px', fontWeight: '800' }}>Wrapper Monetization: Revenue & Cost Matrix</h3>
-                <p style={{ margin: '8px 0 0', color: '#94a3b8', fontSize: '13px' }}>Comparing the top 5 business models in the agentic wrapper economy.</p>
+                <p style={{ margin: '8px 0 0', color: 'var(--color-text-muted)', fontSize: '13px' }}>Comparing the top 5 business models in the agentic wrapper economy.</p>
             </div>
 
             <div style={{ overflowX: 'auto' }}>
@@ -79,12 +79,12 @@ const OpenClawMonetizationTable: React.FC = () => {
                     </thead>
                     <tbody>
                         {models.map((model, idx) => (
-                            <tr key={idx} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                            <tr key={idx} style={{ borderBottom: '1px solid var(--color-border-light)' }}>
                                 <td style={{ padding: '20px' }}>
                                     <div style={{ color: '#f1f5f9', fontWeight: '700', fontSize: '14px' }}>{model.name}</div>
                                 </td>
                                 <td style={{ padding: '20px', textAlign: 'center', color: model.color, fontWeight: '800', fontSize: '14px' }}>{model.rev}</td>
-                                <td style={{ padding: '20px', textAlign: 'center', color: '#cbd5e1', fontSize: '13px' }}>{model.cost}</td>
+                                <td style={{ padding: '20px', textAlign: 'center', color: 'var(--color-text-secondary)', fontSize: '13px' }}>{model.cost}</td>
                                 <td style={{ padding: '20px', textAlign: 'center' }}>
                                     <span style={{
                                         padding: '4px 12px',

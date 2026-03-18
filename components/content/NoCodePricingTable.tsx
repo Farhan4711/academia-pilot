@@ -69,7 +69,7 @@ const NoCodePricingTable: React.FC = () => {
             </div>
 
             <div style={{ 
-                background: 'linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)', 
+                background: 'var(--color-surface)', 
                 padding: '32px', 
                 borderRadius: '24px', 
                 border: '1px solid #312e81',
@@ -77,7 +77,7 @@ const NoCodePricingTable: React.FC = () => {
             }}>
                 <div style={{ color: '#818cf8', fontSize: '14px', fontWeight: '700', textTransform: 'uppercase', marginBottom: '8px', letterSpacing: '0.1em' }}>Total Monthly Burn</div>
                 <div style={{ color: '#fafafa', fontSize: '48px', fontWeight: '900', margin: '0 0 8px 0', letterSpacing: '-0.05em' }}>$50—$70</div>
-                <p style={{ color: '#94a3b8', fontSize: '14px', maxWidth: '400px', margin: '0 auto' }}>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '14px', maxWidth: '400px', margin: '0 auto' }}>
                     Compare this to the <strong>$15,000/mo</strong> cost of a single senior full-stack engineer in 2026.
                 </p>
             </div>
