@@ -9,9 +9,12 @@ interface SocialShareProps {
 }
 
 interface ShareBtn {
+    id: string;
     label: string;
     icon: string;
-    color: string;
+    bgColor: string;
+    textColor: string;
+    hoverBg: string;
     action: () => void;
 }
 
@@ -26,7 +29,6 @@ export default function SocialShare({ url, title, excerpt = '' }: SocialSharePro
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
         } catch {
-            // fallback for older browsers
             const ta = document.createElement('textarea');
             ta.value = fullUrl;
             document.body.appendChild(ta);
@@ -44,83 +46,159 @@ export default function SocialShare({ url, title, excerpt = '' }: SocialSharePro
 
     const buttons: ShareBtn[] = [
         {
+            id: 'x',
             label: 'Share on X',
             icon: '𝕏',
-            color: '#000',
+            bgColor: 'var(--color-surface)',
+            textColor: 'var(--color-text-primary)',
+            hoverBg: 'var(--color-surface-hover)',
             action: () => window.open(twitterUrl, '_blank', 'noopener,noreferrer,width=600,height=400'),
         },
         {
-            label: 'Share on LinkedIn',
+            id: 'linkedin',
+            label: 'LinkedIn',
             icon: 'in',
-            color: '#0077B5',
+            bgColor: 'var(--color-surface)',
+            textColor: '#0077b5',
+            hoverBg: '#f0f7f9',
             action: () => window.open(linkedInUrl, '_blank', 'noopener,noreferrer,width=600,height=500'),
         },
         {
-            label: copied ? 'Copied!' : 'Copy Link',
+            id: 'copy',
+            label: copied ? 'Copied Link!' : 'Copy Link',
             icon: copied ? '✓' : '🔗',
-            color: copied ? '#4CAF50' : 'var(--color-accent)',
+            bgColor: copied ? '#10b981' : 'var(--color-surface)',
+            textColor: copied ? '#ffffff' : 'var(--color-text-primary)',
+            hoverBg: copied ? '#059669' : 'var(--color-surface-hover)',
             action: handleCopy,
         },
     ];
 
     return (
-        <div
-            style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--space-3)',
-                flexWrap: 'wrap',
-                padding: 'var(--space-4) 0',
-                borderTop: '1px solid var(--color-border)',
-                borderBottom: '1px solid var(--color-border)',
-                margin: 'var(--space-8) 0',
-            }}
-        >
-            <span style={{
-                fontSize: 'var(--text-sm)',
-                fontWeight: '600',
-                color: 'var(--color-text-muted)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-            }}>
-                Share
-            </span>
+        <div className="share-pod">
+            <span className="share-label">Share This Insight</span>
+            
+            <div className="share-buttons">
+                {buttons.map((btn) => (
+                    <button
+                        key={btn.id}
+                        className={`share-btn share-btn-${btn.id} ${copied && btn.id === 'copy' ? 'copied' : ''}`}
+                        onClick={btn.action}
+                        aria-label={btn.label}
+                        title={btn.label}
+                        style={{
+                            '--btn-bg': btn.bgColor,
+                            '--btn-text': btn.textColor,
+                            '--btn-hover-bg': btn.hoverBg,
+                        } as React.CSSProperties}
+                    >
+                        <span className="btn-icon">{btn.icon}</span>
+                        <span className="btn-label">{btn.label}</span>
+                    </button>
+                ))}
+            </div>
 
-            {buttons.map((btn) => (
-                <button
-                    key={btn.label}
-                    onClick={btn.action}
-                    aria-label={btn.label}
-                    title={btn.label}
-                    style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: 'var(--space-2)',
-                        padding: 'var(--space-2) var(--space-4)',
-                        borderRadius: 'var(--radius-full)',
-                        border: `1px solid ${btn.color}`,
-                        backgroundColor: 'transparent',
-                        color: btn.color,
-                        fontSize: 'var(--text-sm)',
-                        fontWeight: '500',
-                        cursor: 'pointer',
-                        transition: 'background-color 150ms, color 150ms',
-                    }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = btn.color;
-                        e.currentTarget.style.color = btn.color === '#000' || btn.color === '#0077B5' ? '#fff' : '#000';
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.color = btn.color;
-                    }}
-                >
-                    <span style={{ fontFamily: btn.label.startsWith('Share on X') ? 'serif' : 'inherit', fontWeight: 'bold' }}>
-                        {btn.icon}
-                    </span>
-                    {btn.label}
-                </button>
-            ))}
+            <style jsx>{`
+                .share-pod {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: var(--space-5);
+                    padding: var(--space-3) var(--space-5);
+                    margin: var(--space-10) 0;
+                    background: var(--color-background-secondary);
+                    border-radius: 100px;
+                    border: 1px solid var(--color-border-subtle);
+                    flex-wrap: wrap;
+                    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+                }
+
+                @media (prefers-color-scheme: dark) {
+                    .share-pod {
+                        background: rgba(255, 255, 255, 0.03);
+                        box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+                        border-color: rgba(255, 255, 255, 0.05);
+                    }
+                }
+
+                .share-label {
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    color: var(--color-text-secondary);
+                    letter-spacing: 0.12em;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                    margin-right: var(--space-2);
+                }
+
+                .share-buttons {
+                    display: flex;
+                    gap: var(--space-3);
+                    flex-wrap: wrap;
+                }
+
+                .share-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 8px 16px;
+                    border-radius: 100px;
+                    border: 1px solid var(--color-border-subtle);
+                    background: var(--btn-bg);
+                    color: var(--btn-text);
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
+                }
+
+                @media (prefers-color-scheme: dark) {
+                    .share-btn {
+                        border-color: rgba(255, 255, 255, 0.08);
+                        background: rgba(255, 255, 255, 0.06);
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                    }
+                    .share-btn-linkedin {
+                        color: #38bdf8; /* Lighter blue for dark mode */
+                    }
+                }
+
+                .share-btn:hover {
+                    background: var(--btn-hover-bg);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+                    border-color: var(--color-border);
+                }
+                
+                .share-btn.copied {
+                    border-color: transparent;
+                }
+
+                .share-btn.copied:hover {
+                    transform: none;
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+                }
+
+                .share-btn-x .btn-icon {
+                    font-family: serif;
+                    font-weight: bold;
+                    font-size: 1.1em;
+                }
+
+                @media (max-width: 640px) {
+                    .share-pod {
+                        border-radius: var(--radius-xl);
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: var(--space-4);
+                        padding: var(--space-5);
+                        width: 100%;
+                    }
+                    .share-label {
+                        margin-right: 0;
+                    }
+                }
+            `}</style>
         </div>
     );
 }
