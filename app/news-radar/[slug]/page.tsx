@@ -118,6 +118,7 @@ import CoverageTargetsTable from '@/components/content/CoverageTargetsTable';
 import AnthropicExposureTable from '@/components/content/AnthropicExposureTable';
 import WorkerProfileExposureCard from '@/components/content/WorkerProfileExposureCard';
 import ShiftFrameworkCards from '@/components/content/ShiftFrameworkCards';
+import ExposureOverviewCircles from '@/components/content/ExposureOverviewCircles';
 // Generate static params for all news articles (required for static export)
 export async function generateStaticParams() {
     try {
@@ -406,6 +407,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                                 'AnthropicExposureTable': <AnthropicExposureTable />,
                                 'WorkerProfileExposureCard': <WorkerProfileExposureCard />,
                                 'ShiftFrameworkCards': <ShiftFrameworkCards />,
+                                'ExposureOverviewCircles': <ExposureOverviewCircles />,
                             };
 
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;
