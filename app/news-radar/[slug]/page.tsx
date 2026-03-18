@@ -115,7 +115,9 @@ import VelocityCollapseTimeline from '@/components/content/VelocityCollapseTimel
 import RewriteDecisionMatrix from '@/components/content/RewriteDecisionMatrix';
 import GroundFramework from '@/components/content/GroundFramework';
 import CoverageTargetsTable from '@/components/content/CoverageTargetsTable';
-
+import AnthropicExposureTable from '@/components/content/AnthropicExposureTable';
+import WorkerProfileExposureCard from '@/components/content/WorkerProfileExposureCard';
+import ShiftFrameworkCards from '@/components/content/ShiftFrameworkCards';
 // Generate static params for all news articles (required for static export)
 export async function generateStaticParams() {
     try {
@@ -401,6 +403,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                                 'RewriteDecisionMatrix': <RewriteDecisionMatrix />,
                                 'GroundFramework': <GroundFramework />,
                                 'CoverageTargetsTable': <CoverageTargetsTable />,
+                                'AnthropicExposureTable': <AnthropicExposureTable />,
+                                'WorkerProfileExposureCard': <WorkerProfileExposureCard />,
+                                'ShiftFrameworkCards': <ShiftFrameworkCards />,
                             };
 
                             const MARKER_REGEX = /:::COMPONENT:(\w+):::/g;

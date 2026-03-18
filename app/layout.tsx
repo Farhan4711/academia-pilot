@@ -106,7 +106,7 @@ export default function RootLayout({
   const newsItems = getLatestContent('news', 3);
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Preconnect to speed up CDN / font connections */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
